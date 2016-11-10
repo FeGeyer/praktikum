@@ -7,7 +7,7 @@ In diesem Versuch geht es um Messung der Schwingungs- und Schwebungsdauer von ge
 Untersucht werden gleich- und gegensinnige sowie gekoppelte Schwingungen.
 \section{Theorie}
 Ein einzelndes Fadenpendel mit einem Faden der Länge $\textit{l}$, Masse $\textit{m}$, welches reibungsfrei aufgehängt wurde,
-schwingt für kleine Auslenkungen (sin $\phi \approx \phi$) mit der Schwingungsfrequenz:
+schwingt für kleine Auslenkungen (sin $\phi \approx \phi$) mit der Schwingungsfrequenz
 \begin{equation}
   \omega = \sqrt{\frac{\textit{l}}{g}}
   \label{e1}
@@ -16,7 +16,7 @@ Dies ist die Lösung der zugehörigen Schwingungsdifferentialgleichung mit g als
 \begin{equation*}
   \textit{T} = \frac{2\pi}{\omega}
 \end{equation*}
-ergibt sich als Formel für die gesuchte Schwingungsdauer:
+ergibt sich als Formel für die gesuchte Schwingungsdauer
 \begin{equation}
   \textit{T} = 2\pi \sqrt{\frac{g}{\textit{l}}}
   \label{e2}
@@ -33,7 +33,7 @@ Schwingungen. Deshalb gilt für die Schwingungsfrequenz $\omega_{+}$ \eqref{e1} 
 \\
 Wenn $\alpha_{1} = -\alpha_{2}$ ist, nennt man dies eine gegensinnige Schwingung. Für diesen Fall greift die Feder in das Schwingverhalten
 der Pendel ein. Deshalb werden \eqref{e1} und \eqref{e2} erweitert um jeweils einen Term mit der Kopplungskonstante $\textit{K}$
-der Feder:
+der Feder
 \begin{equation}
   \omega_{-} = \sqrt{\frac{l}{g} + \frac{2 \textit{K}}{l}}
   \label{e3}
@@ -44,7 +44,19 @@ der Feder:
 \end{equation}
 \\
 \\
-
+Für: $\alpha_{1} = 0, \alpha_{2} \neq 0$ ergibt sich eine gekoppelte Schwingung. Diese zeichnet sich dadurch aus, dass die beiden
+Pendel die kinetische Energie auf das andere Pendel übertragen und dann erneut erhalten. Hier tritt die sogenannte Schwebung auf.
+Dieser Begriff beschreibt die Zeit zwischen zwei Stillständen eines Pendels. Die Dauer dieses Zustandes berechnet sich nach
+\begin{equation}
+  \textit{T}_{S} = \frac{\textit{T}_{-} \cdot \textit{T}_{+}}{\textit{T}_{+} - \textit{T}_{-}}
+  \label{e5}
+\end{equation}
+mit $\textit{T}_{-}$ aus der gegen- und $\textit{T}_{+}$ aus der gleichsinnigen Schwingung. Die Kopplungskonstante \textit{K}
+der Feder zwischen den beiden Pendeln definiert sich nach
+\begin{equation}
+  \textit{K} = \frac{\textit{T}_{+}^{2} - \textit{T}_{-}^{2}}{\textit{T}_{+}^{2} + \textit{T}_{-}^{2}}
+  \label{e6}
+\end{equation}
 \section{Durchführung}
 \section{Auswertung}
 

@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.9)  10 NOV 2016 14:19
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.9)  10 NOV 2016 14:45
  restricted system commands enabled.
 **dokument.tex
 (./dokument.tex
@@ -336,7 +336,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.318 seconds)
+luaotfload | main : initialization completed in 0.319 seconds)
 Lua module: fontspec 2016/02/01 2.5a Advanced font selection for LuaLaTeX.
 (/home/felix/.local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec-luatex.
 sty
@@ -1665,9 +1665,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--37
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--50
+
+ []
+
 [3] [4])(load luc: /home/felix/.local/texlive/2016/texmf-var/luatex-cache/generi
 c/fonts/otl/lmromancaps10-regular.luc)
-LaTeX Font Info:    Try loading font information for EU2+lmtt on input line 49.
+LaTeX Font Info:    Try loading font information for EU2+lmtt on input line 65.
 
 (/home/felix/.local/texlive/2016/texmf-dist/tex/latex/euenc/eu2lmtt.fd
 File: eu2lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1681,7 +1686,7 @@ Language ngerman already loaded; id is 8)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4.
 Package rerunfilecheck Info: File `dokument.aux' has not changed.
-(rerunfilecheck)             Checksum: F2B5302EB4D06944842116B879428D5F;3373.
+(rerunfilecheck)             Checksum: A74554B5C14ECA16AAD58E174559E9BA;3514.
 Package rerunfilecheck Info: File `dokument.toc' has not changed.
 (rerunfilecheck)             Checksum: 35702226A468C8AF26280F32A9DD2193;490.
 Package logreq Info: Writing requests to 'dokument.run.xml'.
@@ -1691,15 +1696,15 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4.
 )
 
 Here is how much of LuaTeX's memory you used:
- 40160 strings out of 495118
+ 40165 strings out of 495118
  100000,1373583 words of node,token memory allocated
- 1571 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 127 glue, 1 kern, 54 attribute, 60 glue_spec, 54 at
+ 1710 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 144 glue, 1 kern, 59 attribute, 60 glue_spec, 59 at
 tribute_list, 1 write, 1 pdf_action nodes
-   avail lists: 1:2,2:263,3:92,4:6,5:169,6:1361,7:302,8:83,9:155,10:4,11:159
- 42755 multiletter control sequences out of 65536+600000
- 80 fonts using 19210591 bytes
- 71i,6n,100p,8875b,2416s stack positions out of 5000i,500n,10000p,200000b,100000s
+   avail lists: 1:2,2:253,3:92,4:8,5:195,6:1679,7:329,8:83,9:160,10:7,11:197
+ 42758 multiletter control sequences out of 65536+600000
+ 80 fonts using 19210819 bytes
+ 71i,7n,100p,8875b,2416s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/felix/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmmono10-re
 gular.otf></home/felix/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/l
 mromancaps10-regular.otf></home/felix/.local/texlive/2016/texmf-dist/fonts/opent
@@ -1710,10 +1715,10 @@ ocal/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></ho
 me/felix/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regul
 ar.otf></home/felix/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsa
 ns10-bold.otf>
-Output written on dokument.pdf (5 pages, 40450 bytes).
+Output written on dokument.pdf (5 pages, 42580 bytes).
 
-PDF statistics: 131 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 131072)
+PDF statistics: 134 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 131072)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2144,10 +2144,6 @@
     <bcf:datasource type="file" datatype="bibtex">lit.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">anleitung</bcf:citekey>
-    <bcf:citekey order="2">hallo</bcf:citekey>
-    <bcf:citekey order="3">buch</bcf:citekey>
-    <bcf:citekey order="4">kent</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="anyt/global/" type="entry" sortscheme="anyt" sortnamekeyscheme="global" labelprefix="">

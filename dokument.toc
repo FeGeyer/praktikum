@@ -3,8 +3,6 @@
 \select@language {german}
 \contentsline {section}{\numberline {1}Zielsetzung}{3}{section.1}
 \contentsline {section}{\numberline {2}Theorie}{3}{section.2}
-\contentsline {section}{\numberline {3}Aufbau und Durchführung}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}Aufbau}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Durchführung}{3}{subsection.3.2}
-\contentsline {section}{\numberline {4}Auswertung}{3}{section.4}
-\contentsline {section}{\nonumberline Literatur}{4}{section*.2}
+\contentsline {section}{\numberline {3}Durchführung}{4}{section.3}
+\contentsline {section}{\numberline {4}Auswertung}{4}{section.4}
+\contentsline {section}{\nonumberline Literatur}{5}{section*.2}

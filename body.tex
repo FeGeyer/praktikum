@@ -48,7 +48,8 @@ Für: $\alpha_{1} = 0, \alpha_{2} \neq 0$ ergibt sich eine gekoppelte Schwingung
 Pendel die kinetische Energie auf das andere Pendel übertragen und dann erneut erhalten. Hier tritt die sogenannte Schwebung auf.
 Dieser Begriff beschreibt die Zeit zwischen zwei Stillständen eines Pendels. Die Dauer dieses Zustandes berechnet sich nach
 \begin{equation}
-  \textit{T}_{S} = \frac{\textit{T}_{-} \cdot \textit{T}_{+}}{\textit{T}_{+} - \textit{T}_{-}}
+  \textit{T}_{S} = \frac{\textit{T}_{-} \cdot \textit{T}_{+}}{\textit{T}_{+} - \textit{T}_{-}} = \frac{\textit{\omega}_{+} \cdot \textit{\omega}_{-}}{\textit{\omega}_{-} -
+  \textit{\omega}_{+}}
   \label{e5}
 \end{equation}
 mit $\textit{T}_{-}$ aus der gegen- und $\textit{T}_{+}$ aus der gleichsinnigen Schwingung. Die Kopplungskonstante \textit{K}
@@ -73,7 +74,130 @@ und eine gegensinnige Schwingung durch , wobei wir $\textit{T}_{+}$ und $\textit
 Anschluss ermitteln wir die Schwebungsdauer $\textit{T}_{S}$ und die Schwingungsdauer $\textit{T}$. Zum Schluss wiederholen wir
 alle Messungen für eine Pendellänge von 0,75 $\textit{m}$.
 \section{Auswertung}
-\section{Diskussion}
+\subsection{Berechnung der Schwingungsdauern der entkoppelten Pendel}
+Es wurden jeweils 10 Messungen für jeweils 5 Schwingungen durchgeführt. Für die Fehlerrechnung gibt:
+\begin{equation}
+  \bar{T} = \frac{1}{n} \sum_{i=1}^{n} T^{i}
+\end{equation}
+für den Mittelwert, sowie:
+\begin{equation}
+  \sigma_{\bar{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\bar{T}-T_i)^2}
+\end{equation}
+für den Fehler des Mittelwertes.
+Aus den Messwerten folgen die in der Tabelle dargestellten Schwingungdauern für die jeweils entkoppelten Pendel.
+\begin{table}
+  \centering
+  \caption{Entkoppelte Pendel}
+  \label{tab:some_data}
+  \begin{tabular}{c c c c}
+    \toprule
+    $T_1 l=$ \text{60cm in s} & $T_2 l=$ \text{60cm in s} & $T_2 l=$ \text{75cm in s} & $T_2 l=$ \text{75cm in s}\\
+    \midrule
+    1.50 & 1.47 & 1.70 & 1.63 \\
+    1.47 & 1.46 & 1.69 & 1.60 \\
+    1.46 & 1.40 & 1.67 & 1.69 \\
+    1.52 & 1.46 & 1.64 & 1.69 \\
+    1.46 & 1.52 & 1.65 & 1.63 \\
+    1.45 & 1.45 & 1.63 & 1.64 \\
+    1.52 & 1.49 & 1.64 & 1.63 \\
+    1.56 & 1.50 & 1.68 & 1.70 \\
+    1.45 & 1.47 & 1.60 & 1.63 \\
+    1.50 & 1.51 & 1.56 & 1.73 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Es ergeben sich folgende Werte für $l = 60cm$:
+\\
+\begin{equation*}
+\begin{split}
+  T_1 = 1.491 \pm 0.012 \\
+  T_2 = 1.473 \pm 0.011
+\end{split}
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\\
+\begin{equation*}
+\begin{split}
+  T_1 = 1.645 \pm 0.014 \\
+  T_2 = 1.658 \pm 0.014
+\end{split}
+\end{equation*}
+\\
+Die Werte der Schwingungsdauern liegen also bei beiden längen gegenseitig im Bereich der Messabweichung.
+\subsection{Berechnung der Schwingfrequenzen bei gleich- und gegensinniger Schwingung}
+Es werden weiterhin die in 4.1 eingeführten Formeln zur Fehlerrechnung genutz.
+Aus den Messwerten folgen die in der Tabelle dargestellten Schwingungdauern für die jeweils entkoppelten Pendel.
+\begin{table}
+  \centering
+  \caption{Gegen- und gleichsinnige Schwingung}
+  \label{tab:some_data}
+  \begin{tabular}{c c c c}
+    \toprule
+    $T_+ l=$ \text{60cm in s} & $T_- l=$ \text{60cm in s} & $T_+ l=$ \text{75cm in s} & $T_- l=$ \text{75cm in s}\\
+    \midrule
+    1.54 & 1.41 & 1.75 & 1.57 \\
+    1.49 & 1.44 & 1.78 & 1.58 \\
+    1.45 & 1.39 & 1.73 & 1.61 \\
+    1.49 & 1.44 & 1.72 & 1.54 \\
+    1.50 & 1.39 & 1.68 & 1.56 \\
+    1.46 & 1.41 & 1.69 & 1.53 \\
+    1.42 & 1.46 & 1.71 & 1.54 \\
+    1.49 & 1.41 & 1.67 & 1.57 \\
+    1.51 & 1.41 & 1.66 & 1.49 \\
+    1.43 & 1.46 & 1.70 & 1.52 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\\
+\begin{equation*}
+\begin{split}
+  T_+ = 1.479 \pm 0.012 \\
+  T_- = 1.421 \pm 0.009
+\end{split}
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\\
+\begin{equation*}
+\begin{split}
+  T_+ = 1.709 \pm 0.012 \\
+  T_- = 1.551 \pm 0.011
+\end{split}
+\end{equation*}
+\\
+Nach Gauß'scher Fehlerfortpflanzung und mit \eqref{e1} sowie \eqref{e3} folgt für die Frequenzen:
+\\
+\begin{equation*}
+\begin{split}
+  \omega_+ = 4.249 \pm 0.034 \\
+  \omega_- = 4.421 \pm 0.027
+\end{split}
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\\
+\begin{equation*}
+\begin{split}
+  \omega_+ = 3.677 \pm 0.026 \\
+  \omega_- = 4.051 \pm 0.028
+\end{split}
+\end{equation*}
+\\
+Für die Kopplungskonstante ergibt sich nach \eqref{e5} daher:
+\\
+\begin{equation*}
+  K = 0.040 \pm 0.010
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\\
+\begin{equation*}
+\begin{split}
+  K = 0.096 \pm 0.010
+\end{split}
+\end{equation*}
+\\
 \newpage
 \nocite{*}
 \printbibliography

@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.4)  11 NOV 2016 14:22
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.4)  11 NOV 2016 15:48
  restricted system commands enabled.
 **dokument.tex
 (./dokument.tex
@@ -339,7 +339,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.124 seconds)
+luaotfload | main : initialization completed in 0.123 seconds)
 Lua module: fontspec 2016/02/01 2.5a Advanced font selection for LuaLaTeX.
 (/home/rune/.local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec-luatex.s
 ty
@@ -1515,6 +1515,12 @@ Language ngerman already loaded; id is 8
 
 LaTeX Warning: Label `tab:some_data' multiply defined.
 
+
+LaTeX Warning: Label `tab:some_data' multiply defined.
+
+
+LaTeX Warning: Label `tab:some_data' multiply defined.
+
 )
 \openout1 = dokument.aux
 
@@ -1592,14 +1598,14 @@ Package biblatex Info: Automatic encoding selection.
 
 \openout4 = dokument.bcf
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'dokument.bbl' found.
- (./dokument.bbl)
+Package biblatex Info: ... file 'dokument.bbl' not found.
+
+No file dokument.bbl.
 Package biblatex Info: Reference section=0 on input line 2.
 Package biblatex Info: Reference segment=0 on input line 2.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
 *************************************************
 * unicode-math warning: "mathtools-overbracket"
 * 
@@ -1710,74 +1716,42 @@ Missing character: There is no 𝜔 (U+1D714) in font file:lmroman10-italic:scri
 pt=latn;+trep;+tlig;!
 Missing character: There is no 𝜔 (U+1D714) in font file:lmroman10-italic:scri
 pt=latn;+trep;+tlig;!
-<./gekoppelte_pendel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 85--111
+<./gekoppelte_pendel.png>] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 191--193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--120
+Underfull \hbox (badness 10000) in paragraph at lines 202--247
 
  []
 
+[7])
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--153
+LaTeX Warning: Empty bibliography on input line 263.
 
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 158--162
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--180
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 185--189
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--195
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
-
- []
-
-[7])(load luc: /home/rune/.local/texlive/2016/texmf-var/luatex-cache/generic/fon
-ts/otl/lmromancaps10-regular.luc)
-LaTeX Font Info:    Try loading font information for EU2+lmtt on input line 203.
-
-
-(/home/rune/.local/texlive/2016/texmf-dist/tex/latex/euenc/eu2lmtt.fd
-File: eu2lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)(load luc: /home/rune/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/
-otl/lmmono10-regular.luc)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4.
- [8]
+[8]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 4.
  (./dokument.aux
 Language ngerman already loaded; id is 8)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4.
 Package rerunfilecheck Info: File `dokument.aux' has not changed.
-(rerunfilecheck)             Checksum: 2E612E0600710B3AA7E27C87FAE87B8F;6144.
+(rerunfilecheck)             Checksum: 6C2D2F001E9C08B60565BC17401BF349;7019.
 Package rerunfilecheck Info: File `dokument.toc' has not changed.
-(rerunfilecheck)             Checksum: 16FBAC8A866A094CB2AF7C4776AFB747;749.
+(rerunfilecheck)             Checksum: 5C8C30A1EF335AB45234320E554478D4;797.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                dokument
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'dokument.run.xml'.
 
@@ -1786,30 +1760,27 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4.
 )
 
 Here is how much of LuaTeX's memory you used:
- 40265 strings out of 495118
+ 40022 strings out of 495118
  100000,1373583 words of node,token memory allocated
- 2914 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 282 glue, 1 kern, 117 attribute, 60 glue_spec, 117 
-attribute_list, 1 write, 2 pdf_action nodes
-   avail lists: 1:2,2:588,3:92,4:17,5:195,6:1715,7:767,8:82,9:297,10:14,11:216
- 42832 multiletter control sequences out of 65536+600000
- 90 fonts using 22090631 bytes
- 71i,14n,100p,8875b,2416s stack positions out of 5000i,500n,10000p,200000b,100000s
-</home/rune/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmmono10-reg
-ular.otf></home/rune/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmr
-omancaps10-regular.otf></home/rune/.local/texlive/2016/texmf-dist/fonts/opentype
-/public/lm/lmroman10-bold.otf></home/rune/.local/texlive/2016/texmf-dist/fonts/o
-pentype/public/lm-math/latinmodern-math.otf></home/rune/.local/texlive/2016/texm
-f-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></home/rune/.local/tex
-live/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></home/rune/.
-local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></h
-ome/rune/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regul
-ar.otf></home/rune/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsan
-s10-bold.otf>
-Output written on dokument.pdf (8 pages, 58075 bytes).
+ 3261 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 320 glue, 1 kern, 140 attribute, 59 glue_spec, 140 
+attribute_list, 1 write, 1 pdf_action nodes
+   avail lists: 1:2,2:548,3:102,4:17,5:194,6:1716,7:738,8:76,9:307,10:14,11:216
+ 42602 multiletter control sequences out of 65536+600000
+ 88 fonts using 21834079 bytes
+ 71i,17n,100p,8875b,857s stack positions out of 5000i,500n,10000p,200000b,100000s
+</home/rune/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-bo
+ld.otf></home/rune/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm-math/
+latinmodern-math.otf></home/rune/.local/texlive/2016/texmf-dist/fonts/opentype/p
+ublic/lm-math/latinmodern-math.otf></home/rune/.local/texlive/2016/texmf-dist/fo
+nts/opentype/public/lm/lmroman10-italic.otf></home/rune/.local/texlive/2016/texm
+f-dist/fonts/opentype/public/lm/lmroman10-regular.otf></home/rune/.local/texlive
+/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></home/rune/.loc
+al/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf>
+Output written on dokument.pdf (8 pages, 52783 bytes).
 
-PDF statistics: 171 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 131072)
+PDF statistics: 157 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 131072)
  57 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.9)  10 NOV 2016 15:23
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.9)  11 NOV 2016 09:46
  restricted system commands enabled.
 **dokument.tex
 (./dokument.tex
@@ -336,7 +336,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.319 seconds)
+luaotfload | main : initialization completed in 0.326 seconds)
 Lua module: fontspec 2016/02/01 2.5a Advanced font selection for LuaLaTeX.
 (/home/felix/.local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec-luatex.
 sty
@@ -1670,7 +1670,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--50
 
  []
 
-[3] <gekoppelte_pendel.png, id=45, 220.825pt x 147.55125pt>
+[3] <gekoppelte_pendel.png, id=47, 220.825pt x 147.55125pt>
 File: gekoppelte_pendel.png Graphic file (type png)
 
 <use gekoppelte_pendel.png>
@@ -1680,25 +1680,25 @@ LaTeX Font Info:    Font shape `EU2/LatinModernMath(1)/m/n' will be
 (Font)              scaled to size 5.00008pt on input line 66.
 LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
 (Font)              scaled to size 4.99992pt on input line 66.
- [4<./gekoppelte_pendel.png>])(load luc: /home/felix/.local/texlive/2016/texmf-v
-ar/luatex-cache/generic/fonts/otl/lmromancaps10-regular.luc)
-LaTeX Font Info:    Try loading font information for EU2+lmtt on input line 74.
+ [4<./gekoppelte_pendel.png>] [5])(load luc: /home/felix/.local/texlive/2016/tex
+mf-var/luatex-cache/generic/fonts/otl/lmromancaps10-regular.luc)
+LaTeX Font Info:    Try loading font information for EU2+lmtt on input line 79.
 
 (/home/felix/.local/texlive/2016/texmf-dist/tex/latex/euenc/eu2lmtt.fd
 File: eu2lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )(load luc: /home/felix/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts
 /otl/lmmono10-regular.luc)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4.
- [5]
+ [6]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 4.
  (./dokument.aux
 Language ngerman already loaded; id is 8)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4.
 Package rerunfilecheck Info: File `dokument.aux' has not changed.
-(rerunfilecheck)             Checksum: 3C6D82AE91B6AEE2D7F3AB0625684250;3914.
+(rerunfilecheck)             Checksum: CDB9A74D8B9DFDFE22EDCE4A16D6CC0E;4202.
 Package rerunfilecheck Info: File `dokument.toc' has not changed.
-(rerunfilecheck)             Checksum: D061190E189909829F3663C1BB4D206E;490.
+(rerunfilecheck)             Checksum: 41E9DDEAB4B248B0EDD95DFFAA2707F9;555.
 Package logreq Info: Writing requests to 'dokument.run.xml'.
 
 \openout1 = dokument.run.xml
@@ -1706,13 +1706,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4.
 )
 
 Here is how much of LuaTeX's memory you used:
- 40194 strings out of 495118
+ 40197 strings out of 495118
  100000,1373583 words of node,token memory allocated
- 1761 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 149 glue, 1 kern, 63 attribute, 60 glue_spec, 63 at
+ 1757 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 149 glue, 1 kern, 62 attribute, 60 glue_spec, 62 at
 tribute_list, 1 write, 1 pdf_action nodes
-   avail lists: 1:2,2:245,3:92,4:10,5:195,6:1679,7:324,8:83,9:160,10:9,11:197
- 42775 multiletter control sequences out of 65536+600000
+   avail lists: 1:2,2:297,3:92,4:17,5:195,6:1681,7:351,8:83,9:160,10:14,11:198
+ 42776 multiletter control sequences out of 65536+600000
  89 fonts using 21959215 bytes
  71i,7n,100p,8875b,2416s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/felix/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmmono10-re
@@ -1726,10 +1726,10 @@ felix/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.
 otf></home/felix/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman
 12-regular.otf></home/felix/.local/texlive/2016/texmf-dist/fonts/opentype/public
 /lm/lmsans10-bold.otf>
-Output written on dokument.pdf (5 pages, 51652 bytes).
+Output written on dokument.pdf (6 pages, 52961 bytes).
 
-PDF statistics: 144 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 131072)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+PDF statistics: 153 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 131072)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

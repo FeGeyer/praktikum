@@ -3,3 +3,5 @@
 *.log
 *.run.xml
 *.toc
+*.bbl
+*.blg

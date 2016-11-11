@@ -19,33 +19,6 @@
 
 \refsection{0}
   \sortlist[entry]{anyt/global/}
-    \entry{buch}{book}{}
-      \name{author}{1}{}{%
-        {{hash=99522dd15c6b66616099ee4e5db35f96}{%
-           family={Collins},
-           familyi={C\bibinitperiod},
-           given={Suzanne},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Pennsylvania}%
-      }
-      \list{publisher}{1}{%
-        {Toller Verlag}%
-      }
-      \strng{namehash}{99522dd15c6b66616099ee4e5db35f96}
-      \strng{fullhash}{99522dd15c6b66616099ee4e5db35f96}
-      \strng{authornamehash}{99522dd15c6b66616099ee4e5db35f96}
-      \strng{authorfullhash}{99522dd15c6b66616099ee4e5db35f96}
-      \field{labelalpha}{Col12}
-      \field{sortinit}{C}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Die Tribute von Panem}
-      \field{version}{3}
-      \field{year}{2012}
-    \endentry
     \entry{anleitung}{manual}{}
       \name{author}{1}{}{%
         {{hash=2821a70f99517ac7757c95300d43e95c}{%
@@ -66,59 +39,6 @@
       \field{title}{V106: Gekoppelte Pendel}
       \verb{url}
       \verb http://129.217.224.2/HOMEPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/GekoppeltePendel.pdf
-      \endverb
-    \endentry
-    \entry{hallo}{article}{}
-      \name{author}{1}{}{%
-        {{hash=ac9195d11eb80c2bbd41e4c0aad5b891}{%
-           family={Sedlaczek},
-           familyi={S\bibinitperiod},
-           given={Tim},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Selfmade Records}%
-      }
-      \strng{namehash}{ac9195d11eb80c2bbd41e4c0aad5b891}
-      \strng{fullhash}{ac9195d11eb80c2bbd41e4c0aad5b891}
-      \strng{authornamehash}{ac9195d11eb80c2bbd41e4c0aad5b891}
-      \strng{authorfullhash}{ac9195d11eb80c2bbd41e4c0aad5b891}
-      \field{labelalpha}{Sed16}
-      \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Bizeps Magazin und anderes unnötiges Zeug}
-      \field{title}{Die Kunst des Bizeps}
-      \field{version}{1.4}
-      \field{year}{2016}
-      \field{pages}{1\bibrangedash 20}
-      \range{pages}{20}
-    \endentry
-    \entry{kent}{online}{}
-      \name{author}{1}{}{%
-        {{hash=c879f0afb20e8746dc0914acbf9bfc80}{%
-           family={Senyuk},
-           familyi={S\bibinitperiod},
-           given={B.},
-           giveni={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{c879f0afb20e8746dc0914acbf9bfc80}
-      \strng{fullhash}{c879f0afb20e8746dc0914acbf9bfc80}
-      \strng{authornamehash}{c879f0afb20e8746dc0914acbf9bfc80}
-      \strng{authorfullhash}{c879f0afb20e8746dc0914acbf9bfc80}
-      \field{labelalpha}{Sen13}
-      \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{day}{17}
-      \field{month}{12}
-      \field{title}{Liquid Crystals: a Simple View on a Complex Matter}
-      \field{year}{2013}
-      \field{dateera}{ce}
-      \verb{url}
-      \verb http://dept.kent.edu/spie/liquidcrystals/
       \endverb
     \endentry
   \endsortlist

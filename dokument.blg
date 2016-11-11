@@ -1,15 +1,15 @@
 [1] Config.pm:354> INFO - This is Biber 2.6
 [2] Config.pm:357> INFO - Logfile is 'dokument.blg'
-[123] biber:302> INFO - === Do Nov 10, 2016, 13:17:00
-[192] Biber.pm:359> INFO - Reading 'dokument.bcf'
-[516] Biber.pm:820> INFO - Using all citekeys in bib section 0
+[124] biber:302> INFO - === Fr Nov 11, 2016, 10:43:28
+[194] Biber.pm:359> INFO - Reading 'dokument.bcf'
+[517] Biber.pm:820> INFO - Using all citekeys in bib section 0
 [573] Biber.pm:3658> INFO - Processing section 0
-[615] Biber.pm:3828> INFO - Looking for bibtex format file 'lit.bib' for section 0
+[616] Biber.pm:3828> INFO - Looking for bibtex format file 'lit.bib' for section 0
 [618] bibtex.pm:1425> INFO - Decoding LaTeX character macros into UTF-8
 [619] bibtex.pm:1282> INFO - Found BibTeX data source 'lit.bib'
-[703] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[704] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[704] Biber.pm:3487> INFO - Sorting list 'anyt/global/' of type 'entry' with scheme 'anyt' and locale 'de-DE'
-[704] Biber.pm:3493> INFO - No sort tailoring available for locale 'de-DE'
-[721] bbl.pm:597> INFO - Writing 'dokument.bbl' with encoding 'UTF-8'
-[724] bbl.pm:701> INFO - Output to dokument.bbl
+[678] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[678] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[678] Biber.pm:3487> INFO - Sorting list 'anyt/global/' of type 'entry' with scheme 'anyt' and locale 'de-DE'
+[679] Biber.pm:3493> INFO - No sort tailoring available for locale 'de-DE'
+[684] bbl.pm:597> INFO - Writing 'dokument.bbl' with encoding 'UTF-8'
+[686] bbl.pm:701> INFO - Output to dokument.bbl

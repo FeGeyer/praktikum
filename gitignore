@@ -1,5 +1,14 @@
-*.aux
-*.bcf
-*.log
-*.run.xml
-*.toc
+Die Pendel sind zwei Stabpendel, die verschiebbare Massen besitzen, um verschiedene Pendellängen zu realisieren. Die
+Aufhängung besteht aus einer reibungsarmen Spitzenlagerung, die eine reibungsfreie Schwingung gewährleistet.
+\begin{figure}
+  \centering
+  \includegraphics{gekoppelte_pendel.png}
+  \caption{Darstellung eines gekoppelten Pendels mit Öffnungswinkel $\theta$ statt $\alpha$.}
+  \label{fig:skizze1}
+\end{figure}
+Alle Schwingungsdauern werden für fünf Schwingungen und für eine Pendellänge von 0,6 $\textit{m}$ bestimmt. Zuerst messen wir die Schwingungsdauern $\textit{T}_{1}$
+und $\textit{T}_{2}$ der einzelnen Pendel nach und vergleichen, ob sie im Rahmen der Messgenauigkeit übereinstimmen. Um eventuellen
+statistischen Fehlern vorzubeugen, führen wir die Messung neunmal aus. Danach verbinden wir die beiden Pendel über die Kopplungsfeder und führen eine gleich-
+und eine gegensinnige Schwingung durch , wobei wir $\textit{T}_{+}$ und $\textit{T}_{-}$ experimentell bestimmen. Im
+Anschluss ermitteln wir die Schwebungsdauer $\textit{T}_{S}$ und die Schwingungsdauer $\textit{T}$. Zum Schluss wiederholen wir
+alle Messungen für eine Pendellänge von 0,75 $\textit{m}$.

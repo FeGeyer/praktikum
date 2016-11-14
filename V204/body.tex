@@ -1,0 +1,266 @@
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Zielsetzung}
+In diesem Versuch geht es um Messung der Schwingungs- und Schwebungsdauer von gekoppelten Pendeln.
+Untersucht werden gleich- und gegensinnige sowie gekoppelte Schwingungen.
+\section{Theorie}
+Ein einzelndes Fadenpendel, welches reibungsfrei aufgehängt wurde, mit einem Faden der Länge $\textit{l}$ und Masse $\textit{m}$
+schwingt für kleine Auslenkungen (sin $\phi \approx \phi$) mit der Schwingungsfrequenz
+\begin{equation}
+  \omega = \sqrt{\frac{\textit{l}}{g}}
+  \label{e1}
+\end{equation}
+Dies ist die Lösung der zugehörigen Schwingungsdifferentialgleichung mit g als Erdbeschleunigungskonstante. Mit \eqref{e1} und
+\begin{equation*}
+  \textit{T} = \frac{2\pi}{\omega}
+\end{equation*}
+ergibt sich als Formel für die gesuchte Schwingungsdauer
+\begin{equation}
+  \textit{T} = 2\pi \sqrt{\frac{g}{\textit{l}}}
+  \label{e2}
+\end{equation}
+Wenn man nun zwei dieser Fadenpendel durch eine Feder koppelt, ergeben sich zwei DGL's mit jeweils einem Term darin,
+der den Drehwinkel des anderen Pendels enthält. Dies kommt durch die Kopplung mit der Feder. Je nach Auslenkungswinkel $\alpha_{1}$
+und $\alpha_{2}$ der Fadenpendel ergeben sich verschiedene Schwingungsarten:
+\\
+\\
+Für: $\alpha_{1} = \alpha_{2}$ ergibt sich eine gleichsinnige Schwingung. Bei dieser hat die Feder keine Auswirkung auf die
+Schwingungen. Deshalb gilt für die Schwingungsfrequenz $\omega_{+}$ \eqref{e1} und für die Schwingungsdauer $\textit{T}_{+}$
+\eqref{e2}.
+\\
+\\
+Wenn $\alpha_{1} = -\alpha_{2}$ ist, nennt man dies eine gegensinnige Schwingung. Für diesen Fall greift die Feder in das Schwingverhalten
+der Pendel ein. Deshalb werden \eqref{e1} und \eqref{e2} erweitert um jeweils einen Term mit der Kopplungskonstante $\textit{K}$
+der Feder
+\begin{equation}
+  \omega_{-} = \sqrt{\frac{l}{g} + \frac{2 \textit{K}}{l}}
+  \label{e3}
+\end{equation}
+\begin{equation}
+  \textit{T}_{-} = 2\pi  \sqrt{\frac{l}{g + 2 \textit{K}}}
+  \label{e4}
+\end{equation}
+\\
+\\
+Für: $\alpha_{1} = 0, \alpha_{2} \neq 0$ ergibt sich eine gekoppelte Schwingung. Diese zeichnet sich dadurch aus, dass die beiden
+Pendel die kinetische Energie auf das andere Pendel übertragen und dann erneut erhalten. Hier tritt die sogenannte Schwebung auf.
+Dieser Begriff beschreibt die Zeit zwischen zwei Stillständen eines Pendels. Die Dauer dieses Zustandes berechnet sich nach
+\begin{equation}
+  \textit{T}_{S} = \frac{\textit{T}_{-} \cdot \textit{T}_{+}}{\textit{T}_{+} - \textit{T}_{-}}
+  \label{e5}
+\end{equation}
+mit $\textit{T}_{-}$ aus der gegen- und $\textit{T}_{+}$ aus der gleichsinnigen Schwingung. Die Kopplungskonstante \textit{K}
+der Feder zwischen den beiden Pendeln definiert sich nach
+\begin{equation}
+  \textit{K} = \frac{\textit{T}_{+}^{2} - \textit{T}_{-}^{2}}{\textit{T}_{+}^{2} + \textit{T}_{-}^{2}} = \frac{\textit{\omega}_{+} \cdot \textit{\omega}_{-}}{\textit{\omega}_{-} -
+  \textit{\omega}_{+}}
+  \label{e6}
+\end{equation}
+\section{Durchführung}
+Die Pendel sind zwei Stabpendel, die verschiebbare Massen besitzen, um verschiedene Pendellängen zu realisieren. Die
+Aufhängung besteht aus einer reibungsarmen Spitzenlagerung, die eine reibungsfreie Schwingung gewährleistet.
+\begin{figure}
+  \centering
+  \includegraphics{gekoppelte_pendel.png}
+  \caption{Darstellung eines gekoppelten Pendels mit Öffnungswinkel $\theta$ statt $\alpha$.}
+  \label{fig:skizze1}
+\end{figure}
+Alle Schwingungsdauern werden für fünf Schwingungen und für eine Pendellänge von 0,6 $\textit{m}$ bestimmt. Zuerst messen wir die Schwingungsdauern $\textit{T}_{1}$
+und $\textit{T}_{2}$ der einzelnen Pendel nach und vergleichen, ob sie im Rahmen der Messgenauigkeit übereinstimmen. Um eventuellen
+statistischen Fehlern vorzubeugen, führen wir die Messung neunmal aus. Danach verbinden wir die beiden Pendel über die Kopplungsfeder und führen eine gleich-
+und eine gegensinnige Schwingung durch , wobei wir $\textit{T}_{+}$ und $\textit{T}_{-}$ experimentell bestimmen. Im
+Anschluss ermitteln wir die Schwebungsdauer $\textit{T}_{S}$ und die Schwingungsdauer $\textit{T}$. Zum Schluss wiederholen wir
+alle Messungen für eine Pendellänge von 0,75 $\textit{m}$.
+\section{Auswertung}
+\subsection{Berechnung der Schwingungsdauern der entkoppelten Pendel}
+Es wurden jeweils 10 Messungen für jeweils 5 Schwingungen durchgeführt. Für die Fehlerrechnung gibt:
+\begin{equation}
+  \bar{T} = \frac{1}{n} \sum_{i=1}^{n} T^{i}
+\end{equation}
+für den Mittelwert, sowie:
+\begin{equation}
+  \sigma_{\bar{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\bar{T}-T_i)^2}
+\end{equation}
+für den Fehler des Mittelwertes.
+Aus den Messwerten folgen die in der Tabelle dargestellten Schwingungdauern für die jeweils entkoppelten Pendel.
+\begin{table}
+  \centering
+  \caption{Entkoppelte Pendel}
+  \label{tab:data1}
+  \begin{tabular}{c c c c}
+    \toprule
+    $T_1 l=$ \text{60cm in s} & $T_2 l=$ \text{60cm in s} & $T_2 l=$ \text{75cm in s} & $T_2 l=$ \text{75cm in s}\\
+    \midrule
+    1.50 & 1.47 & 1.70 & 1.63 \\
+    1.47 & 1.46 & 1.69 & 1.60 \\
+    1.46 & 1.40 & 1.67 & 1.69 \\
+    1.52 & 1.46 & 1.64 & 1.69 \\
+    1.46 & 1.52 & 1.65 & 1.63 \\
+    1.45 & 1.45 & 1.63 & 1.64 \\
+    1.52 & 1.49 & 1.64 & 1.63 \\
+    1.56 & 1.50 & 1.68 & 1.70 \\
+    1.45 & 1.47 & 1.60 & 1.63 \\
+    1.50 & 1.51 & 1.56 & 1.73 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Es ergeben sich folgende Werte für $l = 60cm$:
+\begin{equation*}
+\begin{split}
+  \bar{T_1} = 1.491 \pm 0.012 \\
+  \bar{T_2} = 1.473 \pm 0.011
+\end{split}
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\begin{equation*}
+\begin{split}
+  \bar{T_1} = 1.645 \pm 0.014 \\
+  \bar{T_2} = 1.658 \pm 0.014
+\end{split}
+\end{equation*}
+\\
+Die Werte der Schwingungsdauern liegen also bei beiden längen gegenseitig im Bereich der Messabweichung.
+\subsection{Berechnung der Schwingfrequenzen bei gleich- und gegensinniger Schwingung}
+Es werden weiterhin die in 4.1 eingeführten Formeln zur Fehlerrechnung genutz.
+Aus den Messwerten folgen die in der Tabelle dargestellten Schwingungdauern für die jeweils entkoppelten Pendel.
+\begin{table}
+  \centering
+  \caption{Gegen- und gleichsinnige Schwingung}
+  \label{tab:data2}
+  \begin{tabular}{c c c c}
+    \toprule
+    $T_+ l=$ \text{60cm in s} & $T_- l=$ \text{60cm in s} & $T_+ l=$ \text{75cm in s} & $T_- l=$ \text{75cm in s}\\
+    \midrule
+    1.54 & 1.41 & 1.75 & 1.57 \\
+    1.49 & 1.44 & 1.78 & 1.58 \\
+    1.45 & 1.39 & 1.73 & 1.61 \\
+    1.49 & 1.44 & 1.72 & 1.54 \\
+    1.50 & 1.39 & 1.68 & 1.56 \\
+    1.46 & 1.41 & 1.69 & 1.53 \\
+    1.42 & 1.46 & 1.71 & 1.54 \\
+    1.49 & 1.41 & 1.67 & 1.57 \\
+    1.51 & 1.41 & 1.66 & 1.49 \\
+    1.43 & 1.46 & 1.70 & 1.52 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\\
+Es ergeben sich folgende Werte für $l = 60cm$:
+\begin{equation*}
+\begin{split}
+  \bar{T_+} = 1.479 \pm 0.012 \\
+  \bar{T_-} = 1.421 \pm 0.009
+\end{split}
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\begin{equation*}
+\begin{split}
+  \bar{T_+} = 1.709 \pm 0.012 \\
+  \bar{T_-} = 1.551 \pm 0.011
+\end{split}
+\end{equation*}
+\\
+Nach Gauß'scher Fehlerfortpflanzung und mit \eqref{e1} sowie \eqref{e3} folgt für die Frequenzen bei $l = 60cm$:
+\begin{equation*}
+\begin{split}
+  \omega_+ = 4.249 \pm 0.034 \\
+  \omega_- = 4.421 \pm 0.027
+\end{split}
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\begin{equation*}
+\begin{split}
+  \omega_+ = 3.677 \pm 0.026 \\
+  \omega_- = 4.051 \pm 0.028
+\end{split}
+\end{equation*}
+\\
+Für die Kopplungskonstante ergibt sich nach \eqref{e6} daher bei $l = 60cm$:
+\begin{equation*}
+  K = 0.040 \pm 0.010
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\begin{equation*}
+  K = 0.096 \pm 0.010
+\end{equation*}
+\\
+\subsection{Vergleich zwischen gemessenen und errechneten Werten}
+Nach \eqref{e5} ergibt sich die Schwingungsdauer bei der gekoppelten Schwingung mit $l = 60cm$ zu:
+\begin{equation*}
+  T_s = 36 \pm 9
+\end{equation*}
+\\
+Und für $l = 75cm$:
+\begin{equation*}
+  T_s = 16.8 \pm 1.7
+\end{equation*}
+\\
+\begin{table}
+  \centering
+  \caption{Schwebungsdauer bei Messung einer Schwebung}
+  \label{tab:data3}
+  \begin{tabular}{c c}
+    \toprule
+    $T_{s} l=$ \text{60cm in s} & $T_{s} l=$ \text{75cm in s} \\
+    \midrule
+    29.41 & 36.46 \\
+    28.87 & 37.03 \\
+    29.07 & 33.87 \\
+    31.67 & 34.06 \\
+    28.63 & 31.01 \\
+    28.46 & 38.27 \\
+    31.73 & 36.55 \\
+    33.60 & 32.32 \\
+    28.96 & 33.10 \\
+    30.80 & 38.47 \\
+
+    \bottomrule
+  \end{tabular}
+\end{table}
+\\
+\\
+\begin{table}
+  \centering
+  \caption{Schwebungsdauer bei Messung von fünf Schwebung}
+  \label{tab:data4}
+  \begin{tabular}{c c}
+    \toprule
+    $T_{s} l=$ \text{60cm in s} & $T_{s} l=$ \text{75cm in s} \\
+    \midrule
+    27.10 & 37.02 \\
+    27.72 & 41.77 \\
+    30.09 & 38.20 \\
+    31.59 & 41.37 \\
+    24.97 & 41.80 \\
+    27.65 & 42.97 \\
+    32.95 & 40.97 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Aus den gemessenen Werten (siehe Tabelle 3 und 4) folgt für $\bar{T_s}$, gemessen bei $l = 60cm$:
+\begin{equation*}
+\begin{split}
+ \text{Einzelmessung: }\bar{T_{s}} = 30.1 \pm 0.5 \\
+ \text{Fünffachmessung: }\bar{T_{s}} = 28.9 \pm 1.1
+\end{split}
+\end{equation*}
+\\ und bei $l = 75cm$
+\begin{equation*}
+\begin{split}
+ \text{Einzelmessung: }\bar{T_{s}} = 35.1 \pm 0.8 \\
+ \text{Fünffachmessung: }\bar{T_{s}} = 40.6 \pm 0.8
+\end{split}
+\end{equation*}
+Für die Messung bei $l = 60cm$ liegt der gemessene Wert im Ramen der zu erwartenden Abweichung für den berechneten Wert,
+bei $l = 75cm$ ist dies nicht der Fall.
+\section{Diskussion}
+Eine mögliche Fehlerquelle sind menschliche Ungenauigkeiten beim Stoppen der Zeit.
+\newpage
+\nocite{*}
+\printbibliography

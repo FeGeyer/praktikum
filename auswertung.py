@@ -42,8 +42,12 @@ Bomegaminus = (2 * np.pi) / BT_m
 Bomegas = (2 * np.pi) / BT_s
 BK = ((Bomegaminus ** 2) - (Bomegaplus ** 2)) / ((Bomegaminus ** 2) + (Bomegaplus ** 2))
 
-RechnerischSchw1 = (AT_p*AT_m)/(AT_p-AT_m)
+#RechnerischSchw1 =
 RechnerischSchw2 = (BT_p*BT_m)/(BT_p-BT_m)
+
+h=ufloat(2.102, 0.021)
+i=ufloat(0.058, 0.015)
+print(h/i)
 
 a=np.around(AT_sr/5, decimals=2)
 b=np.around(ATr, decimals=2)
@@ -65,7 +69,7 @@ print('T_2: ', AT_m)
 print('Omega+: ', Aomegaplus)
 print('Omega-: ', Aomegaminus)
 print('Kopplung: ', AK)
-print('Berechnete Schwebungsdauer: ', RechnerischSchw1)
+print('Berechnete Schwebungsdauer: ', (AT_p*AT_m)/(AT_p-AT_m))
 print('Gemessene Einzelschwebungsdauer: ', AT)
 print('Gemessene Mehrfachschwingungsdauer: ', AT_s, Aomegas)
 print(' ')

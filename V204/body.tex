@@ -15,11 +15,27 @@ fließt in der Zeit $\textit{dt}$ bezüglich der Querschnittsfläche die Wärmem
   \label{eqn:1}
 \end{equation}
 Dabei ist $\kappa$ die materialabhängige Wärmeleitfähigkeit. Mit Hilfe der Wärmestromdichte
-$j_{\omega}$ und Wärmeleitungsgleichung lässt sich die Temperaturwellengleichung
+$j_{\omega}$ und Wärmeleitungsgleichung lässt sich die Temperaturwellengleichung schreiben als
 \begin{equation}
-  T(x, t) = T_{max} e^{\sqrt{\frac{\omega \rho c}{2 \kappa}} x} cos \left(\omega t - \sqrt{\frac{\omega \rho c}{2 \kappa}} x \right)
+  T(x, t) = T_{max} \ e^{\sqrt{\frac{\omega \rho c}{2 \kappa}} \, x} \,
+  cos \left(\omega t - \sqrt{\frac{\omega \rho c}{2 \kappa}} \, x \right)
   \label{eqn:2}
 \end{equation}
+für einen mit Periode T abwechselnd erwärmten und abgekühlten sehr langen Stab.
+Die Phasengesschwindigkeit der Welle lautet
+\begin{equation}
+    v = \frac{\omega}{k} = \frac{\omega}{\sqrt{\frac{\omega \rho c}{2 \kappa}}}
+    = \sqrt{\frac{2 \kappa \omega}{\rho c}}
+    \label{eqn:3}
+\end{equation}
+zur Bestimmung der Dämpfung nutzt man das Amplitudenverhältnis aus $A_{nah}$ und $A_{fern}$
+an zwei Messstellen $x_{nah}$ und $x_{fern}$. Für die Wärmeleitfähigkeit erhält man also
+\begin{equation}
+  \kappa = \frac{\rho c (\Delta x)^2}{2 \, \Delta t \, ln (A_{nah}/{A_{fern})}}
+  \label{eqn:4}
+\end{equation}
+mit $\Delta x$ als Abstand und $\Delta t$ als Phasendifferenz der Temperaturwelle
+zwischen den beiden Messstellen.
 \section{Durchführung}
 \section{Auswertung}
 \section{Diskussion}

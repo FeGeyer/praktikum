@@ -71,13 +71,35 @@ zwei verschiedene Messmethoden angewandt:
 \end{itemize}
 \section{Auswertung}
 \subsection{Statische Methode}
-Alle Temperaturverläufe haben einen exponentiellen Verlauf. 
-
+Alle Temperaturverläufe haben einen exponentiellen Verlauf.
 Die Betrachtung der Temperaturverläufe an den entfernt liegenden Termoelementen zeigt, dass Aluminium die höchste
 Wärmeleitfähigkeit besitzt. Auf Aluminium folgen Messing und schließlich Edelstahl, welches die geringste Wärmeleitfähigkeit der
 betrachteten Metalle aufweist. Aus dem Verlauf der Temperaturkurven der beiden Messingstäbe folgt, dass aus einem höherer Querschnitt
 eine höhere Wärmeleitung folgt.
-
+Bei der Temperaturdifferenz zeigen sich Unterschiede zwischen Messing und Edelstahl. Zuerst steigen beide Kurven stark an. Nach dem
+Anstieg bleibt die Temperaturdifferenz des Edelstahls bis auf geringe Änderungen konstant. Beim Messing hingegen, fällt die Temperaturdifferenz
+nach einem schnell erreichten Maximum exponentiell ab, bis es sich einem Konstanten Wert annähert. Dies Zeigt sich auch im Wärmestrom nach \eqref{eqn:1} bei einem
+Querschnitt von $A = \SI{4.8e-5}{\metre\square}$ über eine Länge von $\SI{0,03}{\metre}$:
+\begin{table}
+  \centering
+  \caption{Temperaturdiffernzen}
+  \label{tab:deltaT}
+  \begin{tabular}{S S S S S S}
+    \toprule
+    \multicolumn {3}{c}{Edelstahl, $\kappa = \SI{58}{\watt\per\metre\kelvin}$} & \multicolumn {3}{c}{Messing, $\kappa = \SI{120}{\watt\per\metre\kelvin}$} \\
+    {$t$ in $\si{\second}$} & {$\delta T$ in $\si{\kelvin}$} & {$\delta Q / \delta t$ in $\si{\watt}$} & {$t$ in $\si{\second}$} &
+      {$\delta T$ in $\si{\kelvin}$} & {$\delta Q / \delta t$ in $\si{\watt}$} \\
+    \midrule
+    100 & 281,00 & -26,08 & 50 & 277,28 & -53,24\\
+    200 & 281,92 & -26,16 & 100 & 277,05 & -53,19\\
+    400 & 281,88 & -26,16 & 150 & 276,62 & -53,11\\
+    600 & 281,84 & -26,16 & 400 & 275,93 & -52,98\\
+    800 & 281,77& -26,15 & 600 & 275,82 & -52,96\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Der Wärmestrom zeigt auch noch einmal, dass in Edelstahl bei der Gleichen Erhitzung über die gleiche Distanz bei gleichem Querschnitt ein betragsmäßig
+geringerer Wärmestrom fließt, Messing also besser Wärme leitet.
 
 \section{Diskussion}
 \newpage

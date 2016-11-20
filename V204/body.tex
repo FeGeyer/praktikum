@@ -88,6 +88,18 @@ zwei verschiedene Messmethoden angewandt:
     Perioden durch. Wenn eins der Thermoelemente 80° Celsius anzeigt, wird die Messung gestoppt.
     Die Messtäbe werden anschließend wieder gekühlt.
 \end{itemize}
+\section{Fehlerrechnung}
+Es gibt:
+\begin{equation}
+  \bar{T} = \frac{1}{n} \sum_{i=1}^{n} T^{i}
+  \label{eqn:5}
+\end{equation}
+den Mittelwert und:
+\begin{equation}
+  \sigma_{\bar{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\bar{T}-T_i)^2}
+  \label{eqn:6}
+\end{equation}
+den Fehler des Mittelwertes.
 \section{Auswertung}
 \subsection{Statische Methode}
 Alle Temperaturverläufe haben einen exponentiellen Verlauf.
@@ -128,7 +140,117 @@ Querschnitt von $A = \SI{4.8e-5}{\metre\square}$ über eine Länge von $\SI{0,03
 Der Wärmestrom zeigt auch noch einmal, dass in Edelstahl bei der gleichen Erhitzung über die gleiche Distanz bei gleichem Querschnitt ein betragsmäßig
 geringerer Wärmestrom fließt, Messing also besser Wärme leitet.
 
+\subsection{Dynamische Methode}
+Aus den Messungen folgen die in den Tabellen \ref{tab:Messing}, \ref{tab:Alu} und \ref{tab:Edelstahl} dargestellten Werte für die Amplituden sowie die Phasendifferenz.
+Tabelle \ref{tab:MW} zeigt die Mittelwerte der Logarithmen der Amplitudenverhältnisse, sowie der Phasendifferenzen. Die Werte berechnen sich nach \ref{eqn:5} für den
+Mittelwert und \ref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben nach \ref{eqn:4} folgende Werte für $\kappa$:
+
+\begin{table}[b]
+  \centering
+  \caption{Mittelwert der Logarithmen der Amplitudenverhältnisse sowie der Phasendifferenzen}
+  \label{tab:MW}
+  \begin{tabular}{c c c}
+    \toprule
+    Metall & $\overline{ln(\frac{A_{nah}}{A_{fern}})}$ & $\overline{\Delta t} \text{ in } \si{\second}$\\
+    \midrule
+    Messing & 0.89 \pm 0.04 & 17.6 \pm 1.0 \\
+    Aluminium & 0.62 \pm 0.04 & 10.2 \pm 0.6 \\
+    Edelstahl & 1.64 \pm 0.11 & 59.7 \pm 1.6 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{equation*}
+  \begin{split}
+    \kappa_{Messing} = \SI{94(7)}{\watt\per{\metre\kelvin}} \\
+    \kappa_{Aluminum} = \SI{166(14)}{\watt\per{\metre\kelvin}} \\
+    \kappa_{Edelstahl} = \SI{14.7(1)}{\watt\per{\metre\kelvin}}
+  \end{split}
+\end{equation*}
+\begin{table}[b]
+  \centering
+  \caption{Amplituden und Phasendifferenzen für Messing}
+  \label{tab:Messing}
+  \begin{tabular}{c c c c}
+    \toprule
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
+    \midrule
+    13.64 & 7.48 & 21.75 & 0.60 \\
+    12.32 & 5.72 & 21.75 & 0.77 \\
+    11.88 & 5.28 & 21.75 & 0.81 \\
+    11.44 & 4.84 & 17.40 & 0.86 \\
+    11.00 & 4.40 & 17.40 & 0.92 \\
+    11.00 & 4.40 & 17.40 & 0.92 \\
+    11.00 & 4.40 & 17.40 & 0.92 \\
+    10.56 & 3.96 & 15.22 & 0.98 \\
+    10.12 & 3.52 & 13.05 & 1.06 \\
+    10.12 & 3.52 & 13.05 & 1.06 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[b]
+  \centering
+  \caption{Amplituden und Phasendifferenzen für Aluminium}
+  \label{tab:Alu}
+  \begin{tabular}{c c c c}
+    \toprule
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ ln(\frac{A_{nah}}{A_{fern}}) $ \\
+    \midrule
+    19.24 & 13.32 & 11.10 & 0.37 \\
+    16.65 & 10.36 & 8.88 & 0.47 \\
+    15.91 & 8.88 & 8.88 & 0.58 \\
+    15.54 & 8.14 & 11.10 & 0.65 \\
+    14.80 & 7.77 & 6.66 & 0.64 \\
+    14.80 & 7.77 & 13.32 & 0.64 \\
+    14.43 & 7.40 & 8.88 & 0.67 \\
+    14.43 & 7.03 & 11.10 & 0.72 \\
+    14.43 & 7.03 & 11.10 & 0.72 \\
+    14.06 & 7.03 & 11.10 & 0.69 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[b]
+  \centering
+  \caption{Amplituden und Phasendifferenzen für Edelstahl}
+  \label{tab:Edelstahl}
+  \begin{tabular}{c c c c}
+    \toprule
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
+    \midrule
+    5.50 & 1.65 & 54.60 & 1.20 \\
+    3.52 & 0.77 & 59.15 & 1.52 \\
+    1.98 & 0.22 & 54.60 & 2.20 \\
+    3.85 & 0.77 & 63.70 & 1.61 \\
+    3.52 & 0.77 & 63.70 & 1.52 \\
+    3.41 & 0.55 & 63.70 & 1.82 \\
+    4.07 & 0.66 & 54.60 & 1.82 \\
+    4.51 & 1.10 & 63.70 & 1.41 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Im Vergleich mit Literaturwerten:
+\begin{equation*}
+  \begin{split}
+    \kappa_{Messing} = \num{81}\text{... }\num{105}\si{\watt\per{\metre\kelvin}} \\
+    \kappa_{Aluminum} = \SI{220}{\watt\per{\metre\kelvin}} \\
+    \kappa_{Edelstahl} = \SI{15}{\watt\per{\metre\kelvin}}
+  \end{split}
+\end{equation*}
+zeigt sich, dass die aus der Messung für Messing und Edelstahl folgenden Werte im Bereich der Messtoleranz liegen. Für Aluminium ist dies nicht der Fall.
+
 \section{Diskussion}
+Zusammenfassend zeigen sich gute Ergebnisse, die großteils mit der Literatur übereinstimmen. Lediglich bei Aluminium ist dies nicht der Fall.
+Mögliche systematische Fehlerquellen können hier die Abschirmung der Stäbe sein. Da diese Abschirmung nicht perfekt ist, findet trotz
+Abschirmung ein Wärmeaustausch mit der Umgebung statt. Statistische Fehler können sich durch die Auswertungsmethode ergeben. Hier mussten
+mit Lineal die Amplituden und Phasendifferenzen aus Grafiken abgelesen werden. Die dabei zwangsläufig entstehenden Ablesefehler lassen sich
+nicht quantifizieren und finden sich am Ende trotz Bildung des Mittelwertes im Ergebnis wieder.
+\\
+Generell lassen sich durch die digitale Datenerfassung aber viele Fehlerquellen ausschließen. Eine weitere Steigerung der Messgenauigkeit könnte
+durch eine komplett digitale Auswertung erreichen, wodurch die Ablesung mit Lineal wegfallen würde. Eine weitere Steigerung der Abschirmungsgüte
+lässt sich bei der geringen Größe der Petier-Elemente nur schwer erreichen. Hier könnten bessere Dämmaterialien eingesetzt werden.
+
 \newpage
 \nocite{*}
 \printbibliography

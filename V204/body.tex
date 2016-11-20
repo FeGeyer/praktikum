@@ -63,11 +63,29 @@ Zu Beginn des Versuchs und nach jedem Abkühlvorgang isolieren wir die Metallst�
 um den Wärmeaustausch mit der Umgebungs so gering wie möglich zu halten. Es werden
 zwei verschiedene Messmethoden angewandt:
 \begin{itemize}
-  \item Statistische Methode:
+  \item $\textbf{Statische Methode:}$
     Über den zeitliche Temperaturverlauf wird die Wärmeleitfähigkeit bestimmt.
     Zu diesem Zweck werden an zwei Messstellen eines jeden Metallstabs die Temperatur
-    als Funktion der Zeit dargestellt.
-  \item Dynamische Methode
+    als Funktion der Zeit dargestellt, was eine Gesamtanzahl von acht Sensoren bedeutet.
+    Mit einer Abtastrate von 5 $\textit{s}$ und einer wie oben
+    bereits erwähnten Spannung von 5 $\textit{V}$ wird die erste Messung durchgeführt,
+    bis der siebte Sensor ungefähr 45° Celsius anzeigt. Nach Beendigung der Messunge
+    werden die Probestäbe abgekühlt.
+
+  \item $\textbf{Dynamische Methode:}$ Wir verwenden als dynamische Methode in diesem
+    Versuch die Angström-Methode, die sich dadurch auszeichnet, dass der Stab periodisch erhitzt wird.
+    In diesem Fall wir die Wärmeleitfähigkeit aus der Ausbreitungsgeschwindigkeit der
+    Temperaturwelle berechnet. Die Abtatstrate bei dieser Methode beträgt 2 $\textit{s}$
+    und die Spannung 8 $\textit{V}$.
+    Wenn die Thermoelemente eine Temperatur von 30° Celsius oder niedriger erreicht haben,
+    führt man die nächste Messung durch, indem man für eine Periode von 80 $\textit{s}$
+    eine Temperaturwelle erzeugt. Dies geschieht, wenn man nach 40 $\textit{s}$ heizen für
+    wiederum 40 $\textit{s}$ mithilfe des Peltierelements die Probestäbe abkühlt.
+    Nach zehn solcher Perioden ist die Messung beendet. Nachdem die Probestäbe wie bei der
+    statischen Methode hinreichend abgekühlt sind, führt man noch eine Messung mit einer
+    Periodendauer von 200 $\textit{s}$ für möglichst viele % Bei Schierok erfragen, wie viele es genau waren
+    Perioden durch. Wenn eins der Thermoelemente 80° Celsius anzeigt, wird die Messung gestoppt.
+    Die Messtäbe werden anschließend wieder gekühlt.
 \end{itemize}
 \section{Auswertung}
 \subsection{Statische Methode}
@@ -79,15 +97,16 @@ eine höhere Wärmeleitung folgt.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.5]{Statisch.pdf}
+  \includegraphics[scale=0.4]{Statisch.pdf}
   \caption{Temperaturverlauf der fernen Thermoelemente.}
-  \label{fig:1}
+  \label{fig:3}
 \end{figure}
+
 Bei der Temperaturdifferenz zeigen sich Unterschiede zwischen Messing und Edelstahl. Zuerst steigen beide Kurven stark an. Nach dem
 Anstieg bleibt die Temperaturdifferenz des Edelstahls bis auf geringe Änderungen konstant. Beim Messing hingegen, fällt die Temperaturdifferenz
-nach einem schnell erreichten Maximum exponentiell ab, bis es sich einem Konstanten Wert annähert. Dies Zeigt sich auch im Wärmestrom nach \eqref{eqn:1} bei einem
+nach einem schnell erreichten Maximum exponentiell ab, bis es sich einem Konstanten Wert annähert. Dies zeigt sich auch im Wärmestrom nach \eqref{eqn:1} bei einem
 Querschnitt von $A = \SI{4.8e-5}{\metre\square}$ über eine Länge von $\SI{0,03}{\metre}$:
-\begin{table}
+\begin{table}[h]
   \centering
   \caption{Temperaturdiffernzen}
   \label{tab:deltaT}
@@ -105,7 +124,7 @@ Querschnitt von $A = \SI{4.8e-5}{\metre\square}$ über eine Länge von $\SI{0,03
     \bottomrule
   \end{tabular}
 \end{table}
-Der Wärmestrom zeigt auch noch einmal, dass in Edelstahl bei der Gleichen Erhitzung über die gleiche Distanz bei gleichem Querschnitt ein betragsmäßig
+Der Wärmestrom zeigt auch noch einmal, dass in Edelstahl bei der gleichen Erhitzung über die gleiche Distanz bei gleichem Querschnitt ein betragsmäßig
 geringerer Wärmestrom fließt, Messing also besser Wärme leitet.
 
 \section{Diskussion}

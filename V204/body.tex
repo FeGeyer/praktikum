@@ -10,7 +10,7 @@ Wärmeleitung ist eine von drei Methoden, um Wärme entlang eines Temperaturgef�
 welches durch eine Störung des Temperaturgleichgewichts ensteht. Neben Konvektion und Wärmestrahlung
 erfolgt die Wärmeleitung durch Phononen und frei bewegliche Elektronen. Durch einen Stab der Länge L und der
 Querschnittsfläche A, der aus einem Material mit Dichte $\textit{\rho}$ und spezifische Wärme $\textit{c}$ besteht,
-fließt in der Zeit d$\textit{t}$ bezüglich der Querschnittsfläche die Wärmemenge
+fließt in der Zeit $\textit{dt}$ bezüglich der Querschnittsfläche die Wärmemenge
 \begin{equation}
   \symup dQ = - \kappa \, A \, \frac{\partial T}{\partial x} \, \symup dt .
   \label{eqn:1}
@@ -32,32 +32,31 @@ Die Phasengesschwindigkeit der Welle lautet
 zur Bestimmung der Dämpfung nutzt man das Amplitudenverhältnis aus $A_{nah}$ und $A_{fern}$
 an zwei Messstellen $x_{nah}$ und $x_{fern}$. Für die Wärmeleitfähigkeit erhält man also
 \begin{equation}
-  \kappa = \frac{\rho c (\symup \Delta x)^2}{2 \, \symup \Delta t \, ln (A_{nah}/{A_{fern})}}
+  \kappa = \frac{\rho c (\Delta x)^2}{2 \, \Delta t \, ln (A_{nah}/{A_{fern})}}
   \label{eqn:4}
 \end{equation}
-mit $\symup \Delta x$ als Abstand und $\symup \Delta t$ als Phasendifferenz der Temperaturwelle
+mit $\Delta x$ als Abstand und $\Delta t$ als Phasendifferenz der Temperaturwelle
 zwischen den beiden Messstellen.
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 Auf der Grundplatte sind vier rechteckige Probestäbe aus Aluminium, zweimal Messing
 und Edelstahl. Ein Peltierelement erhitzt bzw. kühlt die Probestäbe gleichzeitig.
-Mit einem Schalter lässt sich zwischen diesen beiden Betriebsarten umschalten, siehe \ref{fig:1}.
-Die Eingangsspannungen sind \SI{5}{\volt} für die statische bzw. \SI{8}{\volt}
+Mit einem Schalter lässt sich zwischen diesen beiden Betriebsarten umschalten.
+Die Eingangsspannungen sind 5 $\textit{V}$ für die statische bzw. 8 $\textit{V}$
 für die dynamische Methode \footnote{Siehe \ref{sec:1}}. Die Temperaturen werden
 an zwei Stellen eines Stabes abgegriffen und an einen Datenlogger (Xplorer GLX)
 weitergeleitet.
 \begin{figure}[t]
   \centering
   \includegraphics[scale=0.5]{versuchsaufbau.png}
-  \caption{Grundplatte mit vier Probestäben, dem Peltier-Element und den nötigen Anschlüssen
-  für Strom und Datenlogger.}
-  \label{fig:1}
+  \caption{Versuchsuafbau.}
+  \label{fig:2}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{xplorer_glx.jpg}
   \caption{Darstellung eines Datenloggers Typ Xplorer GLX.}
-  \label{fig:2}
+  \label{fig:1}
 \end{figure}
 \subsection{Versuchsdurchführung}
 \label{sec:1}
@@ -69,24 +68,24 @@ zwei verschiedene Messmethoden angewandt:
     Über den zeitliche Temperaturverlauf wird die Wärmeleitfähigkeit bestimmt.
     Zu diesem Zweck werden an zwei Messstellen eines jeden Metallstabs die Temperatur
     als Funktion der Zeit dargestellt, was eine Gesamtanzahl von acht Sensoren bedeutet.
-    Mit einer Abtastrate von \SI{5}{\second} und einer wie oben
-    bereits erwähnten Spannung von \SI{5}{\volt} wird die erste Messung durchgeführt,
-    bis der siebte Sensor ungefähr \SI{45}{\celsius} anzeigt. Nach Beendigung der Messunge
+    Mit einer Abtastrate von 5 $\textit{s}$ und einer wie oben
+    bereits erwähnten Spannung von 5 $\textit{V}$ wird die erste Messung durchgeführt,
+    bis der siebte Sensor ungefähr 45° Celsius anzeigt. Nach Beendigung der Messunge
     werden die Probestäbe abgekühlt.
 
   \item $\textbf{Dynamische Methode:}$ Wir verwenden als dynamische Methode in diesem
     Versuch die Angström-Methode, die sich dadurch auszeichnet, dass der Stab periodisch erhitzt wird.
     In diesem Fall wir die Wärmeleitfähigkeit aus der Ausbreitungsgeschwindigkeit der
-    Temperaturwelle berechnet. Die Abtatstrate bei dieser Methode beträgt \SI{2}{\second}
-    und die Spannung \SI{8}{\volt}.
-    Wenn die Thermoelemente eine Temperatur von \SI{30}{\celsius} oder niedriger erreicht haben,
-    führt man die nächste Messung durch, indem man für eine Periode von \SI{80}{\second}
-    eine Temperaturwelle erzeugt. Dies geschieht, wenn man nach \SI{40}{\second} heizen für
-    wiederum \SI{40}{\second} mithilfe des Peltierelements die Probestäbe abkühlt.
+    Temperaturwelle berechnet. Die Abtatstrate bei dieser Methode beträgt 2 $\textit{s}$
+    und die Spannung 8 $\textit{V}$.
+    Wenn die Thermoelemente eine Temperatur von 30° Celsius oder niedriger erreicht haben,
+    führt man die nächste Messung durch, indem man für eine Periode von 80 $\textit{s}$
+    eine Temperaturwelle erzeugt. Dies geschieht, wenn man nach 40 $\textit{s}$ heizen für
+    wiederum 40 $\textit{s}$ mithilfe des Peltierelements die Probestäbe abkühlt.
     Nach zehn solcher Perioden ist die Messung beendet. Nachdem die Probestäbe wie bei der
     statischen Methode hinreichend abgekühlt sind, führt man noch eine Messung mit einer
-    Periodendauer von \SI{200}{\second} für neun
-    Perioden durch. Wenn eins der Thermoelemente \SI{80}{\celsius} anzeigt, wird die Messung gestoppt.
+    Periodendauer von 200 $\textit{s}$ für möglichst viele % Bei Schierok erfragen, wie viele es genau waren
+    Perioden durch. Wenn eins der Thermoelemente 80° Celsius anzeigt, wird die Messung gestoppt.
     Die Messtäbe werden anschließend wieder gekühlt.
 \end{itemize}
 \section{Fehlerrechnung}
@@ -110,7 +109,7 @@ betrachteten Metalle aufweist. Aus dem Verlauf der Temperaturkurven der beiden M
 eine höhere Wärmeleitung folgt.
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.5]{Statisch.pdf}
+  \includegraphics[scale=0.4]{Statisch.pdf}
   \caption{Temperaturverlauf der fernen Thermoelemente.}
   \label{fig:3}
 \end{figure}
@@ -125,8 +124,8 @@ Querschnitt von $A = \SI{4.8e-5}{\metre\square}$ über eine Länge von $\SI{0,03
   \begin{tabular}{S S S S S S}
     \toprule
     \multicolumn {3}{c}{Edelstahl, $\kappa = \SI{58}{\watt\per\metre\kelvin}$} & \multicolumn {3}{c}{Messing, $\kappa = \SI{120}{\watt\per\metre\kelvin}$} \\
-    {$t$ in $\si{\second}$} & {$\symup \Delta T$ in $\si{\kelvin}$} & {$\symup \Delta Q / \symup \Delta t$ in $\si{\watt}$} & {$t$ in $\si{\second}$} &
-      {$\symup \Delta T$ in $\si{\kelvin}$} & {$\symup \Delta Q / \symup \Delta t$ in $\si{\watt}$} \\
+    {$t$ in $\si{\second}$} & {$\delta T$ in $\si{\kelvin}$} & {$\delta Q / \delta t$ in $\si{\watt}$} & {$t$ in $\si{\second}$} &
+      {$\delta T$ in $\si{\kelvin}$} & {$\delta Q / \delta t$ in $\si{\watt}$} \\
     \midrule
     100 & 281,00 & -26,08 & 50 & 277,28 & -53,24\\
     200 & 281,92 & -26,16 & 100 & 277,05 & -53,19\\
@@ -150,7 +149,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:MW}
   \begin{tabular}{c c c}
     \toprule
-    Metall & $\overline{ln(\frac{A_{nah}}{A_{fern}})}$ & $\overline{\symup \Delta t} \text{ in } \si{\second}$\\
+    Metall & $\overline{ln(\frac{A_{nah}}{A_{fern}})}$ & $\overline{\Delta t} \text{ in } \si{\second}$\\
     \midrule
     Messing & 0.89 \pm 0.04 & 17.6 \pm 1.0 \\
     Aluminium & 0.62 \pm 0.04 & 10.2 \pm 0.6 \\
@@ -171,7 +170,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:Messing}
   \begin{tabular}{c c c c}
     \toprule
-    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\symup \Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
     \midrule
     13.64 & 7.48 & 21.75 & 0.60 \\
     12.32 & 5.72 & 21.75 & 0.77 \\
@@ -193,7 +192,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:Alu}
   \begin{tabular}{c c c c}
     \toprule
-    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\symup \Delta t \text{ in } \si{\second}$ & $ ln(\frac{A_{nah}}{A_{fern}}) $ \\
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ ln(\frac{A_{nah}}{A_{fern}}) $ \\
     \midrule
     19.24 & 13.32 & 11.10 & 0.37 \\
     16.65 & 10.36 & 8.88 & 0.47 \\
@@ -215,7 +214,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:Edelstahl}
   \begin{tabular}{c c c c}
     \toprule
-    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\symup \Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
     \midrule
     5.50 & 1.65 & 54.60 & 1.20 \\
     3.52 & 0.77 & 59.15 & 1.52 \\
@@ -229,10 +228,10 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \end{tabular}
 \end{table}
 
-Im Vergleich mit Literaturwerten \cite{literaturwerte}:
+Im Vergleich mit Literaturwerten:
 \begin{equation*}
   \begin{split}
-    \kappa_{Messing} = \num{81}\text{... }\num{105}\,\si{\watt\per{\metre\kelvin}} \\
+    \kappa_{Messing} = \num{81}\text{... }\num{105}\si{\watt\per{\metre\kelvin}} \\
     \kappa_{Aluminum} = \SI{220}{\watt\per{\metre\kelvin}} \\
     \kappa_{Edelstahl} = \SI{15}{\watt\per{\metre\kelvin}}
   \end{split}
@@ -244,11 +243,10 @@ Zusammenfassend zeigen sich gute Ergebnisse, die großteils mit der Literatur ü
 knapp verfehlt. Fraglich ist an dieser Stelle, welche Legierung für Messing und Edelstahl verwendet wurden, sowie wie rein das Aluminium ist. Es kann somit
 keine absolut verlässliche Aussage getroffen werden, inwieweit die für die Metalle gefundenen Literaturwerte mit den verwendeten Materialien übereinstimmen. Insbesondere bei Messing
 wir in der Literatur ein Intervall angegeben, in dem sich auch der aus der Messung folgende Wert findet.
-Mögliche systematische Fehlerquellen können hier die Abschirmung der Stäbe sein. Da diese nicht perfekt ist, findet trotzdem
-ein Wärmeaustausch mit der Umgebung statt. Statistische Fehler können sich durch die Auswertungsmethode ergeben. Hier mussten
+Mögliche systematische Fehlerquellen können hier die Abschirmung der Stäbe sein. Da diese nicht perfekt ist, findet trotz
+Abschirmung ein Wärmeaustausch mit der Umgebung statt. Statistische Fehler können sich durch die Auswertungsmethode ergeben. Hier mussten
 mit Lineal die Amplituden und Phasendifferenzen aus Grafiken abgelesen werden. Die dabei zwangsläufig entstehenden Ablesefehler lassen sich
 nicht quantifizieren und finden sich am Ende trotz Bildung des Mittelwertes im Ergebnis wieder.
-\\
 \\
 Generell lassen sich durch die digitale Datenerfassung aber viele Fehlerquellen ausschließen. Eine weitere Steigerung der Messgenauigkeit könnte
 durch eine komplett digitale Auswertung erreicht werden, wodurch die Ablesung mit Lineal wegfallen würde. Eine weitere Steigerung der Abschirmungsgüte

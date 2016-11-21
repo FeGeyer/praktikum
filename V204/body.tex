@@ -107,14 +107,12 @@ Die Betrachtung der Temperaturverläufe an den entfernt liegenden Termoelementen
 Wärmeleitfähigkeit besitzt. Auf Aluminium folgen Messing und schließlich Edelstahl, welches die geringste Wärmeleitfähigkeit der
 betrachteten Metalle aufweist. Aus dem Verlauf der Temperaturkurven der beiden Messingstäbe folgt, dass aus einem höherer Querschnitt
 eine höhere Wärmeleitung folgt.
-
 \begin{figure}[h]
   \centering
   \includegraphics[scale=0.4]{Statisch.pdf}
   \caption{Temperaturverlauf der fernen Thermoelemente.}
   \label{fig:3}
 \end{figure}
-
 Bei der Temperaturdifferenz zeigen sich Unterschiede zwischen Messing und Edelstahl. Zuerst steigen beide Kurven stark an. Nach dem
 Anstieg bleibt die Temperaturdifferenz des Edelstahls bis auf geringe Änderungen konstant. Beim Messing hingegen, fällt die Temperaturdifferenz
 nach einem schnell erreichten Maximum exponentiell ab, bis es sich einem Konstanten Wert annähert. Dies zeigt sich auch im Wärmestrom nach \eqref{eqn:1} bei einem
@@ -142,8 +140,8 @@ geringerer Wärmestrom fließt, Messing also besser Wärme leitet.
 
 \subsection{Dynamische Methode}
 Aus den Messungen folgen die in den Tabellen \ref{tab:Messing}, \ref{tab:Alu} und \ref{tab:Edelstahl} dargestellten Werte für die Amplituden sowie die Phasendifferenz.
-Tabelle \ref{tab:MW} zeigt die Mittelwerte der Logarithmen der Amplitudenverhältnisse, sowie der Phasendifferenzen. Die Werte berechnen sich nach \ref{eqn:5} für den
-Mittelwert und \ref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben nach \ref{eqn:4} folgende Werte für $\kappa$:
+Tabelle \ref{tab:MW} zeigt die Mittelwerte der Logarithmen der Amplitudenverhältnisse, sowie der Phasendifferenzen. Die Werte berechnen sich nach \eqref{eqn:5} für den
+Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben nach \eqref{eqn:4} folgende Werte für $\kappa$:
 
 \begin{table}[b]
   \centering
@@ -238,17 +236,20 @@ Im Vergleich mit Literaturwerten:
     \kappa_{Edelstahl} = \SI{15}{\watt\per{\metre\kelvin}}
   \end{split}
 \end{equation*}
-zeigt sich, dass die aus der Messung für Messing und Edelstahl folgenden Werte im Bereich der Messtoleranz liegen. Für Aluminium ist dies nicht der Fall.
+zeigt sich, dass die aus der Messung für Messing folgenden Werte im Bereich der Messtoleranz liegen. Für Aluminium und Edelstahl dies nicht der Fall.
 
 \section{Diskussion}
-Zusammenfassend zeigen sich gute Ergebnisse, die großteils mit der Literatur übereinstimmen. Lediglich bei Aluminium ist dies nicht der Fall.
-Mögliche systematische Fehlerquellen können hier die Abschirmung der Stäbe sein. Da diese Abschirmung nicht perfekt ist, findet trotz
+Zusammenfassend zeigen sich gute Ergebnisse, die großteils mit der Literatur übereinstimmen. Lediglich bei Aluminium ist die Abweichung groß, bei Edelstahl wurde der Literaturwert
+knapp verfehlt. Fraglich ist an dieser Stelle, welche Legierung für Messing und Edelstahl verwendet wurden, sowie wie rein das Aluminium ist. Es kann somit
+keine absolut verlässliche Aussage getroffen werden, inwieweit die für die Metalle gefundenen Literaturwerte mit den verwendeten Materialien übereinstimmen. Insbesondere bei Messing
+wir in der Literatur ein Intervall angegeben, in dem sich auch der aus der Messung folgende Wert findet.
+Mögliche systematische Fehlerquellen können hier die Abschirmung der Stäbe sein. Da diese nicht perfekt ist, findet trotz
 Abschirmung ein Wärmeaustausch mit der Umgebung statt. Statistische Fehler können sich durch die Auswertungsmethode ergeben. Hier mussten
 mit Lineal die Amplituden und Phasendifferenzen aus Grafiken abgelesen werden. Die dabei zwangsläufig entstehenden Ablesefehler lassen sich
 nicht quantifizieren und finden sich am Ende trotz Bildung des Mittelwertes im Ergebnis wieder.
 \\
 Generell lassen sich durch die digitale Datenerfassung aber viele Fehlerquellen ausschließen. Eine weitere Steigerung der Messgenauigkeit könnte
-durch eine komplett digitale Auswertung erreichen, wodurch die Ablesung mit Lineal wegfallen würde. Eine weitere Steigerung der Abschirmungsgüte
+durch eine komplett digitale Auswertung erreicht werden, wodurch die Ablesung mit Lineal wegfallen würde. Eine weitere Steigerung der Abschirmungsgüte
 lässt sich bei der geringen Größe der Petier-Elemente nur schwer erreichen. Hier könnten bessere Dämmaterialien eingesetzt werden.
 
 \newpage

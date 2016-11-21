@@ -10,7 +10,7 @@ Wärmeleitung ist eine von drei Methoden, um Wärme entlang eines Temperaturgef�
 welches durch eine Störung des Temperaturgleichgewichts ensteht. Neben Konvektion und Wärmestrahlung
 erfolgt die Wärmeleitung durch Phononen und frei bewegliche Elektronen. Durch einen Stab der Länge L und der
 Querschnittsfläche A, der aus einem Material mit Dichte $\textit{\rho}$ und spezifische Wärme $\textit{c}$ besteht,
-fließt in der Zeit $\textit{dt}$ bezüglich der Querschnittsfläche die Wärmemenge
+fließt in der Zeit d$\textit{t}$ bezüglich der Querschnittsfläche die Wärmemenge
 \begin{equation}
   \symup dQ = - \kappa \, A \, \frac{\partial T}{\partial x} \, \symup dt .
   \label{eqn:1}
@@ -41,22 +41,23 @@ zwischen den beiden Messstellen.
 \subsection{Versuchsaufbau}
 Auf der Grundplatte sind vier rechteckige Probestäbe aus Aluminium, zweimal Messing
 und Edelstahl. Ein Peltierelement erhitzt bzw. kühlt die Probestäbe gleichzeitig.
-Mit einem Schalter lässt sich zwischen diesen beiden Betriebsarten umschalten.
-Die Eingangsspannungen sind 5 $\textit{V}$ für die statische bzw. 8 $\textit{V}$
+Mit einem Schalter lässt sich zwischen diesen beiden Betriebsarten umschalten, siehe \ref{fig:1}.
+Die Eingangsspannungen sind \SI{5}{\volt} für die statische bzw. \SI{8}{\volt}
 für die dynamische Methode \footnote{Siehe \ref{sec:1}}. Die Temperaturen werden
 an zwei Stellen eines Stabes abgegriffen und an einen Datenlogger (Xplorer GLX)
 weitergeleitet.
 \begin{figure}[t]
   \centering
   \includegraphics[scale=0.5]{versuchsaufbau.png}
-  \caption{Versuchsuafbau.}
-  \label{fig:2}
+  \caption{Grundplatte mit vier Probestäben, dem Peltier-Element und den nötigen Anschlüssen
+  für Strom und Datenlogger.}
+  \label{fig:1}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{xplorer_glx.jpg}
   \caption{Darstellung eines Datenloggers Typ Xplorer GLX.}
-  \label{fig:1}
+  \label{fig:2}
 \end{figure}
 \subsection{Versuchsdurchführung}
 \label{sec:1}
@@ -68,24 +69,24 @@ zwei verschiedene Messmethoden angewandt:
     Über den zeitliche Temperaturverlauf wird die Wärmeleitfähigkeit bestimmt.
     Zu diesem Zweck werden an zwei Messstellen eines jeden Metallstabs die Temperatur
     als Funktion der Zeit dargestellt, was eine Gesamtanzahl von acht Sensoren bedeutet.
-    Mit einer Abtastrate von 5 $\textit{s}$ und einer wie oben
-    bereits erwähnten Spannung von 5 $\textit{V}$ wird die erste Messung durchgeführt,
-    bis der siebte Sensor ungefähr 45° Celsius anzeigt. Nach Beendigung der Messunge
+    Mit einer Abtastrate von \SI{5}{\second} und einer wie oben
+    bereits erwähnten Spannung von \SI{5}{\volt} wird die erste Messung durchgeführt,
+    bis der siebte Sensor ungefähr \SI{45}{\celsius} anzeigt. Nach Beendigung der Messunge
     werden die Probestäbe abgekühlt.
 
   \item $\textbf{Dynamische Methode:}$ Wir verwenden als dynamische Methode in diesem
     Versuch die Angström-Methode, die sich dadurch auszeichnet, dass der Stab periodisch erhitzt wird.
     In diesem Fall wir die Wärmeleitfähigkeit aus der Ausbreitungsgeschwindigkeit der
-    Temperaturwelle berechnet. Die Abtatstrate bei dieser Methode beträgt 2 $\textit{s}$
-    und die Spannung 8 $\textit{V}$.
-    Wenn die Thermoelemente eine Temperatur von 30° Celsius oder niedriger erreicht haben,
-    führt man die nächste Messung durch, indem man für eine Periode von 80 $\textit{s}$
-    eine Temperaturwelle erzeugt. Dies geschieht, wenn man nach 40 $\textit{s}$ heizen für
-    wiederum 40 $\textit{s}$ mithilfe des Peltierelements die Probestäbe abkühlt.
+    Temperaturwelle berechnet. Die Abtatstrate bei dieser Methode beträgt \SI{2}{\second}
+    und die Spannung \SI{8}{\volt}.
+    Wenn die Thermoelemente eine Temperatur von \SI{30}{\celsius} oder niedriger erreicht haben,
+    führt man die nächste Messung durch, indem man für eine Periode von \SI{80}{\second}
+    eine Temperaturwelle erzeugt. Dies geschieht, wenn man nach \SI{40}{\second} heizen für
+    wiederum \SI{40}{\second} mithilfe des Peltierelements die Probestäbe abkühlt.
     Nach zehn solcher Perioden ist die Messung beendet. Nachdem die Probestäbe wie bei der
     statischen Methode hinreichend abgekühlt sind, führt man noch eine Messung mit einer
-    Periodendauer von 200 $\textit{s}$ für möglichst viele % Bei Schierok erfragen, wie viele es genau waren
-    Perioden durch. Wenn eins der Thermoelemente 80° Celsius anzeigt, wird die Messung gestoppt.
+    Periodendauer von \SI{200}{\second} für neun
+    Perioden durch. Wenn eins der Thermoelemente \SI{80}{\celsius} anzeigt, wird die Messung gestoppt.
     Die Messtäbe werden anschließend wieder gekühlt.
 \end{itemize}
 \section{Fehlerrechnung}
@@ -231,7 +232,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
 Im Vergleich mit Literaturwerten \cite{literaturwerte}:
 \begin{equation*}
   \begin{split}
-    \kappa_{Messing} = \num{81}\text{... }\num{105}\si{\watt\per{\metre\kelvin}} \\
+    \kappa_{Messing} = \num{81}\text{... }\num{105}\,\si{\watt\per{\metre\kelvin}} \\
     \kappa_{Aluminum} = \SI{220}{\watt\per{\metre\kelvin}} \\
     \kappa_{Edelstahl} = \SI{15}{\watt\per{\metre\kelvin}}
   \end{split}
@@ -243,10 +244,11 @@ Zusammenfassend zeigen sich gute Ergebnisse, die großteils mit der Literatur ü
 knapp verfehlt. Fraglich ist an dieser Stelle, welche Legierung für Messing und Edelstahl verwendet wurden, sowie wie rein das Aluminium ist. Es kann somit
 keine absolut verlässliche Aussage getroffen werden, inwieweit die für die Metalle gefundenen Literaturwerte mit den verwendeten Materialien übereinstimmen. Insbesondere bei Messing
 wir in der Literatur ein Intervall angegeben, in dem sich auch der aus der Messung folgende Wert findet.
-Mögliche systematische Fehlerquellen können hier die Abschirmung der Stäbe sein. Da diese nicht perfekt ist, findet trotz
-Abschirmung ein Wärmeaustausch mit der Umgebung statt. Statistische Fehler können sich durch die Auswertungsmethode ergeben. Hier mussten
+Mögliche systematische Fehlerquellen können hier die Abschirmung der Stäbe sein. Da diese nicht perfekt ist, findet trotzdem
+ein Wärmeaustausch mit der Umgebung statt. Statistische Fehler können sich durch die Auswertungsmethode ergeben. Hier mussten
 mit Lineal die Amplituden und Phasendifferenzen aus Grafiken abgelesen werden. Die dabei zwangsläufig entstehenden Ablesefehler lassen sich
 nicht quantifizieren und finden sich am Ende trotz Bildung des Mittelwertes im Ergebnis wieder.
+\\
 \\
 Generell lassen sich durch die digitale Datenerfassung aber viele Fehlerquellen ausschließen. Eine weitere Steigerung der Messgenauigkeit könnte
 durch eine komplett digitale Auswertung erreicht werden, wodurch die Ablesung mit Lineal wegfallen würde. Eine weitere Steigerung der Abschirmungsgüte

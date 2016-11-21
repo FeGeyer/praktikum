@@ -32,10 +32,10 @@ Die Phasengesschwindigkeit der Welle lautet
 zur Bestimmung der Dämpfung nutzt man das Amplitudenverhältnis aus $A_{nah}$ und $A_{fern}$
 an zwei Messstellen $x_{nah}$ und $x_{fern}$. Für die Wärmeleitfähigkeit erhält man also
 \begin{equation}
-  \kappa = \frac{\rho c (\Delta x)^2}{2 \, \Delta t \, ln (A_{nah}/{A_{fern})}}
+  \kappa = \frac{\rho c (\symup \Delta x)^2}{2 \, \symup \Delta t \, ln (A_{nah}/{A_{fern})}}
   \label{eqn:4}
 \end{equation}
-mit $\Delta x$ als Abstand und $\Delta t$ als Phasendifferenz der Temperaturwelle
+mit $\symup \Delta x$ als Abstand und $\symup \Delta t$ als Phasendifferenz der Temperaturwelle
 zwischen den beiden Messstellen.
 \section{Durchführung}
 \subsection{Versuchsaufbau}
@@ -110,7 +110,7 @@ betrachteten Metalle aufweist. Aus dem Verlauf der Temperaturkurven der beiden M
 eine höhere Wärmeleitung folgt.
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.4]{Statisch.pdf}
+  \includegraphics[scale=0.5]{Statisch.pdf}
   \caption{Temperaturverlauf der fernen Thermoelemente.}
   \label{fig:3}
 \end{figure}
@@ -125,8 +125,8 @@ Querschnitt von $A = \SI{4.8e-5}{\metre\square}$ über eine Länge von $\SI{0,03
   \begin{tabular}{S S S S S S}
     \toprule
     \multicolumn {3}{c}{Edelstahl, $\kappa = \SI{58}{\watt\per\metre\kelvin}$} & \multicolumn {3}{c}{Messing, $\kappa = \SI{120}{\watt\per\metre\kelvin}$} \\
-    {$t$ in $\si{\second}$} & {$\delta T$ in $\si{\kelvin}$} & {$\delta Q / \delta t$ in $\si{\watt}$} & {$t$ in $\si{\second}$} &
-      {$\delta T$ in $\si{\kelvin}$} & {$\delta Q / \delta t$ in $\si{\watt}$} \\
+    {$t$ in $\si{\second}$} & {$\symup \Delta T$ in $\si{\kelvin}$} & {$\symup \Delta Q / \symup \Delta t$ in $\si{\watt}$} & {$t$ in $\si{\second}$} &
+      {$\symup \Delta T$ in $\si{\kelvin}$} & {$\symup \Delta Q / \symup \Delta t$ in $\si{\watt}$} \\
     \midrule
     100 & 281,00 & -26,08 & 50 & 277,28 & -53,24\\
     200 & 281,92 & -26,16 & 100 & 277,05 & -53,19\\
@@ -150,7 +150,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:MW}
   \begin{tabular}{c c c}
     \toprule
-    Metall & $\overline{ln(\frac{A_{nah}}{A_{fern}})}$ & $\overline{\Delta t} \text{ in } \si{\second}$\\
+    Metall & $\overline{ln(\frac{A_{nah}}{A_{fern}})}$ & $\overline{\symup \Delta t} \text{ in } \si{\second}$\\
     \midrule
     Messing & 0.89 \pm 0.04 & 17.6 \pm 1.0 \\
     Aluminium & 0.62 \pm 0.04 & 10.2 \pm 0.6 \\
@@ -171,7 +171,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:Messing}
   \begin{tabular}{c c c c}
     \toprule
-    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\symup \Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
     \midrule
     13.64 & 7.48 & 21.75 & 0.60 \\
     12.32 & 5.72 & 21.75 & 0.77 \\
@@ -193,7 +193,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:Alu}
   \begin{tabular}{c c c c}
     \toprule
-    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ ln(\frac{A_{nah}}{A_{fern}}) $ \\
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\symup \Delta t \text{ in } \si{\second}$ & $ ln(\frac{A_{nah}}{A_{fern}}) $ \\
     \midrule
     19.24 & 13.32 & 11.10 & 0.37 \\
     16.65 & 10.36 & 8.88 & 0.47 \\
@@ -215,7 +215,7 @@ Mittelwert und \eqref{eqn:6} für den Fehler des Mittelwertes. Diese Werte geben
   \label{tab:Edelstahl}
   \begin{tabular}{c c c c}
     \toprule
-    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
+    $A_{nah} \text{ in } \si{\kelvin}$ & $A_{fern} \text{ in } \si{\kelvin}$ & $\symup \Delta t \text{ in } \si{\second}$ & $ln(\frac{A_{nah}}{A_{fern}})$\\
     \midrule
     5.50 & 1.65 & 54.60 & 1.20 \\
     3.52 & 0.77 & 59.15 & 1.52 \\

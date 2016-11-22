@@ -6,7 +6,7 @@
 In diesem Versuch geht es um Messung der Schwingungs- und Schwebungsdauer von gekoppelten Pendeln.
 Untersucht werden gleich- und gegensinnige sowie gekoppelte Schwingungen.
 \section{Theorie}
-Ein einzelndes Fadenpendel, welches reibungsfrei aufgehängt wurde, mit einem Faden der Länge $\textit{l}$ und Masse $\textit{m}$
+Ein einzelnes Fadenpendel, welches reibungsfrei aufgehängt wurde, mit einem Faden der Länge $\textit{l}$ und Masse $\textit{m}$,
 schwingt für kleine Auslenkungen (sin $\phi \approx \phi$) mit der Schwingungsfrequenz
 \begin{equation}
   \omega = \sqrt{\frac{\textit{l}}{g}}
@@ -21,7 +21,14 @@ ergibt sich als Formel für die gesuchte Schwingungsdauer
   \textit{T} = 2\pi \sqrt{\frac{g}{\textit{l}}}
   \label{e2}
 \end{equation}
-Wenn man nun zwei dieser Fadenpendel durch eine Feder koppelt, ergeben sich zwei DGL's mit jeweils einem Term darin,
+Wenn man nun zwei dieser Fadenpendel durch eine Feder koppelt, ergeben sich zwei Differentialgleichungen:
+\begin{equation}
+  \begin{split}
+    J \ \ddot{\Phi_{1}} + D \ \Phi_{1} = D_{F} \ (\Phi_{2} - \Phi_{1}) \\
+    J \ \ddot{\Phi_{2}} + D \ \Phi_{2} = D_{F} \ (\Phi_{1} - \Phi_{2})
+  \end{split}
+\end{equation}
+mit jeweils einem Term darin,
 der den Drehwinkel des anderen Pendels enthält. Dies kommt durch die Kopplung mit der Feder. Je nach Auslenkungswinkel $\alpha_{1}$
 und $\alpha_{2}$ der Fadenpendel ergeben sich verschiedene Schwingungsarten:
 \\
@@ -49,13 +56,14 @@ Pendel die kinetische Energie auf das andere Pendel übertragen und dann erneut 
 Dieser Begriff beschreibt die Zeit zwischen zwei Stillständen eines Pendels. Die Dauer dieses Zustandes berechnet sich nach
 \begin{equation}
   \textit{T}_{S} = \frac{\textit{T}_{-} \cdot \textit{T}_{+}}{\textit{T}_{+} - \textit{T}_{-}}
+  \ \ \text{und} \ \ \omega_{S} = \omega_{+} - \omega_{-}
   \label{e5}
 \end{equation}
 mit $\textit{T}_{-}$ aus der gegen- und $\textit{T}_{+}$ aus der gleichsinnigen Schwingung. Die Kopplungskonstante \textit{K}
 der Feder zwischen den beiden Pendeln definiert sich nach
 \begin{equation}
-  \textit{K} = \frac{\textit{T}_{+}^{2} - \textit{T}_{-}^{2}}{\textit{T}_{+}^{2} + \textit{T}_{-}^{2}} = \frac{\textit{\omega}_{+} \cdot \textit{\omega}_{-}}{\textit{\omega}_{-} -
-  \textit{\omega}_{+}}
+  \textit{K} = \frac{\textit{T}_{+}^{2} - \textit{T}_{-}^{2}}{\textit{T}_{+}^{2} + \textit{T}_{-}^{2}} =
+  \frac{\omega_{-}^{2} - \omega_{+}^{2}}{\omega_{-}^{2} + \omega_{+}^{2}}
   \label{e6}
 \end{equation}
 \section{Durchführung}

@@ -7,17 +7,65 @@ Ziel des Versuches ist es, den Transport von Wärmeenergie entgegen der Richtung
 zu untersuchen. Wichtige dabei zu beachtende Größen sind die Güteziffer, der Massendurchsatz und
 die mechanische Leistung des Kompressors.
 \section{Theorie}
+Die Wärmeenergie in einem abgeschlossenen System fließt von der warmen Umgebung in die kalte
+Umgebung. Um diesen Wärmefluss umzudrehen, muss mechanische Arbeit erbracht werden. So
+eine Maschine wird als Wärmepumpe bezeichnet. Aus dem ersten Hauptsatz der Thermodynamik kommt:
+\begin{equation}
+    \symup{Q_1 = Q_2 + A}
+    \label{eqn:3}
+\end{equation}
+Das Verhältnis zwischen transportierter Wärmemenge und aufgewendeter Arbeit ist definiert
+als Güteziffer $\nu$:
+\begin{equation}
+    % müssen noch überlegen, ob wir die \nu kursiv machen oder nicht
+    \nu = \symup{\frac{Q_1}{A}}
+    \label{eqn:4}
+\end{equation}
+Dabei ist A die aufgewendetet Arbeit und $\symup Q_1$ die an das wärmere Reservoir abgegebene
+Wärmemenge. Es gilt zu beachten, dass dies die Güteziffer für idealisierte Bedingungen darstellt.
+Eine weitere idealisierte Annahme kommt aus dem zweiten Hauptsatz der Thermodynamik:
+\begin{equation}
+    \symup{\frac{Q_1}{T_1} - \frac{Q_2}{T_2}} = 0
+    \label{eqn:5}
+\end{equation}
+Da die Wärmepumpe nicht reversibel arbeiten kann, gilt für die reale Beziehung:
+\begin{equation}
+  \symup{\frac{Q_1}{T_1} - \frac{Q_2}{T_2}} > 0
+  \label{eqn:6}
+\end{equation}
+Nun ergibt sich für \eqref{eqn:4} aus \eqref{eqn:5} und \eqref{eqn:6}:
+\begin{equation}
+  \begin{split}
+    % müssen noch überlegen, ob wir die \nu kursiv machen oder nicht
+    v_{ideal} = \symup{\frac{T_1}{T_1 - T_2}} \\
+    v_{real} < \symup{\frac{T_1}{T_1 - T_2}}
+    \label{eqn:7}
+  \end{split}
+\end{equation}
 \section{Durchführung}
+\subsection{Versuchsaufbau}
+Der Versuchsaufbau, siehe \ref{fig:1}, besteht aus den beiden thermisch isolierten Reservoiren, deren Temperatur über zwei
+digitale Termometer abgegriffen werden. Zwei Rührmotoren sorgen für die gleichmäßige Durchmischung des Wassers.
+Der Drücke $\symup P_a$ und $\symup P_b$ lassen sich an zwei Barometern ablesen. Ein Kompressor
+mit angeschlossenem Motor stellt die benötigte mechanische Arbeit A bereit; die aufgewendete Leistung zeigt
+ein Wattmeter an. Somit lassen sich alle zu messenden Größen erfassen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{schema.png}
+  \caption{Schematische Darstellung des Versuchsaufbaus.}
+  \label{fig:1}
+\end{figure}
+\subsection{Versuchsdurchführung}
 \section{Fehlerrechnung}
 Es gibt:
 \begin{equation}
   \bar{T} = \frac{1}{n} \sum_{i=1}^{n} T^{i}
-  \label{eqn:5}
+  \label{eqn:1}
 \end{equation}
 den Mittelwert und:
 \begin{equation}
   \sigma_{\bar{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\bar{T}-T_i)^2}
-  \label{eqn:6}
+  \label{eqn:2}
 \end{equation}
 den Fehler des Mittelwertes.
 \section{Auswertung}

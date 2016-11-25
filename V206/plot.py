@@ -21,6 +21,9 @@ cmwasser = cwasser * 3
 def f(x, a, b, c):
     return a * (x**2) + b * x + c
 
+def f3(x, a, b, c, d):
+    return a * (x**3) + b * (x**2) + c * x + d
+
 def fstrich(x, a, b):
     return 2 * a * x + b
 
@@ -37,6 +40,21 @@ a2 = ufloat(params2[0], errors2[0])
 b2 = ufloat(params2[1], errors2[1])
 c2 = ufloat(params2[2], errors2[2])
 
+#Ausgleichsrechnung 3. Grades:
+Params1, Covariance1 = curve_fit(f3, ts, T1)
+Errors1 = np.sqrt(np.diag(Covariance1))
+A1 = ufloat(Params1[0], Errors1[0])
+B1 = ufloat(Params1[1], Errors1[1])
+C1 = ufloat(Params1[2], Errors1[2])
+D1 = ufloat(Params1[3], Errors1[3])
+
+Params2, Covariance2 = curve_fit(f3, ts, T2)
+Errors2 = np.sqrt(np.diag(Covariance2))
+A2 = ufloat(Params2[0], Errors2[0])
+B2 = ufloat(Params2[1], Errors2[1])
+C2 = ufloat(Params2[2], Errors2[2])
+D2 = ufloat(Params2[3], Errors2[3])
+
 print("Aufgabe 5b), Parameter für Ax^2+Bx+C:")
 print("T1")
 print('A =', params1[0], '±', errors1[0])
@@ -48,8 +66,8 @@ print('B =', params2[1], '±', errors2[1])
 print('C =', params2[2], '±', errors2[2])
 print("")
 #Berechnung der Quotienten (5c) )
-Quotienten1 = fstrich(zeiten, a1, b1)
-Quotienten2 = fstrich(zeiten, a2, b2)
+Quotienten1 = f(zeiten, A1, B1, C1)
+Quotienten2 = f(zeiten, A2, B2, C2)
 print("Aufgabe 5c), Quotienten := Werte der Ableitung an den Stellen t")
 print("Zeiten: ", zeiten)
 print("Quotienten für T1: ", Quotienten1)
@@ -57,8 +75,8 @@ print("Quotienten für T2: ", Quotienten2)
 print("")
 
 #Berechnung der Güteziffern (5d) )
-Temperatur1 = f(zeiten, a1, b1, c1)
-Temperatur2 = f(zeiten, a2, b2, c2)
+Temperatur1 = f3(zeiten, A1, B1, C1, D1)
+Temperatur2 = f3(zeiten, A2, B2, C2, D2)
 nuemp = (cmapperat + cmwasser) * Quotienten1 * (1/np.mean(N))
 nuid = Temperatur1 / (Temperatur1 - Temperatur2)
 print("Aufgabe 5d), Güteziffern:")
@@ -83,17 +101,30 @@ h = ufloat(Lparams[1], Lerrors[1])
 
 
 #Plot
-plt.title("Temperaturverlauf in den Gefäßen")
-
 x_plot = np.linspace(0, 18*60)
+
+plt.figure(0)
+plt.title("Temperaturverlauf in den Gefäßen mit Regression 2. Grades")
 
 plt.ylabel('Temperatur (K)')
 plt.xlabel("Zeit (s)")
 plt.plot(ts, T1, 'r+', label="T1")
 plt.plot(ts, T2, 'y+', label="T2")
-plt.plot(x_plot, f(x_plot, *params1), 'b-', label='Regression', linewidth=3)
-plt.plot(x_plot, f(x_plot, *params2), 'b-', label='Regression', linewidth=3)
+plt.plot(x_plot, f(x_plot, *params1), 'b-', label='Regression für T1')
+plt.plot(x_plot, f(x_plot, *params2), 'g-', label='Regression für T2')
 plt.legend(loc="best")
-plt.savefig('Tverl.pdf')
+plt.tight_layout
+plt.savefig('Grad2.pdf')
 
-plt.tight_layout()
+plt.figure(1)
+plt.title("Temperaturverlauf in den Gefäßen mit Regression 3. Grades")
+
+plt.ylabel('Temperatur (K)')
+plt.xlabel("Zeit (s)")
+plt.plot(ts, T1, 'r+', label="T1")
+plt.plot(ts, T2, 'y+', label="T2")
+plt.plot(x_plot, f3(x_plot, *Params1), 'b-', label='Regression für T1')
+plt.plot(x_plot, f3(x_plot, *Params2), 'g-', label='Regression für T2')
+plt.legend(loc="best")
+plt.tight_layout
+plt.savefig('Grad3.pdf')

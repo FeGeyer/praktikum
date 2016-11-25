@@ -101,6 +101,89 @@ den Mittelwert und:
 \end{equation}
 den Fehler des Mittelwertes.
 \section{Auswertung}
+\label{sec:Auswertung}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{Grad2.pdf}
+  \caption{Temperaturverlauf durch $T(t) = At^2 + Bt + C$ approximiert.}
+  \label{fig:3}
+\end{figure}
+Diese Regression ist, vor allem für die Werte von $T_2$, ungeeignet als Aproximation.
+Eine bessere Annäherung erhält man für eine Funktion mit Grad 3, siehe \ref{fig:4}.
+Mit diesem Ansatz ist eine vertretbare Approximation gefunden. Die Parameter bestimmen sich nach
+\begin{table}[h]
+  \centering
+  \caption{Parameter für Ansatz $T(t) = At^3 + Bt^2 + Ct + D$, siehe  \ref{fig:4}.}
+  \label{tab:1}
+  \begin{tabular}{c c c}
+    \toprule
+    Parameter & $\symup{T_1}$ & $\symup{T_2}$ \\
+    \midrule
+    A & -1.40617396931e-08 \pm 1.6459073186e-09 & 3.38332672083e-08\pm 2.6890603685e-09 \\
+    B & 2.02184667602e-05 \pm 2.70743669114e-06 & -4.86855124148E-05 \pm 4.42337168019e-06 \\
+    C & 0.0215659365424 \pm 0.00123818081503 & -0.00718092712154 ± 0.00202292163776 \\
+    D & 0.0215659365424 \pm 0.00123818081503 & 294.703862441 ± 0.245443495917 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{Grad3.pdf}
+  \caption{Temperaturverlauf durch $T(t) = At^3 + Bt^2 + Ct + D$ approximiert.}
+  \label{fig:4}
+\end{figure}
+Für die Differentialqutionten $\frac{\symup dT_1}{\symup dt}$ und $\frac{\symup dT_2}{\symup dt}$
+ergibt sich für vier verschiedene Temperaturen:
+\begin{table}[h]
+  \centering
+  \caption{Differentialquotienten $\frac{\symup dT_1}{\symup dt}$ und $\frac{\symup dT_2}{\symup dt}$.}
+  \label{tab:2}
+  \begin{tabular}{c c c}
+    \toprule
+    Zeit in $\si{\second}$ & $\frac{\symup dT_1}{\symup dt}$ & $\frac{\symup dT_1}{\symup dt}$ \\
+    \midrule
+    240 & 0.025608412358502926 \pm 0.001401534827483879 & -0.01691665390989839 \pm 0.002289807181187296 \\
+    480 & 0.028030975761968484 \pm 0.0018346058090509595 &  -0.022754788315851614 \pm 0.0029973525550517654 \\
+    720 & 0.028833626752786452 \pm 0.002461928119352123 & -0.024695330339403125 \pm 0.004022263001808933 \\
+    960 &  0.02801636533095682 \pm 0.003254152043759837 & -0.02273827998055293 \pm 0.005316587375410686 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Bestimmung der Güteziffer}
+Für die Güteziffer ergibt sich Formel \eqref{eqn:8} in Vergleich mit der idealen Güteziffer
+nach \eqref{eqn:7}
+\begin{table}
+  \centering
+  \caption{Güteziffern der Wärmepumpe für die Zeiten aus \ref{sec:Auswertung}.}
+  \label{tab:3}
+  \begin{tabular}{c c c}
+  \toprule
+  Zeit in $\si{\second}$ & $\nu_{\symup{real}}$ & $\nu_{\symup{ideal}}$  \\
+  \midrule
+  240 & 1.7631297218726047 \pm 0.09649515463835187 & 29.998383906462227 \pm 2.0931233915818916 \\
+  480 & 1.9299223164300243 \pm 0.12631193158617904 & 12.729461862611346 \pm 0.8816264050411654 \\
+  720 & 1.985184540358239 \pm 0.16950284069064456 & 8.219514982533129 \pm 0.7071025602755582 \\
+  960 & 1.928916393657249 \pm 0.22404716495204333 & 6.621515103680864 \pm 0.7855222765378094 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Massendurchsatz $\frac{\symup dm}{\symup dt}$}
+Für den Massendurchsatz ergibt sich
+\begin{table}
+  \centering
+  \caption{Massendurchsatz $\frac{\symup dm}{\symup dt}$ für die Zeiten aus \ref{sec:Auswertung}.}
+  \label{tab:4}
+  \begin{tabular}{c c}
+    \toprule
+    Zeit in $\si{\second}$ & Massendurchsatz $\frac{\symup dm}{\symup dt}$ \\
+    \midrule
+    240 & -0.00133043279863336 \pm 0.00019549074975490425 \\
+    480 & -0.0017895806619093967 \pm 0.0002569783025225292 \\
+    720 & -0.0019421971763223696 \pm 0.0003352598606038152 \\
+    960 & -0.001788282341872279 \pm 0.00043044911575676134 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 \section{Diskussion}
 \newpage
 \nocite{*}

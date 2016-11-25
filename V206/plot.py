@@ -86,17 +86,26 @@ print("Zeiten: ", zeiten)
 print("Real: ", nuemp)
 print("Ideal: ", nuid)
 print("")
-print("Danke, dass Sie sich für diese Auswertung entschieden haben.")
 
 #Ausgleichsrechnung zur Bestimmung der Verdampfungswärme L (5d) )
+R = 8.314
+M = 120.9 * (10**(-3))
 def DDK(x, L, K):
     return L * x + K
-Dampfdruck = np.log(Pb)
-Lparams, Lcovariance = curve_fit(DDK, Dampfdruck, T1)
+Lparams, Lcovariance = curve_fit(DDK, 1/T1, np.log(Pb))
 Lerrors = np.sqrt(np.diag(Lcovariance))
 g = ufloat(Lparams[0], Lerrors[0])
 h = ufloat(Lparams[1], Lerrors[1])
-#print(g)
+L = (- R * g) / M
+
+#Bestimmung des Massendurchsatzes:
+mdurchs = (cmapperat + cmwasser) * Quotienten2 * (1/L)
+print("Aufgabe 5e, Verdampfungswärme und Massendurchsatz")
+print("Verdampfungswärme: ", L)
+print("Zeiten: ", zeiten)
+print("Massendurchsatz: ", mdurchs)
+print("")
+print("Danke, dass Sie sich für diese Auswertung entschieden haben.")
 #print(h)
 
 #Ausgaben

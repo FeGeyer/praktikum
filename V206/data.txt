@@ -1,4 +1,4 @@
-#t/s T1/°C Pb/bar T2/°C Pa/bar N/W
+#t/min T1/°C Pb/bar T2/°C Pa/bar N/W
 0 21.5 5.25 21 5 0
 1 23 7 21 2.6 170
 2 24 7.5 20.5 2.8 180

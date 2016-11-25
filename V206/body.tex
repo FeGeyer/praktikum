@@ -100,6 +100,7 @@ den Mittelwert und:
   \label{eqn:2}
 \end{equation}
 den Fehler des Mittelwertes.
+
 \section{Auswertung}
 \label{sec:Auswertung}
 \begin{figure}[h]
@@ -111,7 +112,7 @@ den Fehler des Mittelwertes.
 Diese Regression ist, vor allem für die Werte von $T_2$, ungeeignet als Aproximation.
 Eine bessere Annäherung erhält man für eine Funktion mit Grad 3, siehe \ref{fig:4}.
 Mit diesem Ansatz ist eine vertretbare Approximation gefunden. Die Parameter bestimmen sich nach
-\begin{table}[h]
+\begin{table}
   \centering
   \caption{Parameter für Ansatz $T(t) = At^3 + Bt^2 + Ct + D$, siehe  \ref{fig:4}.}
   \label{tab:1}
@@ -119,14 +120,14 @@ Mit diesem Ansatz ist eine vertretbare Approximation gefunden. Die Parameter bes
     \toprule
     Parameter & $\symup{T_1}$ & $\symup{T_2}$ \\
     \midrule
-    A & -1.40617396931e-08 \pm 1.6459073186e-09 & 3.38332672083e-08\pm 2.6890603685e-09 \\
+    A & -1.40617396931E-08 \pm 1.6459073186e-09 & 3.38332672083e-08\pm 2.6890603685e-09 \\
     B & 2.02184667602e-05 \pm 2.70743669114e-06 & -4.86855124148E-05 \pm 4.42337168019e-06 \\
     C & 0.0215659365424 \pm 0.00123818081503 & -0.00718092712154 ± 0.00202292163776 \\
     D & 0.0215659365424 \pm 0.00123818081503 & 294.703862441 ± 0.245443495917 \\
     \bottomrule
   \end{tabular}
 \end{table}
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{Grad3.pdf}
   \caption{Temperaturverlauf durch $T(t) = At^3 + Bt^2 + Ct + D$ approximiert.}
@@ -134,7 +135,7 @@ Mit diesem Ansatz ist eine vertretbare Approximation gefunden. Die Parameter bes
 \end{figure}
 Für die Differentialqutionten $\frac{\symup dT_1}{\symup dt}$ und $\frac{\symup dT_2}{\symup dt}$
 ergibt sich für vier verschiedene Temperaturen:
-\begin{table}[h]
+\begin{table}
   \centering
   \caption{Differentialquotienten $\frac{\symup dT_1}{\symup dt}$ und $\frac{\symup dT_2}{\symup dt}$.}
   \label{tab:2}
@@ -149,7 +150,9 @@ ergibt sich für vier verschiedene Temperaturen:
     \bottomrule
   \end{tabular}
 \end{table}
+
 \subsection{Bestimmung der Güteziffer}
+\label{Güteziffer}
 Für die Güteziffer ergibt sich Formel \eqref{eqn:8} in Vergleich mit der idealen Güteziffer
 nach \eqref{eqn:7}
 \begin{table}
@@ -167,8 +170,14 @@ nach \eqref{eqn:7}
   \bottomrule
   \end{tabular}
 \end{table}
-\subsection{Massendurchsatz $\frac{\symup dm}{\symup dt}$}
-Für den Massendurchsatz ergibt sich
+Die Wärmekapazität $m_kc_k$ für die Kupferschlange und die Behälter beträgt
+$\SI{660}{\joule\per\kelvin}$, die Größe N, also die gemittelte Leistung,
+\SI{192.16}{\watt}. Für die spezifische Wärmekapazität $c_w$ ergibt sich nach
+\cite{chemie} $\approx \SI{4.19E3}{\joule\per\kilo\gram\per\kelvin}$ mit $m_1 =$
+$\SI{3}{\kilo\gram}$.
+
+\subsection{Berechnung des Massendurchsatzes $\frac{\symup dm}{\symup dt}$}
+Für den Massendurchsatz ergibt sich nach \eqref{eqn:9}
 \begin{table}
   \centering
   \caption{Massendurchsatz $\frac{\symup dm}{\symup dt}$ für die Zeiten aus \ref{sec:Auswertung}.}
@@ -184,6 +193,28 @@ Für den Massendurchsatz ergibt sich
     \bottomrule
   \end{tabular}
 \end{table}
+Die Addition der Wärmekapazitäten ist vom Wert her gleich wie in \ref{Güteziffer},
+da $m_2$ auch $\SI{3}{\kilo\gram}$ beträgt und sich ansonsten nichts geändert hat.
+Die Bestimmung von L, der Verdampfungswärme, erfolgt indem man den Druck $p_b$
+logarithmisch gegen $\frac{1}{T_1}$ aufträgt über lineare Regression die Steigung bestimmt.
+\begin{equation}
+  \begin{split}
+%   ln(p_b) = a \frac{1}{T_1} + b
+    m = \SI{-2.45 \pm 0.14}{\kelvin} \\
+    b = 10.2 \pm 0.5
+   \label{eqn:11}
+ \end{split}
+\end{equation}
+Nach der Formel
+\begin{equation}
+    L = \frac{-R \cdot m}{M}
+    \label{eqn:12}
+\end{equation}
+mit R als allgemeine Gaskonstante mit dem Wert $R = \SI{8.314}{\joule\per\kelvin\per\mol}$
+und $M = \SI{120.9E-3}{\kilo\gram\per\mol}$ als molare Masse des Transportgases.
+Für L ergibt sich also $\SI{1.68 \pm 0.10E5}{\joule\per\kilo\gram}$.
+
+\subsection{Mechanische Leistung des Kompressors}
 \section{Diskussion}
 \newpage
 \nocite{*}

@@ -141,7 +141,7 @@ ergibt sich für vier verschiedene Temperaturen:
   \label{tab:2}
   \begin{tabular}{c c c}
     \toprule
-    Zeit in $\si{\second}$ & $\frac{\symup dT_1}{\symup dt}$ & $\frac{\symup dT_1}{\symup dt}$ \\
+    Zeit in $\si{\second}$ & $\frac{\symup dT_1}{\symup dt}$ & $\frac{\symup dT_2}{\symup dt}$ \\
     \midrule
     240 & 0.026 \pm 0.001 & -0.017 \pm 0.002 \\
     480 & 0.028 \pm 0.002 & -0.023 \pm 0.003 \\
@@ -215,7 +215,26 @@ Dabei ist R die allgemeine Gaskonstante mit dem Wert $R = \SI{8.314}{\joule\per\
 und $M = \SI{120.9E-3}{\kilo\gram\per\mol}$ die molare Masse des Transportgases.
 
 \subsection{Mechanische Leistung des Kompressors}
+
 \section{Diskussion}
+Die Werte für die Temperaturen lassen sich am besten mit einer ganzrationalen
+Funktion dritten Grades approximieren, was die verschiedenen Graphen deutlich zeigen.
+Diese zeigen, dass die Temperatur zu Beginn und zum Ende der Messung relativ langsam
+fallen, dagegen in der Mitte der Messung am schnellsten. Dies passt am besten zu der
+oben gennanten ganzrationalen Funktion dritten Grades.
+\\
+\\
+Vor allem die Werte der Güteziffer liegen weit außerhalb des Toleranzbereichs
+der Fehlergrenzen. Die realen Güteziffern sind für alle Zeiten kleiner als die
+idealen. Dies ist unter anderem darauf zurückzuführen, dass die Reservoire nicht
+gut isoliert sind und so ein Wärmeaustausch mit der Umgebung stattfinden kann.
+Weiterhin sind die schlecht leitenden Kupferschlangen im Wechselspiel mit einem
+ineffizienten Kompressor mögliche Optimierungsmöglichkeiten.
+\\
+\\
+Im Allgemeinen lässt sich sagen, dass die Wärmepumpe wesentlich effizienter arbeiten
+könnte als sie es aktuell tut. Als Modell einer Wärmepumpe ist sie jedoch gut geeignet
+und anschaulich zu bedienen.
 \newpage
 \nocite{*}
 \printbibliography

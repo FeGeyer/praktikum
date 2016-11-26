@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
 from uncertainties import ufloat
 from scipy.optimize import curve_fit
+from scipy.stats import stats
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 10
 
@@ -13,10 +14,13 @@ ts = tmin*60
 T1 = T1+273.15
 T2 = T2+273.15
 zeiten = np.array([240, 480, 720, 960])
+ADruck = np.array([3.2, 3.2, 3.2, 3.2])*100000
+BDruck = np.array([8, 9.5, 11.25, 12.75])*100000
 cmapperat = 660
 cwasser = 4.19e3
 cmwasser = cwasser * 3
-
+rhogasnorm = 5.51
+kappa = 1.140
 #Definition der Funktionen für Ausgleichsrechnung und Differntialquotienten
 def f(x, a, b, c):
     return a * (x**2) + b * x + c
@@ -77,15 +81,20 @@ print("Quotienten für T2: ", Quotienten2)
 print("")
 
 #Berechnung der Güteziffern (5d) )
+Leistung = ufloat(np.mean(N), stats.sem(N))
 Temperatur1 = f3(zeiten, A1, B1, C1, D1)
+#Versuch zu runden, klappt nicht...T1 = unp.around(f3(zeiten, A1, B1, C1, D1), decimals=3)
 Temperatur2 = f3(zeiten, A2, B2, C2, D2)
-nuemp = (cmapperat + cmwasser) * Quotienten1 * (1/np.mean(N))
+nuemp = (cmapperat + cmwasser) * Quotienten1 * (1/Leistung)
 nuid = Temperatur1 / (Temperatur1 - Temperatur2)
 print("Aufgabe 5d), Güteziffern:")
+print("Mittel der Leistung: ", Leistung)
 print("Zeiten: ", zeiten)
+print("T1 für die zeiten: ", Temperatur1)
+print("T2 für die zeiten: ", Temperatur2)
 print("Real: ", nuemp)
 print("Ideal: ", nuid)
-print("Mittelwert von N: ", np.mean(N))
+print("Mittelwert von N: ", Leistung)
 print("")
 
 #Ausgleichsrechnung zur Bestimmung der Verdampfungswärme L (5d) )
@@ -108,7 +117,15 @@ print("Y-Achsenabschnitt: ", h)
 print("Zeiten: ", zeiten)
 print("Massendurchsatz: ", mdurchs)
 print("")
+
+#Bestimmung der Mechanischen Leistung, Formel für rho von Kevin/Mike
+rho = (273.15*BDruck*rhogasnorm)/(100000*Temperatur1)
+Nmech = 1/(kappa-1) * (ADruck * (BDruck/ADruck)**(1/kappa) - BDruck) * 1/rho * mdurchs
+print("Zeiten: ", zeiten)
+print("Dichte:", rho)
+print("Mechanische Kompressorleistung: ", Nmech)
 print("Danke, dass Sie sich für diese Auswertung entschieden haben.")
+
 #print(h)
 
 #Ausgaben

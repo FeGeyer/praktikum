@@ -17,7 +17,6 @@ eine Maschine wird als Wärmepumpe bezeichnet. Aus dem ersten Hauptsatz der Ther
 Das Verhältnis zwischen transportierter Wärmemenge und aufgewendeter Arbeit ist definiert
 als Güteziffer $\nu$
 \begin{equation}
-    % müssen noch überlegen, ob wir die \nu kursiv machen oder nicht
     \nu = \symup{\frac{Q_1}{A}}
     \label{eqn:4}
 \end{equation}
@@ -36,7 +35,6 @@ Da die Wärmepumpe nicht reversibel arbeiten kann, gilt für die reale Beziehung
 Nun ergibt sich für \eqref{eqn:4} aus \eqref{eqn:5} und \eqref{eqn:6}
 \begin{equation}
   \begin{split}
-    % müssen noch überlegen, ob wir die \nu kursiv machen oder nicht
     \nu_{\symup{ideal}} = \symup{\frac{T_1}{T_1 - T_2}} \\
     \nu_{\symup{real}} < \symup{\frac{T_1}{T_1 - T_2}}
     \label{eqn:7}
@@ -99,7 +97,14 @@ den Mittelwert und:
   \sigma_{\bar{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\bar{T}-T_i)^2}
   \label{eqn:2}
 \end{equation}
-den Fehler des Mittelwertes.
+den Fehler des Mittelwertes. Falls zwei fehlerbehaftete Größen in einer Gleichung
+zur Bestimmung einer anderen Größe Verwendung finden, dann berechnte sich der Gesamtfehler
+nach der Gaußschen Fehlerfortpflanzung zu
+\begin{equation}
+    \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
+    x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
+    x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
+\end{equation}
 
 \section{Auswertung}
 \label{sec:Auswertung}
@@ -111,8 +116,48 @@ den Fehler des Mittelwertes.
 \end{figure}
 Diese Regression ist, vor allem für die Werte von $T_2$, ungeeignet als Aproximation.
 Eine bessere Annäherung erhält man für eine Funktion mit Grad 3, siehe \ref{fig:4}.
-Mit diesem Ansatz ist eine vertretbare Approximation gefunden. Die Parameter
-bestimmen sich nach Tabelle \ref{tab:1}.
+Mit diesem Ansatz ist eine vertretbare Approximation gefunden.
+\\
+\\
+Die orginalen Messdaten finden sich in Tabelle \ref{tab:6} wieder. Die Drücke
+$p_a$ und $p_b$ enthalten bereits den Normaldruck von $\SI{1}{\bar}$. Die Temperaturen
+wurden für alle folgenden Rechnungen in $\si{\kelvin}$, sowie die Zeiten
+im Folgenden in $\si{\second}$ umgewandelt.
+\begin{table}
+  \centering
+  % Bessere caption?
+  \caption{Minütlich gemessene Temperaturen, Drücke und Leistung des Versuchs.}
+  \label{tab:6}
+  \begin{tabular}{c c c c c c}
+    \toprule
+    Zeit in $\si{\minute}$ & $T_1$ in $\si{\celsius}$ & $p_b$ in $\si{\bar}$ &
+    $T_2$ in $\si{\celsius}$ & $p_a$ in $\si{\bar}$ & N in $\si{\watt}$ \\
+    \midrule
+    0 & 21.5 & 5.25 & 21 & 5 & 0 \\
+    1 & 23 & 7 & 21 & 2.6 & 170 \\
+    2 & 24 & 7.5 & 20.5 & 2.8 & 180 \\
+    3 & 25.5 & 7.5 & 19.5 & 3 & 190 \\
+    4 & 27.2 & 8 & 17.7 & 3.2 & 197 \\
+    5 & 29.4 & 8.25 & 15.7 & 3.2 & 200 \\
+    6 & 31.1 & 8.75 & 14.1 & 3.2 & 204 \\
+    7 & 33.1 & 9 & 12.2 & 3.2 & 205 \\
+    8 & 35 & 9.5 & 10.4 & 3.2 & 206 \\
+    9  & 36.9 & 10   & 8.6 & 3.2 & 209 \\
+    10 & 38.7 & 10.5 & 6.9 & 3.2 & 209 \\
+    11 & 40.4 & 11   & 5.4 & 3.2 & 210 \\
+    12 & 42.1 & 11.25 & 3.8 & 3.2 & 212 \\
+    13 & 43.7 & 11.5 & 2.4 & 3.2 & 212 \\
+    14 & 45.2 & 12   & 1.3 & 3.2 & 213 \\
+    15 & 46.8 & 12.5 & 0.6 & 3.2 & 211 \\
+    16 & 48.2 & 12.75 & 0 & 3.2 & 210 \\
+    17 & 49.5 & 13 & -0.4 & 3.2 & 207 \\
+    18 & 50.7 & 13.5 & -0.8 & 3.2 & 206 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\\
+\\
+Die Parameter bestimmen sich nach Tabelle \ref{tab:1}.
 \begin{table}[h]
   \centering
   \caption{Parameter für Ansatz $T(t) = At^3 + Bt^2 + Ct + D$, siehe  \ref{fig:4}.}
@@ -143,7 +188,8 @@ die Werte in Tabelle \ref{tab:2}.
   \label{tab:2}
   \begin{tabular}{c c c}
     \toprule
-    Zeit in $\si{\second}$ & $\frac{\symup dT_1}{\symup dt}$ & $\frac{\symup dT_2}{\symup dt}$ \\
+    Zeit in $\si{\second}$ & $\frac{\symup dT_1}{\symup dt}$ in $\si{\kelvin\per\second}$
+    & $\frac{\symup dT_2}{\symup dt}$ in $\si{\kelvin\per\second}$ \\
     \midrule
     240 & 0.026 \pm 0.001 & -0.017 \pm 0.002 \\
     480 & 0.028 \pm 0.002 & -0.023 \pm 0.003 \\
@@ -179,6 +225,7 @@ $\SI{660}{\joule\per\kelvin}$, die Größe N, also die gemittelte Leistung,
 $\SI{3}{\kilo\gram}$.
 
 \subsection{Berechnung des Massendurchsatzes $\frac{\symup dm}{\symup dt}$}
+\label{Masse}
 Für den Massendurchsatz ergibt sich nach \eqref{eqn:9} die Ergebnisse,
 die in Tabelle \ref{tab:4} aufgeführt sind.
 \begin{table}[h]
@@ -187,7 +234,7 @@ die in Tabelle \ref{tab:4} aufgeführt sind.
   \label{tab:4}
   \begin{tabular}{c c}
     \toprule
-    Zeit in $\si{\second}$ & Massendurchsatz $\frac{\symup dm}{\symup dt}$ \\
+    Zeit in $\si{\second}$ & Massendurchsatz $\frac{\symup dm}{\symup dt}$ in $\si{\kilo\gram\per\second}$ \\
     \midrule
     240 & -0.0013 \pm 0.0002 \\
     480 & -0.0018 \pm 0.0003 \\
@@ -219,6 +266,39 @@ $R = \SI{8.314}{\joule\per\kelvin\per\mol}$
 und $M = \SI{120.9E-3}{\kilo\gram\per\mol}$ die molare Masse \cite{molar} des Transportgases.
 
 \subsection{Mechanische Leistung des Kompressors}
+Hiefür wird Formel \eqref{eqn:10} genutzt. Da die Dichte aber sowohl druck-
+als auch temperaturabhängig ist, errechnet sich $\rho$ nach der allgemeinen
+Gasgleichung
+\begin{equation}
+  \frac{p_0}{\rho_0 \ T_0} = \frac{p_a}{\rho \ T_2} \ .
+  \label{eqn:13}
+\end{equation}
+Umgestellt nach $\rho$ ergibt sich aus \eqref{eqn:13}
+\begin{equation}
+    \rho = \frac{\rho_0 \ T_0 \ p_a}{p_0 \ T_2} \ .
+    \label{eqn:14}
+\end{equation}
+Mit den im Kapitel \ref{Masse} berechneten Massendurchsätzen, den im Experiment
+bestimmten Drücken $p_a \text{und} \ p_b$, $\kappa = 1.14$
+\footnote{laut Aufgabenstellung, siehe \cite{anleitung}} sowie den eben errrechneten
+Werten für $\rho$ zu den vier Zeitpunkten lässt sich nun die mechanische Kompressorleistung
+bestimmen. Die Ergebnisse sind in Tabelle \ref{tab:5} dargestellt.
+% Quotient aus Nmech und gemittelter Leistung?
+\begin{table}[h]
+  \centering
+  \caption{Der Druck $\rho$ und die mechanische Kompressorleistung für die Zeiten aus \ref{sec:Auswertung}.}
+  \label{tab:5}
+  \begin{tabular}{c c c}
+    \toprule
+    Zeit in $\si{\second}$ & Dichte $\rho$ in $\si{\kilo\gram\per\cubic\meter}$ & $N_{mech}$ in $\si{\watt}$ \\
+    \midrule
+    240 & 40.046 \pm 0.049 & 20.204 \pm 2.969 \\
+    480 & 46.426 \pm 0.135 & 32.719 \pm 4.699 \\
+    720 & 53.704 \pm 0.303 & 41.577 \pm 7.181 \\
+    960 & 59.703 \pm 0.581 & 42.592 \pm 10.261 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \section{Diskussion}
 Die Werte für die Temperaturen lassen sich am besten mit einer ganzrationalen
@@ -228,10 +308,12 @@ fallen, dagegen in der Mitte der Messung am schnellsten. Dies passt am besten zu
 oben gennanten ganzrationalen Funktion dritten Grades.
 \\
 \\
+% Schlechten Quotienten einfließen lassen?
 Vor allem die Werte der Güteziffer liegen weit außerhalb des Toleranzbereichs
 der Fehlergrenzen. Die realen Güteziffern sind für alle Zeiten kleiner als die
 idealen. Dies ist unter anderem darauf zurückzuführen, dass die Reservoire nicht
-gut isoliert sind und so ein Wärmeaustausch mit der Umgebung stattfinden kann.
+gut isoliert sind und so ein Wärmeaustausch mit der Umgebung stattfinden kann,
+da zum Beispiel die Deckel nicht bündig auf den Reservoiren sitzen.
 Weiterhin sind die schlecht leitenden Kupferschlangen im Wechselspiel mit einem
 ineffizienten Kompressor mögliche Optimierungsmöglichkeiten.
 \\

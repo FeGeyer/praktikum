@@ -119,7 +119,7 @@ print("Massendurchsatz: ", mdurchs)
 print("")
 
 #Bestimmung der Mechanischen Leistung, Formel für rho von Kevin/Mike
-rho = (273.15*BDruck*rhogasnorm)/(100000*Temperatur1)
+rho = (273.15*ADruck*rhogasnorm)/(100000*Temperatur2)
 Nmech = 1/(kappa-1) * (ADruck * (BDruck/ADruck)**(1/kappa) - BDruck) * 1/rho * mdurchs
 print("Zeiten: ", zeiten)
 print("Dichte:", rho)

@@ -120,12 +120,12 @@ print("")
 
 #Bestimmung der Mechanischen Leistung, Formel für rho von Kevin/Mike
 rho = (273.15*ADruck*rhogasnorm)/(100000*Temperatur2)
-Nmech = 1/(kappa-1) * (ADruck * (BDruck/ADruck)**(1/kappa) - BDruck) * 1/rho * mdurchs
+Nmech = 1/(kappa-1) * (BDruck * (ADruck/BDruck)**(1/kappa) - ADruck) * 1/rho * mdurchs * (-1)
 print("Zeiten: ", zeiten)
 print("Dichte:", rho)
 print("Mechanische Kompressorleistung: ", Nmech)
 print("Danke, dass Sie sich für diese Auswertung entschieden haben.")
-
+print(Nmech/np.mean(N))
 #print(h)
 
 #Ausgaben

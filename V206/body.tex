@@ -107,14 +107,14 @@ nach der Gaußschen Fehlerfortpflanzung zu
 \end{equation}
 
 \section{Auswertung}
-\begin{figure}
+\begin{figure}[p]
   \centering
   \includegraphics[width=\textwidth]{verlauf.pdf}
   \caption{Temperaturverlauf ohne Regression.}
   \label{fig:5}
 \end{figure}
 \label{sec:Auswertung}
-\begin{figure}
+\begin{figure}[p]
   \centering
   \includegraphics[width=\textwidth]{Grad2.pdf}
   \caption{Temperaturverlauf durch $T(t) = At^2 + Bt + C$ approximiert.}
@@ -137,8 +137,8 @@ im Folgenden in $\si{\second}$ umgewandelt.
   \label{tab:6}
   \begin{tabular}{c c c c c c}
     \toprule
-    Zeit in $\si{\minute}$ & $T_1$ in $\si{\celsius}$ & $p_b$ in $\si{\bar}$ &
-    $T_2$ in $\si{\celsius}$ & $p_a$ in $\si{\bar}$ & N in $\si{\watt}$ \\
+    Zeit/$\si{\minute}$ & $T_1$/$\si{\celsius}$ & $p_b$/$\si{\bar}$ &
+    $T_2$/$\si{\celsius}$ & $p_a$/$\si{\bar}$ & N/$\si{\watt}$ \\
     \midrule
     0 & 21.5 & 5.25 & 21 & 5 & 0 \\
     1 & 23 & 7 & 21 & 2.6 & 170 \\
@@ -173,14 +173,14 @@ Die Parameter bestimmen sich nach Tabelle \ref{tab:1}.
     \toprule
     Parameter & $\symup{T_1}$ & $\symup{T_2}$ \\
     \midrule
-    A & -1.406E-08 \pm 1.646e-09 & 3.383e-08\pm 2.689e-09 \\
-    B & 2.022e-05 \pm 2.707e-06 & -4.869E-05 \pm 4.423e-06 \\
-    C & 0.022 \pm 0.001 & -0.007 \pm 0.002 \\
-    D & 0.022 \pm 0.001 & 294.704 \pm 0.245 \\
+    A & \SI{-1.406(165)e-8}{\kelvin\per\cubic\second} & \SI{3.383(269)e-8}{\kelvin\per\cubic\second} \\
+    B & \SI{2.022(271)e-5}{\kelvin\per\second\squared} & \SI{-4.869(442)e-5}{\kelvin\per\second\squared} \\
+    C & \SI{0.022(1)}{\kelvin\per\second} & \SI{-0.007(2)}{\kelvin\per\second} \\
+    D & \SI{0.022(1)}{\kelvin} & \SI{294.704(245)}{\kelvin} \\
     \bottomrule
   \end{tabular}
 \end{table}
-\begin{figure}
+\begin{figure}[p]
   \centering
   \includegraphics[width=\textwidth]{Grad3.pdf}
   \caption{Temperaturverlauf durch $T(t) = At^3 + Bt^2 + Ct + D$ approximiert.}
@@ -195,8 +195,8 @@ die Werte in Tabelle \ref{tab:2}.
   \label{tab:2}
   \begin{tabular}{c c c}
     \toprule
-    Zeit in $\si{\second}$ & $\frac{\symup dT_1}{\symup dt}$ in $\si{\kelvin\per\second}$
-    & $\frac{\symup dT_2}{\symup dt}$ in $\si{\kelvin\per\second}$ \\
+    Zeit/$\si{\second}$ & $\frac{\symup dT_1}{\symup dt}$/$\si[per-mode=reciprocal]{\kelvin\per\second}$
+    & $\frac{\symup dT_2}{\symup dt}$/$\si[per-mode=reciprocal]{\kelvin\per\second}$ \\
     \midrule
     240 & 0.026 \pm 0.001 & -0.017 \pm 0.002 \\
     480 & 0.028 \pm 0.002 & -0.023 \pm 0.003 \\
@@ -216,7 +216,7 @@ nach \eqref{eqn:7} die Werte in Tabelle \ref{tab:3}.
   \label{tab:3}
   \begin{tabular}{c c c}
   \toprule
-  Zeit in $\si{\second}$ & $\nu_{\symup{real}}$ & $\nu_{\symup{ideal}}$  \\
+  Zeit/$\si{\second}$ & $\nu_{\symup{real}}$ & $\nu_{\symup{ideal}}$  \\
   \midrule
   240 & 1.763 \pm 0.097 & 29.998 \pm 2.093 \\
   480 & 1.930 \pm 0.126 & 12.730 \pm 0.882 \\
@@ -241,7 +241,7 @@ die in Tabelle \ref{tab:4} aufgeführt sind.
   \label{tab:4}
   \begin{tabular}{c c}
     \toprule
-    Zeit in $\si{\second}$ & Massendurchsatz $\frac{\symup dm}{\symup dt}$ in $\si{\kilo\gram\per\second}$ \\
+    Zeit/$\si{\second}$ & Massendurchsatz $\frac{\symup dm}{\symup dt}$/$\si[per-mode=reciprocal]{\kilo\gram\per\second}$ \\
     \midrule
     240 & -0.0013 \pm 0.0002 \\
     480 & -0.0018 \pm 0.0003 \\
@@ -254,14 +254,14 @@ Die Addition der Wärmekapazitäten ist vom Wert her gleich wie in \ref{Gütezif
 da $m_2$ auch $\SI{3}{\kilo\gram}$ beträgt und sich ansonsten nichts geändert hat.
 Die Bestimmung von L, der Verdampfungswärme, erfolgt indem man den Druck $p_b$
 logarithmisch gegen $\frac{1}{T_1}$ aufträgt über lineare Regression die Steigung bestimmt.
-\begin{equation}
+\begin{equation*}
   \begin{split}
 %   ln(p_b) = a \frac{1}{T_1} + b
-    m = \SI{-2.45 \pm 0.14}{\kelvin} \\
-    b = 10.2 \pm 0.5
+    m = \SI{-2.45(14)}{\kelvin} \\
+    b = \SI{10.2(5)}{\bar}
    \label{eqn:11}
  \end{split}
-\end{equation}
+\end{equation*}
 Nach der Formel
 \begin{equation}
     L = \frac{-R \cdot m}{M}
@@ -289,20 +289,24 @@ Mit den im Kapitel \ref{Masse} berechneten Massendurchsätzen, den im Experiment
 bestimmten Drücken $p_a \text{und} \ p_b$, $\kappa = 1.14$
 \footnote{laut Aufgabenstellung, siehe \cite{anleitung}} sowie den eben errrechneten
 Werten für $\rho$ zu den vier Zeitpunkten lässt sich nun die mechanische Kompressorleistung
-bestimmen. Die Ergebnisse sind in Tabelle \ref{tab:5} dargestellt.
+bestimmen. Der Wirkungsgrad bestimmt sich zu:
+\begin{equation}
+  \eta = \frac{N_{mech}}{\overline{N}}
+\end{equation}
+Die Ergebnisse sind in Tabelle \ref{tab:5} dargestellt.
 % Quotient aus Nmech und gemittelter Leistung?
 \begin{table}[h]
   \centering
-  \caption{Der Druck $\rho$ und die mechanische Kompressorleistung für die Zeiten aus \ref{sec:Auswertung}.}
+  \caption{Der Druck $\rho$, die mechanische Kompressorleistung sowie den Wirkungsgrad für die Zeiten aus \ref{sec:Auswertung}.}
   \label{tab:5}
-  \begin{tabular}{c c c}
+  \begin{tabular}{c c c c}
     \toprule
-    Zeit in $\si{\second}$ & Dichte $\rho$ in $\si{\kilo\gram\per\cubic\meter}$ & $N_{mech}$ in $\si{\watt}$ \\
+    Zeit/$\si{\second}$ & Dichte $\rho$/$(\si[per-mode=reciprocal]{\kilo\gram\per\cubic\meter})$ & $N_{mech}$/$\si{\watt}$ & \eta/$\%$\\
     \midrule
-    240 & 40.046 \pm 0.049 & 20.204 \pm 2.969 \\
-    480 & 46.426 \pm 0.135 & 32.719 \pm 4.699 \\
-    720 & 53.704 \pm 0.303 & 41.577 \pm 7.181 \\
-    960 & 59.703 \pm 0.581 & 42.592 \pm 10.261 \\
+    240 & 16.571 \pm 0.034 & 21.857 \pm 3.174 & 11.4 \pm 1.7\\
+    480 & 16.971 \pm 0.087 & 34.479 \pm 4.789 & 17.9 \pm 2.5\\
+    720 & 17.392 \pm 0.183 & 42.615 \pm 6.937 & 22.2 \pm 3.6\\
+    960 & 17.650 \pm 0.331 & 42.851 \pm 9.538 & 22.3 \pm 5.0\\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -315,7 +319,6 @@ fallen, dagegen in der Mitte der Messung am schnellsten. Dies passt am besten zu
 oben gennanten ganzrationalen Funktion dritten Grades.
 \\
 \\
-% Schlechten Quotienten einfließen lassen?
 Vor allem die Werte der Güteziffer liegen weit außerhalb des Toleranzbereichs
 der Fehlergrenzen. Die realen Güteziffern sind für alle Zeiten kleiner als die
 idealen. Dies ist unter anderem darauf zurückzuführen, dass die Reservoire nicht
@@ -326,8 +329,10 @@ ineffizienten Kompressor mögliche Optimierungsmöglichkeiten.
 \\
 \\
 Im Allgemeinen lässt sich sagen, dass die Wärmepumpe wesentlich effizienter arbeiten
-könnte als sie es aktuell tut. Als Modell einer Wärmepumpe ist sie jedoch gut geeignet
-und anschaulich zu bedienen.
+könnte als sie es aktuell tut. Insbesondere ein Kompressor mit höherem Wirkungsgrad
+sowie eine bessere Abschirmung der Gefäße, besonders nach oben, würden die Effizienz
+dieser Wärmepumpe weiter steigern. Als bloßes Modell einer Wärmepumpe ist sie jedoch gut geeignet
+und anschaulich zu beschreiben.
 \newpage
 \nocite{*}
 \printbibliography

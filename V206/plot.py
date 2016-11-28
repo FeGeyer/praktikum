@@ -159,3 +159,14 @@ plt.plot(x_plot, f3(x_plot, *Params2), 'g-', label='Regression für T2')
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Grad3.pdf')
+
+plt.figure(2)
+plt.title("Temperaturverlauf in den Gefäßen über 18 Minuten gemessen")
+
+plt.ylabel('Temperatur (K)')
+plt.xlabel("Zeit (s)")
+plt.plot(ts, T1, 'r+', label="T1")
+plt.plot(ts, T2, 'b+', label="T2")
+plt.legend(loc="best")
+plt.tight_layout
+plt.savefig('verlauf.pdf')

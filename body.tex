@@ -81,17 +81,26 @@ statistischen Fehlern vorzubeugen, führen wir die Messung neunmal aus. Danach v
 und eine gegensinnige Schwingung durch , wobei wir $\textit{T}_{+}$ und $\textit{T}_{-}$ experimentell bestimmen. Im
 Anschluss ermitteln wir die Schwebungsdauer $\textit{T}_{S}$ und die Schwingungsdauer $\textit{T}$. Zum Schluss wiederholen wir
 alle Messungen für eine Pendellänge von $\SI{75.0(3)}{\centi\metre}$.
-\section{Auswertung}
-\subsection{Berechnung der Schwingungsdauern der entkoppelten Pendel}
-Es wurden jeweils 10 Messungen für jeweils 5 Schwingungen durchgeführt. Für die Fehlerrechnung gibt:
+\section{Fehlerrechnung}
+Für die Fehlerrechnung gibt:
 \begin{equation}
-  \overline{T} = \frac{1}{n} \sum_{i=1}^{n} T^{i}
+  \overline{T} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
 \end{equation}
-für den Mittelwert, sowie:
+den Mittelwert, sowie:
 \begin{equation}
   \sigma_{\overline{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\overline{T}-T_i)^2}
 \end{equation}
-für den Fehler des Mittelwertes.
+den Fehler des Mittelwertes.
+In Fällen, in denen zwei fehlerbehaftete Größen in einer Gleichung zur Bestimmung einer anderen Größe Verwendung finden, berechnt sich der Gesamtfehler
+nach der Gaußschen Fehlerfortpflanzung zu:
+\begin{equation}
+    \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
+    x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
+    x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
+\end{equation}
+\section{Auswertung}
+\subsection{Berechnung der Schwingungsdauern der entkoppelten Pendel}
+Es wurden jeweils 10 Messungen für jeweils 5 Schwingungen durchgeführt.
 Aus den Messwerten folgen die in der Tabelle dargestellten Schwingungdauern für die jeweils entkoppelten Pendel.
 \begin{table}
   \centering

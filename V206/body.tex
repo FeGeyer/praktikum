@@ -121,15 +121,28 @@ nach der Gaußschen Fehlerfortpflanzung zu
   \label{fig:3}
 \end{figure}
 Die Regression mit einer Funktion zweiten Grades, siehe \ref{fig:3} ist, vor
-allem für die Werte von $T_2$, ungeeignet als Aproximation.
+allem für die Werte von $T_2$, ungeeignet als Aproximation. Es folgen die in \ref{tab:7} dargestellten Koeefizienten.
+\begin{table}
+  \centering
+  \caption{Parameter für Ansatz $T(t) = At^2 + Bt + C$, siehe  \ref{fig:3}.}
+  \label{tab:7}
+  \begin{tabular}{c c c}
+    \toprule
+    Parameter & $\symup{T_1}$ & $\symup{T_2}$ \\
+    \midrule
+    A & \SI{-2.6(11)e-6}{\kelvin\per\second\squared} & \SI{6.1(25)e-6}{\kelvin\per\second\squared} \\
+    B & \SI{0.031(1)}{\kelvin\per\second} & \SI{-0.030(3)}{\kelvin\per\second} \\
+    C & \SI{293.8(3)}{\kelvin} & \SI{296.5(7)}{\kelvin} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 Eine bessere Annäherung erhält man für eine Funktion mit Grad 3, siehe \ref{fig:4}.
-Mit diesem Ansatz ist eine vertretbare Approximation gefunden.
+Mit diesem Ansatz ist eine vertretbare Approximation gefunden. Die Koeefizienten für diesen Ansatz finden sich in \ref{tab:1}
 \\
 \\
 Die orginalen Messdaten finden sich in Tabelle \ref{tab:6} wieder. Die Drücke
-$p_a$ und $p_b$ enthalten bereits den Normaldruck von $\SI{1}{\bar}$. Die Temperaturen
-wurden für alle folgenden Rechnungen in $\si{\kelvin}$, sowie die Zeiten
-im Folgenden in $\si{\second}$ umgewandelt.
+$p_a$ und $p_b$ enthalten bereits den Normaldruck von $\SI{1}{\bar}$ . Die Temperaturen
+wurden für alle folgenden Rechnungen in $\si{\kelvin}$, die Zeiten in $\si{\second}$ und die Drücke in $\si{\pascal}$ umgewandelt.
 \begin{table}
   \centering
   % Bessere caption?

@@ -14,25 +14,64 @@ lässt sich Diese bestimmen. Wenn der Radius der Kugel sich nur marginal von dem
 der Röhre unterscheidet, sodass sich keine Turbulenzen bilden, dann gilt für die
 Stokessche Reibung
 \begin{equation}
-  F_R = 6 \pi \eta v r
+  F_R = 6 \, \pi \, \eta \, v \, r \ .
 \end{equation}
+$r$ ist hierbei der Radius der Kugel und $\eta$ die dynamische Viskosität.
+Wenn die Kugel im Rohr hinabfällt, wirken neben der Reibungskraft auch die
+Schwerkraft und die Auftriebskraft. Da die Reibungskraft immer entgegen
+der Bewegungsrichtung wirkt und die Auftriebs- und Schwerkraft auch entgegengesetzt
+wirken, arbeiten also Auftriebs und Reibungskraft egegen die Schwerkraft.
+Es stellt sich nach einiger Zeit ein Kräftegleichgewicht ein, da die Reibungskraft
+von der Geschwindigkeit $v$ abhängt. Somit fällt die Kugel mit konstanter Geschwindigkeit.
+Bei einem senkrechten Fall würde die Kugel mit den Wänden der Röhre kollidieren und so
+Wirbel verursachen. Deswegen wird das Rohr um einige Grade geneigt, sodass die Kugel
+auf der Oberfläche gleiten kann.
+
+Die Viskosität bestimmt sich nach folgender Formel
 \begin{equation}
-  \eta = K (\rho_K - \rho_{Fl}) \cdot t
+  \eta = K (\rho_K - \rho_{Fl}) \cdot t \ .
   \label{eqn:4}
 \end{equation}
+Hierbei ist $t$ die Fallzeit der Kugel, $\rho_K$ und $\rho_{Fl}$ die Dichten
+der Kugel bzw. der Flüssigkeit. Die Apparaturkonstante $K$ setzt sich unter anderem
+aus Fallhöhe und der Kugelgeometrie zusammen.
+
+Da die Viskosität vieler Flüssigkeiten auch von der Temperatur abhängig ist, gibt die
+Andradesche Gleichung eine Abhängigkeit der Viskosität von der Temperatur an
 \begin{equation}
-  \eta(T) = A exp\left(\frac{B}{T}\right)
+  \eta(T) = A \ exp\left(\frac{B}{T}\right) \ .
   \label{eqn:5}
 \end{equation}
+Mithilfe der Reynoldszahl
 \begin{equation}
-  Re = \frac{\rho v d}{\eta}
+  Re = \frac{\rho \, v \, d}{\eta}
   \label{eqn:6}
 \end{equation}
+lässt sich eine Aussage darüber treffen, ob eine Strömung laminar, also turbulenzfrei,
+ist oder ob sie Wirbel hat. Alle Werte, die unter der Reynoldszahl liegen, sind laminare
+Strömungen, alle, die darüber liegen sind es nicht.
 
 \section{Durchführung}
-
 \subsection{Versuchsaufbau}
-
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{visko.png}
+  \caption{Ein Kugelfall-Viskosimeter nach Höppler.}
+  \label{fig:1}
+\end{figure}
+In Abbildung \ref{fig:1} ist ein Kugelfall-Viskosimeter nach Höppler zu sehen.
+Im Inneren befindet sich die erwähnte Röhre, die drei Messmarkierungen aufweist.
+Die Fallstrecke zwischen der obersten und der untersten beträgt $\SI{0.1}{\meter}$.
+Das Rohr lässt sich von beiden Seiten mit der Flüssigkeit und einer Kugel befüllen.
+Um die Temperaturabhängigkeit zu beobachten, kann die Flüssigkeit im Rohr mit einem Wasserbad
+temperieren, siehe Abbildung \ref{fig:2}. Mithilfe der Libelle lässt sich sicherstellen,
+dass das Viskosimeter grade steht.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.05]{aufbau.jpg}
+  \caption{Versuchsaufbau im Foto.}
+  \label{fig:2}
+\end{figure}
 \subsection{Versuchsdurchführung}
 
 \section{Fehlerrechnung}

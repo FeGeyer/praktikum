@@ -6,7 +6,6 @@
 Ziel des Versuches ist die Bestimmung der Temperaturabhängigkeit der dynamischen
 Viskosität von destilliertem Wasser mithilfe des Kugelfall-Viskosimeters nach Höppler.
 \section{Theorie}
-<<<<<<< 68956737a7a5f4011e2bf1cef5c233aeae210d5b
 Bei Bewegung durch Flüssigkeiten erfahren Körper eine Reibungskraft, die von der
 Berührungsfläche A und der Geschwindigkeit $v$ abhängt. Eine weitere wichtige Rolle
 spielt die $\textbf{dynamische Viskosität}$, eine Eigenschaft der Flüssigkeit, die
@@ -15,11 +14,8 @@ lässt sich Diese bestimmen. Wenn der Radius der Kugel sich nur marginal von dem
 der Röhre unterscheidet, sodass sich keine Turbulenzen bilden, dann gilt für die
 Stokessche Reibung
 \begin{equation}
-
+  F_R = 6 \pi \eta v r
 \end{equation}
-||||||| merged common ancestors
-
-=======
 \begin{equation}
   \eta = K (\rho_K - \rho_{Fl}) \cdot t
   \label{eqn:4}
@@ -32,7 +28,7 @@ Stokessche Reibung
   Re = \frac{\rho v d}{\eta}
   \label{eqn:6}
 \end{equation}
->>>>>>> Auswertung fast fertig, alle Formeln eingefügt
+
 \section{Durchführung}
 
 \subsection{Versuchsaufbau}
@@ -108,13 +104,13 @@ definierte Dichte.
     \bottomrule
   \end{tabular}
 \end{table}
-\begin{table}[b]
+\begin{table}[h]
   \centering
   \caption{Fallzeiten bei Raumtemperatur}
   \label{tab:3}
   \begin{tabular}{c c}
     \toprule
-    $t_{klein}$/\si{\second} & $t_{groß}$/\si{\second}
+    $t_{klein}$/\si{\second} & $t_{groß}$/\si{\second} \\
     \midrule
     13.23 & 87.38 \\
     13.24 & 87.35 \\
@@ -139,13 +135,13 @@ Durch einsetzen dieser Viskosität in der aus \eqref{eqn:4} folgenden Form:
 \end{equation}
 mit der Dichte der größeren Kugel folgt $K_{gr} = \SI[per-mode=reciprocal]{1.206(7)e-08}{\pascal\kilo\gram\per\cubic\metre}$.
 \subsection{Bestimmung der Visositätsfunktion}
-\begin{table}[b]
+\begin{table}[h]
   \centering
   \caption{Fallzeiten bei verschiedenen Temperaturen, 2 Messungen}
   \label{tab:4}
   \begin{tabular}{c c c c c}
     \toprule
-    $T$/si\Kelvin & $t_1$/\si{\second} & $t_1$/\si{\second} & $\bar{t}$/\si{\second} & $\eta(T)$/\SI{e-3}{\pascal\second}
+    $T$/\si{\kelvin} & $t_1$/\si{\second} & $t_1$/\si{\second} & $\bar{t}$/\si{\second} & $\eta(T)$/\SI{e-3}{\pascal\second} \\
     \midrule
     298.15 & 74.80 & 75.76 & 75.28 & 1.58 \\
     303.15 & 68.86 & 68.75 & 68.81 & 1.45 \\
@@ -170,19 +166,23 @@ ermitteln:
   ln(\eta(T)) = ln(A) + B * \frac{1}{T}
 \end{equation}
 Dazu wird ein linear Fit auf den Daten angewendet. Dies ist in Grafik \ref{plot:1} dargestellt.
-\begin{figure}[htbp]
+\begin{figure}[h]
   \centering
      \includegraphics[width=0.7\textwidth]{etaT.pdf}
-  \caption{ln(\eta)} als Funktion von 1/T mit Regression
+  \caption{ln($\eta$)} als Funktion von 1/T mit Regression
   \label{plot:1}
 \end{figure}
 Es ergeben sich folgende Koeffizienten:
 \begin{equation*}
   \begin{split}
-    ln(A) = \num{-12.17(7)}
+    ln(A) = \num{-12.17(7)} \\
     B = \SI{1705(21)}{\kelvin}
   \end{split}
 \end{equation*}
+Nach \eqref{eqn:6} ergeben sich damit Reynoldszahlen zwischen \num{33(3)} bei \SI{25}{\celsius}
+und \num{149(13)} bei \SI{70}{\celsius}. Die kritische Reynoldszahl für Wasser, also die Reynoldszahl die den Übergangspunkt von
+laminarer zu turbolenter Strömung charakterisiert beträgt ca. 2300. Die erhaltenen Werte liegen alle weit unter diesem Wert,
+sodass davon ausgegengen werden kann, dass es sich immer um eine laminare Strömung gehandelt hat.
 \section{Diskussion}
 \newpage
 \nocite{*}

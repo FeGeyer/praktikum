@@ -83,7 +83,7 @@ plt.figure(0)
 plt.title("ln($\eta$) als Funktion von $1/T$")
 
 plt.ylabel('$ln(\eta)$')
-plt.xlabel("$1/T$ (K^{-1})")
+plt.xlabel("$1/T$ (1/K)")
 plt.plot(1/TK, lnetaT, 'r+', label="$ln(\,\eta\,(1/T\,))$")
 plt.plot(x_plot, f(x_plot, *params), 'b-', label='Regression')
 plt.legend(loc="best")

@@ -73,7 +73,7 @@ EtaBerechnet = unp.exp(EtaBerechnetln)
 Re = (rho2 * v * Durchm2)/EtaBerechnet
 print("Viskosität: ", EtaBerechnet)
 print("Reynoldszahl: ", Re)
-print(etaT)
+print(EtaBerechnet)
 np.savetxt('Messwerte.txt', np.column_stack([TK, Messung1, Messung2, Messwerte, unp.nominal_values(etaT)*10**3]),fmt="%.2f")
 
 #c) Plot

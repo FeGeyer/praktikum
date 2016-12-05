@@ -44,7 +44,7 @@ print("Dichte der zweite Kugel: ", rho2, " kg*m^-3")
 #b) Bestimmen der Aperaturkonstante für die große Kugel
 FallzeitRaum1 = ufloat(np.mean(RaumTK1), stats.sem(RaumTK1))
 FallzeitRaum2 = ufloat(np.mean(RaumTK2), stats.sem(RaumTK2))
-rhoH2O = 997.77
+rhoH2O = 997.05
 Kkl = 7.64e-8
 eta = Kkl * (rho1 - rhoH2O) * FallzeitRaum1
 print("Eta Klein: ", eta)

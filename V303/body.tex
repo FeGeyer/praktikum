@@ -6,7 +6,20 @@
 Gegenstand des Versuches ist der Lock-In-Verstärker, dessen Funktionsweise
 erforscht werden soll.
 \section{Theorie}
-
+Der Lock-In-Verstärker wird überwiegend bei Messungen mit stark verrauschten Signalen
+verwendet, um die gesuchte Frequenz herauszufiltern, ähnlich wie mit einem Bandpass.
+Die Güte des Lock-In-Verstärkers liegt allerdings etwa um den Faktor 100 höher als
+der eines Bandpasses.
+\begin{equation}
+    U_{out} = \frac{2}{\pi} \, U_0
+    \label{eqn:4}
+\end{equation}
+Mit einer Phasendifferenz $\phi$ zwischen Signal- und Referenzspannung wird 
+\eqref{eqn:4} zu
+\begin{equation}
+  U_{out} = \frac{2}{\pi} \, U_0 \, \symup{cos}(\phi)
+  \label{eqn:5}
+\end{equation}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 

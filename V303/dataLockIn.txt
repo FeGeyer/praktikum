@@ -1,0 +1,13 @@
+# Phase SpannungOhneRauschen SpannungMitRauschen Gain:5 Uref:6.56/2V
+0 6 6
+30 5 5
+45 3.5 3.5
+60 1.5 1.5
+90 -1 -1
+120 -3.5 -3.5
+135 -5 -5
+150 -6 -6
+180 -6 -6
+225 -3.5 -3.5
+270 1 1
+330 6 6

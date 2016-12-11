@@ -106,26 +106,26 @@ als Funktion des Abstandes zwischen LED und Photodiode gemessen und der maximale
 Abstand $r_{max}$ bestimmt, bei dem das Licht der LED die Photodiode nachweislich
 noch erreicht.
 
-\section{Fehlerrechnung}
-Es gibt:
-\begin{equation}
-  \bar{T} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
-  \label{eqn:1}
-\end{equation}
-den Mittelwert und:
-\begin{equation}
-  \sigma_{\bar{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\bar{T}-T_i)^2}
-  \label{eqn:2}
-\end{equation}
-den Fehler des Mittelwertes. Falls zwei fehlerbehaftete Größen in einer Gleichung
-zur Bestimmung einer anderen Größe Verwendung finden, dann berechnte sich der Gesamtfehler
-nach der Gaußschen Fehlerfortpflanzung zu
-\begin{equation}
-    \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
-    x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
-    x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
-    \label{eqn:3}
-\end{equation}
+% \section{Fehlerrechnung}
+% Es gibt:
+% \begin{equation}
+%   \bar{T} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+%   \label{eqn:1}
+% \end{equation}
+% den Mittelwert und:
+% \begin{equation}
+%   \sigma_{\bar{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\bar{T}-T_i)^2}
+%   \label{eqn:2}
+% \end{equation}
+% den Fehler des Mittelwertes. Falls zwei fehlerbehaftete Größen in einer Gleichung
+% zur Bestimmung einer anderen Größe Verwendung finden, dann berechnte sich der Gesamtfehler
+% nach der Gaußschen Fehlerfortpflanzung zu
+% \begin{equation}
+%     \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
+%     x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
+%     x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
+%     \label{eqn:3}
+% \end{equation}
 
 \section{Auswertung}
 \subsection{Verwendung des Lock-In Verstärkers mit und ohne künstlichem Rauschen}
@@ -176,8 +176,82 @@ ergeben sich folgende Werte für Amplitude und Phase:
   \end{split}
 \end{equation*}
 Die gemessenen Werte folgen also dem nach \eqref{eqn:5} zu erwartenen Verlauf.
-
+\subsection{Abstandsmessung}
+\label{chapter:Abst}
+\begin{table}
+  \centering
+  \caption{Mit Gain von 5 gemessene Werte}
+  \label{tab:2}
+  \begin{tabular}{c c}
+    \toprule
+    Abstand r/$\si{\centi\metre}$ & $U(r)/\si{\volt}$\\
+    \midrule
+    10 & 6.00 \\
+    12 & 5.50 \\
+    16 & 4.75 \\
+    20 & 3.00 \\
+    24 & 2.00 \\
+    28 & 1.25 \\
+    32 & 1.00 \\
+    36 & 0.75 \\
+    40 & 0.50 \\
+    44 & 0.50 \\
+    48 & 0.50 \\
+    52 & 0.50 \\
+    56 & 0.50 \\
+    60 & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}
+  \centering
+     \includegraphics[scale=0.6]{SubABst.pdf}
+  \caption{Auftragen der gemessenen Spannungen gegen den Abstand mit Regression. Die bei der Regression nicht
+  beachteten Messwerte sind kenntlich gemacht.
+  Die Spannungen sind vom Verstärkungsfaktor bereinigt. Der obere Verlauf ergibt sich bei normaler Achsenskalierung,
+  der untere bei doppelt logarithmischer.}
+  \label{plot:2}
+\end{figure}
+Wird der Abstand zwischen LED und Photodiode vergrößert, so ist ein Abfall der gemessenen Spannung $\propto 1/r^(a)$ zu erwarten.
+Das Signal wurde dabei mit einer Frequenz von \SI{300}{\hertz} eingestellt, um die von den im Raum
+befindlichen, mit einer Netzfrequenz von \SI{50}{\hertz} betriebenen, künstlichen Lichtquellen erzeugten
+Störsignale nicht zusätzlich zu verstärken. Die bei einem Gain von 200 gemessenen Daten
+(siehe Tabelle \ref{tab:2}) werden daher mit einer Funktion:
+\begin{equation}
+  U(r) = \frac{b}{r^a}
+\end{equation}
+gefittet. Die wiederholt auftretenden Messwerte von \SI{0.5}{\volt} werden, wie auch der Nullpunkt der Messung bei ca. \SI{60}{\centi\metre}
+weggelassen. Dies ist vertretbar, da davon auszugehen ist, dass die zur Verfügung stehenden Messgeräte in diesem Bereich Änderungen nicht
+mehr mit ausreichender Genauigkeit anzeigen können. Ein Gleichbleiben der Werte bei erhöhen des Abstandes
+erscheint rein logisch unintuitiv und würde oben genannter Abstandsgesetzmäßigkeit wiedersprechen. Die Regression ist
+in Grafik \ref{plot:2} in normaler sowie doppelt logarithmischer Achsenskalierung dargestellt.
+Bei doppelt logarithmischer Skalierung zeigt sich ein linearer Verlauf, der bei einem Abstandsgesetz wie oben genannt
+bei dieser Skalierung zu erwarten ist. Der Fit liefert:
+\begin{equation*}
+  \begin{split}
+    a = \num{1.34(18)}\\
+    b = \SI{0.72(34)}{\volt\square\centi\metre}
+  \end{split}
+\end{equation*}
+Die Spannungen wurden vor dem Fit durch den Verstärkungswert geteilt. Der sinnvolle Verlauf der Messung
+lässt wieder auf die Ordnungsgemäße Funktionsweise des Lock-In Verstärkers schließen.
 \section{Diskussion}
+Zusammenfassend belegt der Versuchsaufbau die gewünschte Funktionsweise des Lock-In Verstärkers. Insbesondere der erste Teil
+des Versuchs zeigt dies sehr gut. Hier sind die Abweichungen zwischen verrauschter und unverrauschter Messung kaum mit
+den zur Verfügung stehenden Geräten Messbar. Der zweiter Teil des Versuches hingegen liefert zwar
+Werte, die auf den Nachweis des Abstandsgesetzes schließen lassen, jedoch, wie in Grafik \ref{plot:2} zu erkennen ist,
+starke unregelmäßigkeiten Aufweisen. Hier sind definitiv erneute Messungen erforderlich, um
+die ordnungsgemäße Funktionsweise des Lock-In Verstärkers zu zeigen.
+
+Ansätze zur Verbesserung der Ergebnisse wären ein besseres Abstimmen der Verstärkungswerte, um ein
+genaueres Ergebnis zu erhalten. Auch musste die Erfassung der Messwerte über ein analoges
+Voltmeter mit großschrittiger Skala erfolgen. Ein digitales Gerät oder eine kleinschrittigere
+Skala hätten die Güte der Messung hier erhöht. Insbesondere das in Kapitel \ref{chapter:Abst}
+genannte gleichbleiben der Messwerte ab einem gewissen Punkt hätte durch ein genaueres
+Messgerät verhindert werden können.\\
+Auch eine Referenzmessung ohne Umgebungslicht wäre sinnvoll. Die dabei erhaltenen
+Messwerte könnten für einen direkten Vergleich mit der Messung bei Umgebungslicht herangezogen werden.
+
 \newpage
 \nocite{*}
 \printbibliography

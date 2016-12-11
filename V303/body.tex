@@ -7,6 +7,7 @@ Gegenstand des Versuches ist der Lock-In-Verstärker, dessen Funktionsweise
 erforscht werden soll.
 
 \section{Theorie}
+\label{sec:2}
 Der Lock-In-Verstärker wird überwiegend bei Messungen mit stark verrauschten Signalen
 verwendet, um die gesuchte Frequenz herauszufiltern, ähnlich wie mit einem Bandpass.
 Die Güte des Lock-In-Verstärkers liegt allerdings etwa um den Faktor 100 höher als
@@ -57,13 +58,53 @@ zwischen Nutz- und Referenzspannung gibt.
 \label{sec:3.1}
 \begin{figure}
   \centering
-  \includegraphics[scale=0.5]{aufbau.png}
+  \includegraphics[scale=0.4]{aufbau.png}
   \caption{Schematischer Aufbau eines Lock-In-Verstärkers.}
   \label{fig:2}
 \end{figure}
-Wie in Abbildung \ref{fig:2} zu sehen, wird $U_{sig}$ 
+Wie in Abbildung \ref{fig:2} zu sehen, wird $U_{sig}$ mithilfe eines Bandpasses
+von Rauschanteilen höherer und niedriger Frequenzen gereinigt. Als nächstes kommt
+der bereits erwähnte Mischer\footnote{siehe Kapitel \ref{sec:2}}, der Nutz- und
+Referenzsignal miteinander multipliziert, wobei sich die Phase des Referenzsignals
+mit dem Phasenschieber einstellen lässt. Nachgeschaltet dazu gibt es noch einen
+Tiefpass, dessen Funktion bereits in Kapitel \ref{sec:2} erläutert wurde. Zum
+Schluss erhält man das Ausgangssignal $U_ {out}$.
 
 \subsection{Versuchsdurchführung}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{durch.png}
+  \caption{Schaltplan eines Lock-In-Verstärkers.}
+  \label{fig:3}
+\end{figure}
+Als erstes wurde festgestellt, welcher Ausgang der Funktionsgenerators in Abbildung
+\ref{fig:3} eine variable und welcher eine konstante Spannung liefert, und welchen
+Wert Diese hat. Danach wurde der Schaltplan Schritt für Schritt aufgebaut und dabei
+auf einem Speicher-Oszilloskop die Signalformen überprüft und mithilfe der Print-Funktion
+Skizzen des Signals nach jedem Schritt gemacht. Dabei wird der Noise-Generator
+zwar eingebunden, aber noch nicht eingeschaltet, um zuerst Messungen ohne Rauschsignal
+aufzunehmen. Als nächstes wird ein sinusförmiges Signal $U_{sig}$ von % Hier brauche ich die Werte aus dem Buch
+$\SI{1}{\kilo\hertz}$ und $\SI{0.01}{\volt}$ erzeugt und mit einem Referenzsignal
+$U_{ref}$, welches auch sinusförmig ist und die gleiche Frequenz hat, gemischt.
+Nach der Integration über den Tiefpass wird die Ausgangsspannung $U_{out}$ % Hier auch die richtige Zahl
+zehnmal in Abhängigkeit von der Phasenverschiebung bestimmt.
+
+Anschließend wird der Noise-Generator eingeschaltet und alle Messungen wiederholt.
+Dabei liegt die Größenordnung des Rauschsignals ungefähr in der Größenordnung
+von $U_{sig}$.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{durch2.png}
+  \caption{Schaltplan eines Lock-In-Verstärkers mit Photo-Detektor.}
+  \label{fig:4}
+\end{figure}
+Als letztes wird ein Photo-Detektor in den Schaltplan eingefügt\footnote{siehe Abbildung \ref{fig:4}},
+dessen LED mit $\SI{200}{\hertz}$ % Hier auch richtiger Wert
+blinkt und mit einer Rechteckspannung moduliert wird. Dann wird die Lichtintensität
+als Funktion des Abstandes zwischen LED und Photodiode gemessen und der maximale
+Abstand $r_{max}$ bestimmt, bei dem das Licht der LED die Photodiode nachweislich
+noch erreicht.
 
 \section{Fehlerrechnung}
 Es gibt:

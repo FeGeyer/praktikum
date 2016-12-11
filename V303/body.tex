@@ -5,23 +5,65 @@
 \section{Zielsetzung}
 Gegenstand des Versuches ist der Lock-In-Verstärker, dessen Funktionsweise
 erforscht werden soll.
+
 \section{Theorie}
 Der Lock-In-Verstärker wird überwiegend bei Messungen mit stark verrauschten Signalen
 verwendet, um die gesuchte Frequenz herauszufiltern, ähnlich wie mit einem Bandpass.
 Die Güte des Lock-In-Verstärkers liegt allerdings etwa um den Faktor 100 höher als
 der eines Bandpasses.
+
+Die Funktionsweise eines Lock-In-Verstärkers liegt darin,
+die Messsignal mit einer Referenzfrequenz $\omega_0$ zu modulieren. In diesem Zuge
+werden das Nutzsignal $U_ {sig}$ und das Referenzsignal $U_{ref}$ in einem Mischer
+miteinander multipliziert\footnote{Näheres zum Aufbau in Kapitel \ref{sec:3.1}}
+und anschließend als Mischsignal $U_{sig} \times U_{ref}$ über mehrere Perioden
+der Modulationsfrequenz integriert, sodass sich die unerwünschten Rauschbeiträge
+weitgehend herausmitteln und am Ausgang eine Gleichspannung $U_{out} \propto U_{sig} \,
+\symup{cos}(\phi)$ zu messen ist, die sich proportional zu $U_{sig}$ verhält. Dabei
+ist $\phi$ die veränderliche Phasenlage des Referenzsignals, die mit dem Nutzsignal synchronisiert
+wird.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{theorie.png}
+  \caption{Spannungsverläufe für eine sinusförmige Nutzspannung.}
+  \label{fig:1}
+\end{figure}
+In Abbildung \ref{fig:1} wird der Signalverlauf für eine sinusförmiges Nutzspannung
+\begin{equation*}
+    U_{sig} = U_0 \, \symup{sin}(\omega \, t)
+\end{equation*}
+dargestellt. $U_{ref}$ ist hierbei durch eine Rechteckspannung mit gleicher Frequenz
+moduliert. Wenn man Diese nun durch eine Fourierreihe nähert, enthält das Produkt
+aus Nutz- und Referenzsignal $U_{sig} \times U_{ref}$ also nur die geraden Oberwellen
+der Grundfrequenz $\omega$. % Hier eventuell die Gleichungen einfügen?
+Der nachgeschaltete Tiefpassfilter unterdrückt nun diese Oberwellen. Damit erhält
+man eine Gleichspannung der Form
 \begin{equation}
     U_{out} = \frac{2}{\pi} \, U_0
     \label{eqn:4}
 \end{equation}
-Mit einer Phasendifferenz $\phi$ zwischen Signal- und Referenzspannung wird
+Mit einer Phasendifferenz $\phi$ zwischen Nutz- und Referenzspannung wird
 \eqref{eqn:4} zu
 \begin{equation}
-  U_{out} = \frac{2}{\pi} \, U_0 \, \symup{cos}(\phi)
+  U_{out} = \frac{2}{\pi} \, U_0 \, \symup{cos}(\phi) \ .
   \label{eqn:5}
 \end{equation}
+Die Ausgangsspannung wird also maximal für $\phi = 0$, also wenn es keinen Phasenunterschied
+zwischen Nutz- und Referenzspannung gibt.
+
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+\label{sec:3.1}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{aufbau.png}
+  \caption{Schematischer Aufbau eines Lock-In-Verstärkers.}
+  \label{fig:2}
+\end{figure}
+Wie in Abbildung \ref{fig:2} zu sehen, wird $U_{sig}$ 
+
+\subsection{Versuchsdurchführung}
 
 \section{Fehlerrechnung}
 Es gibt:

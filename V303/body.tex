@@ -68,8 +68,59 @@ der bereits erwähnte Mischer\footnote{siehe Kapitel \ref{sec:2}}, der Nutz- und
 Referenzsignal miteinander multipliziert, wobei sich die Phase des Referenzsignals
 mit dem Phasenschieber einstellen lässt. Nachgeschaltet dazu gibt es noch einen
 Tiefpass, dessen Funktion bereits in Kapitel \ref{sec:2} erläutert wurde. Zum
-Schluss erhält man das Ausgangssignal $U_ {out}$.
-
+Schluss erhält man das Ausgangssignal $U_ {out}$. Grafik \ref{fig:5} zeigt den Verlauf
+des Signales nach den jeweiligen Schaltelementen. Nach dem Tiefpassfilter lässt sich
+kein Sinnvolles Signalbild mehr entnehmen, da es sich um eine Gleichspannung handelt.
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{1.png}
+    \caption{Referenzspannung $U_{ref}$.\\}
+    \label{sub:1}
+    \qquad
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{2.png}
+    \caption{Signalspannung $U_{sig}$ am Oszillator-Ausgang.}
+    \label{sub:2}
+    \qquad
+  \end{subfigure} \\
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{3.png}
+    \caption{Signalspannung $U_{sig}$ am Ausgang des Vorverstärkers.}
+    \label{sub:3}
+    \qquad
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{4.png}
+    \caption{Signalspannung $U_{sig}$ am Ausgang des Bandpassfilters.}
+    \label{sub:4}
+    \qquad
+  \end{subfigure} \\
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{5.png}
+    \caption{Ausgang nach Lock-In bei einer Phase von \num{0}.}
+    \label{sub:5}
+    \qquad
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{6.png}
+    \caption{Ausgang nach Lock-In bei einer Phase von $\frac{\si{\pi}}{\num{2}}$.}
+    \label{sub:6}
+    \qquad
+  \end{subfigure}
+  \caption{Signalverlauf nach den Schaltelementen. \ref{sub:1} zeigt den Verlauf der Referenzspannung und
+  \ref{sub:2} bis \ref{sub:4} den Verlauf der Signalspannung durch die verschiedenen Schaltelemente.
+  \ref{sub:5} und \ref{sub:6} zeigen die Ausgabe nach dem Lock-In des RefereCnzsignals auf das Messsignal bei
+  verschiedenen Phasen.}
+  \label{fig:5}
+\end{figure}
 \subsection{Versuchsdurchführung}
 \begin{figure}
   \centering
@@ -83,11 +134,12 @@ Wert Diese hat. Danach wurde der Schaltplan Schritt für Schritt aufgebaut und d
 auf einem Speicher-Oszilloskop die Signalformen überprüft und mithilfe der Print-Funktion
 Skizzen des Signals nach jedem Schritt gemacht. Dabei wird der Noise-Generator
 zwar eingebunden, aber noch nicht eingeschaltet, um zuerst Messungen ohne Rauschsignal
-aufzunehmen. Als nächstes wird ein sinusförmiges Signal $U_{sig}$ von 
+aufzunehmen. Als nächstes wird ein sinusförmiges Signal $U_{sig}$ von
 $\SI{1}{\kilo\hertz}$ und $\SI{0.06}{\volt}$ erzeugt und mit einem Referenzsignal
 $U_{ref}$, welches auch sinusförmig ist und die gleiche Frequenz hat, gemischt.
 Nach der Integration über den Tiefpass wird die Ausgangsspannung $U_{out}$
-zwölfmahl in Abhängigkeit von der Phasenverschiebung bestimmt.
+zwölfmahl in Abhängigkeit von der Phasenverschiebung bestimmt. Die Skizzen des Signales
+sind in Kapitel \ref{sec:3.1} zu finden.
 
 Anschließend wird der Noise-Generator eingeschaltet und alle Messungen wiederholt.
 Dabei liegt die Größenordnung des Rauschsignals ungefähr in der Größenordnung
@@ -248,7 +300,7 @@ Ansätze zur Verbesserung der Ergebnisse wären ein besseres Abstimmen der Verst
 genaueres Ergebnis zu erhalten. Auch musste die Erfassung der Messwerte über ein analoges
 Voltmeter mit großschrittiger Skala erfolgen. Ein digitales Gerät oder eine kleinschrittigere
 Skala hätten die Güte der Messung hier erhöht. Insbesondere das in Kapitel \ref{chapter:Abst}
-genannte gleichbleiben der Messwerte ab einem gewissen Punkt hätte durch ein genaueres
+genannte Gleichbleiben der Messwerte ab einem gewissen Punkt hätte durch ein genaueres
 Messgerät verhindert werden können.\\
 Auch eine Referenzmessung ohne Umgebungslicht wäre sinnvoll. Die dabei erhaltenen
 Messwerte könnten für einen direkten Vergleich mit der Messung bei Umgebungslicht herangezogen werden.

@@ -83,11 +83,11 @@ Wert Diese hat. Danach wurde der Schaltplan Schritt für Schritt aufgebaut und d
 auf einem Speicher-Oszilloskop die Signalformen überprüft und mithilfe der Print-Funktion
 Skizzen des Signals nach jedem Schritt gemacht. Dabei wird der Noise-Generator
 zwar eingebunden, aber noch nicht eingeschaltet, um zuerst Messungen ohne Rauschsignal
-aufzunehmen. Als nächstes wird ein sinusförmiges Signal $U_{sig}$ von % Hier brauche ich die Werte aus dem Buch
-$\SI{1}{\kilo\hertz}$ und $\SI{0.01}{\volt}$ erzeugt und mit einem Referenzsignal
+aufzunehmen. Als nächstes wird ein sinusförmiges Signal $U_{sig}$ von 
+$\SI{1}{\kilo\hertz}$ und $\SI{0.06}{\volt}$ erzeugt und mit einem Referenzsignal
 $U_{ref}$, welches auch sinusförmig ist und die gleiche Frequenz hat, gemischt.
-Nach der Integration über den Tiefpass wird die Ausgangsspannung $U_{out}$ % Hier auch die richtige Zahl
-zehnmal in Abhängigkeit von der Phasenverschiebung bestimmt.
+Nach der Integration über den Tiefpass wird die Ausgangsspannung $U_{out}$
+zwölfmahl in Abhängigkeit von der Phasenverschiebung bestimmt.
 
 Anschließend wird der Noise-Generator eingeschaltet und alle Messungen wiederholt.
 Dabei liegt die Größenordnung des Rauschsignals ungefähr in der Größenordnung
@@ -100,11 +100,12 @@ von $U_{sig}$.
   \label{fig:4}
 \end{figure}
 Als letztes wird ein Photo-Detektor in den Schaltplan eingefügt\footnote{siehe Abbildung \ref{fig:4}},
-dessen LED mit $\SI{200}{\hertz}$ % Hier auch richtiger Wert
+dessen LED mit $\SI{300}{\hertz}$
 blinkt und mit einer Rechteckspannung moduliert wird. Dann wird die Lichtintensität
 als Funktion des Abstandes zwischen LED und Photodiode gemessen und der maximale
 Abstand $r_{max}$ bestimmt, bei dem das Licht der LED die Photodiode nachweislich
 noch erreicht.
+
 
 % \section{Fehlerrechnung}
 % Es gibt:

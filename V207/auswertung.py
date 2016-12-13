@@ -86,7 +86,7 @@ x_plot = np.linspace(0.00291418, 0.00335402)
 plt.figure(0)
 plt.title("ln($\eta$) als Funktion von $1/T$")
 
-plt.ylabel('$ln(\eta Pa/s)$')
+plt.ylabel('$ln(\eta \ (Pa \, s)$')
 plt.xlabel("$1/T$ (1/K)")
 plt.plot(1/TK, lnetaT, 'r+', label="$ln(\,\eta\,(1/T\,))$")
 plt.plot(x_plot, f(x_plot, *params), 'b-', label='Regression')

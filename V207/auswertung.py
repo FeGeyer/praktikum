@@ -23,8 +23,9 @@ Durchm2mm = ufloat(np.mean(DMK2mm), stats.sem(DMK2mm))
 Gew1g = ufloat(np.mean(GK1g), stats.sem(GK1g))
 Gew2g = ufloat(np.mean(GK2g), stats.sem(GK2g))
 RaumTK1Mean = ufloat(np.mean(RaumTK1), stats.sem(RaumTK1))
-RaumTK2Mean = 
-print()
+RaumTK2Mean = ufloat(np.mean(RaumTK2), stats.sem(RaumTK2))
+print(RaumTK1Mean)
+print(RaumTK2Mean)
 print(Durchm1mm, Durchm2mm)
 print(Gew1g, Gew2g)
 

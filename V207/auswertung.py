@@ -34,6 +34,10 @@ Durchm1 = ufloat(np.mean(DMK1), stats.sem(DMK1))
 Durchm2 = ufloat(np.mean(DMK2), stats.sem(DMK2))
 Gew1 = ufloat(np.mean(GK1), stats.sem(GK1))
 Gew2 = ufloat(np.mean(GK2), stats.sem(GK2))
+
+Masseg = ufloat(4.956, 0.005)
+Durchmessermm = ufloat(14.592, 0.004)
+print((6 * Masseg)/(np.pi * Durchmessermm ** 3))
 print(Durchm1)
 VK1 = (4/3) * np.pi * ((Durchm1/2) ** 3)
 VK2 = (4/3) * np.pi * ((Durchm2/2) ** 3)
@@ -50,12 +54,17 @@ FallzeitRaum1 = ufloat(np.mean(RaumTK1), stats.sem(RaumTK1))
 FallzeitRaum2 = ufloat(np.mean(RaumTK2), stats.sem(RaumTK2))
 rhoH2O = 997.05
 Kkl = 7.64e-8
+rhoGroß = ufloat(3046, 4)
+ABC = (Kkl * (rho1 - rhoH2O) * RaumTK1Mean) / ( (rhoGroß - rhoH2O) * RaumTK2Mean)
+print("GROSS: ", ABC)
 eta = Kkl * (rho1 - rhoH2O) * FallzeitRaum1
 print("Eta Klein: ", eta)
 Kgr = eta / ((rho2 - rhoH2O) * FallzeitRaum2)
 
 print("Apperaturkonstante für die große Kugel: ", Kgr, " Pa*kg*m^-3")
-
+vkl = 0.1/FallzeitRaum1
+ReyKl = (rho1 * vkl * Durchm1) / (Kkl * (rho1 - rhoH2O) * FallzeitRaum1)
+print("ReynoldsKlein: ", ReyKl)
 #c) Bestimmen der Konstanten und Plot + Fit
 Messwerte = (Messung1+Messung2)/2
 etaT = Kgr * (rho2 - rhoH2O) * Messwerte

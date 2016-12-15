@@ -53,11 +53,53 @@ Größe mit
   \label{eqn:7}
 \end{equation}
 
+Für eine Schaltung mit einer Gegenspannung größer als $U_0$\footnote{siehe Kapitel \ref{sec:3.2}} gilt
+\begin{equation}
+    U_k = U_0 + R_i \, I
+    \label{eqn:8}
+\end{equation}
+
 \section{Durchführung}
 \subsection{Versuchsaufbau}
-
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[scale=0.6]{durch.png}
+    \caption{Schaltbild zur Messung von $U_k$ in Abhängigkeit von $I$.}
+    \label{sub:1}
+    \qquad
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[scale=0.6]{durch2.png}
+    \caption{Schaltbild zur Messung von $U_k$ in Abhängigkeit von $I$ mit Gegenspannung.}
+    \label{sub:2}
+    \qquad
+  \end{subfigure}
+  \caption{Schaltbilder zu Aufgabe 2 (\ref{sub:1}) und Aufgabe 3 (\ref{sub:2})
+  der Versuchsdurchführung.}
+  \label{fig:2}
+\end{figure}
 \subsection{Versuchsdurchführung}
+\label{sec:3.2}
+Als erstes wurde die \textbf{Leerlaufspannung} einer Monozelle mit einem Spannungsmesser
+und der Eingangswiderstand $R_v$ bestimmt. Danach wurde mit der Schaltung in \ref{sub:1}
+die Klemmspannung $U_k$ in Abhängigkeit von $I$ gemessen. Der Variationsbereich des
+Belastungswiderstandes $R_a$ liegt zwischen 0 und $\SI{50}{\ohm}$. % Schrittweite angegeben
 
+Als nächstes wurde die Schaltung \ref{sub:2} aufgebaut und die Messung wiederholt.
+Dabei ist die Gegenspannung $\SI{2}{\volt}$ größer als die der Monozelle und der
+Stromfluss kehrt sich um.
+
+Als letzes wird die Monozelle durch eine Rechteck- und eine Sinusspannung, die
+durch einen RC-Generator erzeugt werden, ausgetauscht. Die Variationsbereiche der
+Belastungswiderstände lauten:
+\begin{itemize}
+  \item Sinusspannung: 20 $\leq$ $R_a$ $\le$ $\SI{250}{\ohm}$
+  \item Rechteckspannung: 0,1 $\leq$ $R_a$ $\leq$ $\SI{5}{\kilo\ohm}$
+\end{itemize}
+Die Frequenzen lauten % Frequenzen einfügen
  \section{Fehlerrechnung}
  Es gibt:
  \begin{equation}

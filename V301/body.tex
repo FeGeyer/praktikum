@@ -3,9 +3,55 @@
 \newpage
 
 \section{Zielsetzung}
-Ziel des Versuches ist es, die Leerlaufspannung und den Innenwiderstand verschiedener
-Spannungsquellen zu ermitteln.
+Ziel des Versuches ist es, die \textbf{Leerlaufspannung} und den \textbf{\textbf{Innenwiderstand}}
+verschiedener Spannungsquellen zu ermitteln.
 \section{Theorie}
+Die \textbf{Leerlaufspannung} $U_0$ ist die Spannung, die gemessen wird, wenn kein Strom fließt.
+Sie wird direkt an den Klemmen der Spannungsquelle abgenommen. Wenn über einen Verbraucher
+mit Lastwiderstand $R_a$ ein endlicher Strom $I$ fließt, dann gilt für die nun gemessene
+"Klemmenspannung" $U_k$, die ebenfalls an den Klemmen der Spannungsquelle abgenommen wird,
+\begin{equation*}
+    U_k < U_0 \ .
+\end{equation*}
+Mit dem zweiten Kirchoffschen Gesetz
+\begin{equation}
+  \sum_n U_{0_n} = \sum_m R_m \, I_m
+  \label{eqn:4}
+\end{equation}
+folgt für die betrachtete Situation
+\begin{equation}
+    U_0 = I \, R_i + I \, R_a \ .
+    \label{eqn:5}
+\end{equation}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{theorie.png}
+  \caption{Schaltbild einer idealen Spannungsquelle mit Außenwiderstand $R_i$ und
+  Lastwiderstand $R_a$.}
+  \label{fig:1}
+\end{figure}
+Dabei ist $R_i$ der \textbf{\textbf{Innenwiderstand}} der Spannungsquelle. Die Klemmenspannung
+$U_k$, siehe \ref{fig:1}, lässt sich somit bestimmen aus \eqref{eqn:5}
+\begin{equation}
+    U_k = I \, R_a = U_0 - I \, R_i \ .
+    \label{eqn:6}
+\end{equation}
+Damit ist auch die Beziehung
+\begin{equation*}
+    U_k \approx U_0
+\end{equation*}
+für die \textbf{Leerlaufspannung} gezeigt, da für diesen Fall in \eqref{eqn:6}
+$I$ vernachlässigbar klein wird. Für diese Betrachtungsweise ist die Spannungsquelle
+eine sogenannte ideale Spannungsquelle mit einem \textbf{Innenwiderstand} von 0 und einem in
+Reihe geschalteten Außenwiderstand $R_i$, der den \textbf{Innenwiderstand} simuliert.
+
+Bei einem RC-Generator wird durch die Änderung des Belastungsstroms das elektrische
+Verhalten der Quelle festgelegt. In diesem Fall ist der \textbf{Innenwiderstand} eine differentielle
+Größe mit
+\begin{equation}
+  R_i = \frac{\symup dU_k}{\symup d I} \ .
+  \label{eqn:7}
+\end{equation}
 
 \section{Durchführung}
 \subsection{Versuchsaufbau}

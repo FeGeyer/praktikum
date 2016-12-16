@@ -11,32 +11,33 @@ plt.rcParams['font.size'] = 10
 RbSkala, IbmA, UbV = np.genfromtxt('datab.txt', unpack=True)
 RcSkala, IcmA, UcV = np.genfromtxt('datac.txt', unpack=True)
 RdSkala, IRechtckmA, URechteckV, ISinusmA, USinusV = np.genfromtxt('datad.txt', unpack=True)
-U0Mono = 1.55
+U0MonoGemessen = 1.55
 RMessgerät = 10e6
 UGegen = 3.5
+#IbmA = IbmA * 10**-3
 
 #Lineare Regression
 def f(x, m, n):
     return m*x+n
 paramsMono, covarianceMono = curve_fit(f, IbmA, UbV)
 errorsMono = np.sqrt(np.diag(covarianceMono))
-U0Mono = ufloat(paramsMono[0], errorsMono[0])
-RiMono = ufloat(paramsMono[1], errorsMono[1])
+U0Mono = ufloat(paramsMono[1], errorsMono[1])
+RiMono = ufloat(paramsMono[0], errorsMono[0])
 
 paramsMonoGegen, covarianceMonoGegen = curve_fit(f, IcmA, UcV)
 errorsMonoGegen = np.sqrt(np.diag(covarianceMonoGegen))
-U0MonoGegen = ufloat(paramsMonoGegen[0], errorsMonoGegen[0])
-RiMonoGegen = ufloat(paramsMonoGegen[1], errorsMonoGegen[1])
+U0MonoGegen = ufloat(paramsMonoGegen[1], errorsMonoGegen[1])
+RiMonoGegen = ufloat(paramsMonoGegen[0], errorsMonoGegen[0])
 
 paramsRechteck, covarianceRechteck = curve_fit(f, IRechtckmA, URechteckV)
 errorsRechteck = np.sqrt(np.diag(covarianceRechteck))
-U0Rechteck = ufloat(paramsRechteck[0], errorsRechteck[0])
-RiRechteck = ufloat(paramsRechteck[1], errorsRechteck[1])
+U0Rechteck = ufloat(paramsRechteck[1], errorsRechteck[1])
+RiRechteck = ufloat(paramsRechteck[0], errorsRechteck[0])
 
 paramsSinus, covarianceSinus = curve_fit(f, ISinusmA, USinusV)
 errorsSinus = np.sqrt(np.diag(covarianceSinus))
-U0Sinus = ufloat(paramsSinus[0], errorsSinus[0])
-RiSinus = ufloat(paramsSinus[1], errorsSinus[1])
+U0Sinus = ufloat(paramsSinus[1], errorsSinus[1])
+RiSinus = ufloat(paramsSinus[0], errorsSinus[0])
 
 #Plotten der Klemmspannung als Funkion der Stromstärke
 x1plot = np.linspace(19, 65)
@@ -90,3 +91,29 @@ plt.plot(x4plot, f(x4plot, *paramsSinus) , 'g-', label='Regression')
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig('Sinus.pdf')
+
+#Systematischer Fehler durch endlichen Widerstand des Voltmeters
+Ri = unp.nominal_values(RiMono) * -1 * 10**3
+print("Systematischer Fehler durch endl. Voltmeterwiderstand: ", Ri/RMessgerät)
+print("deltaU: ", U0MonoGemessen*Ri/RMessgerät)
+
+# Plotten der umgesetzten Leistung am Widerstand an der Monozelle
+N = UbV * IbmA
+Ra = UbV/(IbmA) * 10**3
+print(N)
+print(Ra)
+print(Ri)
+NTheorie = ((Ra * U0Mono ** 2)/(Ra + Ri)**2)*10**3
+
+#print(NTheorie)
+plt.figure(5)
+plt.title(r"Umgesetze Leistung am Belastungswiderstand")
+plt.ylabel("$N$/mW")
+plt.xlabel("$R_a$/$\Omega$")
+plt.xlim(17.5, 70.5)
+plt.ylim(27.5, 74.1)
+plt.plot(Ra, N, 'b+', label='Werte')
+plt.plot(Ra, unp.nominal_values(NTheorie) , 'g-', label='Theorie')
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig('Leistung.pdf')

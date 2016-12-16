@@ -16,6 +16,11 @@ RMessgerät = 10e6
 UGegen = 3.5
 #IbmA = IbmA * 10**-3
 
+np.savetxt('B.txt', np.column_stack([((UbV/IbmA)*10**3), UbV, IbmA]),fmt="%.2f")
+np.savetxt('C.txt', np.column_stack([((UcV/IcmA)*10**3), UcV, IcmA]),fmt="%.2f")
+np.savetxt('Re.txt', np.column_stack([((URechteckV/IRechtckmA)*10**3), URechteckV, IRechtckmA]),fmt="%.2f")
+np.savetxt('Si.txt', np.column_stack([((USinusV/ISinusmA)*10**3), USinusV, ISinusmA]),fmt="%.2f")
+
 #Lineare Regression
 def f(x, m, n):
     return m*x+n
@@ -39,6 +44,18 @@ errorsSinus = np.sqrt(np.diag(covarianceSinus))
 U0Sinus = ufloat(paramsSinus[1], errorsSinus[1])
 RiSinus = ufloat(paramsSinus[0], errorsSinus[0])
 
+print("U0Mono: ", U0Mono)
+print("RiMono: ", RiMono * 10**3)
+print()
+print("U0MonoGegen: ", U0MonoGegen)
+print("RiMonoGegen: ", RiMonoGegen * 10**3)
+print()
+print("U0Rechteck: ", U0Rechteck)
+print("RiRechteck: ", RiRechteck * 10**3)
+print()
+print("U0Sinus: ", U0Sinus)
+print("RiSinus: ", RiSinus * 10**3)
+print()
 #Plotten der Klemmspannung als Funkion der Stromstärke
 x1plot = np.linspace(19, 65)
 plt.figure(1)
@@ -94,16 +111,18 @@ plt.savefig('Sinus.pdf')
 
 #Systematischer Fehler durch endlichen Widerstand des Voltmeters
 Ri = unp.nominal_values(RiMono) * -1 * 10**3
-print("Systematischer Fehler durch endl. Voltmeterwiderstand: ", Ri/RMessgerät)
-print("deltaU: ", U0MonoGemessen*Ri/RMessgerät)
+print("Systematischer Fehler durch endl. Voltmeterwiderstand: ", (RiMono* -1 * 10**3)/RMessgerät)
+print("deltaU: ", U0MonoGemessen*(RiMono* -1 * 10**3)/RMessgerät)
 
 # Plotten der umgesetzten Leistung am Widerstand an der Monozelle
 N = UbV * IbmA
 Ra = UbV/(IbmA) * 10**3
-print(N)
+NTheorie = ((Ra * U0MonoGemessen ** 2)/(Ra + Ri)**2)*10**3
+np.savetxt('N.txt', np.column_stack([Ra, N, NTheorie]),fmt="%.2f")
 print(Ra)
-print(Ri)
-NTheorie = ((Ra * U0Mono ** 2)/(Ra + Ri)**2)*10**3
+print(N)
+NTheorieA = ((Ra * U0MonoGemessen ** 2)/(Ra + RiMono * -1 * 10**3)**2)*10**3
+print(NTheorieA)
 
 #print(NTheorie)
 plt.figure(5)

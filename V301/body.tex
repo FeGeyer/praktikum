@@ -104,8 +104,8 @@ Die beiden Spannungen haben eine Frequenz von $\SI{50}{\hertz}$, eine Range von 
 und wurden mit maximaler Amplitude ausgegeben.
 \section{Fehlerrechnung}
 Falls zwei fehlerbehaftete Größen in einer Gleichung
- zur Bestimmung einer anderen Größe Verwendung finden, dann berechnte sich der Gesamtfehler
- nach der Gaußschen Fehlerfortpflanzung zu
+zur Bestimmung einer anderen Größe Verwendung finden, dann berechnte sich der Gesamtfehler
+nach der Gaußschen Fehlerfortpflanzung zu
  \begin{equation}
      \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
      x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
@@ -162,7 +162,7 @@ Falls zwei fehlerbehaftete Größen in einer Gleichung
 
 Grafik und Messwerte für die Messung an der Monozelle finden sich in Grafik \ref{tabplot:1}. Nach einer
 Umstellung der Skala des Spannungsmessgerätes, die während der Messung notwendig wurde, ergaben sich
-mit den vorherigen Werten inkonsistente Ergebnisse. Daher werden die 5 vor der Umstellung genommenen Messwerte
+mit den vorherigen Werten inkonsistente Ergebnisse. Daher werden die fünf vor der Umstellung genommenen Messwerte
 in der Grafik nicht betrachtet.\\
 \\
 Aufgrund des Zusammenhanges in \eqref{eqn:6} lassen sich $U_0$ und $R_i$ durch lineare Regression berrechnen.
@@ -329,8 +329,11 @@ Die Abweichung liegt dennoch nicht im Bereich der Messungenauigkeit.\\
 \\
 Eine im Gegensatz zum Voltmeter messbare systematische Fehlerquelle wäre das Legen
 des Voltmeters hinter das Amperemeter. Am realen Widerstand des Amperemeters fällt ein Teil
-der Spannung ab, sodass eine Messung nach dem Amperemeter nicht die Klemmspannung an der Monozelle
-messen kann.
+der Spannung ab, sodass für die dort gemessene Spannung $U_H$ gilt
+\begin{equation*}
+  U_H < U_k \ ,
+\end{equation*}
+was einen systematischen Fehler darstellt.
 \subsection{Leistungsabfall am Belastungswiderstand}
 Wird die Leistung betrachtet, die am Belastungswiderstand umgesetzt wird, so folgt aus \eqref{eqn:3}
 mit $N = U_k \, I$:
@@ -340,8 +343,8 @@ mit $N = U_k \, I$:
 \end{equation}
 Wird nun $N = U_k \, I$ gegen $R_a = U_k/I$ aufgetragen und zusätzlich $N(R_a)$ in die Grafik
 eingetragen, so ergibt sich der in Grafik \ref{tabplot:5} dargestellte Verlauf. Die Fehler folgen nach
-\eqref{eqn:3} aus der Fehlerbehafteten Größe $R_i$. Es zeigt sich eine gute Übereinstimmung zwischen der
-Kurve und den Berechneten Werten für $N$.
+\eqref{eqn:3} aus der fehlerbehafteten Größe $R_i$. Es zeigt sich eine gute Übereinstimmung zwischen der
+Kurve und den berechneten Werten für $N$; ein Großteil der Werte liegt innerhalb der Messungenauigkeit.
 
 \begin{figure}[h]
   \begin{subfigure}{0.74\textwidth}

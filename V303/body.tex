@@ -184,43 +184,45 @@ noch erreicht.
 \subsection{Verwendung des Lock-In Verstärkers mit und ohne künstlichem Rauschen}
 \begin{table}
   \centering
-  \caption{Mit Gain von 5 gemessene Werte}
+  \caption{Mit einem linearen Verstärkungsfaktor von 5 gemessene Werte}
   \label{tab:1}
   \begin{tabular}{c c c}
     \toprule
-    Phase/$\si{\pi}$ & $U_{unverauscht}/\si{\volt}$ & $U_{verauscht}/\si{\volt}$ \\
+    Phase/$\si{\pi}$ & $U_{\symup{unverauscht}}/\si{\volt}$ & $U_{\symup{verauscht}}/\si{\volt}$ \\
     \midrule
-    0.00 & 6.00 & 6.00 \\
-    0.17 & 5.00 & 5.00 \\
-    0.25 & 3.50 & 3.50 \\
-    0.33 & 1.50 & 1.50 \\
-    0.50 & -1.00 & -1.00 \\
-    0.67 & -3.50 & -3.50 \\
-    0.75 & -5.00 & -5.00 \\
-    0.83 & -6.00 & -6.00 \\
-    1.00 & -6.00 & -6.00 \\
-    1.25 & -3.50 & -3.50 \\
-    1.50 & 1.00 & 1.00 \\
-    1.83 & 6.00 & 6.00 \\
+    0.00 & 6.0 & 6.0 \\
+    0.17 & 5.0 & 5.0 \\
+    0.25 & 3.5 & 3.5 \\
+    0.33 & 1.5 & 1.5 \\
+    0.50 & -1.0 & -1.0 \\
+    0.67 & -3.5 & -3.5 \\
+    0.75 & -5.0 & -5.0 \\
+    0.83 & -6.0 & -6.0 \\
+    1.00 & -6.0 & -6.0 \\
+    1.25 & -3.5 & -3.5 \\
+    1.50 & 1.0 & 1.0 \\
+    1.83 & 6.0 & 6.0 \\
     \bottomrule
   \end{tabular}
 \end{table}
 \begin{figure}
   \centering
      \includegraphics[scale=0.6]{UvonPhi.pdf}
-  \caption{Auftragen der gemessenen Spannungen gegen die Phasen mit Regression. Die Spannungen sind vom Verstärkungsfaktor bereinigt.}
+  \caption{Dargestellt sind die vom Verstärkungsfaktor bereinigten, am Ausgang des
+  Lock-In-Verstärkers gemessenen Spannungen in Abhängigkeit von der Phase.}
   \label{plot:1}
 \end{figure}
 Die am Tiefpassfilter mit und ohne Rauschen gemessenen Spannungen sind in Tabelle \ref{tab:1}
 dargestellt. Es zeigt sich kein messbarer Unterschied zwischen unverrauschter und verrauschter Messung,
 woraus auf die Ordnungsgemäße Funktionsweise des Aufbaus geschlossen werden kann.
-Die Messwerte wurden bei einem Verstärkungsfaktor von 5 gemessen. Wird die Phase gegen die Spannung
+Die Messwerte wurden bei einem Verstärkungsfaktor von 5 gemessen, sind also um den Faktor 5
+größer, als sie es in Wirklichkeit sind. Wird die Phase gegen die Spannung
 aufgetragen, ergibt sich der in Grafik \ref{plot:1} dargestellte Verlauf. Werden die Messwerte mit einer
 Funktion:
 \begin{equation*}
-  U_{out}(\phi) = A_0 \cdot \symup{cos}(\phi + \symup{\delta}\phi)
+  U_{\symup{out}}(\phi) = A_0 \cdot \symup{cos}(\phi + \symup{\delta}\phi)
 \end{equation*}
-gefittet, wobei $A_0$ die Amplitude und $\symup{\delta}\phi$ die interne Phase des Aufbaus darstellt,
+in "Curve Fit" aus "scipy optimize" gefittet, wobei $A_0$ die Amplitude und $\symup{\delta}\phi$ die interne Phase des Aufbaus darstellt,
 ergeben sich folgende Werte für Amplitude und Phase:
 \begin{equation*}
   \begin{split}
@@ -259,7 +261,7 @@ Die gemessenen Werte folgen also dem nach \eqref{eqn:5} zu erwartenen Verlauf.
 \begin{figure}
   \centering
      \includegraphics[scale=0.6]{SubABst.pdf}
-  \caption{Auftragen der gemessenen Spannungen gegen den Abstand mit Regression. Die bei der Regression nicht
+  \caption{Dargestellt sind die gemessenen Spannungen in Abhängigkeit des Abstandes zwischen LED und Photodiode. Die bei der Regression nicht
   beachteten Messwerte sind kenntlich gemacht.
   Die Spannungen sind vom Verstärkungsfaktor bereinigt. Der obere Verlauf ergibt sich bei normaler Achsenskalierung,
   der untere bei doppelt logarithmischer.}
@@ -287,7 +289,7 @@ bei dieser Skalierung zu erwarten ist. Der Fit liefert:
   \end{split}
 \end{equation*}
 Die Spannungen wurden vor dem Fit durch den Verstärkungswert geteilt. Der sinnvolle Verlauf der Messung
-lässt wieder auf die Ordnungsgemäße Funktionsweise des Lock-In Verstärkers schließen.
+lässt wieder auf die ordnungsgemäße Funktionsweise des Lock-In Verstärkers schließen.
 \section{Diskussion}
 Zusammenfassend belegt der Versuchsaufbau die gewünschte Funktionsweise des Lock-In Verstärkers. Insbesondere der erste Teil
 des Versuchs zeigt dies sehr gut. Hier sind die Abweichungen zwischen verrauschter und unverrauschter Messung kaum mit

@@ -1,53 +1,53 @@
 \maketitle
-\tableofcontents
+%\tableofcontents
 \newpage
 
 \section{Zielsetzung}
 Gegenstand des Versuches ist der Lock-In-Verstärker, dessen Funktionsweise
-erforscht werden soll.
+nachvollzogen werden soll.
 
 \section{Theorie}
 \label{sec:2}
-Der Lock-In-Verstärker wird überwiegend bei Messungen mit stark verrauschten Signalen
+Der Lock-In-Verstärker wird überwiegend bei Messungen von stark verrauschten Signalen
 verwendet, um die gesuchte Frequenz herauszufiltern, ähnlich wie mit einem Bandpass.
 Die Güte des Lock-In-Verstärkers liegt allerdings etwa um den Faktor 100 höher als
 der eines Bandpasses.
 
-Die Funktionsweise eines Lock-In-Verstärkers liegt darin,
+Die Funktionsweise eines Lock-In-Verstärkers besteht darin,
 die Messsignal mit einer Referenzfrequenz $\omega_0$ zu modulieren. In diesem Zuge
-werden das Nutzsignal $U_ {sig}$ und das Referenzsignal $U_{ref}$ in einem Mischer
+werden das Nutzsignal $U_{\symup{sig}}$ und das Referenzsignal $U_{\symup{ref}}$ in einem Mischer
 miteinander multipliziert\footnote{Näheres zum Aufbau in Kapitel \ref{sec:3.1}}
-und anschließend als Mischsignal $U_{sig} \times U_{ref}$ über mehrere Perioden
+und anschließend als Mischsignal $U_{\symup{sig}} \times U_{\symup{ref}}$ über mehrere Perioden
 der Modulationsfrequenz integriert, sodass sich die unerwünschten Rauschbeiträge
-weitgehend herausmitteln und am Ausgang eine Gleichspannung $U_{out} \propto U_{sig} \,
-\symup{cos}(\phi)$ zu messen ist, die sich proportional zu $U_{sig}$ verhält. Dabei
+weitgehend herausmitteln und am Ausgang eine Gleichspannung $U_{\symup{out}} \propto U_{\symup{sig}} \,
+\symup{cos}(\phi)$ zu messen ist, die sich proportional zu $U_{\symup{sig}}$ verhält. Dabei
 ist $\phi$ die veränderliche Phasenlage des Referenzsignals, die mit dem Nutzsignal synchronisiert
 wird.
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.4]{theorie.png}
-  \caption{Spannungsverläufe für eine sinusförmige Nutzspannung.}
+  \caption{Spannungsverläufe für eine sinusförmige Nutzspannung [\cite{anleitung}].}
   \label{fig:1}
 \end{figure}
 In Abbildung \ref{fig:1} wird der Signalverlauf für eine sinusförmiges Nutzspannung
 \begin{equation*}
-    U_{sig} = U_0 \, \symup{sin}(\omega \, t)
+    U_{\symup{sig}} = U_0 \, \symup{sin}(\omega \, t)
 \end{equation*}
-dargestellt. $U_{ref}$ ist hierbei durch eine Rechteckspannung mit gleicher Frequenz
+dargestellt. $U_{\symup{ref}}$ ist hierbei durch eine Rechteckspannung mit gleicher Frequenz
 moduliert. Wenn man Diese nun durch eine Fourierreihe nähert, enthält das Produkt
-aus Nutz- und Referenzsignal $U_{sig} \times U_{ref}$ also nur die geraden Oberwellen
+aus Nutz- und Referenzsignal $U_{\symup{sig}} \times U_{\symup{ref}}$ also nur die geraden Oberwellen
 der Grundfrequenz $\omega$. % Hier eventuell die Gleichungen einfügen?
 Der nachgeschaltete Tiefpassfilter unterdrückt nun diese Oberwellen. Damit erhält
 man eine Gleichspannung der Form
 \begin{equation}
-    U_{out} = \frac{2}{\pi} \, U_0
+    U_{\symup{out}} = \frac{2}{\pi} \, U_0
     \label{eqn:4}
 \end{equation}
 Mit einer Phasendifferenz $\phi$ zwischen Nutz- und Referenzspannung wird
 \eqref{eqn:4} zu
 \begin{equation}
-  U_{out} = \frac{2}{\pi} \, U_0 \, \symup{cos}(\phi) \ .
+  U_{\symup{out}} = \frac{2}{\pi} \, U_0 \, \symup{cos}(\phi) \ .
   \label{eqn:5}
 \end{equation}
 Die Ausgangsspannung wird also maximal für $\phi = 0$, also wenn es keinen Phasenunterschied
@@ -59,45 +59,44 @@ zwischen Nutz- und Referenzspannung gibt.
 \begin{figure}
   \centering
   \includegraphics[scale=0.4]{aufbau.png}
-  \caption{Schematischer Aufbau eines Lock-In-Verstärkers.}
+  \caption{Schematischer Aufbau eines Lock-In-Verstärkers [\cite{anleitung}].}
   \label{fig:2}
 \end{figure}
-Wie in Abbildung \ref{fig:2} zu sehen, wird $U_{sig}$ mithilfe eines Bandpasses
-von Rauschanteilen höherer und niedriger Frequenzen gereinigt. Als nächstes kommt
+Wie in Abbildung \ref{fig:2} zu sehen, wird $U_{\symup{sig}}$ mithilfe eines Bandpasses
+von Rauschanteilen höherer und niedriger Frequenzen gereinigt. Als nächstes folgt
 der bereits erwähnte Mischer\footnote{siehe Kapitel \ref{sec:2}}, der Nutz- und
 Referenzsignal miteinander multipliziert, wobei sich die Phase des Referenzsignals
 mit dem Phasenschieber einstellen lässt. Nachgeschaltet dazu gibt es noch einen
 Tiefpass, dessen Funktion bereits in Kapitel \ref{sec:2} erläutert wurde. Zum
-Schluss erhält man das Ausgangssignal $U_ {out}$. Grafik \ref{fig:5} zeigt den Verlauf
-des Signales nach den jeweiligen Schaltelementen. Nach dem Tiefpassfilter lässt sich
-kein Sinnvolles Signalbild mehr entnehmen, da es sich um eine Gleichspannung handelt.
+Schluss erhält man das Ausgangssignal $U_ {\symup{out}}$. Grafik \ref{fig:5} zeigt den Verlauf
+des Signales nach den jeweiligen Schaltelementen.
 \begin{figure}
   \centering
   \begin{subfigure}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{1.png}
-    \caption{Referenzspannung $U_{ref}$.\\}
+    \caption{Referenzspannung $U_{\symup{ref}}$.\\}
     \label{sub:1}
     \qquad
   \end{subfigure}
   \begin{subfigure}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{2.png}
-    \caption{Signalspannung $U_{sig}$ am Oszillator-Ausgang.}
+    \caption{Signalspannung $U_{\symup{sig}}$ am Oszillator-Ausgang.}
     \label{sub:2}
     \qquad
   \end{subfigure} \\
   \begin{subfigure}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{3.png}
-    \caption{Signalspannung $U_{sig}$ am Ausgang des Vorverstärkers.}
+    \caption{Signalspannung $U_{\symup{sig}}$ am Ausgang des Vorverstärkers.}
     \label{sub:3}
     \qquad
   \end{subfigure}
   \begin{subfigure}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{4.png}
-    \caption{Signalspannung $U_{sig}$ am Ausgang des Bandpassfilters.}
+    \caption{Signalspannung $U_{\symup{sig}}$ am Ausgang des Bandpassfilters.}
     \label{sub:4}
     \qquad
   \end{subfigure} \\
@@ -125,37 +124,37 @@ kein Sinnvolles Signalbild mehr entnehmen, da es sich um eine Gleichspannung han
 \begin{figure}
   \centering
   \includegraphics[scale=0.3]{durch.png}
-  \caption{Schaltplan eines Lock-In-Verstärkers.}
+  \caption{Schaltplan eines Lock-In-Verstärkers [\cite{anleitung}].}
   \label{fig:3}
 \end{figure}
 Als erstes wurde festgestellt, welcher Ausgang der Funktionsgenerators in Abbildung
 \ref{fig:3} eine variable und welcher eine konstante Spannung liefert, und welchen
 Wert Diese hat. Danach wurde der Schaltplan Schritt für Schritt aufgebaut und dabei
-auf einem Speicher-Oszilloskop die Signalformen überprüft und mithilfe der Print-Funktion
-Skizzen des Signals nach jedem Schritt gemacht. Dabei wird der Noise-Generator
+auf einem Speicher-Oszilloskop die Signalformen überprüft und Bilder des Signals
+nach jedem Schritt gemacht. Dabei wird der Noise-Generator
 zwar eingebunden, aber noch nicht eingeschaltet, um zuerst Messungen ohne Rauschsignal
-aufzunehmen. Als nächstes wird ein sinusförmiges Signal $U_{sig}$ von
+aufzunehmen. Als nächstes wird ein sinusförmiges Signal $U_{\symup{sig}}$ von
 $\SI{1}{\kilo\hertz}$ und $\SI{0.06}{\volt}$ erzeugt und mit einem Referenzsignal
-$U_{ref}$, welches auch sinusförmig ist und die gleiche Frequenz hat, gemischt.
-Nach der Integration über den Tiefpass wird die Ausgangsspannung $U_{out}$
-zwölfmahl in Abhängigkeit von der Phasenverschiebung bestimmt. Die Skizzen des Signales
+$U_{\symup{ref}}$, welches auch sinusförmig ist und die gleiche Frequenz hat, gemischt.
+Nach der Integration über den Tiefpass wird die Ausgangsspannung $U_{\symup{out}}$
+zwölfmal in Abhängigkeit von der Phasenverschiebung bestimmt. Die Skizzen des Signales
 sind in Kapitel \ref{sec:3.1} zu finden.
 
 Anschließend wird der Noise-Generator eingeschaltet und alle Messungen wiederholt.
 Dabei liegt die Größenordnung des Rauschsignals ungefähr in der Größenordnung
-von $U_{sig}$.
+von $U_{\symup{sig}}$.
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.3]{durch2.png}
-  \caption{Schaltplan eines Lock-In-Verstärkers mit Photo-Detektor.}
+  \caption{Schaltplan eines Lock-In-Verstärkers mit Photo-Detektor [\cite{anleitung}].}
   \label{fig:4}
 \end{figure}
 Als letztes wird ein Photo-Detektor in den Schaltplan eingefügt\footnote{siehe Abbildung \ref{fig:4}},
 dessen LED mit $\SI{300}{\hertz}$
 blinkt und mit einer Rechteckspannung moduliert wird. Dann wird die Lichtintensität
 als Funktion des Abstandes zwischen LED und Photodiode gemessen und der maximale
-Abstand $r_{max}$ bestimmt, bei dem das Licht der LED die Photodiode nachweislich
+Abstand $r_{\symup{max}}$ bestimmt, bei dem das Licht der LED die Photodiode nachweislich
 noch erreicht.
 
 

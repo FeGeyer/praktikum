@@ -287,7 +287,7 @@ von im Mittel \SI{65.5}{\ohm}. Diese lässt sich durch den Widerstand der andere
 Schaltungselemente (insbesondere der Leitungen) sowie den Innenwiderstand des
 Generators erklären. Weiter berechnet sich nach \eqref{eqn:6} eine Abklingzeit von
 $T_{\symup{ex}}=\SI{178(2)}{\micro\second}$.
-\subsubsection{Dämpfungswiderstand des aperiodischen Grenzfalls}
+\subsection{Dämpfungswiderstand des aperiodischen Grenzfalls}
 Nach \eqref{eqn:7} folgt ein rechnerischer Dämpfungswiderstand von \SI{4.39(1)}{\kilo\ohm},
 bei dem der aperiodische Grenzfall eintritt. Gemessen wurde ein Wert von \SI{3.6}{\kilo\ohm}.
 Die Abweichung von im Mittel \SI{0.79}{\ohm} lässt sich zum einen wie oben durch
@@ -295,6 +295,86 @@ unbetrachtete weitere Widerstände erklären, zum anderen ist ein genaues Einste
 Potentiometers nicht möglich. Insbesondere das Oszilloskop erreichte beim Einstellen
 die Grenzen seiner Auflösung, sodass es ein gewisses Intervall gibt, in dem der Überschwinger
 auf dem Bild des Oszilloskopes gerade verschwunden ist.
+\subsection{Frequenzabhängigkeit der Kondensatorspannung}
+\begin{table}
+  \caption{Messwerte aus den Messungen der Frequenzabhängigkeiten des Schwingkreises.
+  Wieder wurde die Kondensatorspannung mit 10-facher Verstärkung gemessen, sodass sie
+  in \si{\deci\volt} angegeben wird. Der Wert $\symup{\Delta} t$ gibt den zeitlichen Versatz
+  zwischen Kondensator- und Erregerspannung an.}
+  \label{tab:2}
+  \centering
+  \begin{tabular}{c c c c}
+    \toprule
+    $\nu / \si{\kilo\hertz}$ & $ \symup{\Delta} t / \si{\micro\second}$ & $U_{\symup{C}}$/\si{\deci\volt} & $ U_{\symup{err}} / \si{\volt}$\\
+    \midrule
+    21 & 1.6 & 11.0 & 76 \\
+    25 & 2.4 & 14.0 & 74 \\
+    28 & 2.8 & 17.6 & 74 \\
+    29 & 3.2 & 19.2 & 72 \\
+    30 & 3.4 & 21.2 & 72 \\
+    31 & 4.0 & 24.0 & 72 \\
+    32 & 5.0 & 26.0 & 70 \\
+    33 & 5.8 & 27.6 & 70 \\
+    34 & 6.6 & 28.0 & 70 \\
+    35 & 7.2 & 27.6 & 70 \\
+    36 & 8.4 & 25.6 & 70 \\
+    37 & 8.8 & 23.6 & 70 \\
+    38 & 9.2 & 20.8 & 72 \\
+    39 & 9.4 & 18.0 & 72 \\
+    40 & 9.8 & 16.0 & 72 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\subsection{Frequenzabhängigkeit der Phase zwischen Erreger- und Kondensatorspannung}
+\begin{figure}[p]
+  \centering
+  \begin{subfigure}{0.7\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{Phasehalblog.pdf}
+    \caption{Halblogarithmische Darstellung}
+    \label{sub:1}
+  \end{subfigure}\\
+  \begin{subtable}{0.7\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{Phaselin.pdf}
+    \caption{Lineare Darstellung mit eingezeichneten Frequenzen.}
+    \label{sub:2}
+  \end{subtable}
+  \caption{In Abbildung \subref{sub:1} wurden Phase und Frequenz halblogarithmisch gegeneinander
+  abgetragen. Die gleichen Werte sind in Abbildung \subref{sub:2} linear dargestellt. Hier wurden
+  zusätzlich die Resonazfrequenz sowie die Frequenzen $\nu_1$ und $\nu_2$, also die,
+  bei denen eine Phasenverschiebung von $\frac{\pi}{2}$ bzw. $\frac{3 \pi}{2}$ auftritt,
+  eingezeichnet.}
+\label{abb:2}
+\end{figure}
+Die gemessenen Werte sind wie oben in Tabelle \ref{tab:2} dargestellt. In Abbildung
+\ref{abb:2} ist der Verlauf der Phasenverschiebung in Abhängigkeit von der Frequenz
+der Erregerspannung aufgetragen. \ref{sub:1} ist dabei in halblogarithmischer
+Darstellung. Es zeigt sich der zu erwartende Verlauf der Phasenverschiebung.
+Grafik \ref{sub:2} wurde in linearer Darstellung belassen, um ein Ablesen der Frequenzen
+zu erleichtern. Die abgelesenen Werte sind zusammen mit den aus \eqref{eqn:15}
+für die Frequenzen $\nu_1$ und $\nu_2$ bei $\frac{\pi}{2}$ bzw. $\frac{3 \pi}{2}$
+und \eqref{eqn:12} für die Resonanzfrequenz $ \nu_{\symup{res}}$ in Tabelle \ref{tab:3} dargestellt.
+Es ergeben sich äußerst geringe relative Abweichen zwischen Theorie und Experiment.
+Die experimentellen Daten liegen jedoch in keinem Fall im Bereich der Fehlertoleranz
+der Theoriewerte.
+\begin{table}
+  \caption{Für $\nu_1$, $\nu_2$ sowie $ \nu_{\symup{res}}$ aus dem Experiment bestimmte
+  und errechnete Werte. Zusätzlich ist die relative Abweichung der Werte zueinander
+  angegeben.}
+  \label{tab:3}
+  \centering
+  \begin{tabular}{c c c c}
+    \toprule
+    & experimentell & rechnerisch  & realtive Abweichung / \si{\percent}\\
+    \midrule
+    $\nu_1 / \si{\kilo\hertz}$ & \num{31} & \num{30.78(6)} & \num{0.65} \\
+    $\nu_{\symup{res}} / \si{\kilo\hertz}$ & \num{35} & \num{34.09(7)} & \num{2.57} \\
+    $\nu_2 / \si{\kilo\hertz}$ & \num{39} & \num{38.80(8)} & \num{0.51} \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
 \section{Diskussion}
 \newpage
 \nocite{*}

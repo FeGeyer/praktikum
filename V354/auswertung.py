@@ -5,7 +5,7 @@ from uncertainties import ufloat
 from scipy.optimize import curve_fit
 from scipy.stats import stats
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 10
+plt.rcParams['font.size'] = 15
 
 #Teil a)
 #Einlesen der Daten
@@ -49,21 +49,20 @@ R2 = ufloat(509.5, 0.5)
 w0 = unp.sqrt(1/(L*C))
 qerr = 1/(w0*R2*C)
 print(qerr)
+
+
 plt.figure(2)
 plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
 plt.ylabel(r"$U / \mathrm{V}$")
-#plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
-#plt.yscale("log")
 plt.xscale("log")
+plt.grid()
 plt.plot(finkHz, U, 'b+', label='Messwerte')
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Halblog.pdf')
 
 plt.figure(3)
-#plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
-#plt.yscale("log")
-#plt.xscale("log")
+plt.grid()
 plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
 plt.ylabel(r"$U / \mathrm{V}$")
 plt.plot(finkHz, U, 'b+', label='Messwerte')
@@ -76,11 +75,18 @@ T=1/(finkHz*10**3)
 phi = 360*dt/T
 print(phi)
 
+wres = 1/(2*np.pi) * unp.sqrt( ( 1 / (L*C) ) - ( (R2**2) / (2*L**2) ) )
+w1 = 1/(2*np.pi) * ( R2/(2*L) + unp.sqrt( ( 1 / (L*C) ) + ( (R2**2) / (4*L**2) ) ) )
+w2 = 1/(2*np.pi) * ( -R2/(2*L) + unp.sqrt( ( 1 / (L*C) ) + ( (R2**2) / (4*L**2) ) ) )
+print("Wres: ", wres)
+print("W1: ", w1)
+print("W2: ", w2)
+
+
 plt.figure(4)
 plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
 plt.ylabel(r"$\varphi / \mathrm{rad}$")
-#plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
-#plt.yscale("log")
+plt.grid(True, which="both")
 plt.ylim(0,200)
 plt.xlim(20,41)
 plt.xscale("log")
@@ -94,14 +100,20 @@ plt.savefig('Phasehalblog.pdf')
 plt.figure(5)
 plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
 plt.ylabel(r"$\varphi / \mathrm{rad}$")
-#plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
-#plt.yscale("log")
-#plt.xscale("log")
+plt.grid()
 plt.ylim(0,200)
 plt.xlim(20,41)
 plt.yticks([0, 45, 90, 135, 180],
            [r"$0$", r"$\frac{1}{4}\pi$", r"$\frac{1}{2}\pi$", r"$\frac{3}{4}\pi$", r"$\pi$"])
+plt.xticks([20, 25, 30, 31, 35, 39, 40],
+            ["20", "25", "30", "31", "35", "39", "40"])
 plt.plot(finkHz, phi, 'b+', label='Messwerte')
+plt.axhline(y=90, xmin=0, xmax=0.714, color='r', ls="--", label='Resonanz', linewidth=2)
+plt.axhline(y=45, xmin=0, xmax=0.524, color='g', ls="--", label=r'$\nu_1$ bzw. $\nu_2$', linewidth=2)
+plt.axhline(y=135, xmin=0, xmax=0.905, color='g', ls="--", linewidth=2)
+plt.axvline(x=31, ymin=0, ymax=0.225, color='g', ls="--", linewidth=2)
+plt.axvline(x=39, ymin=0, ymax=0.675, color='g', ls="--", linewidth=2)
+plt.axvline(x=35, ymin=0, ymax=0.45, color='r', ls="--", linewidth=2)
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Phaselin.pdf')

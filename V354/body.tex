@@ -26,7 +26,7 @@ eine $\textbf{gedämpften Schwingung}$. Das Gesetz zwischen der Absinken der Amp
 lässt sich aus dem zweiten Kirchhoffschen Gesetz, mit den Spannungen aus Abbildung \ref{fig:1},
 herleiten
 \begin{equation}
-    U_R (t) + U_L (t) + U_C (t) = 0 \, .
+    U_R (t) + U_L (t) + U_{\symup{C}} (t) = 0 \, .
     \label{eqn:1}
 \end{equation}
 Daraus entwickelt man eine lineare homogene Differentialgleichung 2. Ordnung der Form
@@ -41,12 +41,11 @@ welche als Lösung
   \label{eqn:3}
 \end{equation}
 mit $A$ und $B$ als beliebige Zahlen aus $\mathbb{C}$ und den Abkürzungen
-\begin{equation*}
-    \begin{split}
-        2 \pi \mu = \frac{R}{2L} \\
-        2 \pi \nu = \sqrt{\frac{1}{LC} - \frac{R^2}{4L^2}}
-    \end{split}
-\end{equation*}
+\begin{align}
+        2 \pi \mu &= \frac{R}{2L} \\
+        \label{eq:1}
+        2 \pi \nu &= \sqrt{\frac{1}{LC} - \frac{R^2}{4L^2}}
+\end{align}
 besitzt. Für den weiteren Verlauf ist es erforderlich zu ermitteln, ob $\nu$
 reell oder imaginär ist. Deshalb wird eine Fallunterscheidung ausgeführt:
 \begin{itemize}
@@ -102,20 +101,20 @@ Mit
 \end{equation*}
 wird die Differentialgleichung \eqref{eqn:2} verändert zu
 \begin{equation}
-    LC \ddot{U}_C + RC \ddot{U}_C + U_C = U_0 \, e^{i \omega t} \, .
+    LC \ddot{U}_C + RC \ddot{U}_C + U_{\symup{C}} = U_0 \, e^{i \omega t} \, .
     \label{eqn:8}
 \end{equation}
 Um zu ermitteln, wie die Amplitude $U_{C0}$ der Kondensatorspannung mit dem Phasenunterschied
 von der Erregerspannung mit der Amplitude $U_0$ und ihrer Frequenz abhängen, nimmt man den Ansatz
 \begin{equation*}
-  U_C(\omega, t) = U_{C0}(\omega) \, e^{i \omega t}
+  U_{\symup{C}}(\omega, t) = U_{C0}(\omega) \, e^{i \omega t}
 \end{equation*}
 und setzt ihn in \eqref{eqn:8} ein (Mit $U_{C0}$ als beliebige Zahl aus $\mathbb{C}$). Damit erhält man für die Amplitude
 \begin{equation}
     U_{C0} = \frac{U_0 \left(1 -LC \omega^2 - i \omega RC \right)}{\left(1 - LC \omega^2 \right)^2 + \omega^2 R^2 C^2}
     \label{eqn:9}
 \end{equation}
-und für die Phasenverschiebung $\phi (\omega)$ zwischen $U_C(t)$ und $U(t)$
+und für die Phasenverschiebung $\phi (\omega)$ zwischen $U_{\symup{C}}(t)$ und $U(t)$
 \begin{equation}
     \phi (\omega) = \symup{arctan} \left(\frac{-\omega R C}{1 - LC \omega^2}\right) \, .
     \label{eqn:10}
@@ -129,12 +128,12 @@ $\frac{\pi}{4}$ bzw. $\frac{3\pi}{4}$ beträgt, gilt dann nach \eqref{eqn:10}
 Mit \eqref{eqn:9} erhält man für die Kondensatorspannung in Abgängigkeit von $\omega$ die sogennante
 Resonanzkurve
 \begin{equation}
-  U_C(\omega) = \frac{U_0}{\sqrt{\left(1- LC \omega^2\right)^2 + \omega^2 R^2 C^2}} \, .
+  U_{\symup{C}}(\omega) = \frac{U_0}{\sqrt{\left(1- LC \omega^2\right)^2 + \omega^2 R^2 C^2}} \, .
   \label{eqn:11}
 \end{equation}
 An Gleichung \eqref{eqn:11} lässt sich erkennen, dass die Kondensatorspannung für
 $\omega \to \infty$ gegen 0 und für $\omega \to 0$ gegen $U_0$ geht. Allerdings
-gibt es eine Frequenz, für die die Kondensatorspannung maximiert wird, sodass $U_C > U_0$ gilt. Dies wird als
+gibt es eine Frequenz, für die die Kondensatorspannung maximiert wird, sodass $U_{\symup{C}} > U_0$ gilt. Dies wird als
 Resonanz mit der Resonanzfrequenz
 \begin{equation}
   \omega_\symup{res} = \sqrt{\frac{1}{LC} - \frac{R^2}{2L^2}}
@@ -142,7 +141,7 @@ Resonanz mit der Resonanzfrequenz
 \end{equation}
 bezeichnet. Falls nun die Resonanzfrequenz ungefähr der Frequenz des ungedämpften Schwingkreises
 $\omega_0 = \frac{1}{LC}$, d.h. dass in \eqref{eqn:12} $\frac{1}{LC} >> \frac{R^2}{2L^2}$ gilt,
-entspricht, so nennt man dies schwache Dämpfung. Für diesen Fall wird $U_C$ um den Faktor
+entspricht, so nennt man dies schwache Dämpfung. Für diesen Fall wird $U_{\symup{C}}$ um den Faktor
 \begin{equation}
   q = \frac{1}{\omega_0 RC}
   \label{eqn:13}
@@ -151,7 +150,7 @@ größer als $U_0$. \eqref{eqn:13} nennt man auch die $\textbf{Güte q}$ des Sch
 
 Eine weitere wichtige Größe ist die Breite der Resonanzkurve aus Formel \eqref{eqn:11}.
 Sie wird aus der Differenz der beiden Frequenzen $\omega_+$ und $\omega_-$ gewonnen,
-welche sich dadurch auszeichnen, dass $U_C(\omega_+)$ und $U_C(\omega_-)$ um den Faktor
+welche sich dadurch auszeichnen, dass $U_{\symup{C}}(\omega_+)$ und $U_{\symup{C}}(\omega_-)$ um den Faktor
 $\frac{1}{\sqrt{2}}$ kleiner sind als das Maximum aus \eqref{eqn:13}. Mit der Näherung
 \begin{equation*}
   \frac{R^2}{L^2} << \omega_0^2
@@ -211,7 +210,7 @@ sondern der veränderliche ohmsche Widerstand Teil des Schwingkreises ist. Zunä
 wird der eben erwähnte veränderliche Widerstand auf sein Maximum eingestellt. Auf dem
 Oszilloskop äußert sich das durch die monotone Abnahme der Kondensatorspannung, d. h.
 es gibt also keine Schwingung. Alsdann wird der Widerstand schrittweise verringert,
-bis ein Überschwinger erkennbar wird. Dies bedeutet, dass der Schwinfall eingetreten ist.
+bis ein Überschwinger erkennbar wird. Dies bedeutet, dass der Schwingfall eingetreten ist.
 Nun wird der Widerstand wieder erhöht, bis dieser Überschwinger verschwunden ist.
 \begin{figure}[t]
   \centering
@@ -227,13 +226,77 @@ die Schaltung aus den vorigen Abschnitten aufgebaut, diesmal mit dem größeren 
 Festwiderständ und mit einer Sinusspannung statt Nadelpulsen. Da die Frequenzabhängigkeit
 der Phase gleichzeitig ausgeführt wird, wird die Sinusspannung ebenfalls auf dem Oszillsokop
 dargestellt. Dann werden beide Spannungsverläufe übereinander gelegt und für etwas mehr als
-zehn verschiedene Frequenzen $U_0$, sprich die Amplitude der Sinusspannung, $U_C$ und
+zehn verschiedene Frequenzen $U_0$, sprich die Amplitude der Sinusspannung, $U_{\symup{C}}$ und
 die zeitliche Differenz zwischen den beiden Nulldurchgängen der Spannungen aufgenommen.
 Die Periodenlänge lässt sich aus der jweils eingestellten Frequenz bestimmen.
 
 \section{Auswertung}
-
+Die Daten der in der Apperatur verwendeten Bauteile sind wie folgt:
+\begin{align*}
+  L &= \SI{10.11(3)}{\milli\henry}\\
+  C &= \SI{2.098(6)}{\nano\farad}\\
+  R_1 &= \SI{48.1(1)}{\ohm}\\
+  R_2 &= \SI{509.5(5)}{\ohm}
+\end{align*}
+\subsection{Zeitabhängigkeit der gedämpften Schwingung}
+\begin{figure}[h]
+  \begin{subfigure}{0.74\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{A.png}
+    \qquad
+  \end{subfigure}
+  \begin{subtable}{0.25\textwidth}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    $U_{\symup{C}}(t_i)$/\si{\deci\volt} & $t_i$/\si{\micro\second}\\
+    \midrule
+    7.2 & 40 \\
+    6.0 & 70 \\
+    5.2 & 100 \\
+    4.4 & 130 \\
+    3.6 & 160 \\
+    3.2 & 180 \\
+    2.8 & 210 \\
+    2.4 & 240 \\
+    2.0 & 270 \\
+    1.6 & 300 \\
+    \bottomrule
+    \end{tabular}
+    \qquad
+  \end{subtable}
+  \caption{In der Tabelle sind die aus dem Oszilloskop-Bild entnommene Datenpaare
+  eingetragen. Aufgrund des Verstärkungsfaktors x10 des Tastkopfes sind die Werte
+  in \si{\deci\volt} gemessen.}
+\label{tab:1}
+\end{figure}
+Oszilloskop-Bild und daraus entnommenen Wertepaare sind in Abbildung \ref{tab:1}
+dargestellt. Durch fitten mit einer Funktion:
+\begin{equation}
+  U(t)=U_0 \cdot \symup{e}^{-2 \pi \mu t}
+\end{equation}
+in "curve fit" aus dem Python Paket "scipy optimize" ergeben sich folgende Werte für
+$U_0$ und $\mu$:
+\begin{align*}
+  U_0 &= \SI{0.900(8)}{\volt}\\
+  \mu &= \SI[per-mode=reciprocal]{894(12)}{\per\second}
+\end{align*}
+Aus \eqref{eq:1} folgt dann ein Dämpfungswiderstand von $R_{\symup{eff}} = \SI{113.6(15)}{\ohm}$.
+Im Vergleich mit dem verwendeten Widerstand $\symup{R}_1$ zeigt sich eine Abweichung
+von im Mittel \SI{65.5}{\ohm}. Diese lässt sich durch den Widerstand der anderen
+Schaltungselemente (insbesondere der Leitungen) sowie den Innenwiderstand des
+Generators erklären. Weiter berechnet sich nach \eqref{eqn:6} eine Abklingzeit von
+$T_{\symup{ex}}=\SI{178(2)}{\micro\second}$.
+\subsubsection{Dämpfungswiderstand des aperiodischen Grenzfalls}
+Nach \eqref{eqn:7} folgt ein rechnerischer Dämpfungswiderstand von \SI{4.39(1)}{\kilo\ohm},
+bei dem der aperiodische Grenzfall eintritt. Gemessen wurde ein Wert von \SI{3.6}{\kilo\ohm}.
+Die Abweichung von im Mittel \SI{0.79}{\ohm} lässt sich zum einen wie oben durch
+unbetrachtete weitere Widerstände erklären, zum anderen ist ein genaues Einstellen des
+Potentiometers nicht möglich. Insbesondere das Oszilloskop erreichte beim Einstellen
+die Grenzen seiner Auflösung, sodass es ein gewisses Intervall gibt, in dem der Überschwinger
+auf dem Bild des Oszilloskopes gerade verschwunden ist.
 \section{Diskussion}
 \newpage
 \nocite{*}
 \printbibliography
+.

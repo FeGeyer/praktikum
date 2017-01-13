@@ -9,8 +9,9 @@ plt.rcParams['font.size'] = 10
 
 #Teil a)
 #Einlesen der Daten
-finkHz, tinmus, UcindV, UerinV  = np.genfromtxt('messwerte.txt', unpack=True)
+finkHz, dtinmus, UcindV, UerinV  = np.genfromtxt('messwerte.txt', unpack=True)
 UtiindV, tiinmus = np.genfromtxt('messwerte_obere_einh.txt', unpack=True)
+dt = dtinmus * 10**(-6)
 Uc = UcindV/10
 Uti = UtiindV/10
 tiins = tiinmus * 10**(-6)
@@ -32,18 +33,6 @@ print("mu: ",mu)
 print("Reff: ", R)
 print("Teff: ",T)
 
-#Plotten der e-Funktion
-x1plot = np.linspace(4*10**(-5), 3*10**(-4))
-plt.figure(1)
-plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
-#plt.yscale("log")
-#plt.xscale("log")
-plt.plot(tiinmus, Uti, 'b+', label='Gefittete Messwerte')
-plt.plot(x1plot, f(x1plot, *params) , 'g-', label='Regression')
-plt.legend(loc="best")
-plt.tight_layout
-plt.savefig('Abst.pdf')
-
 #Teil b)
 #Berechnen von Rap
 C = ufloat(2.098, 0.006) * 10**(-9)
@@ -61,6 +50,8 @@ w0 = unp.sqrt(1/(L*C))
 qerr = 1/(w0*R2*C)
 print(qerr)
 plt.figure(2)
+plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
+plt.ylabel(r"$U / \mathrm{V}$")
 #plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
 #plt.yscale("log")
 plt.xscale("log")
@@ -73,7 +64,44 @@ plt.figure(3)
 #plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
 #plt.yscale("log")
 #plt.xscale("log")
+plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
+plt.ylabel(r"$U / \mathrm{V}$")
 plt.plot(finkHz, U, 'b+', label='Messwerte')
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('lin.pdf')
+
+#Teil d)
+T=1/(finkHz*10**3)
+phi = 360*dt/T
+print(phi)
+
+plt.figure(4)
+plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
+plt.ylabel(r"$\varphi / \mathrm{rad}$")
+#plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
+#plt.yscale("log")
+plt.ylim(0,200)
+plt.xlim(20,41)
+plt.xscale("log")
+plt.yticks([0, 45, 90, 135, 180],
+           [r"$0$", r"$\frac{1}{4}\pi$", r"$\frac{1}{2}\pi$", r"$\frac{3}{4}\pi$", r"$\pi$"])
+plt.plot(finkHz, phi, 'b+', label='Messwerte')
+plt.legend(loc="best")
+plt.tight_layout
+plt.savefig('Phasehalblog.pdf')
+
+plt.figure(5)
+plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
+plt.ylabel(r"$\varphi / \mathrm{rad}$")
+#plt.title("Spannung als Funktion des Abstandes zwischen LED und PD")
+#plt.yscale("log")
+#plt.xscale("log")
+plt.ylim(0,200)
+plt.xlim(20,41)
+plt.yticks([0, 45, 90, 135, 180],
+           [r"$0$", r"$\frac{1}{4}\pi$", r"$\frac{1}{2}\pi$", r"$\frac{3}{4}\pi$", r"$\pi$"])
+plt.plot(finkHz, phi, 'b+', label='Messwerte')
+plt.legend(loc="best")
+plt.tight_layout
+plt.savefig('Phaselin.pdf')

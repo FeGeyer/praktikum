@@ -94,7 +94,7 @@ reell oder imaginär ist. Deshalb wird eine Fallunterscheidung ausgeführt:
 \end{figure}
 Nun wird der $RCL$-Schwingkreis aus Kapitel \ref{sec:gedaempfteSchwingung} um eine
 Wechselstromquelle $U(t)$ erweitert, wie in Abbildung \ref{fig:2} zu sehen. Diese regt den Schwingkreis
-mit einer eigenen Frequenz zusätzlich an. Nach einer gewissen Einschwingzeit wird der Schwingkreis
+sinusförmig mit einer eigenen Frequenz zusätzlich an. Nach einer gewissen Einschwingzeit wird der Schwingkreis
 mit derselben Frequenz wie die Wechselstromquelle schwingen.
 Mit
 \begin{equation*}
@@ -177,7 +177,60 @@ folgt für die Differenz der Frequenzen
   \caption{Foto des Versuchsaufbaus.}
   \label{fig:4}
 \end{figure}
+In Abbildung \ref{fig:4} sieht man den Versuchsaufbau im Foto. Der rote Baustein enthält
+alle Bestandteile des $RCL$-Schwingkreises plus zwei feste und einen veränderlichen
+ohmschen Widerstand. das Gerät auf der linken Seite fungiert als Nadelimpulsgenerator,
+kann aber auch die in Kapitel \ref{sec:gedaempfteSchwingung} beschriebene sinusförmige
+Spannung liefern. Das rechte Gerät ist ein digitales Oszilloskop, mit dem die Schwingungen
+visualisiert werden. Zu diesem Zweck ist der Tastkopf, in Abbildung \ref{fig:3} zu sehen,
+in den Schwingkreis eingebaut worden (rechts unten im roten Bauteil steckend).
+
 \subsection{Versuchsdurchführung}
+Zuerst werden die benötigten Werte über die Widerstände und die Induktivität und dergleichen
+notiert. Dann wird Abbildung \ref{fig:3} aufgebaut, jedoch ohne Frequenzmesser und Verbindung
+vom Nadelpulsgenerator zum Oszilloskop und mit dem kleineren der beiden fest eingebauten
+ohmschen Widerstände. Dies geschieht, um die Amplitudenabnahme eines
+$\textbf{gedämpften Schwingkreises}$ in Abhängigkeit von der Zeit zu ermitteln und daraus
+den effektiven Dämpfungswiderstand zu bestimmen. Sodann wird die Spannung gegen die Zeit auf
+dem Oszilloskop aufgetragen. Dabei wird darauf geachtet, dass die Amplitude etwa um den Faktor
+3 bis 8 abgenommen hat, bevor ein neues Signal des Nadelpulsgenerators eintrifft. Der Schwingungsverlauf
+wird mit der Print-Funktion des Oszilloskops festgehalten und ist in Abbildung \ref{fig:5} einsehbar.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{A.png}
+  \caption{Schwingsverlauf einer gedämpften Schwingung.}
+  \label{fig:5}
+\end{figure}
+Aus Abbildung \ref{fig:5} wird mit etwa 10 Messpunkten die Amplitudenabnahme und
+daraus der effektiven Dämpfungswiderstand bestimmt.
+
+Der Aufbau für die Bestimmung des Dämpunfswiderstandes $R_{\symup{ap}}$, bei dem
+der aperiodische Grenzfall eintritt, wird die gleiche Schaltung wie für den ersten Teil der
+Durchführung verwendet, mit dem einzigen Unterschied, dass diesmal kein Festwiderstand,
+sondern der veränderliche ohmsche Widerstand Teil des Schwingkreises ist. Zunächst
+wird der eben erwähnte veränderliche Widerstand auf sein Maximum eingestellt. Auf dem
+Oszilloskop äußert sich das durch die monotone Abnahme der Kondensatorspannung, d. h.
+es gibt also keine Schwingung. Alsdann wird der Widerstand schrittweise verringert,
+bis ein Überschwinger erkennbar wird. Dies bedeutet, dass der Schwinfall eingetreten ist.
+Nun wird der Widerstand wieder erhöht, bis dieser Überschwinger verschwunden ist.
+\begin{figure}[t]
+  \centering
+  \includegraphics[scale=0.5]{B_nah.png}
+  \caption{Spannungsverlauf beim aperiodischen Grenzfall auf einem Oszilloskop.}
+  \label{fig:6}
+\end{figure}
+Dies ist in Abbildung \ref{fig:6} zu sehen. Der eingestellte Widerstand wird als
+$R_{\symup{ap}}$ notiert.
+
+Um die Frequenzabhängigkeit der Kondensatorspannung zu untersuchen, wird wieder
+die Schaltung aus den vorigen Abschnitten aufgebaut, diesmal mit dem größeren der beiden
+Festwiderständ und mit einer Sinusspannung statt Nadelpulsen. Da die Frequenzabhängigkeit
+der Phase gleichzeitig ausgeführt wird, wird die Sinusspannung ebenfalls auf dem Oszillsokop
+dargestellt. Dann werden beide Spannungsverläufe übereinander gelegt und für etwas mehr als
+zehn verschiedene Frequenzen $U_0$, sprich die Amplitude der Sinusspannung, $U_C$ und
+die zeitliche Differenz zwischen den beiden Nulldurchgängen der Spannungen aufgenommen.
+Die Periodenlänge lässt sich aus der jweils eingestellten Frequenz bestimmen.
+
 \section{Auswertung}
 
 \section{Diskussion}

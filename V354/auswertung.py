@@ -33,6 +33,7 @@ print("mu: ",mu)
 print("Reff: ", R)
 print("Teff: ",T)
 
+
 #Teil b)
 #Berechnen von Rap
 C = ufloat(2.098, 0.006) * 10**(-9)
@@ -49,11 +50,12 @@ R2 = ufloat(509.5, 0.5)
 w0 = unp.sqrt(1/(L*C))
 qerr = 1/(w0*R2*C)
 print(qerr)
+print("Breite der Resonanz: ", R2/(L*2*np.pi))
 np.savetxt('Quotienten.txt', np.column_stack([finkHz, unp.nominal_values(U)]),fmt="%.3f")
 
 plt.figure(2)
 plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
-plt.ylabel(r"$U / \mathrm{V}$")
+plt.ylabel(r"$\frac{U_\mathrm{C}}{U_\mathrm{err}}$")
 plt.xscale("log")
 plt.grid()
 plt.plot(finkHz, U, 'b+', label='Messwerte')
@@ -64,8 +66,16 @@ plt.savefig('Halblog.pdf')
 plt.figure(3)
 plt.grid()
 plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
-plt.ylabel(r"$U / \mathrm{V}$")
+plt.ylabel(r"$\frac{U_\mathrm{C}}{U_\mathrm{err}}$")
 plt.plot(finkHz, U, 'b+', label='Messwerte')
+
+plt.xticks([20, 25, 29.5, 34, 35, 38.5, 40],
+           ["20", "25", "29.5", "34", "35", "38.5", "40"])
+plt.axvline(x=29.5, ymin=0, ymax=0.5, color='g', ls="--", label=r"$\nu_+$ bzw. $\nu_-$", linewidth=2)
+plt.axhline(y=0.04, xmin=0, xmax=0.7, color='r', ls="--", linewidth=2)
+plt.axvline(x=38.5, ymin=0, ymax=0.5, color='g', ls="--", linewidth=2)
+plt.axvline(x=34, ymin=0, ymax=0.857, color='r', ls="--", label="Resonanzüberhöhung", linewidth=2)
+plt.axhline(y=0.0275, xmin=0.475, xmax=0.925, color='y', label="Resonanzbreite", ls="--", linewidth=2)
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('lin.pdf')
@@ -81,6 +91,7 @@ w2 = 1/(2*np.pi) * ( -R2/(2*L) + unp.sqrt( ( 1 / (L*C) ) + ( (R2**2) / (4*L**2) 
 print("Wres: ", wres)
 print("W1: ", w1)
 print("W2: ", w2)
+np.savetxt('Phasen.txt', np.column_stack([finkHz, dtinmus, T*10**(6), phi]),fmt="%.3f")
 
 
 plt.figure(4)
@@ -117,3 +128,5 @@ plt.axvline(x=35, ymin=0, ymax=0.45, color='r', ls="--", linewidth=2)
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Phaselin.pdf')
+
+np.savetxt('Tabelle.txt', np.column_stack([finkHz, UcindV, UerinV, unp.nominal_values(U), dtinmus, T*10**(6), phi]),fmt="%.3f")

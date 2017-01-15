@@ -239,7 +239,7 @@ Die Daten der in der Apperatur verwendeten Bauteile sind wie folgt:
   R_2 &= \SI{509.5(5)}{\ohm}
 \end{align*}
 \subsection{Zeitabhängigkeit der gedämpften Schwingung}
-\begin{figure}[h]
+\begin{figure}
   \begin{subfigure}{0.74\textwidth}
   \centering
     \includegraphics[width=\textwidth]{A.png}
@@ -290,7 +290,7 @@ $T_{\symup{ex}}=\SI{178(2)}{\micro\second}$.
 \subsection{Dämpfungswiderstand des aperiodischen Grenzfalls}
 Nach \eqref{eqn:7} folgt ein rechnerischer Dämpfungswiderstand von \SI{4.39(1)}{\kilo\ohm},
 bei dem der aperiodische Grenzfall eintritt. Gemessen wurde ein Wert von \SI{3.6}{\kilo\ohm}.
-Die Abweichung von im Mittel \SI{0.79}{\ohm} lässt sich zum einen wie oben durch
+Die Abweichung von im Mittel \SI{0.79}{\kilo\ohm} lässt sich zum einen wie oben durch
 unbetrachtete weitere Widerstände erklären, zum anderen ist ein genaues Einstellen des
 Potentiometers nicht möglich. Insbesondere das Oszilloskop erreichte beim Einstellen
 die Grenzen seiner Auflösung, sodass es ein gewisses Intervall gibt, in dem der Überschwinger
@@ -300,60 +300,41 @@ auf dem Bild des Oszilloskopes gerade verschwunden ist.
   \caption{Messwerte aus den Messungen der Frequenzabhängigkeiten des Schwingkreises.
   Wieder wurde die Kondensatorspannung mit 10-facher Verstärkung gemessen, sodass sie
   in \si{\deci\volt} angegeben wird. Der Wert $\symup{\Delta} t$ gibt den zeitlichen Versatz
-  zwischen Kondensator- und Erregerspannung an.}
+  zwischen Kondensator- und Erregerspannung an. Weiterhin finden sich in der Tabelle die
+  berechneten Quotienten von Kondensator- und Erregerspannung für Auswertungsteil c), sowie
+  die berechneten Periodendauern $T$ und Phasen $\varphi$ für Teil d).}
   \label{tab:2}
   \centering
-  \begin{tabular}{c c c c}
+  \begin{tabular}{c c c c c c c}
     \toprule
-    $\nu / \si{\kilo\hertz}$ & $ \symup{\Delta} t / \si{\micro\second}$ & $U_{\symup{C}}$/\si{\deci\volt} & $ U_{\symup{err}} / \si{\volt}$\\
+    $\nu / \si{\kilo\hertz}$ & $U_{\symup{C}}$/\si{\deci\volt} & $ U_{\symup{err}} / \si{\volt}$
+    & $ \frac{U_\symup{C}}{U_{\symup{err}}}$ & $ \symup{\Delta} t / \si{\micro\second}$
+    & $T = \frac{1}{\nu} / \si{\nano\second}$
+    & $\varphi = \frac{360 \cdot \symup{\Delta}t}{T} / \, \text{deg}$\\
     \midrule
-    21 & 1.6 & 11.0 & 76 \\
-    25 & 2.4 & 14.0 & 74 \\
-    28 & 2.8 & 17.6 & 74 \\
-    29 & 3.2 & 19.2 & 72 \\
-    30 & 3.4 & 21.2 & 72 \\
-    31 & 4.0 & 24.0 & 72 \\
-    32 & 5.0 & 26.0 & 70 \\
-    33 & 5.8 & 27.6 & 70 \\
-    34 & 6.6 & 28.0 & 70 \\
-    35 & 7.2 & 27.6 & 70 \\
-    36 & 8.4 & 25.6 & 70 \\
-    37 & 8.8 & 23.6 & 70 \\
-    38 & 9.2 & 20.8 & 72 \\
-    39 & 9.4 & 18.0 & 72 \\
-    40 & 9.8 & 16.0 & 72 \\
+    21 & 11 & 76 & 14 & 1.6 & 47.619 & 12.096 \\
+    25 & 14 & 74 & 19 & 2.4 & 40.000 & 21.600 \\
+    28 & 17 & 74 & 24 & 2.8 & 35.714 & 28.224 \\
+    29 & 19 & 72 & 27 & 3.2 & 34.483 & 33.408 \\
+    30 & 21 & 72 & 29 & 3.4 & 33.333 & 36.720 \\
+    31 & 24 & 72 & 33 & 4.0 & 32.258 & 44.640 \\
+    32 & 26 & 70 & 37 & 5.0 & 31.250 & 57.600 \\
+    33 & 27 & 70 & 39 & 5.8 & 30.303 & 68.904 \\
+    34 & 28 & 70 & 40 & 6.6 & 29.412 & 80.784 \\
+    35 & 27 & 70 & 39 & 7.2 & 28.571 & 90.720 \\
+    36 & 25 & 70 & 37 & 8.4 & 27.778 & 108.864 \\
+    37 & 23 & 70 & 34 & 8.8 & 27.027 & 117.216 \\
+    38 & 20 & 72 & 29 & 9.2 & 26.316 & 125.856 \\
+    39 & 18 & 72 & 25 & 9.4 & 25.641 & 131.976 \\
+    40 & 16 & 72 & 22 & 9.8 & 25.000 & 141.120 \\
     \bottomrule
     \end{tabular}
 \end{table}
-Aus den Messwerten in Tabelle \ref{tab:2} folgen die in Tabelle \ref{tab:4} dargestellten
+Aus den Messwerten in Tabelle \ref{tab:2} folgen die in der selben Tabelle dargestellten
 Werte für die Quotienten $ \frac{U_\symup{C}}{U_{\symup{err}}}$. Diese sind in Abbildung
-\ref{abb:3} halblogarithmisch sowie linear dargestellt.
-\begin{table}
-  \caption{Quotienten aus Kondensatorspannung und Erregerspannung.}
-  \label{tab:4}
-  \centering
-  \begin{tabular}{c c}
-    \toprule
-    $\nu / \si{\kilo\hertz}$ &  $ frac{U_\symup{C}}{U_{\symup{err}}} / \si{\milli\volt}$\\
-    \midrule
-    21 & 14 \\
-    25 & 19 \\
-    28 & 24 \\
-    29 & 27 \\
-    30 & 29 \\
-    31 & 33 \\
-    32 & 37 \\
-    33 & 39 \\
-    34 & 40 \\
-    35 & 39 \\
-    36 & 37 \\
-    37 & 34 \\
-    38 & 29 \\
-    39 & 25 \\
-    40 & 22 \\
-    \bottomrule
-    \end{tabular}
-\end{table}
+\ref{abb:3} halblogarithmisch sowie linear dargestellt. Beide Graphen liefern die
+zu erwartenden Verläufe einer Kurve, die bis zu einem Maximum, der Resonanzfrequenz,
+ansteigt und dannach wieder abnimmt.
 \begin{figure}[p]
   \centering
   \begin{subfigure}{0.7\textwidth}
@@ -368,13 +349,32 @@ Werte für die Quotienten $ \frac{U_\symup{C}}{U_{\symup{err}}}$. Diese sind in 
     \caption{Lineare Darstellung mit eingezeichneten Frequenzen.}
     \label{sub:4}
   \end{subfigure}
-  \caption{In Abbildung \subref{sub:1} wurden Phase und Frequenz halblogarithmisch gegeneinander
-  abgetragen. Die gleichen Werte sind in Abbildung \subref{sub:2} linear dargestellt. Hier wurden
-  zusätzlich die Resonazfrequenz sowie die Frequenzen $\nu_1$ und $\nu_2$, also die,
-  bei denen eine Phasenverschiebung von $\frac{\pi}{2}$ bzw. $\frac{3 \pi}{2}$ auftritt,
-  eingezeichnet.}
+  \caption{In Abbildung \subref{sub:3} wurden der Quotient aus Kondensator- und Erregerspannung gegen die
+  Frequenz halblogarithmisch abgetragen. Die gleichen Werte sind in Abbildung \subref{sub:4} linear dargestellt. Hier wurden
+  zusätzlich die Resonazfrequenz sowie die Frequenzen $\nu_+$ und $\nu_-$ eingetragen,
+  welche die Resonanzkurve begrenzen.}
 \label{abb:3}
 \end{figure}
+Es ergeben sich mit \eqref{eqn:13} und \eqref{eqn:14} die theoretischen Werte für die
+Resonanzüberhöhung $q$ sowie die Resonanzbreite $\nu_+ - \nu_-$ sowie aus dem
+Diagramm die experimentellen, die mit ihren relativen Abweichungen zueinander in Tabelle \ref{tab:5}
+dargestellt sind.
+\begin{table}
+  \caption{Für $\nu_1$, $\nu_2$ sowie $ \nu_{\symup{res}}$ aus dem Experiment bestimmte
+  und errechnete Werte. Zusätzlich ist die relative Abweichung der Werte zueinander
+  angegeben.}
+  \label{tab:3}
+  \centering
+  \begin{tabular}{c c c c}
+    \toprule
+    & experimentell & rechnerisch  & realtive Abweichung / \si{\percent}\\
+    \midrule
+    $q$ & \num{0.4} & \num{4.31(1)} & \num{90.7} \\
+    $\nu_+ - \nu_- / \si{\kilo\hertz}$ & \num{9} & \num{8.02(3)} & \num{10.9} \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+In keinem Fall liegt die Abweichung im Rahmen der Fehlertoleranz.
 \subsection{Frequenzabhängigkeit der Phase zwischen Erreger- und Kondensatorspannung}
 \begin{figure}[p]
   \centering
@@ -387,7 +387,7 @@ Werte für die Quotienten $ \frac{U_\symup{C}}{U_{\symup{err}}}$. Diese sind in 
   \begin{subfigure}{0.7\textwidth}
   \centering
     \includegraphics[width=\textwidth]{Phaselin.pdf}
-    \caption{Lineare Darstellung mit eingezeichneten Frequenzen.}
+    \caption{Lineare Darstellung.}
     \label{sub:2}
   \end{subfigure}
   \caption{In Abbildung \subref{sub:1} wurden Phase und Frequenz halblogarithmisch gegeneinander
@@ -397,13 +397,18 @@ Werte für die Quotienten $ \frac{U_\symup{C}}{U_{\symup{err}}}$. Diese sind in 
   eingezeichnet.}
 \label{abb:2}
 \end{figure}
-Die gemessenen Werte sind wie oben in Tabelle \ref{tab:2} dargestellt. In Abbildung
+Die gemessenen Werte sind wie oben in Tabelle \ref{tab:2} dargestellt. Tabelle \ref{tab:2}
+zeigt ebenfalls die nach
+\begin{equation}
+  \varphi = \frac{\symup{\Delta}t}{T}
+\end{equation}
+bestimmten Phasen für die einzelnen Frequenzen. In Abbildung
 \ref{abb:2} ist der Verlauf der Phasenverschiebung in Abhängigkeit von der Frequenz
 der Erregerspannung aufgetragen. \ref{sub:1} ist dabei in halblogarithmischer
 Darstellung. Es zeigt sich der zu erwartende Verlauf der Phasenverschiebung.
 Grafik \ref{sub:2} wurde in linearer Darstellung belassen, um ein Ablesen der Frequenzen
 zu erleichtern. Die abgelesenen Werte sind zusammen mit den aus \eqref{eqn:15}
-für die Frequenzen $\nu_1$ und $\nu_2$ bei $\frac{\pi}{2}$ bzw. $\frac{3 \pi}{2}$
+für die Frequenzen $\nu_1$ und $\nu_2$ bei $\frac{\pi}{4}$ bzw. $\frac{3 \pi}{4}$
 und \eqref{eqn:12} für die Resonanzfrequenz $ \nu_{\symup{res}}$ in Tabelle \ref{tab:3} dargestellt.
 Es ergeben sich äußerst geringe relative Abweichen zwischen Theorie und Experiment.
 Die experimentellen Daten liegen jedoch in keinem Fall im Bereich der Fehlertoleranz
@@ -424,8 +429,56 @@ der Theoriewerte.
     \bottomrule
     \end{tabular}
 \end{table}
-
 \section{Diskussion}
+\begin{table}
+  \caption{Zusammenfassung der Ergebnisse.}
+  \label{tab:6}
+  \centering
+  \begin{tabular}{c c c c c}
+    \toprule
+    Auswertungsteil & Messgröße & experimentell & rechnerisch  & realtive Abweichung / \si{\percent}\\
+    \midrule
+    a) & $R_{\symup{eff}} / \si{\ohm}$ & \num{48.1(1)} & \num{113.6(15)} & \num{57.7} \\
+    \midrule
+    b) & $R_\symup{ap} / \si{\kilo\ohm}$ & \num{3.6} & \num{4.39(1)} & \num{18}\\
+    \midrule
+    c) & $q$ & \num{0.4} & \num{4.31(1)} & \num{90.7} \\
+    & $\nu_+ - \nu_- / \si{\kilo\hertz}$ & \num{9} & \num{8.02(3)} & \num{10.9} \\
+    \midrule
+    d) & $\nu_1 / \si{\kilo\hertz}$ & \num{31} & \num{30.78(6)} & \num{0.65} \\
+    & $\nu_{\symup{res}} / \si{\kilo\hertz}$ & \num{35} & \num{34.09(7)} & \num{2.57} \\
+    & $\nu_2 / \si{\kilo\hertz}$ & \num{39} & \num{38.80(8)} & \num{0.51} \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Die Ergebnisse sind in Tabelle \ref{tab:6} zusammengefasst. Die hohen Abweichungen in
+den Teilen a) und b) lassen sich jeweils durch nicht betrachtete Widerstände, sowie, im Fall von b), durch
+die begrenzte maximale Auflösung des Oszilloskopes erklären.
+Zur Verbesserung der Messergebnisse bietet sich die Verwendung von genaueren Geräten
+sowie ein genaues Durchmessen der einzelnen Schaltelemente an, um die jeweiligen Widerstände zu bestimmen. Durch konseqentes
+beachten dieser Widerstände in den Rechnungen, ließe sich diese systematische Fehlerquelle,
+die sich auch auf die nachfolgenden Auswertungsteile auswirkt, ausschließen.\\
+Die enormen Abweichungen bei der Bestimmung der Resonanzüberhöhung, also der Güte des Schwingkreises,
+lassen sich nur durch fehlerhafte Geräte oder grobe Messfehler erklären. Hier ist
+eine weitere Messung notwendig, um die Fehlerquelle zu finden oder zumindest zu
+beseitigen. Die Abweichung zwischen dem rechnerisch und dem experimentell bestimmten
+Wert für die Breite der Resonanzkurve lässt sich durch die Art der Bestimmung der Werte erklären.
+Die Graphische Auswertung erfordert Abschätzungen und begünstigt Fehler. Diese ließen sich
+durch die Aufnahme von mehr Messwerten abschwächen, welche die Genauigkeit der Bestimmung erhöhen würden.
+Gleiches gilt für die Bestimmung von $\nu_1$ und $\nu_2$, die aber um ein Vielfaches
+genauer möglich war. Grund war hier, dass die Phasenverschiebungen von $\frac{\pi}{4}$ und
+$\frac{3 \pi}{4}$ durch Zufall relativ genau erreicht wurden.\\
+Ebenfalls schwierig gestalltete sich das experimentelle Bestimmen der Resonanzfrequenz. Wie in
+der Auswertung ersichtlich, wird die Resonanzüberhöhung bei \SI{34}{\kilo\hertz} erreicht,
+die in d) bestimmte Resonanzfrequenz jedoch erst bei \SI{35}{\kilo\hertz}. Diese Abweichung
+lässt, wie bereits in b), durch genauere Messgeräte vermindern. Die Kondensatorspannung veränderte sich
+bei der Messung in einem gewissen Intervall um ihr Maximum nicht, sodass die wirkliche Resonanzfrequenz
+darin zu vermuten ist.\\
+Zusammenfassend liefert der Versuch also gemischte Ergebnisse. Geringe prozentuale Abweichungen
+im letzten Teil werden von großen Abweichungen in den vorrangehenden Teilen überschattet.
+Diese lassen sich in den meisten Fällen logisch erklären. Lediglich in Versuchsteil c)
+wäre eine erneute Messung unausweichlich, sollten die Ergebnisse verifiziert werden
+sollen.
 \newpage
 \nocite{*}
 \printbibliography

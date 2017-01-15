@@ -325,21 +325,71 @@ auf dem Bild des Oszilloskopes gerade verschwunden ist.
     \bottomrule
     \end{tabular}
 \end{table}
+Aus den Messwerten in Tabelle \ref{tab:2} folgen die in Tabelle \ref{tab:4} dargestellten
+Werte für die Quotienten $ \frac{U_\symup{C}}{U_{\symup{err}}}$. Diese sind in Abbildung
+\ref{abb:3} halblogarithmisch sowie linear dargestellt.
+\begin{table}
+  \caption{Quotienten aus Kondensatorspannung und Erregerspannung.}
+  \label{tab:4}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    $\nu / \si{\kilo\hertz}$ &  $ frac{U_\symup{C}}{U_{\symup{err}}} / \si{\milli\volt}$\\
+    \midrule
+    21 & 14 \\
+    25 & 19 \\
+    28 & 24 \\
+    29 & 27 \\
+    30 & 29 \\
+    31 & 33 \\
+    32 & 37 \\
+    33 & 39 \\
+    34 & 40 \\
+    35 & 39 \\
+    36 & 37 \\
+    37 & 34 \\
+    38 & 29 \\
+    39 & 25 \\
+    40 & 22 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\begin{figure}[p]
+  \centering
+  \begin{subfigure}{0.7\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{Halblog.pdf}
+    \caption{Halblogarithmische Darstellung.}
+    \label{sub:3}
+  \end{subfigure}\\
+  \begin{subfigure}{0.7\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{lin.pdf}
+    \caption{Lineare Darstellung mit eingezeichneten Frequenzen.}
+    \label{sub:4}
+  \end{subfigure}
+  \caption{In Abbildung \subref{sub:1} wurden Phase und Frequenz halblogarithmisch gegeneinander
+  abgetragen. Die gleichen Werte sind in Abbildung \subref{sub:2} linear dargestellt. Hier wurden
+  zusätzlich die Resonazfrequenz sowie die Frequenzen $\nu_1$ und $\nu_2$, also die,
+  bei denen eine Phasenverschiebung von $\frac{\pi}{2}$ bzw. $\frac{3 \pi}{2}$ auftritt,
+  eingezeichnet.}
+\label{abb:3}
+\end{figure}
 \subsection{Frequenzabhängigkeit der Phase zwischen Erreger- und Kondensatorspannung}
 \begin{figure}[p]
   \centering
   \begin{subfigure}{0.7\textwidth}
   \centering
     \includegraphics[width=\textwidth]{Phasehalblog.pdf}
-    \caption{Halblogarithmische Darstellung}
+    \caption{Halblogarithmische Darstellung.}
     \label{sub:1}
   \end{subfigure}\\
-  \begin{subtable}{0.7\textwidth}
+  \begin{subfigure}{0.7\textwidth}
   \centering
     \includegraphics[width=\textwidth]{Phaselin.pdf}
     \caption{Lineare Darstellung mit eingezeichneten Frequenzen.}
     \label{sub:2}
-  \end{subtable}
+  \end{subfigure}
   \caption{In Abbildung \subref{sub:1} wurden Phase und Frequenz halblogarithmisch gegeneinander
   abgetragen. Die gleichen Werte sind in Abbildung \subref{sub:2} linear dargestellt. Hier wurden
   zusätzlich die Resonazfrequenz sowie die Frequenzen $\nu_1$ und $\nu_2$, also die,

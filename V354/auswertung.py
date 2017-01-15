@@ -49,7 +49,7 @@ R2 = ufloat(509.5, 0.5)
 w0 = unp.sqrt(1/(L*C))
 qerr = 1/(w0*R2*C)
 print(qerr)
-
+np.savetxt('Quotienten.txt', np.column_stack([finkHz, unp.nominal_values(U)]),fmt="%.3f")
 
 plt.figure(2)
 plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")

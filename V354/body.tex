@@ -101,7 +101,7 @@ Mit
 \end{equation*}
 wird die Differentialgleichung \eqref{eqn:2} verändert zu
 \begin{equation}
-    LC \ddot{U}_C + RC \ddot{U}_C + U_{\symup{C}} = U_0 \, e^{i \omega t} \, .
+    LC \ddot{U}_\symup{C} + RC \ddot{U}_\symup{C} + U_{\symup{C}} = U_0 \, e^{i \omega t} \, .
     \label{eqn:8}
 \end{equation}
 Um zu ermitteln, wie die Amplitude $U_{\symup{C}_0}$ der Kondensatorspannung mit dem Phasenunterschied
@@ -335,7 +335,7 @@ Werte für die Quotienten $ \frac{U_\symup{C}}{U_{\symup{err}}}$. Diese sind in 
 \ref{abb:3} halblogarithmisch sowie linear dargestellt. Beide Graphen liefern die
 zu erwartenden Verläufe einer Kurve, die bis zu einem Maximum, der Resonanzfrequenz,
 ansteigt und dannach wieder abnimmt.
-\begin{figure}[p]
+\begin{figure}
   \centering
   \begin{subfigure}{0.7\textwidth}
   \centering
@@ -357,13 +357,13 @@ ansteigt und dannach wieder abnimmt.
 \end{figure}
 Es ergeben sich mit \eqref{eqn:13} und \eqref{eqn:14} die theoretischen Werte für die
 Resonanzüberhöhung $q$ sowie die Resonanzbreite $\nu_+ - \nu_-$ sowie aus dem
-Diagramm die experimentellen, die mit ihren relativen Abweichungen zueinander in Tabelle \ref{tab:5}
+Diagramm die experimentellen, die mit ihren relativen Abweichungen zueinander in Tabelle \ref{tab:10}
 dargestellt sind.
 \begin{table}
-  \caption{Für $\nu_1$, $\nu_2$ sowie $ \nu_{\symup{res}}$ aus dem Experiment bestimmte
+  \caption{Für $g$ sowie $ \nu_+ - \nu_-$ aus dem Experiment bestimmte
   und errechnete Werte. Zusätzlich ist die relative Abweichung der Werte zueinander
   angegeben.}
-  \label{tab:3}
+  \label{tab:10}
   \centering
   \begin{tabular}{c c c c}
     \toprule
@@ -376,7 +376,7 @@ dargestellt sind.
 \end{table}
 In keinem Fall liegt die Abweichung im Rahmen der Fehlertoleranz.
 \subsection{Frequenzabhängigkeit der Phase zwischen Erreger- und Kondensatorspannung}
-\begin{figure}[p]
+\begin{figure}
   \centering
   \begin{subfigure}{0.7\textwidth}
   \centering
@@ -455,7 +455,7 @@ Die Ergebnisse sind in Tabelle \ref{tab:6} zusammengefasst. Die hohen Abweichung
 den Teilen a) und b) lassen sich jeweils durch nicht betrachtete Widerstände, sowie, im Fall von b), durch
 die begrenzte maximale Auflösung des Oszilloskopes erklären.
 Zur Verbesserung der Messergebnisse bietet sich die Verwendung von genaueren Geräten
-sowie ein genaues Durchmessen der einzelnen Schaltelemente an, um die jeweiligen Widerstände zu bestimmen. Durch konseqentes
+sowie ein genaues Durchmessen der einzelnen Schaltelemente an, um die jeweiligen Widerstände zu bestimmen. Durch konsequentes
 beachten dieser Widerstände in den Rechnungen, ließe sich diese systematische Fehlerquelle,
 die sich auch auf die nachfolgenden Auswertungsteile auswirkt, ausschließen.\\
 Die enormen Abweichungen bei der Bestimmung der Resonanzüberhöhung, also der Güte des Schwingkreises,
@@ -463,12 +463,12 @@ lassen sich nur durch fehlerhafte Geräte oder grobe Messfehler erklären. Hier 
 eine weitere Messung notwendig, um die Fehlerquelle zu finden oder zumindest zu
 beseitigen. Die Abweichung zwischen dem rechnerisch und dem experimentell bestimmten
 Wert für die Breite der Resonanzkurve lässt sich durch die Art der Bestimmung der Werte erklären.
-Die Graphische Auswertung erfordert Abschätzungen und begünstigt Fehler. Diese ließen sich
+Die graphische Auswertung erfordert Abschätzungen und begünstigt Fehler. Diese ließen sich
 durch die Aufnahme von mehr Messwerten abschwächen, welche die Genauigkeit der Bestimmung erhöhen würden.
 Gleiches gilt für die Bestimmung von $\nu_1$ und $\nu_2$, die aber um ein Vielfaches
 genauer möglich war. Grund war hier, dass die Phasenverschiebungen von $\frac{\pi}{4}$ und
 $\frac{3 \pi}{4}$ durch Zufall relativ genau erreicht wurden.\\
-Ebenfalls schwierig gestalltete sich das experimentelle Bestimmen der Resonanzfrequenz. Wie in
+Ebenfalls schwierig gestaltete sich das experimentelle Bestimmen der Resonanzfrequenz. Wie in
 der Auswertung ersichtlich, wird die Resonanzüberhöhung bei \SI{34}{\kilo\hertz} erreicht,
 die in d) bestimmte Resonanzfrequenz jedoch erst bei \SI{35}{\kilo\hertz}. Diese Abweichung
 lässt, wie bereits in b), durch genauere Messgeräte vermindern. Die Kondensatorspannung veränderte sich
@@ -477,8 +477,7 @@ darin zu vermuten ist.\\
 Zusammenfassend liefert der Versuch also gemischte Ergebnisse. Geringe prozentuale Abweichungen
 im letzten Teil werden von großen Abweichungen in den vorrangehenden Teilen überschattet.
 Diese lassen sich in den meisten Fällen logisch erklären. Lediglich in Versuchsteil c)
-wäre eine erneute Messung unausweichlich, sollten die Ergebnisse verifiziert werden
-sollen.
+wäre eine erneute Messung unausweichlich, sollten die Ergebnisse verifiziert werden.
 \newpage
 \nocite{*}
 \printbibliography

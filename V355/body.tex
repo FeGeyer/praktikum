@@ -99,6 +99,14 @@ Die Frequenz $\nu_- - \, \nu_+$, mit der die Gesamtenergie des Systems zwischen
 den Schwingkreisen oszilliert, wird als Schwebungsfrequenz bezeichnet.
 
 \section{Durchführung}
+Die Bauteilwerte lauten wie folgt:
+\begin{align*}
+  L &= \SI{23.954}{\milli\henry} \\
+  C &= \SI{0.7932}{\nano\farad} \\
+  C_{\symup{sp}} &= \SI{0.028}{\nano\farad}.
+\end{align*}
+$C_{\symup{sp}}$ gibt dabei die Kapazität der Spule an.
+
 \subsection{Versuchsaufbau}
 \label{sec:versuchsaufbau}
 \begin{figure}
@@ -150,14 +158,18 @@ sind dann (neben zwei kleinen Peaks, die Anfangs- und Endzeitpunkt darstellen) z
 große Peaks, die die Frequenzen $\nu_+$ und $\nu_-$ (in der Reihenfolge) darstellen.
 Dies wird erneut in Abhängigkeit von $C_{\symup{K}}$ gemessen.
 
+\section{Fehlerrechnung}
+Falls zwei fehlerbehaftete Größen in einer Gleichung
+zur Bestimmung einer anderen Größe Verwendung finden, dann berechnte sich der Gesamtfehler
+nach der Gaußschen Fehlerfortpflanzung zu
+\begin{equation}
+    \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
+    x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
+    x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
+    \label{eqn:100}
+\end{equation}
+
 \section{Auswertung}
-Die Bauteilwerte lauten wie folgt:
-\begin{align*}
-  L &= \SI{23.954}{\milli\henry} \\
-  C &= \SI{0.7932}{\nano\farad} \\
-  C_{\symup{sp}} &= \SI{0.028}{\nano\farad}.
-\end{align*}
-$C_{\symup{sp}}$ gibt dabei die Kapazität der Spule an.
 \subsection{Bestimmen der Resonanzfrequenz des festen und Jusatage des regelbaren Schwingkreises}
 Die gemessene Resonanzfrequenz des festen Schwingkreises beträgt \SI{35.65}{\kilo\hertz}
 bei einem geschätzten Fehler von \SI{20}{\hertz}. Nach:

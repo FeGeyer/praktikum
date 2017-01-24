@@ -281,45 +281,47 @@ $U_0$ und $\mu$:
   U_0 &= \SI{0.900(8)}{\volt}\\
   \mu &= \SI[per-mode=reciprocal]{894(12)}{\per\second}
 \end{align*}
-Aus \eqref{eq:1} folgt dann ein Dämpfungswiderstand von $R_{\symup{eff}} = \SI{113.6(15)}{\ohm}$.
+Aus \eqref{eq:1} und \eqref{eqn:6} folgt dann ein Dämpfungswiderstand $R_{\symup{eff}}$
+und eine Abklingzeit $T_{\symup{ex}}$ von:
+\begin{align*}
+  R_{\symup{eff}} &= \SI{113.6(15)}{\ohm} \\
+  T_{\symup{ex}} &= \SI{178(2)}{\micro\second}.
+\end{align*}
 Im Vergleich mit dem verwendeten Widerstand $\symup{R}_1$ zeigt sich eine Abweichung
-von im Mittel \SI{65.5}{\ohm}. Diese lässt sich durch den Widerstand der anderen
-Schaltungselemente (insbesondere der Leitungen) sowie den Innenwiderstand des
-Generators erklären. Weiter berechnet sich nach \eqref{eqn:6} eine Abklingzeit von
-$T_{\symup{ex}}=\SI{178(2)}{\micro\second}$.
+von im Mittel \SI{65.5}{\ohm}.
+
 \subsection{Dämpfungswiderstand des aperiodischen Grenzfalls}
-Nach \eqref{eqn:7} folgt ein rechnerischer Dämpfungswiderstand von \SI{4.39(1)}{\kilo\ohm},
+Nach \eqref{eqn:7} folgt mit den Bauteilwerten ein rechnerischer Dämpfungswiderstand
+\begin{align*}
+  R_{\symup{ap}} = \SI{4.39(1)}{\kilo\ohm},
+\end{align*}
 bei dem der aperiodische Grenzfall eintritt. Gemessen wurde ein Wert von \SI{3.6}{\kilo\ohm}.
-Die Abweichung von im Mittel \SI{0.79}{\kilo\ohm} lässt sich zum einen wie oben durch
-unbetrachtete weitere Widerstände erklären, zum anderen ist ein genaues Einstellen des
-Potentiometers nicht möglich. Insbesondere das Oszilloskop erreichte beim Einstellen
-die Grenzen seiner Auflösung, sodass es ein gewisses Intervall gibt, in dem der Überschwinger
-auf dem Bild des Oszilloskopes gerade verschwunden ist.
+Die Abweichung beträgt im Mittel \SI{0.79}{\kilo\ohm}.
 \subsection{Frequenzabhängigkeit der Kondensatorspannung}
 \begin{table}
   \centering
   \begin{tabular}{c c c c c c c}
     \toprule
-    $\nu / \si{\kilo\hertz}$ & $U_{\symup{C}}$/\si{\deci\volt} & $ U_{\symup{err}} / \si{\volt}$
-    & $ \frac{U_\symup{C}}{U_{\symup{err}}}/\num{e-3}$ & $ \symup{\Delta} t / \si{\micro\second}$
+    $\nu / \si{\kilo\hertz}$ & $U_{\symup{C}}$/\si{\volt} & $ U_{\symup{err}} / \si{\volt}$
+    & $ \frac{U_\symup{C}}{U_{\symup{err}}}$ & $ \symup{\Delta} t / \si{\micro\second}$
     & $T = \frac{1}{\nu} / \si{\nano\second}$
     & $\varphi = \frac{360 \cdot \symup{\Delta}t}{T} / \, \text{deg}$\\
     \midrule
-    21 & 11 & 76 & 14 & 1.6 & 47.619 & 12.096 \\
-    25 & 14 & 74 & 19 & 2.4 & 40.000 & 21.600 \\
-    28 & 17 & 74 & 24 & 2.8 & 35.714 & 28.224 \\
-    29 & 19 & 72 & 27 & 3.2 & 34.483 & 33.408 \\
-    30 & 21 & 72 & 29 & 3.4 & 33.333 & 36.720 \\
-    31 & 24 & 72 & 33 & 4.0 & 32.258 & 44.640 \\
-    32 & 26 & 70 & 37 & 5.0 & 31.250 & 57.600 \\
-    33 & 27 & 70 & 39 & 5.8 & 30.303 & 68.904 \\
-    34 & 28 & 70 & 40 & 6.6 & 29.412 & 80.784 \\
-    35 & 27 & 70 & 39 & 7.2 & 28.571 & 90.720 \\
-    36 & 25 & 70 & 37 & 8.4 & 27.778 & 108.864 \\
-    37 & 23 & 70 & 34 & 8.8 & 27.027 & 117.216 \\
-    38 & 20 & 72 & 29 & 9.2 & 26.316 & 125.856 \\
-    39 & 18 & 72 & 25 & 9.4 & 25.641 & 131.976 \\
-    40 & 16 & 72 & 22 & 9.8 & 25.000 & 141.120 \\
+    21 & 1.1 & 0.76 & 1.4 & 1.6 & 47.6 & 12 \\
+    25 & 1.4 & 0.74 & 1.9 & 2.4 & 40.0 & 22 \\
+    28 & 1.7 & 0.74 & 2.4 & 2.8 & 35.7 & 28 \\
+    29 & 1.9 & 0.72 & 2.7 & 3.2 & 34.5 & 33 \\
+    30 & 2.1 & 0.72 & 2.9 & 3.4 & 33.3 & 37 \\
+    31 & 2.4 & 0.72 & 3.3 & 4.0 & 32.3 & 45 \\
+    32 & 2.6 & 0.70 & 3.7 & 5.0 & 31.3 & 58 \\
+    33 & 2.7 & 0.70 & 3.9 & 5.8 & 30.3 & 69 \\
+    34 & 2.8 & 0.70 & 4.0 & 6.6 & 29.4 & 81 \\
+    35 & 2.7 & 0.70 & 3.9 & 7.2 & 28.6 & 91 \\
+    36 & 2.5 & 0.70 & 3.7 & 8.4 & 27.8 & 109 \\
+    37 & 2.3 & 0.70 & 3.4 & 8.8 & 27.0 & 117 \\
+    38 & 2.0 & 0.72 & 2.9 & 9.2 & 26.3 & 126 \\
+    39 & 1.8 & 0.72 & 2.5 & 9.4 & 25.6 & 132 \\
+    40 & 1.6 & 0.72 & 2.2 & 9.8 & 25.0 & 141 \\
     \bottomrule
     \end{tabular}
     \caption{Messwerte aus den Messungen der Frequenzabhängigkeiten des Schwingkreises.
@@ -349,7 +351,7 @@ ansteigt und dannach wieder abnimmt.
     \caption{Lineare Darstellung mit eingezeichneten Frequenzen.}
     \label{sub:4}
   \end{subfigure}
-  \caption{In Abbildung \subref{sub:3} wurden der Quotient aus Kondensator- und Erregerspannung gegen die
+  \caption{In Abbildung \subref{sub:3} wird der Quotient aus Kondensator- und Erregerspannung gegen die
   Frequenz halblogarithmisch abgetragen. Die gleichen Werte sind in Abbildung \subref{sub:4} linear dargestellt. Hier wurden
   zusätzlich die Resonazfrequenz sowie die Frequenzen $\nu_+$ und $\nu_-$ eingetragen,
   welche die Resonanzkurve begrenzen.}
@@ -365,11 +367,11 @@ dargestellt sind. In keinem Fall liegt die Abweichung im Rahmen der Fehlertolera
     \toprule
     & experimentell & rechnerisch  & realtive Abweichung$/ \si{\percent}$\\
     \midrule
-    $q$ & \num{0.04} & \num{4.31(1)} & \num{99.1} \\
+    $q$ & \num{4} & \num{4.31(1)} & \num{7.2} \\
     $\nu_+ - \nu_- / \si{\kilo\hertz}$ & \num{9} & \num{8.02(3)} & \num{10.9} \\
     \bottomrule
     \end{tabular}
-    \caption{Für $g$ sowie $ \nu_+ - \nu_-$ aus dem Experiment bestimmte
+    \caption{Für $q$ sowie $ \nu_+ - \nu_-$ aus dem Experiment bestimmte
     und errechnete Werte. Zusätzlich ist die relative Abweichung der Werte zueinander
     angegeben.}
     \label{tab:10}
@@ -409,7 +411,7 @@ Grafik \ref{sub:2} wurde in linearer Darstellung belassen, um ein Ablesen der Fr
 zu erleichtern. Die abgelesenen Werte sind zusammen mit den aus \eqref{eqn:15}
 für die Frequenzen $\nu_1$ und $\nu_2$ bei $\frac{\pi}{4}$ bzw. $\frac{3 \pi}{4}$
 und \eqref{eqn:12} für die Resonanzfrequenz $ \nu_{\symup{res}}$ in Tabelle \ref{tab:3} dargestellt.
-Es ergeben sich äußerst geringe relative Abweichen zwischen Theorie und Experiment.
+Es treten mit unter \SI{3}{\percent} nur geringe relative Abweichen zwischen Theorie und Experiment auf.
 Die experimentellen Daten liegen jedoch in keinem Fall im Bereich der Fehlertoleranz
 der Theoriewerte.
 \begin{table}
@@ -439,7 +441,7 @@ der Theoriewerte.
     \midrule
     b) & $R_\symup{ap} / \si{\kilo\ohm}$ & \num{3.6} & \num{4.39(1)} & \num{18}\\
     \midrule
-    c) & $q$ & \num{0.04} & \num{4.31(1)} & \num{99.1} \\
+    c) & $q$ & \num{4} & \num{4.31(1)} & \num{7.2} \\
     & $\nu_+ - \nu_- / \si{\kilo\hertz}$ & \num{9} & \num{8.02(3)} & \num{10.9} \\
     \midrule
     d) & $\nu_1 / \si{\kilo\hertz}$ & \num{31} & \num{30.78(6)} & \num{0.65} \\
@@ -451,8 +453,9 @@ der Theoriewerte.
     \label{tab:6}
 \end{table}
 Die Ergebnisse sind in Tabelle \ref{tab:6} zusammengefasst. Die hohen Abweichungen in
-den Teilen a) und b) lassen sich jeweils durch nicht betrachtete Widerstände, sowie, im Fall von b), durch
-die begrenzte maximale Auflösung des Oszilloskopes erklären.
+den Teilen a) und b) lassen sich jeweils durch nicht betrachtete Widerstände, insbesondere
+dem des Generators, sowie, im Fall von b), durch
+die begrenzte maximale Auflösung des Oszilloskopes sowie die Ungenauigkeit des regelbaren Widerstandes erklären.
 Zur Verbesserung der Messergebnisse bietet sich die Verwendung von genaueren Geräten
 sowie ein genaues Durchmessen der einzelnen Schaltelemente an, um die jeweiligen Widerstände zu bestimmen. Durch konsequentes
 beachten dieser Widerstände in den Rechnungen, ließe sich diese systematische Fehlerquelle,

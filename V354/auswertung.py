@@ -5,7 +5,7 @@ from uncertainties import ufloat
 from scipy.optimize import curve_fit
 from scipy.stats import stats
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 15
+plt.rcParams['font.size'] = 18
 
 #Teil a)
 #Einlesen der Daten
@@ -13,6 +13,7 @@ finkHz, dtinmus, UcindV, UerinV  = np.genfromtxt('messwerte.txt', unpack=True)
 UtiindV, tiinmus = np.genfromtxt('messwerte_obere_einh.txt', unpack=True)
 dt = dtinmus * 10**(-6)
 Uc = UcindV/10
+UerinV = UerinV/100
 Uti = UtiindV/10
 tiins = tiinmus * 10**(-6)
 #Fitten der e-Funktion
@@ -58,24 +59,26 @@ plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
 plt.ylabel(r"$\frac{U_\mathrm{C}}{U_\mathrm{err}}$")
 plt.xscale("log")
 plt.grid()
-plt.plot(finkHz, U, 'b+', label='Messwerte')
+plt.plot(finkHz*1000, U, 'b+', label='Messwerte')
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Halblog.pdf')
 
 plt.figure(3)
 plt.grid()
-plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
+plt.xlim(19,41)
+plt.ylim(1, 4.1)
+plt.xlabel(r"$\nu / \mathrm{Hz}$")
 plt.ylabel(r"$\frac{U_\mathrm{C}}{U_\mathrm{err}}$")
 plt.plot(finkHz, U, 'b+', label='Messwerte')
 
 plt.xticks([20, 25, 29.5, 34, 35, 38.5, 40],
            ["20", "25", "29.5", "34", "35", "38.5", "40"])
-plt.axvline(x=29.5, ymin=0, ymax=0.5, color='g', ls="--", label=r"$\nu_+$ bzw. $\nu_-$", linewidth=2)
-plt.axhline(y=0.04, xmin=0, xmax=0.7, color='r', ls="--", linewidth=2)
-plt.axvline(x=38.5, ymin=0, ymax=0.5, color='g', ls="--", linewidth=2)
-plt.axvline(x=34, ymin=0, ymax=0.857, color='r', ls="--", label="Resonanzüberhöhung", linewidth=2)
-plt.axhline(y=0.0275, xmin=0.475, xmax=0.925, color='y', label="Resonanzbreite", ls="--", linewidth=2)
+plt.axvline(x=29.5, ymin=0, ymax=0.57, color='g', ls="--", label=r"$\nu_+$ bzw. $\nu_-$", linewidth=2)
+plt.axhline(y=4, xmin=0, xmax=0.681, color='r', ls="--", linewidth=2)
+plt.axvline(x=38.5, ymin=0, ymax=0.57, color='g', ls="--", linewidth=2)
+plt.axvline(x=34, ymin=0, ymax=0.9677, color='r', ls="--", label="Resonanzüberhöhung", linewidth=2)
+plt.axhline(y=2.75, xmin=0.48, xmax=0.8864, color='y', label="Resonanzbreite", ls="--", linewidth=2)
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('lin.pdf')
@@ -95,7 +98,7 @@ np.savetxt('Phasen.txt', np.column_stack([finkHz, dtinmus, T*10**(6), phi]),fmt=
 
 
 plt.figure(4)
-plt.xlabel(r"$\nu / 10^3 \, \mathrm{Hz}$")
+plt.xlabel(r"$\nu / \mathrm{Hz}$")
 plt.ylabel(r"$\varphi / \mathrm{rad}$")
 plt.grid(True, which="both")
 plt.ylim(0,200)
@@ -103,7 +106,7 @@ plt.xlim(20,41)
 plt.xscale("log")
 plt.yticks([0, 45, 90, 135, 180],
            [r"$0$", r"$\frac{1}{4}\pi$", r"$\frac{1}{2}\pi$", r"$\frac{3}{4}\pi$", r"$\pi$"])
-plt.plot(finkHz, phi, 'b+', label='Messwerte')
+plt.plot(finkHz*1000, phi, 'b+', label='Messwerte')
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Phasehalblog.pdf')

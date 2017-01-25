@@ -4,6 +4,9 @@
 
 \section{Zielsetzung}
 Ziel dieses Versuches ist es, gedämpfte und erzwungene Schwingungen zu untersuchen.
+Dabei werden auf die Zeitabhängigkeit der gedämpften Schwingung, auf den aperiodischen
+Grenzfall und die Frequenzabhängigkeit der Spannung bzw. der Phase zwischen Erreger-
+und Kondensatorspannung eingangen.
 \section{Theorie}
 Ein Schwingkreis besteht in seiner einfachsten Form aus einem Kondensator mit der Kapzität
 $C$ und einer Spule mit der Induktivität $L$. Die Energie in diesem Schwingkreis oszilliert
@@ -19,23 +22,23 @@ vorliegt, wird diese $\textbf{ungedämpfte Schwingung}$ für $t \to \infty$ unve
   \label{fig:1}
 \end{figure}
 
-Falls nun aber ein endlicher Widerstand $R$ in den Schaltkreis eingebaut wird, siehe \ref{fig:1},
+Falls ein endlicher Widerstand $R$ in den Schaltkreis eingebaut wird, siehe \ref{fig:1},
 dann wird ein Teil der elektrischen Energie an diesem ohmschen Widerstand in Wärme umgewandelt.
 Damit fallen die Amplituden der Spannung und des Stromes mit der Zeit ab und es entwickelt sich
-eine $\textbf{gedämpften Schwingung}$. Das Gesetz zwischen der Absinken der Amplitude und der Zeit
+eine $\textbf{gedämpften Schwingung}$. Das Gesetz zwischen Absinken der Amplitude und der Zeit
 lässt sich aus dem zweiten Kirchhoffschen Gesetz, mit den Spannungen aus Abbildung \ref{fig:1},
 herleiten
 \begin{equation}
     U_R (t) + U_L (t) + U_{\symup{C}} (t) = 0 \, .
     \label{eqn:1}
 \end{equation}
-Daraus entwickelt man eine lineare homogene Differentialgleichung 2. Ordnung der Form
+Daraus wird eine lineare homogene Differentialgleichung 2. Ordnung der Form
 \begin{equation}
     \ddot{I}(t) + \frac{R}{L} \ddot{I}(t) +
-    \frac{1}{LC} \, I(t) = 0 \, ,
+    \frac{1}{LC} \, I(t) = 0
     \label{eqn:2}
 \end{equation}
-welche als Lösung
+entwickelt, welche als Lösung
 \begin{equation}
   I'(t) = e^{-2 \pi \mu t} \left(A e^{i 2 \pi \nu t} + B e^{-i 2 \pi \nu t}\right)
   \label{eqn:3}
@@ -119,17 +122,17 @@ und für die Phasenverschiebung $\phi (\omega)$ zwischen $U_{\symup{C}}(t)$ und 
     \phi (\omega) = \symup{arctan} \left(\frac{-\omega R C}{1 - LC \omega^2}\right) \, .
     \label{eqn:10}
 \end{equation}
-Für die Frequenzen $\omega_1$ und $\omega_2$ bei denen die Phasenverschiebung genau
-$\frac{\pi}{4}$ bzw. $\frac{3\pi}{4}$ beträgt, gilt dann nach \eqref{eqn:10}
-\begin{equation}
-  \omega_{1,2} = \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2} + \frac{1}{LC}}
-  \label{eqn:15}
-\end{equation}
 Mit \eqref{eqn:9} erhält man für die Kondensatorspannung in Abgängigkeit von $\omega$ die sogennante
 Resonanzkurve
 \begin{equation}
   U_{\symup{C}}(\omega) = \frac{U_0}{\sqrt{\left(1- LC \omega^2\right)^2 + \omega^2 R^2 C^2}} \, .
   \label{eqn:11}
+\end{equation}
+Für die Frequenzen $\omega_1$ und $\omega_2$ bei denen die Phasenverschiebung genau
+$\frac{\pi}{4}$ bzw. $\frac{3\pi}{4}$ beträgt, gilt dann nach \eqref{eqn:10}
+\begin{equation}
+  \omega_{1,2} = \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2} + \frac{1}{LC}}
+  \label{eqn:15}
 \end{equation}
 An Gleichung \eqref{eqn:11} lässt sich erkennen, dass die Kondensatorspannung für
 $\omega \to \infty$ gegen 0 und für $\omega \to 0$ gegen $U_0$ geht. Allerdings
@@ -163,9 +166,10 @@ folgt für die Differenz der Frequenzen
 
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+\label{sec:versuchsaufbau}
 \begin{figure}
   \centering
-  \includegraphics[scale=0.3]{aufbau.png}
+  \includegraphics[scale=0.4]{aufbau2.png}
   \caption{Schaltbild des Versuchsaufbaus \cite{anleitung}.}
   \label{fig:3}
 \end{figure}
@@ -176,6 +180,10 @@ folgt für die Differenz der Frequenzen
   \caption{Foto des Versuchsaufbaus.}
   \label{fig:4}
 \end{figure}
+Abbildung \ref{fig:3} zeigt einen Sinusgenerator, der nachgeschalteten Schwingkreis
+zu Schwingungen anregt. Dazu parallel geschaltet ist ein Oszilloskop, welches über
+einen Tastkopf in den Schaltkreis eingebunden wird.
+
 In Abbildung \ref{fig:4} sieht man den Versuchsaufbau im Foto. Der rote Baustein enthält
 alle Bestandteile des $RCL$-Schwingkreises plus zwei feste und einen veränderlichen
 ohmschen Widerstand. das Gerät auf der linken Seite fungiert als Nadelimpulsgenerator,
@@ -185,11 +193,12 @@ visualisiert werden. Zu diesem Zweck ist der Tastkopf, in Abbildung \ref{fig:3} 
 in den Schwingkreis eingebaut worden (rechts unten im roten Bauteil steckend).
 
 \subsection{Versuchsdurchführung}
-Zuerst werden die benötigten Werte über die Widerstände und die Induktivität und dergleichen
-notiert. Dann wird Abbildung \ref{fig:3} aufgebaut, jedoch ohne Frequenzmesser und Verbindung
+\label{sec:versuchsdurchfuehrung}
+Zuerst werden die benötigten Werte über die Widerstände, die Kapazität und die Induktivität
+notiert. Dann wird Abbildung \ref{fig:3} aufgebaut, jedoch ohne Verbindung
 vom Nadelpulsgenerator zum Oszilloskop und mit dem kleineren der beiden fest eingebauten
 ohmschen Widerstände. Dies geschieht, um die Amplitudenabnahme eines
-$\textbf{gedämpften Schwingkreises}$ in Abhängigkeit von der Zeit zu ermitteln und daraus
+gedämpften Schwingkreises in Abhängigkeit von der Zeit zu ermitteln und daraus
 den effektiven Dämpfungswiderstand zu bestimmen. Sodann wird die Spannung gegen die Zeit auf
 dem Oszilloskop aufgetragen. Dabei wird darauf geachtet, dass die Amplitude etwa um den Faktor
 3 bis 8 abgenommen hat, bevor ein neues Signal des Nadelpulsgenerators eintrifft. Der Schwingungsverlauf
@@ -222,11 +231,12 @@ Dies ist in Abbildung \ref{fig:6} zu sehen. Der eingestellte Widerstand wird als
 $R_{\symup{ap}}$ notiert.
 
 Um die Frequenzabhängigkeit der Kondensatorspannung zu untersuchen, wird wieder
-die Schaltung aus den vorigen Abschnitten aufgebaut, diesmal mit dem größeren der beiden
+die Schaltung aus Kapitel \ref{sec:versuchsaufbau} mit den bereits erwähnten
+Änderungen aufgebaut, diesmal mit dem größeren der beiden
 Festwiderständ und mit einer Sinusspannung statt Nadelpulsen. Da die Frequenzabhängigkeit
 der Phase gleichzeitig ausgeführt wird, wird die Sinusspannung ebenfalls auf dem Oszillsokop
-dargestellt. Dann werden beide Spannungsverläufe übereinander gelegt und für etwas mehr als
-zehn verschiedene Frequenzen $U_0$, sprich die Amplitude der Sinusspannung, $U_{\symup{C}}$ und
+dargestellt. Dann werden beide Spannungsverläufe übereinander gelegt und für elf
+verschiedene Frequenzen $U_0$, sprich die Amplitude der Sinusspannung, $U_{\symup{C}}$ und
 die zeitliche Differenz zwischen den beiden Nulldurchgängen der Spannungen aufgenommen.
 Die Periodenlänge lässt sich aus der jweils eingestellten Frequenz bestimmen.
 

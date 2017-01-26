@@ -34,11 +34,12 @@ herleiten
 \end{equation}
 Daraus wird eine lineare homogene Differentialgleichung 2. Ordnung der Form
 \begin{equation}
-    \ddot{I}(t) + \frac{R}{L} \ddot{I}(t) +
+    \ddot{I}(t) + \frac{R}{L} \dot{I}(t) +
     \frac{1}{LC} \, I(t) = 0
     \label{eqn:2}
 \end{equation}
-entwickelt, welche als Lösung
+entwickelt (mit R als ohmschen Widerstand, L als Induktivität, C als Kapazität
+und I als zeitabhängigem Strom, siehe Abbildung \ref{fig:1}), welche als Lösung
 \begin{equation}
   I'(t) = e^{-2 \pi \mu t} \left(A e^{i 2 \pi \nu t} + B e^{-i 2 \pi \nu t}\right)
   \label{eqn:3}

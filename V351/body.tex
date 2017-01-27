@@ -109,6 +109,7 @@ Frequenz auf. Dieser Vorgang wird für die anderen zwei Funktionen wiederholt.
 \section{Auswertung}
 \label{sec:auswertung}
 \subsection{Berechnung der Fourier-Koeffizienten}
+\label{sec:koef}
 \subsubsection{Rechteckfunktion}
 \label{sec:Rechteck}
 Die Rechteckfunktion wird wie folgt parametrisiert:
@@ -149,6 +150,9 @@ b_n = (-1)^{n+1} \frac{2}{n}
 Die Amplituden der Fourierentwicklung fallen also mit $\frac{1}{n}$. Sowohl gerade als auch
 ungerade $n$ liefern Beiträge.
 \subsection{Fourier-Synthese}
+Die Amplitude der Grundfrequenz $A_0$ beträgt \SI{0.614}{\volt}. Zur Erzeugung der jeweiligen
+Schwingungsformen werden die Amplituden der n-ten Oberschwingung nach den in \ref{sec:koef}
+bestimmten Zusammenhängen bestimmt und dementsprechend eingestellt.
 \subsubsection{Rechteckschwingung}
 Nach dem Entfernen der Phasenverschiebung zwischen den Oberwellen sowie dem Einstellen
 der Amplituden nach dem in Kapitel \ref{sec:Rechteck} bestimmten $\frac{1}{n}$ Zusammenhang,
@@ -164,8 +168,41 @@ Oszilloskopbild steigern.
 \subsubsection{Dreieckschwingung}
 Werden die Amplituden wie nach \ref{sec:Dreieck} eingestellt, ergibt sich das in
 Grafik \ref{abb:2} dargestellte Bild auf dem Oszilloskop. Dieses Bild lässt sich durch
-
+Werden die Amplituden  der ungeraden Oberschwingungen wie nach \ref{sec:Dreieck} mit $\frac{A_0}{n^2}$ eingestellt,
+ergibt sich das in Grafik \ref{abb:2} dargestellte Bild auf dem Oszilloskop. Die geraden Oberschwingungen tragen nicht
+zur Fourierreihe bei.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{Dreieck.png}
+  \caption{Oszilloskopbild der synthetisierten Dreieckschwingung.}
+  \label{abb:2}
+\end{figure}
+\subsubsection{Sägezahnschwingung}
+Durch einstellen nach \ref{sec:Sägezahn} ergibt sich das in Grafik \ref{abb:3} dargestellte
+Bild.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{Saegezahn.png}
+  \caption{Oszilloskopbild der synthetisierten Sägezahnschwingung.}
+  \label{abb:3}
+\end{figure}
 \section{Diskussion}
+Bei der Synthese zeigen sich starke Abweichungen zwischen den einzelnen Schwingungsformen.
+Konnte die Dreieckschwingung sehr gut synthetisiert werden, gibt es bei Rechteck- und Sägezahnschwingung
+große Abweichungen von der "Idealform". Dies fällt bei der Rechteckschwingung extrem auf.
+Dies ist durch das ausschließliche Beitragen ungerader Oberschwingungen bei einem mit
+$1/n$ langsammen Konvergieren der Fourierreihe zu erklären. Die Vermutung liegt nahe,
+dass schlicht nicht genug beitragende Oberschwingungen zur Verfügung standen, um die
+Schwingungsform vernünftig zu synthetisieren. Auch die sehr gut gelungene Dreiekschwingung
+hat nur beitragende ungerade Oberschwingungen, das Konvergenzverhalten ist mit $1/n^2$
+jedoch viel schneller, sodass weniger Summanden benötigt werden um die Schwingungsform
+ausreichend genau zu aproximieren. Auch die Sägezahnschwingung hat lediglich ein
+Konvergenzverhalten wie $1/n$, hier tragen jedoch sowohl gerade als auch ungerade Oberschwingungen
+bei. Die Schwingungsform konnte also mit den zur Verfügung stehenden Mitteln besser genähert werden.
+Dennoch zeigen sich, insbesondere an den Unstetigkeitsstellen, deutliche Überschwinger, die
+sich durch weitere Oberschwingungen sicherlich hätten vermeiden lassen. Es bietet sich daher
+generell die Wiederholung des Versuches mit einem Oberwellengenarator an, der mehr
+Oberwellen zur Verfügung stellen kann.
 \newpage
 \nocite{*}
 \printbibliography

@@ -178,7 +178,7 @@ zur Fourierreihe bei.
   \label{abb:2}
 \end{figure}
 \subsubsection{Sägezahnschwingung}
-Durch einstellen nach \ref{sec:Sägezahn} ergibt sich das in Grafik \ref{abb:3} dargestellte
+Durch Einstellen nach \ref{sec:Sägezahn} ergibt sich das in Grafik \ref{abb:3} dargestellte
 Bild.
 \begin{figure}
   \centering
@@ -186,23 +186,94 @@ Bild.
   \caption{Oszilloskopbild der synthetisierten Sägezahnschwingung.}
   \label{abb:3}
 \end{figure}
+\section{Fourier-Analyse}
+\begin{figure}
+  \begin{subtable}{0.6\textwidth}
+  \centering
+  \begin{tabular}{S S S S S}
+    \toprule
+    & \multicolumn {2}{c}{Rechteckschw.} & \multicolumn {2}{c}{Dreieckschw.}\\
+    $\nu$ / \si{\kilo\hertz} & {$U_{\symup{mes.}}$/\si{\volt}} & {$U_{\symup{erw.}}$/\si{\volt}} &
+    {$U_{\symup{mes.}}$/\si{\volt}} & {$U_{\symup{erw.}}$/\si{\volt}} \\
+    \midrule
+    10 & 8.88 & 8.88 & 5.60 & 5.60 \\
+    30 & 2.88 & 2.96 & 0.62 & 0.62 \\
+    50 & 1.68 & 1.78 & 0.28 & 0.22 \\
+    70 & 1.12 & 1.27 & 0.09 & 0.11 \\
+    90 & 0.88 & 0.99 & 0.05 & 0.07 \\
+    110 & 0.64 & 0.81 & 0.04 & 0.05 \\
+    130 & 0.48 & 0.68 & 0.03 & 0.03 \\
+    \bottomrule
+    \end{tabular}
+    \caption{ }
+    \label{sub:1}
+    \qquad
+  \end{subtable}
+  \begin{subtable}{0.3\textwidth}
+  \centering
+  \begin{tabular}{S S S}
+    \toprule
+    & \multicolumn {2}{c}{Sägezahnschw.}\\
+    $\nu$ / \si{\kilo\hertz} & {$U_{\symup{mes.}}$/\si{\volt}} & {$U_{\symup{erw.}}$/\si{\volt}} \\
+    \midrule
+    10 & 4.40 & 4.40 \\
+    20 & 2.24 & 2.20 \\
+    30 & 1.56 & 1.47 \\
+    40 & 1.16 & 1.10 \\
+    50 & 0.92 & 0.88 \\
+    60 & 0.80 & 0.73 \\
+    70 & 0.68 & 0.63 \\
+    80 & 0.60 & 0.55 \\
+    90 & 0.52 & 0.49 \\
+    100 & 0.44 & 0.44 \\
+    110 & 0.40 & 0.40 \\
+    \bottomrule
+    \end{tabular}
+    \caption{ }
+    \label{sub:2}
+    \qquad
+  \end{subtable}
+  \caption{In Tabelle \ref{sub:1} sind die aus der vom Oszilloskop durchgeführten Fourier-Analyse
+  der Rechteck- und Dreieckschwingung entnommen Amplituden $U_{\symup{mes.}}$ der jeweiligen Oberschwingungen dargestellt.
+  Gleiches findet sich in \ref{sub:2} für die Sägezahnschwingung. Der Funktionsgenerator liefert
+  Oberschwingungen von $n \cdot \SI{10}{\kilo\volt}$. Die Erwartungswerte $U_{\symup{erw.}}$
+  wurden nach dem jeweiligen in \ref{sec:koef} bestimmten Konvergenzverhalten der Schwingungsformen
+  aus der ersten Oberwelle bestimmt.}
+\label{abb:3}
+\end{figure}
+In Abbildung \ref{abb:3} sind die Messwerte der Fourier-Analyse dargestellt. Es zeigt sich,
+wie zu erwarten, ein diskretes Spektrum. Weiterhin treten nur bei den Frequenzen Amplituden
+auf, die nach den Berechnungen in \ref{sec:koef} zu erwarten waren. Im Vergleich mit den
+Erwartungswerten zeigen sich Abweichungen, die immer unter \SI{0.2}{\volt} liegen.
+Die relativen Abweichungen liegen bei höchstens \SI{29.4}{\percent}. Es zeichnet sich
+keine Schwingungsform durch besondere Genauigkeit aus.
 \section{Diskussion}
 Bei der Synthese zeigen sich starke Abweichungen zwischen den einzelnen Schwingungsformen.
 Konnte die Dreieckschwingung sehr gut synthetisiert werden, gibt es bei Rechteck- und Sägezahnschwingung
 große Abweichungen von der "Idealform". Dies fällt bei der Rechteckschwingung extrem auf.
 Dies ist durch das ausschließliche Beitragen ungerader Oberschwingungen bei einem mit
-$1/n$ langsammen Konvergieren der Fourierreihe zu erklären. Die Vermutung liegt nahe,
+$1/n$ langsamen Konvergieren der Fourierreihe zu erklären. Die Vermutung liegt nahe,
 dass schlicht nicht genug beitragende Oberschwingungen zur Verfügung standen, um die
-Schwingungsform vernünftig zu synthetisieren. Auch die sehr gut gelungene Dreiekschwingung
-hat nur beitragende ungerade Oberschwingungen, das Konvergenzverhalten ist mit $1/n^2$
+Schwingungsform vernünftig zu synthetisieren. Auch die sehr gut gelungene Dreieckschwingung
+hat nur Beitragende ungerade Oberschwingungen, das Konvergenzverhalten ist mit $1/n^2$
 jedoch viel schneller, sodass weniger Summanden benötigt werden um die Schwingungsform
-ausreichend genau zu aproximieren. Auch die Sägezahnschwingung hat lediglich ein
+ausreichend genau zu approximieren. Auch die Sägezahnschwingung hat lediglich ein
 Konvergenzverhalten wie $1/n$, hier tragen jedoch sowohl gerade als auch ungerade Oberschwingungen
 bei. Die Schwingungsform konnte also mit den zur Verfügung stehenden Mitteln besser genähert werden.
 Dennoch zeigen sich, insbesondere an den Unstetigkeitsstellen, deutliche Überschwinger, die
-sich durch weitere Oberschwingungen sicherlich hätten vermeiden lassen. Es bietet sich daher
+sich durch weitere Oberschwingungen sicherlich hätten vermeiden lassen können. Es bietet sich daher
 generell die Wiederholung des Versuches mit einem Oberwellengenarator an, der mehr
-Oberwellen zur Verfügung stellen kann.
+Oberwellen zur Verfügung stellen kann.\\
+\\
+Die Abweichungen bei der Fourier-Analyse lassen sich durch die Messmethode erklären.
+Die Amplituden der Oberschwingungen wurden mithilfe eines Cursors am Oszilloskop abgelesen.
+Wird der Cursor dabei nicht exakt platziert, ergeben sich sofort systematische Fehler.\\
+\\
+Zusammenfassend zeigt sich eine gute Umsetzbarkeit der Fourier-Analyse. Durch die begrenzten
+Leistungsfähigkeit des verwendeten Oberwellengenerators gibt es bei der Fourier-Synthese
+jedoch einige Schwierigkeiten. Es können jedoch, abhängig von der Schwingungsform, für
+den geringen Aufwand gute Ergebnisse erhalten werden. Lediglich die Rechteckschwingung
+bereitet größere Probleme.
 \newpage
 \nocite{*}
 \printbibliography

@@ -63,10 +63,51 @@ Nebenmaxima entstehen, die in der Auswertung gefiltert werden müssen.
 \section{Durchführung}
 
 \subsection{Versuchsaufbau}
+\subsubsection{Fourier-Synthese}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{FourierSynthese.jpg}
+  \caption{Schaltbild zur Durchführung der Fourier-Synthese \cite{synthese}.}
+  \label{fig:2}
+\end{figure}
+In Abbildung \ref{fig:2} ist der Aufbau zur Durchführung der Fourier-Synthese
+zu sehen. Am Oberwellengenerator werden die Fourier-Komponenten überlagert
+und die dadurch entstandene Schwingung auf dem Oszilloskop sichtbar gemacht.
+
+\subsubsection{Fourier-Analyse}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{FourierAnalyse.jpg}
+  \caption{Schaltbild zur Durchführung der Fourier-Analyse \cite{synthese}.}
+  \label{fig:3}
+\end{figure}
+Um die Fourier-Analyse durchzuführen, wird der Aufbau aus Abbildung \ref{fig:3}
+angewandt. Der Funktionsgenerator gibt wahlweise eine der drei Spannungen
+(siehe Kapitel \ref{sec:durchfuehrung}) auf das Oszilloskop.
 
 \subsection{Versuchsdurchführung}
+\label{sec:durchfuehrung}
+\subsubsection{Fourier-Synthese}
+Zuerst werden die Oberwellen, für die $n \ge 2$ gilt, mittles Lissajous-Figuren
+mit der Sinus-Grundschwingung in Phase gebracht. Dann werden die Fourier-Komponenten
+für eine Sägezahn-, eine Dreieck- und eine Rechteckfunktion berechnet (siehe Kapitel \ref{sec:auswertung}).
+Dabei sieht man, dass die Amplituden für eine Sägezahn- und eine Rechteckfunktion mit
+$\frac{1}{n}$ abfällen; während es sich bei der Dreiecksfunktion um einen Proportionalitätsfaktor
+$\frac{1}{n^2}$. Mit der Maximalamplitude der Sinus-Schwingung werden alle weiteren Amplituden
+der Oberwellen über ein Voltmeter mit den bereits erwähnten Proportionalitätsfaktoren angepasst.
+Sodann werden die Oberwellen nacheinander aufsummiert und mittels $\SI{90}{\degree}$ und
+$\SI{180}{\degree}$ Phasenverschiebungen entsprechend der gewünschten Funktion angepasst,
+bis man alle Oberwellen, die der Generator hergibt, aufsummiert hat. Das Ergebnis lässt
+sich auf dem Oszilloskop betrachten.
+
+\subsubsection{Fourier-Analyse}
+Am Funktionsgenerator wird eine der drei Funktionen eingestellt. Das Oszilloskop
+führt dann die Fourier-Analyse aus, wenn man in den Math-Modus geht. Als nächstes
+nimmt man von den Peaks der Hauptmaxima die Amplitude in Abhängigkeit von der
+Frequenz auf. Dieser Vorgang wird für die anderen zwei Funktionen wiederholt.
 
 \section{Auswertung}
+\label{sec:auswertung}
 
 \section{Diskussion}
 \newpage

@@ -108,7 +108,60 @@ Frequenz auf. Dieser Vorgang wird für die anderen zwei Funktionen wiederholt.
 
 \section{Auswertung}
 \label{sec:auswertung}
-
+\subsection{Berechnung der Fourier-Koeffizienten}
+\subsubsection{Rechteckfunktion}
+\label{sec:Rechteck}
+Die Rechteckfunktion wird wie folgt parametrisiert:
+\begin{equation}
+R(t)=\left\{\begin{array}{cl} 1, & \mbox{falls }t \in (0, \pi )\\ 0, & \mbox{falls }t \in \{0, \pi, 2\pi \}\\
+-1, & \mbox{falls }t \in (\pi, 2\pi ) \; . \end{array}\right.
+\end{equation}
+Da die Rechteckfunktion ungerade ist, sind alle $a_n = 0$. Es folgt nach \eqref{eqn:3} für die $b_n$:
+\begin{equation}
+  b_n = \frac{2}{\pi} \int_0^\pi \sin(n t) \symup{d}t = \left\{\begin{array}{cl} 0, & n \mbox{ gerade}\\
+  \frac{4}{n \pi}, & n \mbox{ ungerade} \; . \end{array}\right.
+\end{equation}
+Die Terme der Fourierentwicklung fallen also mit $\frac{1}{n}$ ab. Nur ungerade $n$ liefern
+Beiträge.
+\subsubsection{Dreieckfunktion}
+\label{sec:Dreieck}
+Die Dreickefunktion wird wie folgt parametrisiert:
+\begin{equation}
+  D(t) =\frac{2}{\pi}|t| -1 \, , \; t \in [-\pi, \pi).
+\end{equation}
+Da die Dreieckfunktion gerade ist, sind alle $b_n = 0$. Es folgt nach \eqref{eqn:2} für die $a_n$:
+\begin{equation}
+  a_n = \left\{\begin{array}{cl} 0, & n \mbox{ gerade}\\
+  -\frac{4}{n^2 \pi}, & n \mbox{ ungerade} \; . \end{array}\right.
+\end{equation}
+Die Terme der Fourierentwicklung fallen also mit $\frac{1}{n^2}$. Nur ungerade $n$ liefern
+Beiträge.
+\subsubsection{Sägezahnfunktion}
+\label{sec:Sägezahn}
+Die Sägezahnfunktion wird wie folgt parametrisiert:
+\begin{equation}
+  S(t) =t \, , \; t \in [-\pi, \pi).
+\end{equation}
+Da die Sägezahnfunktion ungerade ist, sind alle $a_n = 0$. Es folgt nach \eqref{eqn:3} für die $b_n$:
+\begin{equation}
+b_n = (-1)^{n+1} \frac{2}{n}
+\end{equation}
+Die Terme der Fourierentwicklung fallen also mit $\frac{1}{n}$. Sowohl gerade als auch
+ungerade $n$ liefern Beiträge.
+\subsection{Fourier-Synthese}
+\subsubsection{Rechteckschwingung}
+Nach dem Entfernen der Phasenverschiebung zwischen den Oberwellen sowie dem Einstellen
+der Amplituden nach dem in \ref{sec:Rechteck} bestimmten $\frac{1}{n}$ Zusammenhang,
+ergiebt sich kein Bild auf dem Oszilloskop, das einer Rechteckschwingung nahe kommt.
+Durch wahrloses probieren lässt sich das Ergebnis auf das in Grafik \ref{abb:1} dargestellte
+Oszilloskopbild steigern.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{Rechteck.png}
+  \caption{Oszilloskopbild der synthetisierten Rechteckschwingung.}
+  \label{abb:1}
+\end{figure}
+>>>>>>> Synthese Anfang
 \section{Diskussion}
 \newpage
 \nocite{*}

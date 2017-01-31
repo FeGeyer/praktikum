@@ -85,13 +85,15 @@ unp.std_devs(rech_sweep_nu_minus) * 10 ** (-3), unp.nominal_values(rel_sweep_nu_
 print(sweep_nu_minus*10**(-3))
 
 #Plot
+t = np.linspace(0.9 * 10 ** (-9), 12.1 * 10 ** (-9), 100)
 plt.figure(1)
 plt.xlabel(r"$C_k / \mathrm{nF}$")
 plt.ylabel(r"$\nu_- / \mathrm{kHz}$")
 plt.grid(True, which="both")
 plt.ylim(36,57)
 plt.xlim(0.9, 12.1)
-plt.plot(unp.nominal_values(Ck_c_in_nF), unp.nominal_values(rech_sweep_nu_minus) * 10**(-3), 'r+', label='Theoriewerte')
+plt.plot(t * 10 ** 9, unp.nominal_values(1/(2 * np.pi * unp.sqrt(L * (Csp + (1/C + 2/t) ** (-1) ) ) )) * 10 ** (-3), 'r-', label='Theoriekurve')
+plt.plot(t, t**2, "r+")
 plt.plot(unp.nominal_values(Ck_a_b_in_nF), unp.nominal_values(v_minus_in_kHz), 'g+', label='Lissajous-Methode')
 plt.plot(unp.nominal_values(Ck_c_in_nF), unp.nominal_values(sweep_nu_minus) * 10**(-3), 'b+', label='Sweep-Methode')
 plt.legend(loc="best")

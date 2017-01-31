@@ -156,25 +156,15 @@ Anfangs- bis zu einer beliebigen Endfrequenz auf einem Oszilloskop dargestellt. 
 sind dann (neben zwei kleinen Peaks, die Anfangs- und Endzeitpunkt darstellen) zwei
 große Peaks, die die Frequenzen $\nu_+$ und $\nu_-$ (in der Reihenfolge) darstellen.
 Dies wird erneut in Abhängigkeit von $C_{\symup{K}}$ gemessen.
-
-\section{Fehlerrechnung}
-Falls zwei fehlerbehaftete Größen in einer Gleichung
-zur Bestimmung einer anderen Größe Verwendung finden, dann berechnte sich der Gesamtfehler
-nach der Gaußschen Fehlerfortpflanzung zu
-\begin{equation}
-    \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
-    x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
-    x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
-    \label{eqn:100}
-\end{equation}
-
 \section{Auswertung}
+Die Fehler wurden in "python" mithilfe des Paketes "uncertainties"\footnote{Versionen: python 3.5.1, uncertainties 3.0.1} bestimmt.
 \subsection{Bestimmen der Resonanzfrequenz des festen und Jusatage des regelbaren Schwingkreises}
 Die gemessene Resonanzfrequenz des festen Schwingkreises beträgt \SI{35.65}{\kilo\hertz}
 bei einem geschätzten Fehler von \SI{20}{\hertz}. Nach \eqref{eqn:5}
 folgt für die theoretische Resonanzfrequenz ein Wert von \SI{36.51}{\kilo\hertz}. Die relative Abweichung
 zwischen Theorie und Experiment beträgt \SI{2.36}{\percent}, liegt also in einem vertretbar
-kleinen Bereich. Der regelbare Schwingkreis wird entsprechend so eingestellt, dass er
+kleinen Bereich, aber dennoch außerhalb des angenommenen Fehlers.
+Der regelbare Schwingkreis wird entsprechend so eingestellt, dass er
 dieselbe Resonanzfrequenz hat.
 \subsection{Messung der Fundamentalfrequenzen anhand der Phasenverschiebung zwischen Erreger- und Schwingkreisspannung}
 \label{aus:1}
@@ -203,17 +193,25 @@ dieselbe Resonanzfrequenz hat.
    \label{tab:1}
 \end{table}
 Die Messwerte sind in Tabelle \ref{tab:1} dargestellt.
-Nach \eqref{eqn:5} mit $C_{\symup{ges}} = C + C_{\symup{sp}}$ folgt für die von der Kapazität des Kopplungskondensators unabhängige,
+Nach \eqref{eqn:5} mit
+\begin{equation}
+   C_{\symup{ges}} = C + C_{\symup{sp}}
+\end{equation}
+folgt für die von der Kapazität des Kopplungskondensators unabhängige,
 theoretische, gleichphasige Schwingung ein Wert von \SI{35.89}{\kilo\hertz}. Dieser Wert liegt nicht
 in der angenommenen Fehlertoleranz des Messwertes,
 die relative Abweichung zwischen Theorie und Experiment beträgt dennoch lediglich \SI{0.49}{\percent}.\\
 \\
 Für die Fundamentalfrequenz der gegenphasigen Schwingung folgen nach \eqref{eqn:6} mit
-$C_{\symup{ges}} = C_{\symup{sp}} + \left( \frac{1}{C} + \frac{2}{C_{\symup{k}}} \right)^{-1}$ die in Tabelle \ref{tab:2} dargestellten
+\begin{equation}
+  C_{\symup{ges}} = C_{\symup{sp}} + \left( \frac{1}{C} + \frac{2}{C_{\symup{k}}} \right)^{-1}
+\end{equation}
+die in Tabelle \ref{tab:2} dargestellten
 Werte für die einzelnen Kapazitäten des Kopplungskondensators.
 Ebenfalls in dieser Tabelle sind die relativen Abweichungen zwischen den Theorie- und
-Messwerten. Die relativen Fehler sind wieder extrem gering. Die Werte für $C_{\symup{k}} = \SI{2.19}{\nano\farad}$
-liegen desweiteren im Rahmen ihrer gegenseitigen Messungenauigkeit.
+Messwerten eingetragen. Die relativen Fehler sind wieder extrem gering. Die Werte für $C_{\symup{k}} = \SI{2.19}{\nano\farad}$
+liegen desweiteren im Rahmen ihrer gegenseitigen Messungenauigkeit, betrachtet man die
+Überscheidung beider Fehlerintervalle.
 \begin{table}
   \centering
   \begin{tabular}{c c c c}
@@ -248,7 +246,7 @@ Messungenauigkeit.
   \centering
   \begin{tabular}{c c c c}
     \toprule
-  $C_{\symup{k}}/\si{\nano\farad}$ & $n_{\symup{Maxima}}$ & $n_{\symup{Maxima, rechnerisch}}$
+  $C_{\symup{k}}/\si{\nano\farad}$ & $n_{\symup{Max.}}$ & $n_{\symup{Max., theo.}}$
   & relative Abweichung/\si{\percent}\\
     \midrule
     2.19 & 8 & \num{7.73(2)} & 3.51 \\
@@ -265,7 +263,7 @@ Messungenauigkeit.
   Die experimentellen Werte werden dabei mit einem Fehler von $\pm \, \num{1}$ angenommen.}
    \label{tab:3}
 \end{table}
-\subsection{Messung der Fundamentalfrequenzen durch einen Frequenz-sweep}
+\subsection{Messung der Fundamentalfrequenzen durch einen Frequenz-Sweep}
 \begin{table}
   \centering
   \begin{tabular}{c c c c c}
@@ -290,17 +288,18 @@ Messungenauigkeit.
 \end{table}
 Mit der in der Durchführung beschriebenen Methode folgt ein Frequenzsspektrum:
 \begin{equation}
-  f(t) = f_{\symup{Start}} + (f_{\symup{Ende}} - f_{\symup{Start}}) \cdot t
+  f(t) = f_{\symup{Start}} + (f_{\symup{Ende}} - f_{\symup{Start}}) \cdot \frac{t}{t_{\symup{Sweep}}}
   \label{eq:1}
 \end{equation}
-mit $ 0 \le t \le t_{\symup{sweep}}$. $f_{\symup{Start}}$ bezeichnet die Startfrequenz,
-$f_{\symup{Start}}$ die Endfrequenz und $t_{\symup{sweep}}$ die sweep-dauer.
-Für den bei $t=\SI{308}{\milli\second}$ gemessenen $\nu_+$-peek folgt daraus eine
+mit $ 0 \le t \le t_{\symup{Sweep}}$. $f_{\symup{Ende}}$ bezeichnet die Startfrequenz,
+$f_{\symup{Start}}$ die Endfrequenz und $t_{\symup{sweep}}$ die Sweep-Dauer von einer Sekunde.
+Für den bei $t=\SI{308}{\milli\second}$ gemessenen $\nu_+$-Peak folgt daraus eine
 Frequenz von \SI{35.12(49)}{\kilo\hertz}. Im Vergleich mit dem in \ref{aus:1} bestimmten,
 rechnerischen Wert von $\nu_+$ folgt eine relative Abweichung von \SI{2.12}{\percent}.
+$\nu_+$ wurde acht mal gemessen, ohne dass sich der Wert ändert.
 Der Wert liegt nicht im Bereich der angenommenen Messungenauigkeit von $\pm \, \SI{10}{\milli\second}$.\\
 \\
-In Tabelle \ref{tab:4} sind die gemessenen Zeiten zwischen Startpunkt und dem $\nu_-$-peek,
+In Tabelle \ref{tab:4} sind die gemessenen Zeiten zwischen Startpunkt und dem $\nu_-$-Peak,
 die damit aus \eqref{eq:1} berechneten Frequenzen sowie die relativen Abweichungen zu den ebenfalls aufgeführten
 theoretischen Frequenzen angegeben. Keiner der Werte liegt im Bereich der Messungnauigkeit.
 Die relativen Fehler sind jedoch auch hier gering.
@@ -315,8 +314,8 @@ Die relativen Fehler sind jedoch auch hier gering.
 In Abbildung \ref{abb:1} sind die aus den einzelnen Methoden erhaltenen Werte dargestellt.
 Es zeigt sich, dass die über Lissajous-Figuren bestimmten Frequenzen näher an den Theoriewerten
 sind als die aus der Sweep-Methode. Dies lässt sich durch die Art der Messwertaufnahme erklären.
-Während Lissajous-Figuren relativ deutlich und ohne große Abweichungen zu erkenne sind,
-begünstigt das Ablesen eines peeks durch Coursor systematische Fehler. Es kann nicht
+Während Lissajous-Figuren deutlich und ohne große Abweichungen zu erkennen sind,
+begünstigt das Ablesen eines Peaks durch den Coursor systematische Fehler. Es kann nicht
 mit ausreichender Sicherheit festgestellt werden, ob der exakt richtige Punkt getroffen wurde.
 Dennoch sind die relativen Abweichungen bei beiden Methoden im niedrigen, einstelligen Prozentbereich.
 Sie stellen also beide eine gute Möglichkeit dar, die Fundamentalfrequenzen eines Schwingkreises
@@ -325,7 +324,7 @@ Auch die Zählung der Maxima innerhalb einer Schwebungsperiode zeigt, dass
 Theorie und Messergebnis bei diesem Versuch nahe beieinander liegen und verifiziert daher die
 Ergebnisse aus der Bestimmung der Fundamentalfreuqenzen. Die vergleichsweise hohen Abweichungen
 lassen sich durch die im hohen einstelligen bis niedrigen zweistelligen Bereich liegenden Werte
-erklären. Dort sorgen vergleichsweise geringe Unterschiede zwischen den Werten
+erklären. Dort sorgen bereits geringe Unterschiede zwischen den Werten
 für relativ hohe prozentuale Abweichungen.\\
 \\
 Zur Verbesserung der Messgenauigkeit bieten sich präzisere Geräte an. Ansonsten liefern die

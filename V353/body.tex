@@ -10,6 +10,7 @@ in Abhängigkeit von der Frequenz aufgenommen und ermittelt, unter welchen Vorra
 ein RC-Kreis als Integrator genutzt werden kann.
 \section{Theorie}
 \subsection{Relaxationserscheinungen ohne Periodizität}
+\label{sec:2.1}
 Wenn ein System aus seinem Ausgangszustand entfernt wird und ihn nicht mittels Ozillation
 wieder erreicht, dann spricht man von Relaxation. Dabei ist die Änderungsgeschwindigkeit
 der Größe $A$ proportional zu
@@ -118,10 +119,44 @@ gilt näherungsweise
 \end{equation}
 
 \section{Durchführung}
-
 \subsection{Versuchsaufbau}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{aufbau.png}
+  \caption{Schaltplan zur Versuchsdurchführung. \cite{anleitung}}
+  \label{fig:3}
+\end{figure}
+In Abbildung \ref{fig:3} ist der Schaltplan dargestellt, der für alle Teile der Versuchsdurchführung
+nutzbar ist. Dabei ist zu beachten, dass der Rechteckgenerator in unserem Fall durch
+einen Funktionsgenerator mit verstellbarer Frequenz ersetzt wurde,
+der auch die anderen, für den letzten Teil der Durchführung nötigen Spannungen, liefert. Dieser ist mit einem
+nachfolgend geschalteten RC-Glied verbunden, während jener parallel zu einem Zweikanal-Oszilloskop
+geschaltet ist. Der zweite Kanal wird für alle Versuchsteile
+direkt mit der Generatorspannung verbunden.
 
 \subsection{Versuchsdurchführung}
+Im ersten Teil des Versuchs wird die Zeitkonstante aus Kapitel \ref{sec:2.1} aus
+der Entladekurve in Abbildung \ref{fig:4} gewonnen, indem acht Datenpaare, die aus
+der Zeit und der Kondensatorspannung in Abhängigkeit von der Zeit bestehen, aus
+jener Entladekurve abgelesen werden.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{zeitkonstante.png}
+  \caption{Entladekurve des Kondensators, aus dem die Zeitkonstante $RC$ gewonnen wird.
+  In blau ist die Spannung $U_\symup{C}(t)$ und in gelb die Generatorspannung $U(t)$ aufgetragen.}
+  \label{fig:4}
+\end{figure}
+
+Im zweiten und dritten Teil werden Amplitude der Kondensatorspannung und Phasenverschiebung
+zwischen Kondensator- und Generatorspannung in Abhängigkeit von der Frequenz untersucht.
+Dazu wird der Funktionsgenerator auf eine Sinusspannung mit insgesamt elf
+Frequenzen im Bereich von 25 bis $\SI{1750}{\hertz}$ am Funktionsgenerator eingestellt.
+Dazu wird über die Measure- und Cursor-Funktion des Oszilloskops die Kondensatorspannung
+und die Zeitdifferenz zwischen den Nulldurchgängen der beiden Spannungen aufgenommen.
+
+Im letzten Teil werden eine Sinus-, eine Dreiecks, und eine Rechteckspannung
+mit jeweils einer Frequenz von $\SI{12.5}{\kilo\hertz}$ über das RC-Glied integriert
+und die Spannungenspaare am Oszilloskop als Bilder abgespeichert. 
 
 \section{Auswertung}
 \subsection{Bestimmen der Zeitkonstante aus dem Relaxationsverhalten der Kondensatorspannung}
@@ -203,9 +238,9 @@ durch Ausgleichsrechnung nach \eqref{eqn:8}. Für die Zeitkonstante folgt dabei 
 \begin{align*}
   \tau &= \SI{1.37(5)}{\milli\second}.
 \end{align*}
-Die Regression verhält sich wie zu Erwarten. Für geringe Frequenzen zeigt sich das normale
+Die Regression verhält sich wie zu erwarten. Für geringe Frequenzen zeigt sich das normale
 Verhalten eines Kondensators, Für $\nu \mapsto \infty$ "schaltet" der Kondensator jedoch durch
-und verhält sich wie ein normales Leitungsstück, sodass keine Spannung mehr am Kondensaor messbar ist.
+und verhält sich wie ein normales Leitungsstück, sodass keine Spannung mehr am Kondensator messbar ist.
 \subsection{Bestimmen der Zeitkonstante aus der Frequenzabhängigkeit der Phase zwischen Kondensator-
 und Erregerspannung}
 \begin{figure}
@@ -236,7 +271,7 @@ und Erregerspannung}
     \qquad
   \end{subtable}
   \caption{In der Tabelle sind die gemessenen Zeitverschiebungen zwischen Kondensator- und
-  Erregerspannung bei verschiedenen Frequenzen sowie die Daraus berechnete Phase
+  Erregerspannung bei verschiedenen Frequenzen sowie die daraus berechnete Phase
   eingetragen. In der Grafik wurde die Phase gegen
   die Frequenz in halblogarithmischer Darstellung abgetragen.
   Zusätzlich wurde eine Regressionsgerade eingezeichnet.}
@@ -254,11 +289,11 @@ Zur besseren Darstellung findet sich in Abbildung \ref{abb:3} eine Polardarstell
 Phasen mit einer Theoriekurve.
 \begin{figure}
   \includegraphics[width=\textwidth]{Polar.pdf}
-  \caption{Polardarstellung der Phasen mit Theoriekurve}
+  \caption{Polardarstellung der Phasen mit Theoriekurve.}
   \label{abb:3}
 \end{figure}
 \subsection{Der RC-Kreis als Intergrationsglied}
-Zum integrieren wurde eine Frequenz von \SI{12.5}{\kilo\hertz} am Funktionsgenerator
+Zum Integrieren wurde eine Frequenz von \SI{12.5}{\kilo\hertz} am Funktionsgenerator
 eingestellt. Es ergeben sich die in Abbildung \ref{abb:4} dargestellten Bilder auf
 dem Oszilloskop. Theoretisch liefert die Integration einer Rechteckfunktion (Abbildung \ref{sub:1}) eine
 Dreieckfunktion, die Integration einer Dreieckfunktion (Abbildung \ref{sub:2}) eine parabelförmige Funktion
@@ -268,21 +303,21 @@ und die Integration eines Sinus (Abbildung \ref{sub:3}) einen Cosinus. Dies ents
   \centering
     \includegraphics[width=\textwidth]{rechteck.png}
     \qquad
-    \caption{Integration einer Rechteckspannung}
+    \caption{Integration einer Rechteckspannung.}
     \label{sub:1}
   \end{subfigure}
   \begin{subfigure}{0.49\textwidth}
   \centering
     \includegraphics[width=\textwidth]{dreieck.png}
     \qquad
-    \caption{Integration einer Dreieckspannung}
+    \caption{Integration einer Dreieckspannung.}
     \label{sub:2}
   \end{subfigure}\\
   \begin{subfigure}{0.49\textwidth}
   \centering
     \includegraphics[width=\textwidth]{sinus.png}
     \qquad
-    \caption{Integration einer Sinusspannung}
+    \caption{Integration einer Sinusspannung.}
     \label{sub:3}
   \end{subfigure}
   \caption{Oszilloskopbilder nach Integration der verschiedenen Spannungsformen.

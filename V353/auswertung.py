@@ -6,7 +6,7 @@ from uncertainties import ufloat
 from scipy.optimize import curve_fit
 from scipy.stats import stats
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 15
+plt.rcParams['font.size'] = 20
 
 #Einlesen der Daten
 t_i_in_mys, U_c_von_ti_in_V = np.genfromtxt('messwerte.txt', unpack=True)
@@ -18,14 +18,16 @@ t_i_in_s = t_i_in_mys * 10 ** (-6)
 def f(x, a, b):
     return a * x + b
 
-params1, covariance1 = curve_fit(f, t_i_in_s, np.log(U_c_von_ti_in_V/20.77))
+params1, covariance1 = curve_fit(f, t_i_in_s, np.log(U_c_von_ti_in_V))
 errors1 = np.sqrt(np.diag(covariance1))
 a = ufloat(params1[0], errors1[0])
 b = ufloat(params1[1], errors1[1])
 
 RC_a = -1 * 1/a
-
+print(a)
+print(b)
 print(RC_a)
+print(unp.exp(b))
 
 #Plotten b) und Ausgelichsrechnung
 
@@ -41,7 +43,7 @@ print(a_b)
 x_plot = np.linspace(0,10000, 10000)
 
 plt.figure(0)
-plt.title("Frequenzabhängigkeit der Amplitude")
+#plt.title("Frequenzabhängigkeit der Amplitude")
 
 plt.xlabel(r"$\nu / \mathrm{Hz}$")
 plt.ylabel(r"$\frac{A(\nu)}{U_0}$")
@@ -54,6 +56,7 @@ plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Amplitude.pdf')
 
+np.savetxt('Amplituden.txt', np.column_stack([nu_in_Hz, U_c_in_V]),fmt="%.3f")
 #Plotten c) und Ausgleichsrechnung
 
 
@@ -71,10 +74,10 @@ print(a_c)
 print(phi)
 
 plt.figure(1)
-plt.title("Frequenzabhängigkeit der Phase")
+#plt.title("Frequenzabhängigkeit der Phase")
 
 plt.xlabel(r"$\nu / \mathrm{Hz}$")
-plt.ylabel(r"$\varphi$")
+plt.ylabel(r"$\varphi / \mathrm{deg}$")
 
 plt.xscale("log")
 #plt.grid(True,which="both",ls="-")
@@ -84,6 +87,7 @@ plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('Phase.pdf')
 
+np.savetxt('Phasen.txt', np.column_stack([nu_in_Hz, dT_in_ms, phi]),fmt="%.3f")
 #Polarplot
 def H(x, c):
     return -np.sin(c)/x

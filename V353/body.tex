@@ -124,6 +124,171 @@ gilt näherungsweise
 \subsection{Versuchsdurchführung}
 
 \section{Auswertung}
+\subsection{Bestimmen der Zeitkonstante aus dem Relaxationsverhalten der Kondensatorspannung}
+\begin{table}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    $t_i$/\si{\milli\second} & $U_\symup{C}(t_i)$/\si{\volt} \\
+    \midrule
+    0 & 19.2 \\
+    0.5 & 13.4 \\
+    1 & 9.6 \\
+    1.5 & 7 \\
+    2 & 5.2 \\
+    2.5 & 3.8 \\
+    3 & 3 \\
+    3.5 & 2.4 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Aus der Entladekurve des Kondenators gemessene zeitabhängige Kondensatorspannungen.}
+  \label{tab:1}
+\end{table}
+Die gemessenen Werte sind in Tabelle \ref{tab:1} dargestellt. Zur bestimmung der Zeitkonstante wird
+eine lineare Ausgleichsrechnung durchgeführt. Aus \eqref{eqn:3} folgt mit $\tau = RC$:
+\begin{equation}
+  \ln({U_\symup{C}}) = \ln({U(0)}) - t \cdot \frac{1}{\tau}.
+\end{equation}
+Fitten der Wertepare $\{(\ln({U_\symup{C}(t_i)}), t_i)\}$ durch eine Funktion
+\begin{equation}
+  f(x) = m \cdot x + b
+\end{equation}
+in "python" mit "curve-fit" aus dem Paket "scipy-optimize" liefert folgen diese Werte für $U(0)$ und die
+Zeitkonstante $\tau$:
+\begin{align*}
+  b &= \ln({U(0)}) = \num{2.89(4)} \\
+  m &= -\frac{1}{\tau} = \SI[per-mode=reciprocal]{-598(17)}{\per\second}
+\end{align*}
+woraus für $U(0)$ und $\tau$ folgt:
+\begin{align*}
+  U(0) &= \SI{17.9(7)}{\volt} \\
+  \tau &= \SI{1.67(5)}{\milli\second}.
+\end{align*}
+\subsection{Bestimmen der Zeitkonstante aus der Frequenzabhängigkeit der Amplitude der Kondensatorspannung}
+\begin{figure}
+  \begin{subfigure}{0.74\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{Amplitude.pdf}
+    \qquad
+  \end{subfigure}
+  \begin{subtable}{0.25\textwidth}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    $\nu$/\si{\hertz} & $U_\symup{C}$/\si{\volt}\\
+    \midrule
+    25 & 19.80 \\
+    50 & 18.61 \\
+    75 & 17.03 \\
+    100 & 15.44 \\
+    250 & 8.71 \\
+    500 & 5.15 \\
+    750 & 3.56 \\
+    1000 & 2.77 \\
+    1250 & 2.38 \\
+    1500 & 2.18 \\
+    1750 & 1.98 \\
+    \bottomrule
+    \end{tabular}
+    \qquad
+  \end{subtable}
+  \caption{In der Tabelle sind die gemessenen Amplituden der Kondensatorspannung bei
+  verschiedenen Frequenzen aufgeführt. Diese wurden in der Grafik in halblogarithmischer
+  Darstellung gegeneinander abgetragen. Die Amplituden wurden dazu mit der konstanten,
+  gemessenen Spannung $U_0 = \SI{20.77}{\volt}$ normiert. Zusätzlich wurde eine Regressionsgerade eingezeichnet.}
+\label{abb:1}
+\end{figure}
+Messwerte und Grafik sind in Abbildung \ref{abb:1} dargestellt. Die Regression ergibt sich
+durch Ausgleichsrechnung nach \eqref{eqn:8}. Für die Zeitkonstante folgt dabei eine Wert von:
+\begin{align*}
+  \tau &= \SI{1.37(5)}{\milli\second}.
+\end{align*}
+Die Regression verhält sich wie zu Erwarten. Für geringe Frequenzen zeigt sich das normale
+Verhalten eines Kondensators, Für $\nu \mapsto \infty$ "schaltet" der Kondensator jedoch durch
+und verhält sich wie ein normales Leitungsstück, sodass keine Spannung mehr am Kondensaor messbar ist.
+\subsection{Bestimmen der Zeitkonstante aus der Frequenzabhängigkeit der Phase zwischen Kondensator-
+und Erregerspannung}
+\begin{figure}
+  \begin{subfigure}{0.74\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{Phase.pdf}
+    \qquad
+  \end{subfigure}
+  \begin{subtable}{0.25\textwidth}
+  \centering
+  \begin{tabular}{c c c}
+    \toprule
+    $\nu$/\si{\hertz} & $\symup{\Delta}t$/\si{\milli\second} & $\varphi$/deg\\
+    \midrule
+    25 & 1.520 & 13.7 \\
+    50 & 1.280 & 23.0 \\
+    75 & 1.360 & 36.7 \\
+    100 & 1.280 & 46.1 \\
+    250 & 0.700 & 63.0 \\
+    500 & 0.448 & 80.6 \\
+    750 & 0.264 & 71.3 \\
+    1000 & 0.196 & 70.6 \\
+    1250 & 0.152 & 68.4 \\
+    1500 & 0.128 & 69.1 \\
+    1750 & 0.092 & 58.0 \\
+    \bottomrule
+    \end{tabular}
+    \qquad
+  \end{subtable}
+  \caption{In der Tabelle sind die gemessenen Zeitverschiebungen zwischen Kondensator- und
+  Erregerspannung bei verschiedenen Frequenzen sowie die Daraus berechnete Phase
+  eingetragen. In der Grafik wurde die Phase gegen
+  die Frequenz in halblogarithmischer Darstellung abgetragen.
+  Zusätzlich wurde eine Regressionsgerade eingezeichnet.}
+\label{abb:2}
+\end{figure}
+Messwerte und Grafik sind in Abbildung \ref{abb:2} dargestellt. Die Phasen ergeben sich nach
+\begin{equation}
+  \varphi = \frac{\symup{\Delta}t}{T} \cdot 360
+\end{equation} mit der Periodendauer $T=\nu^{-1}$. Die Regression ergibt
+nach \eqref{eqn:7} eine Zeitkonstante von:
+\begin{align*}
+  \tau &= \SI{1.28(31)}{\milli\second}.
+\end{align*}
+Zur besseren Darstellung findet sich in Abbildung \ref{abb:3} eine Polardarstellung der
+Phasen mit einer Theoriekurve.
+\begin{figure}
+  \includegraphics[width=\textwidth]{Polar.pdf}
+  \caption{Polardarstellung der Phasen mit Theoriekurve}
+  \label{abb:3}
+\end{figure}
+\subsection{Der RC-Kreis als Intergrationsglied}
+Zum integrieren wurde eine Frequenz von \SI{12.5}{\kilo\hertz} am Funktionsgenerator
+eingestellt. Es ergeben sich die in Abbildung \ref{abb:4} dargestellten Bilder auf
+dem Oszilloskop. Theoretisch liefert die Integration einer Rechteckfunktion (Abbildung \ref{sub:1}) eine
+Dreieckfunktion, die Integration einer Dreieckfunktion (Abbildung \ref{sub:2}) eine parabelförmige Funktion
+und die Integration eines Sinus (Abbildung \ref{sub:3}) einen Cosinus. Dies entspricht den erhaltenen Ergebnissen.
+\begin{figure}
+  \begin{subfigure}{0.49\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{rechteck.png}
+    \qquad
+    \caption{Integration einer Rechteckspannung}
+    \label{sub:1}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{dreieck.png}
+    \qquad
+    \caption{Integration einer Dreieckspannung}
+    \label{sub:2}
+  \end{subfigure}\\
+  \begin{subfigure}{0.49\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{sinus.png}
+    \qquad
+    \caption{Integration einer Sinusspannung}
+    \label{sub:3}
+  \end{subfigure}
+  \caption{Oszilloskopbilder nach Integration der verschiedenen Spannungsformen.
+  Die Erregerspannungen sind in gelb dargestellt, die erhaltenen Signalspannungen in blau.}
+\label{abb:4}
+\end{figure}
 
 \section{Diskussion}
 \newpage

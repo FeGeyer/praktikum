@@ -324,8 +324,34 @@ und die Integration eines Sinus (Abbildung \ref{sub:3}) einen Cosinus. Dies ents
   Die Erregerspannungen sind in gelb dargestellt, die erhaltenen Signalspannungen in blau.}
 \label{abb:4}
 \end{figure}
-
 \section{Diskussion}
+\begin{table}
+  \centering
+  \begin{tabular}{c c c c}
+    \toprule
+    & Direkt & Amplitude & Phase \\
+    \midrule
+    $\tau$/\si{\milli\second} & \num{1.67(5)} & \num{1.37(5)} &\num{1.28(31)} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Gegenüberstellung der bestimmten Zeitkonstanten aus den unterschiedlichen Messmethoden.
+  Direkt steht dabei für die Bestimmung aus dem Relaxationsverhalten des RC-Kreises, Amplitude
+  und Phase für die Bestimmungen aus dem jeweiligen Frequenzverhalten.}
+  \label{tab:2}
+\end{table}
+In Tabelle \ref{tab:2} sind die Ergebnisse der einzellnen Methoden zusammengefasst.
+Auffällig ist das große Fehlerintervall der Phasenmessung. Dies erscheint bei Betrachtung
+der Messwerte logisch. Die bestimmten Phasen verhalten sich ab einem gewissen Punkt
+nicht mehr wie ein arccos (siehe Abbildung \ref{abb:3}). Der Grund ist hier nicht
+abschließend zu klären. Messfehler durch die Art der Auswertung durch das manuelle
+setzen von Zeigern sind möglich, müssten aber alle Messwerte ähnlich stark betreffen
+und sollten nicht gehäuft bei Messungen hoher Frequenzen auftreten. Generell sind bei
+allen Messwerten mit systematischen Fehlern zu rechnen, da der in Reihe geschaltete Innenwiderstand des
+Funktionsgenerator nicht berücksichtigt wird. Desweiteren kann kein Messwert mit einem
+aus Bauteilwerten bestimmten Theoriewert verifiziert werden, da keine Bauteilwerte
+angegeben werden. Um sinnvolle Aussagen über den Wert der Ergebnisse treffen zu können, wäre
+dementsprechend ein Durchmessen der Bauteile nötig, um Vergleiche zu einem
+Theoriewert ziehen zu können.
 \newpage
 \nocite{*}
 \printbibliography

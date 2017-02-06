@@ -29,6 +29,27 @@ print(b)
 print(RC_a)
 print(unp.exp(b))
 
+U_0 = np.exp(unp.nominal_values(b))
+RC = unp.nominal_values(RC_a)
+print(a)
+print(U_0)
+
+
+plt.figure(0)
+#plt.title("Frequenzabhängigkeit der Amplitude")
+t_plot = np.linspace(-0.00005, 3.55*10**(-3))
+plt.xlim(-0.00005, 0.00355)
+plt.xlabel(r"$t_i / \mathrm{ms}$")
+plt.ylabel(r"$U_{\mathrm{C}}(t_i) / \mathrm{V}$")
+#plt.grid(True,which="both",ls="-")
+#plt.yscale("log")
+plt.xticks([0, 0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035], [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5])
+plt.plot(t_i_in_mys*10**(-6), U_c_von_ti_in_V, 'r+', label="Messwerte")
+plt.plot(t_plot, U_0*np.exp(-1*t_plot*1/RC), 'b-', label='Regression')
+plt.legend(loc="best")
+plt.tight_layout
+plt.savefig('Entladung.pdf')
+
 #Plotten b) und Ausgelichsrechnung
 
 def g(n, a):
@@ -42,7 +63,7 @@ print(a_b)
 
 x_plot = np.linspace(0,10000, 10000)
 
-plt.figure(0)
+plt.figure(1)
 #plt.title("Frequenzabhängigkeit der Amplitude")
 
 plt.xlabel(r"$\nu / \mathrm{Hz}$")
@@ -73,7 +94,7 @@ a_c = ufloat(params3[0], errors3[0])
 print(a_c)
 print(phi)
 
-plt.figure(1)
+plt.figure(2)
 #plt.title("Frequenzabhängigkeit der Phase")
 
 plt.xlabel(r"$\nu / \mathrm{Hz}$")

@@ -156,11 +156,17 @@ und die Zeitdifferenz zwischen den Nulldurchgängen der beiden Spannungen aufgen
 
 Im letzten Teil werden eine Sinus-, eine Dreiecks, und eine Rechteckspannung
 mit jeweils einer Frequenz von $\SI{12.5}{\kilo\hertz}$ über das RC-Glied integriert
-und die Spannungenspaare am Oszilloskop als Bilder abgespeichert. 
+und die Spannungenspaare am Oszilloskop als Bilder abgespeichert.
 
 \section{Auswertung}
 \subsection{Bestimmen der Zeitkonstante aus dem Relaxationsverhalten der Kondensatorspannung}
-\begin{table}
+\begin{figure}
+  \begin{subfigure}{0.74\textwidth}
+  \centering
+    \includegraphics[width=\textwidth]{Entladung.pdf}
+    \qquad
+  \end{subfigure}
+  \begin{subtable}{0.25\textwidth}
   \centering
   \begin{tabular}{c c}
     \toprule
@@ -176,10 +182,13 @@ und die Spannungenspaare am Oszilloskop als Bilder abgespeichert.
     3.5 & 2.4 \\
     \bottomrule
   \end{tabular}
-  \caption{Aus der Entladekurve des Kondenators gemessene zeitabhängige Kondensatorspannungen.}
-  \label{tab:1}
-\end{table}
-Die gemessenen Werte sind in Tabelle \ref{tab:1} dargestellt. Zur bestimmung der Zeitkonstante wird
+    \qquad
+  \end{subtable}
+  \caption{In der Tabelle finden sich die aus der Entladekurve des Kondenators gemessenen zeitabhängige Kondensatorspannungen.
+  Diese wurden in der Grafik mit der berechneten Regression dargestellt.}
+\label{tab:1}
+\end{figure}
+Die gemessenen Werte sind mit Graph in Abbildung \ref{tab:1} dargestellt. Zur Bestimmung der Zeitkonstante wird
 eine lineare Ausgleichsrechnung durchgeführt. Aus \eqref{eqn:3} folgt mit $\tau = RC$:
 \begin{equation}
   \ln({U_\symup{C}}) = \ln({U(0)}) - t \cdot \frac{1}{\tau}.
@@ -188,7 +197,7 @@ Fitten der Wertepare $\{(\ln({U_\symup{C}(t_i)}), t_i)\}$ durch eine Funktion
 \begin{equation}
   f(x) = m \cdot x + b
 \end{equation}
-in "python" mit "curve-fit" aus dem Paket "scipy-optimize" liefert folgen diese Werte für $U(0)$ und die
+in "python" mit "curve-fit" aus dem Paket "scipy-optimize" liefert diese Werte für $U(0)$ und die
 Zeitkonstante $\tau$:
 \begin{align*}
   b &= \ln({U(0)}) = \num{2.89(4)} \\
@@ -199,6 +208,7 @@ woraus für $U(0)$ und $\tau$ folgt:
   U(0) &= \SI{17.9(7)}{\volt} \\
   \tau &= \SI{1.67(5)}{\milli\second}.
 \end{align*}
+Diese Regression ist ebenfalls in Abbildung \ref{tab:1} dargestellt.
 \subsection{Bestimmen der Zeitkonstante aus der Frequenzabhängigkeit der Amplitude der Kondensatorspannung}
 \begin{figure}
   \begin{subfigure}{0.74\textwidth}
@@ -234,12 +244,12 @@ woraus für $U(0)$ und $\tau$ folgt:
 \label{abb:1}
 \end{figure}
 Messwerte und Grafik sind in Abbildung \ref{abb:1} dargestellt. Die Regression ergibt sich
-durch Ausgleichsrechnung nach \eqref{eqn:8}. Für die Zeitkonstante folgt dabei eine Wert von:
+durch Ausgleichsrechnung nach \eqref{eqn:8}. Für die Zeitkonstante folgt dabei ein Wert von:
 \begin{align*}
   \tau &= \SI{1.37(5)}{\milli\second}.
 \end{align*}
 Die Regression verhält sich wie zu erwarten. Für geringe Frequenzen zeigt sich das normale
-Verhalten eines Kondensators, Für $\nu \mapsto \infty$ "schaltet" der Kondensator jedoch durch
+Verhalten eines Kondensators. Für $\nu \mapsto \infty$ "schaltet" der Kondensator jedoch durch
 und verhält sich wie ein normales Leitungsstück, sodass keine Spannung mehr am Kondensator messbar ist.
 \subsection{Bestimmen der Zeitkonstante aus der Frequenzabhängigkeit der Phase zwischen Kondensator-
 und Erregerspannung}
@@ -344,10 +354,10 @@ Auffällig ist das große Fehlerintervall der Phasenmessung. Dies erscheint bei 
 der Messwerte logisch. Die bestimmten Phasen verhalten sich ab einem gewissen Punkt
 nicht mehr wie ein arccos (siehe Abbildung \ref{abb:3}). Der Grund ist hier nicht
 abschließend zu klären. Messfehler durch die Art der Auswertung durch das manuelle
-setzen von Zeigern sind möglich, müssten aber alle Messwerte ähnlich stark betreffen
-und sollten nicht gehäuft bei Messungen hoher Frequenzen auftreten. Generell sind bei
-allen Messwerten mit systematischen Fehlern zu rechnen, da der in Reihe geschaltete Innenwiderstand des
-Funktionsgenerator nicht berücksichtigt wird. Desweiteren kann kein Messwert mit einem
+Setzen von Zeigern sind möglich, müssten aber alle Messwerte ähnlich stark betreffen
+und sollten nicht gehäuft bei Messungen hoher Frequenzen auftreten. Generell ist bei
+allen Messungen mit systematischen Fehlern zu rechnen, da der Innenwiderstand des
+Funktionsgenerators nicht berücksichtigt wird. Desweiteren kann kein Messwert mit einem
 aus Bauteilwerten bestimmten Theoriewert verifiziert werden, da keine Bauteilwerte
 angegeben werden. Um sinnvolle Aussagen über den Wert der Ergebnisse treffen zu können, wäre
 dementsprechend ein Durchmessen der Bauteile nötig, um Vergleiche zu einem

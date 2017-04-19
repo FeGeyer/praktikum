@@ -42,7 +42,14 @@ und aus \eqref{eq:3}
   \label{eq:4}
   \symup{\Delta}\nu = 2 \nu_0 \frac{v}{c} \cos{\alpha}
 \end{equation}
-folgt. Erzeugt werden kann Ultraschall unter Zuhilfenahme des piezo-elektrischen Effekts.
+folgt. Das Verfahren ist in Abbildung \ref{abb:1} dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.35]{blutbahn.png}
+  \caption{Schematische Skizze der Doppler-Sonographie \cite{anleitung}.}
+  \label{abb:1}
+\end{figure}
+Erzeugt werden kann Ultraschall unter Zuhilfenahme des piezo-elektrischen Effekts.
 Ein piezoelektrischer Kristall, meist Quartze, wird duch ein sich periodisch änderndes elektrisches Feld
 zu Schwingungen angeregt und strahlt dadurch Ultraschallwellen ab. Trifft die Frequenz mit
 der das Feld umgepolt wird im Resonanzfall mit der Eigenfrequenz des Kristalls überein,
@@ -56,13 +63,20 @@ erzeugt. Die Strömungsgeschwindigkeit lässt sich dabei stufenlos durch Veränd
 der Pumpleistung regeln. In den Kreislauf integriert sind gerade Rohrstücke
 mit verschiedenen Durchmessern, auf die ein Dopplerprisma aus Acryl aufgesetzt wird,
 dessen Oberseite drei vordefinierte Einstrahlwinkel $\theta$
-(\SI{15}{\deg}, \SI{30}{\deg} und \SI{60}{\deg}) bietet. Alle Kontaktflächen werden mit einem
+(\SI{15}{\textdegree}, \SI{30}{\textdegree} und \SI{60}{\textdegree}) bietet (siehe Abbildung \ref{abb:2}).
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.35]{DopplerPrisma.png}
+  \caption{Skizze eines Dopplerprismas mit eingezeichneten Einstrahlwinkeln \cite{anleitung}.}
+  \label{abb:2}
+\end{figure}
+Alle Kontaktflächen werden mit einem
 Gel eingerieben, um die Übertragung der Ultraschallwellen zu optimieren.
 Diesen Einstrahlwinkeln wird mit der Schallgeschwindigkeiten der Flüssigkeit ($c_\symup{L}$) und des Prismas
 ($c_\symup{P}$) durch das Brechungsgesetz ein Dopplerwinkel
 \begin{equation}
   \label{eq:5}
-  \alpha = \SI{90}{\deg} - \arcsin \left( \sin \theta \cdot \frac{c_\symup{L}}
+  \alpha = \SI{90}{\textdegree} - \arcsin \left( \sin \theta \cdot \frac{c_\symup{L}}
   {c_\symup{P}} \right)
 \end{equation}
 zugeordnet. Genutzt wird eine Schallfrequenz $\nu_0$ von \SI{2}{\mega\hertz}. Die Messsonde
@@ -79,7 +93,7 @@ die Strömungsgeschwindigkeit. Die jeweiligen Dopplerwinkel $\symup{\Delta}\nu /
 werden dann in Abhängigkeit der Strömungsgeschwindigkeit in einem Diagramm aufgetragen.\\
 \\
 In einer zweiten Messreihe wird das Strömungsprofil in einem \num{3/8}-Zoll Rohr
-(ca. \SI{10}{\milli\meter}) unter einem Einstrahlwinkel von \SI{15}{\deg} bestimmt.
+(ca. \SI{10}{\milli\meter}) unter einem Einstrahlwinkel von \SI{15}{\textdegree} bestimmt.
 Gemessen wird bei einer Pumpleistung von \SI{45} und \SI{70}{\percent}. Der Ultraschall
 Doppler-Generator wird so eingestellt, dass er einer variable Messtiefe liefert.
 Die Einstellung am Generator ist dabei in \SI{0.5}{\micro\second}-Schritten möglich,

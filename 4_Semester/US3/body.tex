@@ -1,11 +1,92 @@
 \maketitle
 \tableofcontents
 \newpage
-
-\section{Theorie}  
+\section{Theorie}
+Ziel des Versuchs ist das Verständnis der Untersuchung von Strömungen mithilfe des
+Impuls-Echo-Verfahrens der Ultraschalltechnik. Das Impuls-Echo-Verfahren beruht auf dem akustischen Dopplereffekt,
+also der Frequenzveränderung einer Schallwelle bei einer Relativbewegung zwischen Quelle
+und Sender. Benutzt wird dabei das als Ultraschall bezeichnete Frequenzband zwischen
+\SI{20}{\kilo\hertz} und \SI{1}{\giga\hertz}. Unterschieden wird beim akustischen
+Dopplereffekt zwischen zwei Fällen:
+\begin{enumerate}
+  \item \textbf{Bewegte Quelle - Ruhender Empfänger:}
+  Bei Annäherung einer mit Geschwindigkeit $v$ bewegten Quelle misst der Beobachter eine um den
+  Faktor $\left(1 - \frac{v}{c} \right)^{-1}$ erhöhte gesendete Frequenz $\nu_0$, bewegt sich
+  die Quelle in die andere Richtung, so sinkt $\nu_0$ um den Faktor $\left(1 + \frac{v}{c} \right)^{-1}$.
+  Zusammenfassend ist die gemessene Frequenz also durch
+  \begin{equation}
+    \label{eq:1}
+    \nu_{\symup{kl/gr}} = \frac{\nu_0}{1 \mp \frac{v}{c}}
+  \end{equation}
+  \item \textbf{Bewegter Empfänger - Ruhende Quelle:}
+  In diesem Fall bewirkt eine Annäherung eine Verschiebung von $\nu_0$ um den Faktor
+  $ \left(1+ \frac{v}{c} \right) $, im umgekehrten Fall tritt eine Verminderung um den
+  $ \left(1- \frac{v}{c} \right) $, in einer Formel also:
+  \begin{equation}
+    \label{eq:2}
+    \nu_{\symup{h/n}} = \nu_0 \left( 1 \pm \frac{v}{c} \right)
+  \end{equation}
+\end{enumerate}
+In der Doppler-Sonographie findet nun der zweite Fall Anwendung um beispielsweise
+Strömungsgeschwindigkeiten zu bestimmen. Aus \eqref{eq:2} folgt eine Frequenzverschiebung von
+\begin{equation}
+  \label{eq:3}
+  \symup{\Delta}\nu = \nu_0 \frac{v}{c} (\cos{\alpha} + \cos{\beta}),
+\end{equation}
+die Winkel $\alpha$ und $\beta$  sind dabei die zwischen dem Geschwindigkeitsvektor des
+beobachteten Teilchens und dem Normalenvektor der einlaufenden bzw. der am Objekt reflektierten
+auslaufenden Wellenfront eingeschlossenen Winkel. Beim Impuls-Echo-Verfahren sind
+Sender und Empfänger in einem Gerät zusammengefasst, sodass $\alpha$ und $\beta$ geich sind
+und aus \eqref{eq:3}
+\begin{equation}
+  \label{eq:4}
+  \symup{\Delta}\nu = 2 \nu_0 \frac{v}{c} \cos{\alpha}
+\end{equation}
+folgt. Erzeugt werden kann Ultraschall unter Zuhilfenahme des piezo-elektrischen Effekts.
+Ein piezoelektrischer Kristall, meist Quartze, wird duch ein sich periodisch änderndes elektrisches Feld
+zu Schwingungen angeregt und strahlt dadurch Ultraschallwellen ab. Trifft die Frequenz mit
+der das Feld umgepolt wird im Resonanzfall mit der Eigenfrequenz des Kristalls überein,
+erreichen die abgestrahlten Ultraschallwellen hohe Amplituden und damit auch hohe Energieichten.
+Der piezo-elektrische Effekt an Kristallen kann im umgekehrten Fall als Empfänger
+genutzt werden. Einlaufende Schallwellen regen den Kristall dabei zu Schwingungen an.
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+Der Versuchsaufbau besteht aus einem Flüssigkeitskreislauf, in dem eine Zentrifugalpumpe eine Strömung
+erzeugt. Die Strömungsgeschwindigkeit lässt sich dabei stufenlos durch Veränderung
+der Pumpleistung regeln. In den Kreislauf integriert sind gerade Rohrstücke
+mit verschiedenen Durchmessern, auf die ein Dopplerprisma aus Acryl aufgesetzt wird,
+dessen Oberseite drei vordefinierte Einstrahlwinkel $\theta$
+(\SI{15}{\deg}, \SI{30}{\deg} und \SI{60}{\deg}) bietet. Alle Kontaktflächen werden mit einem
+Gel eingerieben, um die Übertragung der Ultraschallwellen zu optimieren.
+Diesen Einstrahlwinkeln wird mit der Schallgeschwindigkeiten der Flüssigkeit ($c_\symup{L}$) und des Prismas
+($c_\symup{P}$) durch das Brechungsgesetz ein Dopplerwinkel
+\begin{equation}
+  \label{eq:5}
+  \alpha = \SI{90}{\deg} - \arcsin \left( \sin \theta \cdot \frac{c_\symup{L}}
+  {c_\symup{P}} \right)
+\end{equation}
+zugeordnet. Genutzt wird eine Schallfrequenz $\nu_0$ von \SI{2}{\mega\hertz}. Die Messsonde
+ist währenddessen über einen Ultraschall Doppler-Generator mit einem Computer verbunden, auf dem ein
+Messprogramm installiert ist, welches das Auslesen der gemessenen Daten ermöglicht. Die
+verwendete Flüssigkeit ist bezüglich ihrer akustischen Eigenschaften auf die
+verwendeten Frequenz angepasst.
 \subsection{Versuchsdurchführung}
+In einem ersten Teil wird die Strömungsgeschwindigkeit in einem Rohrstück aus den
+verschiedenen Einstrahlwinkeln des Doppler-Prismas bestimmt. Es werden für
+fünf verschiedene Pumpeinstellungen aus allen drei Einstrahlwinkeln die Frequenzverschiebung
+$\symup{\Delta}\nu$ gemessen. Daraus ergibt sich nach Formel \eqref{eq:4} mit Formel \eqref{eq:5}
+die Strömungsgeschwindigkeit. Die jeweiligen Dopplerwinkel $\symup{\Delta}\nu / \cos \alpha$
+werden dann in Abhängigkeit der Strömungsgeschwindigkeit in einem Diagramm aufgetragen.\\
+\\
+In einer zweiten Messreihe wird das Strömungsprofil in einem \num{3/8}-Zoll Rohr
+(ca. \SI{10}{\milli\meter}) unter einem Einstrahlwinkel von \SI{15}{\deg} bestimmt.
+Gemessen wird bei einer Pumpleistung von \SI{45} und \SI{70}{\percent}. Der Ultraschall
+Doppler-Generator wird so eingestellt, dass er einer variable Messtiefe liefert.
+Die Einstellung am Generator ist dabei in \SI{0.5}{\micro\second}-Schritten möglich,
+die Umrechnung in \si{\milli\metre} ist materialabhängig. Es wird der komplette
+Rohrduchmesser durchfahren und in \SI{0.75}{\milli\metre}-Abständen sowohl Strömungsgeschwindigkeit als
+auch Streuintensitätswert gemessen. Die beiden Datenreihen werden in Abhängigkeit der
+Messtiefe in einem Diagramm aufgetragen.
 \section{Auswertung}
 \section{Diskussion}
 \newpage

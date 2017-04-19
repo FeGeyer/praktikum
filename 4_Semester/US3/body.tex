@@ -58,6 +58,7 @@ Der piezo-elektrische Effekt an Kristallen kann im umgekehrten Fall als Empfäng
 genutzt werden. Einlaufende Schallwellen regen den Kristall dabei zu Schwingungen an.
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+\label{aufbau}
 Der Versuchsaufbau besteht aus einem Flüssigkeitskreislauf, in dem eine Zentrifugalpumpe eine Strömung
 erzeugt. Die Strömungsgeschwindigkeit lässt sich dabei stufenlos durch Veränderung
 der Pumpleistung regeln. In den Kreislauf integriert sind gerade Rohrstücke
@@ -102,6 +103,135 @@ Rohrduchmesser durchfahren und in \SI{0.75}{\milli\metre}-Abständen sowohl Str�
 auch Streuintensitätswert gemessen. Die beiden Datenreihen werden in Abhängigkeit der
 Messtiefe in einem Diagramm aufgetragen.
 \section{Auswertung}
+Die im folgenden ausgewerteten Versuchsteile wurden an einem Rohr mit einem Durchmesser
+von $\SI{0.01}{\meter}$ durchgeführt.
+\subsection{Bestimmung der Strömungsgeschwindigkeit für die Dopplerwinkel.}
+Um die Strömungsgeschwindigkeit zu bestimmmen, wird \eqref{eq:4}
+umgeformt zu
+\begin{equation}
+    v = \frac{\symup{\Delta} \nu \cdot c}{2 \, \nu_0 \, \symup{cos} \, \alpha} \, .
+    \label{eqn:6}
+\end{equation}
+Mit \eqref{eq:5} folgt für die Dopplerwinkel $\alpha$ aus \eqref{eqn:6}
+\begin{table}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    $\theta$ & $\alpha$ \\
+    \midrule
+    15° & 80.06° \\
+    30° & 70.53° \\
+    60° & 54.74° \\
+    \bottomrule
+  \end{tabular}
+  \caption{Dopplerwinkel $\alpha$ zu den vordefinierten Einfallswinkeln $\theta$.}
+  \label{tab:1}
+\end{table}
+mit $c_L = \SI{1800}{\meter\per\second}$ und $c_P = \SI{2700}{\meter\per\second}$.
+Damit folgen die Ergebnisse für die drei Dopplerwinkel mit $\nu_0 = \SI{2}{\mega\hertz}$
+und $c = \SI{1800}{\meter\per\second}$ mit dem jeweils passendem Diagramm.
+\begin{figure}
+  \begin{subfigure}{0.6\textwidth}
+    \centering
+      \includegraphics[width=\textwidth]{a15.pdf}
+      \caption{Diagramm für 15°.}
+      \label{fig:1}
+      \qquad
+  \end{subfigure}
+  \begin{subtable}{0.4\textwidth}
+    \centering
+    \begin{tabular}{c c c}
+      \toprule
+      Pumpleistung / $\%$ & $\symup{\Delta} \nu$ / $\si{\hertz}$ & $v$ / \si{\meter\per\second} \\
+      \midrule
+      30 & -85 & 0.76 \\
+      40 & -146 & 1.30 \\
+      50 & -208 & 1.85 \\
+      60 & -281 & 2.50 \\
+      70 & -354 & 3.15 \\
+      \bottomrule
+    \end{tabular}
+    \caption{Strömungsergebnisse für 15°.}
+    \label{tab:2}
+    \qquad
+  \end{subtable}
+  \caption{Ergebnisse für den Dopplerwinkel 80.06°.}
+\end{figure}
+
+  \begin{figure}
+      \begin{subfigure}{0.6\textwidth}
+      \centering
+        \includegraphics[width=\textwidth]{a30.pdf}
+        \caption{Diagramm für 30°.}
+        \label{fig:2}
+        \qquad
+    \end{subfigure}
+    \begin{subtable}{0.4\textwidth}
+      \centering
+      \begin{tabular}{c c c}
+        \toprule
+        Pumpleistung / $\%$ & $\symup{\Delta} \nu$ / $\si{\hertz}$ & $v$ / \si{\meter\per\second} \\
+        \midrule
+        30 & 159 &  0.46100395\\
+        40 & 269 &  0.7799375 \\
+        50 & 391 & 1.1336638  \\
+        60 & 513 & 1.4873901  \\
+        70 & 598 & 1.73383875 \\
+        \bottomrule
+      \end{tabular}
+      \caption{Strömungsergebnisse für 30°.}
+      \label{tab:3}
+      \qquad
+    \end{subtable}
+    \caption{Ergebnisse für den Dopplerwinkel 70.53°.}
+  \end{figure}
+    \begin{figure}
+      \begin{subfigure}{0.6\textwidth}
+        \centering
+          \includegraphics[width=\textwidth]{a60.pdf}
+          \caption{Diagramm für 60°.}
+          \label{fig:3}
+          \qquad
+      \end{subfigure}
+      \begin{subtable}{0.4\textwidth}
+        \centering
+        \begin{tabular}{c c c}
+          \toprule
+          Pumpleistung / $\%$ & $\symup{\Delta} \nu$ / $\si{\hertz}$ & $v$ / \si{\meter\per\second} \\
+          \midrule
+          30 & -256 & 0.49 \\
+          40 & -403 & 0.77 \\
+          50 & -610 & 1.16 \\
+          60 & -769 & 1.47 \\
+          70 & -964 & 1.84 \\
+          \bottomrule
+        \end{tabular}
+        \caption{Strömungsergebnisse für 60°.}
+        \label{tab:4}
+        \qquad
+      \end{subtable}
+      \caption{Ergebisse für den Dopplerwinkel 54.74°.}
+    \end{figure}
+      \subsection{Bestimmung der Streuintensität und der Momentangeschwindigkeit in
+      Abhängigkeit von der Messtiefe}
+      Zur Bestimmung der Momentangeschwindigkeit wird \eqref{eqn:6} genutzt mit
+      $\alpha = 80.06°$ und dem gemessenen Wert für $\symup{\Delta} \nu$. Für $\nu_0$
+      wird $\SI{2}{\mega\hertz}$ (vgl. Kapitel \ref{aufbau}) und für c
+      $\SI{1800}{\meter\per\second}$ verwendet.
+      \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{b45.pdf}
+        \caption{Momentangeschwindigkeit und Streuintensität in Abhängigkeit von der Messtiefe
+        bei 45$\%$ Pumpleistung.}
+        \label{fig:4}
+      \end{figure}
+      \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{b70.pdf}
+        \caption{Momentangeschwindigkeit und Streuintensität in Abhängigkeit von der Messtiefe
+        bei 70$\%$ Pumpleistung.}
+        \label{fig:5}
+      \end{figure}
 \section{Diskussion}
 \newpage
 \nocite{*}

@@ -19,16 +19,16 @@ c = 1800
 v15 = fmeanHz15*c/(2*f0Hz) * 1/np.cos(80.06)
 v30 = fmeanHz30*c/(2*f0Hz) * 1/np.cos(70.53)
 v60 = fmeanHz60*c/(2*f0Hz) * 1/np.cos(54.74)
-print(1/np.cos(80.06))
-print(pumpPro60)
-print(fmeanHz15)
-print(v15)
-print(pumpPro60)
-print(fmeanHz30)
-print(v30)
-print(pumpPro60)
-print(fmeanHz60)
-print(v60)
+#print(1/np.cos(80.06))
+#print(pumpPro60)
+#print(fmeanHz15)
+#print(v15)
+#print(pumpPro60)
+#print(fmeanHz30)
+#print(v30)
+#print(pumpPro60)
+#print(fmeanHz60)
+#print(v60)
 
 # Plots
 plt.figure(1)
@@ -68,20 +68,27 @@ plt.savefig('a60.pdf')
 tiefeMikroS45, fmaxHz45, fmeanHz45, inten45 = np.genfromtxt('aufgabe2_45.txt', unpack=True)
 tiefeMikroS70, fmaxHz70, fmeanHz70, inten70 = np.genfromtxt('aufgabe2_70.txt', unpack=True)
 
-tiefeMM45 = tiefeMikroS45 * 1.5
-tiefeMM70 = tiefeMikroS70 * 1.5
+# Tiefe umrechnen
+tiefeMM45 = tiefeMikroS45 * 1.5 + 17.25
+tiefeMM70 = tiefeMikroS70 * 1.5 + 17.25
 
 # Bestimmung der Momentangeschwindigkeit
 v45 = fmeanHz45*c/(2*f0Hz) * 1/np.cos(80.06)
 v70 = fmeanHz70*c/(2*f0Hz) * 1/np.cos(80.06)
+print(tiefeMM45)
+print(v45)
+print(inten45)
+print(tiefeMM70)
+print(v70)
+print(inten70)
 
 # Plots
 plt.figure(4)
 plt.xlabel(r"$\mathrm{Messtiefe} / \mathrm{mm}$")
 plt.ylabel(r"$\mathrm{Streuintensität} / \mathrm{\frac{V^2}{s} * 10}$")
-plt.plot(tiefeMM45, inten45 *10 ** (-2), 'ro', label="Streuintensität")
+plt.plot(tiefeMM45, inten45 *10 ** (-2), 'r+', label="Streuintensität")
 plt.plot(tiefeMM45, v45, 'bo', label="Momentangeschwindigkeit")
-plt.xlim(12, 25)
+plt.xlim(29, 42)
 plt.legend(loc="best")
 plt.tight_layout
 plt.savefig('b45.pdf')
@@ -89,9 +96,9 @@ plt.savefig('b45.pdf')
 plt.figure(5)
 plt.xlabel(r"$\mathrm{Messtiefe} / \mathrm{mm}$")
 plt.ylabel(r"$\mathrm{Streuintensität} / \mathrm{\frac{V^2}{s} * 10}$")
-plt.plot(tiefeMM70, inten70 *10 ** (-2), 'ro', label="Streuintensität")
+plt.plot(tiefeMM70, inten70 *10 ** (-2), 'r+', label="Streuintensität")
 plt.plot(tiefeMM70, v70, 'bo', label="Momentangeschwindigkeit")
-plt.xlim(12, 25)
+plt.xlim(29, 42)
 plt.ylim(0, 8)
 plt.legend(loc="best")
 plt.tight_layout

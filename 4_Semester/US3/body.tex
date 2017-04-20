@@ -90,7 +90,7 @@ In einem ersten Teil wird die Strömungsgeschwindigkeit in einem Rohrstück aus 
 verschiedenen Einstrahlwinkeln des Doppler-Prismas bestimmt. Es werden für
 fünf verschiedene Pumpeinstellungen aus allen drei Einstrahlwinkeln die Frequenzverschiebung
 $\symup{\Delta}\nu$ gemessen. Daraus ergibt sich nach Formel \eqref{eq:4} mit Formel \eqref{eq:5}
-die Strömungsgeschwindigkeit. Die jeweiligen Dopplerwinkel $\symup{\Delta}\nu / \cos \alpha$
+die Strömungsgeschwindigkeit. Die jeweiligen Verhältnisse $\symup{\Delta}\nu / \cos \alpha$
 werden dann in Abhängigkeit der Strömungsgeschwindigkeit in einem Diagramm aufgetragen.\\
 \\
 In einer zweiten Messreihe wird das Strömungsprofil in einem \num{3/8}-Zoll Rohr
@@ -102,9 +102,11 @@ die Umrechnung in \si{\milli\metre} ist materialabhängig. Es wird der komplette
 Rohrduchmesser durchfahren und in \SI{0.75}{\milli\metre}-Abständen sowohl Strömungsgeschwindigkeit als
 auch Streuintensitätswert gemessen. Die beiden Datenreihen werden in Abhängigkeit der
 Messtiefe in einem Diagramm aufgetragen.
+
 \section{Auswertung}
-Die im folgenden ausgewerteten Versuchsteile wurden an einem Rohr mit einem Durchmesser
+Die im Folgenden ausgewerteten Versuchsteile wurden an einem Rohr mit einem Durchmesser
 von $\SI{0.01}{\meter}$ durchgeführt.
+
 \subsection{Bestimmung der Strömungsgeschwindigkeit für die Dopplerwinkel.}
 Um die Strömungsgeschwindigkeit zu bestimmmen, wird \eqref{eq:4}
 umgeformt zu
@@ -130,6 +132,7 @@ Mit \eqref{eq:5} folgt für die Dopplerwinkel $\alpha$ aus \eqref{eqn:6}
 mit $c_L = \SI{1800}{\meter\per\second}$ und $c_P = \SI{2700}{\meter\per\second}$.
 Damit folgen die Ergebnisse für die drei Dopplerwinkel mit $\nu_0 = \SI{2}{\mega\hertz}$
 und $c = \SI{1800}{\meter\per\second}$ mit dem jeweils passendem Diagramm.
+
 \begin{figure}
   \begin{subfigure}{0.6\textwidth}
     \centering
@@ -172,11 +175,11 @@ und $c = \SI{1800}{\meter\per\second}$ mit dem jeweils passendem Diagramm.
         \toprule
         Pumpleistung / $\%$ & $\symup{\Delta} \nu$ / $\si{\hertz}$ & $v$ / \si{\meter\per\second} \\
         \midrule
-        30 & 159 &  0.46100395\\
-        40 & 269 &  0.7799375 \\
-        50 & 391 & 1.1336638  \\
-        60 & 513 & 1.4873901  \\
-        70 & 598 & 1.73383875 \\
+        30 & 159 &  0.46 \\
+        40 & 269 &  0.78 \\
+        50 & 391 & 1.13  \\
+        60 & 513 & 1.49  \\
+        70 & 598 & 1.73 \\
         \bottomrule
       \end{tabular}
       \caption{Strömungsergebnisse für 30°.}
@@ -212,27 +215,129 @@ und $c = \SI{1800}{\meter\per\second}$ mit dem jeweils passendem Diagramm.
       \end{subtable}
       \caption{Ergebisse für den Dopplerwinkel 54.74°.}
     \end{figure}
-      \subsection{Bestimmung der Streuintensität und der Momentangeschwindigkeit in
+
+
+    \subsection{Bestimmung der Streuintensität und der Momentangeschwindigkeit in
       Abhängigkeit von der Messtiefe}
       Zur Bestimmung der Momentangeschwindigkeit wird \eqref{eqn:6} genutzt mit
       $\alpha = 80.06°$ und dem gemessenen Wert für $\symup{\Delta} \nu$. Für $\nu_0$
-      wird $\SI{2}{\mega\hertz}$ (vgl. Kapitel \ref{aufbau}) und für c
-      $\SI{1800}{\meter\per\second}$ verwendet.
+      wird $\SI{2}{\mega\hertz}$ (vgl. Kapitel \ref{aufbau}) und für $c$
+      $\SI{1800}{\meter\per\second}$ verwendet. Für die Messtiefe wird die Umrechnung
+         $4 \, \symup{\mu s} = 6 \, \symup{mm}$
+      verwendet. Im Folgenden sind die Ergebnisse als
+      Tabelle und Diagramm aufgelistet.
+
       \begin{figure}
+        \begin{subfigure}{0.6\textwidth}
         \centering
-        \includegraphics[scale=0.3]{b45.pdf}
+        \includegraphics[width=\textwidth]{b45.pdf}
         \caption{Momentangeschwindigkeit und Streuintensität in Abhängigkeit von der Messtiefe
         bei 45$\%$ Pumpleistung.}
         \label{fig:4}
-      \end{figure}
-      \begin{figure}
+        \qquad
+      \end{subfigure}
+      \begin{subtable}{0.4\textwidth}
         \centering
-        \includegraphics[scale=0.3]{b70.pdf}
+        \begin{tabular}{c c c}
+            \toprule
+            Messtiefe / $\si{\meter\meter}$ & v / $\si{\meter\per\second}$ & I / $\si{\volt\squared\per\second} \cdot 1000$ \\
+            \midrule
+            30 & 1.73 & 205 \\
+            30.75 &  1.73 & 230 \\
+            31.5 & 1.73 & 220 \\
+            32.25 & 1.73 & 290 \\
+            33 & 1.73 & 230 \\
+            33.75 &  1.68 & 150 \\
+            34.5 & 1.73 & 124 \\
+            35.25 & 1.63 & 133 \\
+            36 & 1.63 & 110 \\
+            36.75 & 1.68 & 130 \\
+            37.5 & 1.63 & 116 \\
+            38.25 & 1.73 & 110 \\
+            39 & 1.73 & 100 \\
+            39.75 & 1.73 & 100 \\
+            40.5 & 1.68 & 100 \\
+            41.25 & 1.73 & 90 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Messtiefe, Momentangeschwindigkeit $v$ und Streuintensität $I$ bei einer
+        Pumpleistung von 45 $\%$.}
+        \label{tab:5}
+        \qquad
+      \end{subtable}
+      \caption{Ergebnisse aus Aufgabenteil 2 für 45 $\%$ Pumpleistung.}
+    \end{figure}
+
+      \begin{figure}
+        \begin{subfigure}{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{b70.pdf}
         \caption{Momentangeschwindigkeit und Streuintensität in Abhängigkeit von der Messtiefe
         bei 70$\%$ Pumpleistung.}
         \label{fig:5}
-      \end{figure}
+        \qquad
+      \end{subfigure}
+      \begin{subtable}{0.4\textwidth}
+        \centering
+        \begin{tabular}{c c c}
+          \toprule
+          Messtiefe / $\si{\meter\meter}$ & v / $\si{\meter\per\second}$ & I / $\si{\volt\squared\per\second} \cdot 1000$ \\
+          \midrule
+          30 & 2.50 & 330 \\
+          30.75 & 2.50 & 370 \\
+          31.5 & 2.61 & 400 \\
+          32.25 & 2.61 & 400 \\
+          33 & 2.40 & 500 \\
+          33.75 & 2.40 & 500 \\
+          34.5 & 2.40 & 500 \\
+          35.25 & 2.40 & 520 \\
+          36 & 2.40 & 440 \\
+          36.75 & 2.40 & 500 \\
+          37.5 & 2.61 & 350 \\
+          38.25 & 2.61 & 355 \\
+          39 & 2.61 & 500 \\
+          39.75 & 2.71 & 600 \\
+          40.5 & 2.71 & 700 \\
+          41.25 & 2.71 & 650 \\
+          \bottomrule
+        \end{tabular}
+        \caption{Messtiefe, Momentangeschwindigkeit $v$ und Streuintensität $I$ bei einer
+        Pumpleistung von 70 $\%$.}
+        \label{tab:6}
+        \qquad
+      \end{subtable}
+      \caption{Ergebnisse aus Aufgabenteil 2 für 70 $\%$ Pumpleistung.}
+    \end{figure}
+
+
 \section{Diskussion}
+Aus den Diagrammen \ref{fig:1} bis \ref{fig:3} folgt, dass ein linearer Zusammenhang
+zwischen dem Verhältnis aus Frequenzverschiebung und dem Cosinus des Dopplerwinkels und
+der Strömungsgeschwindigkeit vorliegt. Außerdem stimmen die Strömungsgeschwindigkeiten bei
+den Einstrahlwinkeln 30° und 60° mit einer maximale Abweichung von \SI{0.11}{\meter\per\second}
+gut überein. Lediglich die Werte für den Einstrahlwinkel von 15° weichen stark ab. Hier liegt die
+maximale Abweichung bei \SI{1.42}{\meter\per\second} im Vergleich zu der Messung bei 30°
+bzw. bei \SI{1.31}{\meter\per\second} unter einem Winkel von 60°. Eine mögliche
+Erklärung ist, dass die Messung des Winkels als erste vorgenommen wurde, sodass
+noch Lufteinschlüsse in der Apperatur vorhanden waren, die nach einiger Pumpenlaufzeit
+zum Luftauslass transportiert wurden. Desweiteren konnte eine gute Fixierung des Doppler-Prismas
+auf dem Strömungsrohr anfangs nicht gewährleistet werden. Die Messung bei 15° sollte
+daher wiederholt werden.\\
+\\
+Die Messreihe zur Bestimmung des Strömungsprofils ermöglicht hingegen keine sinnvolle
+Auswertung. Die Momentangeschwindigkeit ändert sich durch den Rohrquerschnitt nicht
+signifikant, die Streuintensität schwankt ohne erkennbares Muster über den gesamten
+Querschnitt. Aufgrund dieser Ergebnisse sind systematische Messfehler zu vermuten,
+welche die Messung derart beeinflusst haben, dass keine Aussagen mehr möglich sind.
+Möglich sind hier eine Blockade des Flüssigkeitsstroms durch Knicke in den nicht
+starren Kurvenstücken. Auch konnte eine ordnungsgemäße Funktion der Zentrifugalpumpe
+nicht gewährleistet werden. Diese war mit einem Hinweis "Pumpe hat mehrfach Öl verloren"
+versehen. Dieser zweite Versuchsteil kann daher in der jetzigen Form keine Ergebnisse
+liefern und sollte zwecks Prüfung wiederholt werden.
+
+eine mögliche Fehlerquelle vor allem für den zweiten Teil der Auswertung bei 45 $\%$
+sind Ablesefehler, die entstanden sind, weil die Werte sich im Sekundenintervall änderte.
+Außerdem
 \newpage
 \nocite{*}
 \printbibliography

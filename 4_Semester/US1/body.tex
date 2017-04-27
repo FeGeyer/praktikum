@@ -148,7 +148,10 @@ in Tabelle \ref{tab:1} , die aus dem Durchschallungsverfahren in Tabelle \ref{ta
   den Amplitudenwert an. Die Längenmessung ist auf einen Fehler von $\pm \, \num{0.5}$
   genau.}
 \end{figure}
-Die Bestimmung der Schallgeschwindigkeiten geschieht nun durch lineare Regression.
+Die Bestimmung der Schallgeschwindigkeiten gescheiht nun durch lineare Regression.
+Zu beachten ist, dass sich die Laufzeiten bei der Messung per Impuls-Echo-Verfahren
+Verfahrensbedingt auf die doppelte Länge beziehen. Es werden daher in den Rechnungen die halben gemessenen
+Laufzeiten betrachtet.
 Dies ist notwendig, da innerhalb des Sondenmaterials eine gewisse Strecke zurückgelegt werden
 muss, die ansonsten als systematischer Fehler in die Rechnung eingehen würden.
 Regression der Länge-Laufzeit Wertepaare mit
@@ -242,6 +245,44 @@ Die Verläufe mit Regression sind in den Abbildungen \ref{abb:3} und \ref{abb:4}
   \caption{Dargestellt sind die gemessenen Signalamplituden in Abhängigkeit
   der Signallaufzeit bei beiden Messmethoden mit Regression.}
 \end{figure}
+\subsection{Vermessung des Augenmodells}
+Die gewonnen Messwerte sind in Tabelle \ref{tab:3} dargestellt. Für die Schallgeschwindigkeit
+in der Glaskörperflüssigkeit gilt $c_{GK} = \SI[per-mode=reciprocal]{1410}{\metre\per\second}$
+und für die Linse $c_L = \SI[per-mode=reciprocal]{2500}{\metre\per\second}$
+\begin{figure}
+\begin{subtable}{0.39\textwidth}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    Grenzschicht & $\symup{\Delta}t$/\si{\micro\second} \\
+    \midrule
+    Iris & 5.82 \\
+    Linse ein & 10.68 \\
+    Linse aus & 16.50 \\
+    Retina & 69.60 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Ergebnisse der Vermessung des Augenmodells im Maßstab 3:1. Angegeben sind
+  die Verfahrensbedingt erhaltenen doppelten Laufzeiten.}
+  \label{tab:3}
+\end{subtable}
+\begin{subtable}{0.59\textwidth}
+  \centering
+  \begin{tabular}{c c c}
+    \toprule
+    Grenzschicht & $l$/\si{\milli\metre} & $\frac{l}{3}$/\si{\milli\metre} \\
+    \midrule
+    Iris & 4.11 & 1.37\\
+    Linse ein & 7.53 & 2.52\\
+    Linse aus & 14.81 & 4.94\\
+    Retina & 52.24 & 17.42\\
+    \bottomrule
+  \end{tabular}
+  \caption{Berechnete Abstände zwischen Schallsonde und Grenzschichten, angegeben
+  für das Augenmodell (Maßstab 3:1) und zurückgerechnet auf ein menschliches Auge.}
+  \label{tab:3}
+\end{subtable}
+\end{figure}
 \section{Diskussion}
 \subsection{Schallgeschwindigkeitsmessung}
 Bei allen Messwerten muss mit einem nicht quantifizierbaren Fehler gerechnet werden,
@@ -253,8 +294,18 @@ beider Ergebnisse. Das Fehlerintervall des durch die Durchschallungsmessung gewo
 ist jedoch geringer als das des Wertes aus der Impuls-Echo-Methode. Dies erscheint logisch,
 muss das Signal bei der Impuls-Echo-Methode den doppelten Weg zurücklegen, weshalb eventuelle
 Fehler im Material einen größeren Einfluss haben und somit eine größere systematische
-Fehlerquelle bieten. Auffällig ist die große Abweichung zwischen den Werten der Sondeninternen
-Laufzeit.
+Fehlerquelle bieten. Auffällig ist die große Abweichung zwischen den Werten der sondeninternen
+Laufzeit. Da der Fehler des bei der Messung per Impuls-Echo-Verfahren gewonnenen Wertes
+jedoch annähernd so groß ist wie der Wert selbst liegt die Vermutung nah, dass hier ein
+Problem vorliegt. Da jedoch beide Werte aus einer Ausgleichsrechnung mit einem sehr
+begrenzten Datensatz gewonnen wurden und keine Literaturwerte vorhanden sind, kann hier nur
+vermutet werden. Das aufnehmen weiterer Messwerte würde helfen, die Ergebnisse zu verifizieren.
+\subsection{Dämpfungsverhalten}
+Die erhaltenen Werte liegen jeweils im Bereich der gegenseitigen Messungenauigkeit.
+Hohe relative Fehler der Werte lassen sich wieder durch den begrenzten Datensatz
+erklären. Ebenfalls problematisch sind die langen Laufzeiten bei der Impuls-Echo-Messung.
+Die erhaltenen Daten sind daher bereits stärker gedämpft, weshalb die Ausgleichsrechnung
+statisch signifikantere Fehler ergeben sollte.
 
 \newpage
 \nocite{*}

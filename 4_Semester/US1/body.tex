@@ -65,7 +65,7 @@ um an Informationen zu gelangen. Dabei gibt es zwei Verfahren:
   Bei diesem Verfahren befinden sich Sender und Empfänger gegenüber voneinander.
   Dazwischen befindet sich das zu durchschallende Material. Bei einer Fehlstelle
   in der Probe wird die Intensität abgeschwächt. Im Gegensatz zum Impuls-Echo-Verfahren
-  ist keine quantitative Aussage darüber möglich.
+  ist keine quantitative Aussage darüber möglich, vgl. Abbildungen \ref{fig:1} und \ref{fig:2}.
   \begin{figure}{h}
     \centering
     \includegraphics[scale=0.5]{durchschall.png}
@@ -82,7 +82,7 @@ um an Informationen zu gelangen. Dabei gibt es zwei Verfahren:
     s = \frac{1}{2} c \, t
     \label{eqn:6}
   \end{equation}
-  bei bekannter Schallgeschwindigkeit $c$ die Position $S$ der Fehlstelle bestimmt werden.
+  bei bekannter Schallgeschwindigkeit $c$ die Position $S$ der Fehlstelle bestimmt werden, siehe Abbildung \ref{fig:2}.
   Für die Darstellung der Laufzeitmessung gibt es den A-Scan, B-Scan und TM-Scan.
   \begin{figure}
     \centering
@@ -96,9 +96,42 @@ um an Informationen zu gelangen. Dabei gibt es zwei Verfahren:
 Das Experiment setzt sich aus Ultraschallechoskop, einer Ultraschallsonde mit
 \SI{2}{\mega\hertz} und einem Rechner mit dem Programm EchoView, um die Daten darstellen zu können.
 Am Echoskop lässt einstellen, ob eine (Impuls-Echo-Verfahren) oder zwei (Durchschallungsverfahren, siehe Kapitel \ref{sec:theorie})
-Ultraschallsonden verwendet werden. Außerdem lässt sich ein Gain in \si{\decibel} und der TGC (
-auch in \si{\decibel}) wählen.
+Ultraschallsonden verwendet werden. Außerdem lässt sich ein Gain in \si{\decibel} und
+der TGC (auch in \si{\decibel}) wählen. Als Untersuchungsmaterial stehen verschieden lange Acrylzylinder und
+- platten, ein Augenmodell und als Kontaktmittel bidestilliertes Wasser zur Verfügung.
 \subsection{Versuchsdurchführung}
+Zuerst werden einige Testmessungen durchgeführt und probeweise die Schallgeschwindigkeit
+bestimmt. Diese Messungen werden aber im Folgenden nicht weiter behandelt. Danach wird
+das Impuls-Echo-Verfahren angewandt. Zu diesem Zweck wurden alle Acrylzylinder mit einer
+Schieblehre mit einer Genauigkeit von \SI{0.2}{\milli\meter} vermessen. Als nächstes
+wird der Zylinder mit bidestilliertem Wasser behandelt und die Ultraschallsonde angebracht.
+Mittels eines A-Scans und Makern werden Amplitude der Reflexion und Laufzeit des Impulses
+festgehalten und notiert. Außerdem wird eine eventuell eingestellte Verstärkung (TGC) aufgeschrieben.
+Dies wird für ingesamt sieben verschiedene Längen durchgeführt.
+
+Als nächstes wird das Durchschallungsverfahren angewandt. Dafür wird eine zweite Sonde
+angeschlossen, die als Empfänger fungiert. die Acrylzylinder werden der Länge nach in
+eine Aparatur eingespannnt, die an beiden Enden jeweils eine Sonde hat. Dann werden wieder
+Amplitude, Laufzeit und TGC mittels A-Scan für sieben Längen aufgenommen.
+
+Danach wird der ca. \SI{40}{\milli\meter} Acrylzylinder auf zwei Acrylplatten gestellt,
+um mithilfe des Cepstrums Mehrfachreflexionen zu analysieren. Die verschiedenen Materialeinheiten
+werde mit bidestilliertem Wasser gekoppelt und dann mithilfe des Impuls-Echo-Verfahrens die
+Reflexionen aufgenommen. Dabei ist zu beachten, dass die Verstärkung so aufgenommen wird,
+dass drei Reflexionen zu sehen sind. Im Programm EchoView lässt sich dann das Cepstrum
+als Diagramm auftragen.
+
+Als letztes wird das Augenmodell mit dem Impuls-Echo-Verfahren untersucht. Dazu wird
+bidestilliertes Wasser auf die Hornhaut gegeben und dann mit der Ultraschallsonde
+die Reflexionen von Iris, Linse und Retina untersucht, siehe Abbildung \ref{fig:3}.
+Zu diesem Zweck werden die verschiedene Laufzeiten der Reflexionen aufgenommen und
+später mit den realen Längen eines menschlichen Auges abgeglichen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{auge.png}
+  \caption{Augenmodell im Querschnitt.}
+  \label{fig:3}
+\end{figure}
 \section{Auswertung}
 \subsection{Bestimmung der Schallgeschwindigkeit in Acryl}
 Die aus der Messung nach dem Impuls-Echo-Verfahren gewonnenen Messwerte finden sich

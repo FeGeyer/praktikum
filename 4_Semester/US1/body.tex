@@ -2,6 +2,41 @@
 \tableofcontents
 \newpage
 \section{Theorie}
+Dieser Versuch basiert zum Großteil auf Ultraschall. Dieser beginnt ungefähr bei
+\SI{20}{\kilo\hertz} und geht bis ca. \SI{1}{\giga\hertz}. Unterhalb, von \SI{16}{\hertz}
+bis \SI{20}{\kilo\hertz}, liegt der menschliche Hörbereich. Oberhalb von Ultraschall gibt
+es noch den Hyperschall und unterhalb des menschlichen Hörbereichs den Infraschall. Schall
+lässt sich darstellen als longitudinale Welle
+\begin{equation}
+    \rho (x, t) = \rho_0 + v_0 \, Z \, \symup{cos} (\omega t - kx)
+    \label{eqn:1}
+\end{equation}
+mit $Z = c \cdot \rho$ als akustische Impedanz, die abhängig ist von der Dichte
+$\rho$ des Materials und der materialabhängigen Schallgeschwindigkeit $c$. In Flüssigkeiten
+gilt für die Schallgeschwindigkeit
+\begin{equation}
+    c_{\symup{Fl}} = \sqrt{\frac{1}{\kappa \cdot \rho}}
+    \label{eqn:2}
+\end{equation}
+mit $\kappa$ als Kompressibilität und $\rho$ als Dichte. Bei Festkörpern können im Gegensatz
+zu Gasen und Flüssigkeiten nicht nur Longitudinalwellen, sondern auch Transversalwellen auftreten.
+Außerdem fließt statt der Kompressibilität $\kappa^{-1}$ in \eqref{eqn:2} das Elastizitätsmodul $E$ ein
+\begin{equation}
+    c_{\symup{Fe}} = \sqrt{\frac{E}{\rho}} \, .
+    \label{eqn:3}
+\end{equation}
+Allerdings sind Schallgeschwindigkeiten in Festkörpern richtungsabhängig, sodass
+sich die Schallgeschwindigkeit von longitudinalen - und transversalen Wellen unterscheidet.
+
+Durch Absorption verliert die Schallwelle bei der Ausbreitung Energie. Beschreiben
+lässt sich dies durch die exponentielle Abnahme der Intensität $I$
+\begin{equation}
+    I(x) = I_0 \cdot \symup e^{-\alpha x} \, .
+    \label{eqn:4}
+\end{equation}
+Dabei fällt die Intensität nach der Strecke $x$ exponetiell mit dem Absorptionskoeffizienten
+$\alpha$ ab. Dieser ist zum Beispiel für Luft sehr groß, sodass in der Medizin ein Ultraschallgel
+als Medium zwischen Ultraschallsender und Material genutzt wird.
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 \subsection{Versuchsdurchführung}

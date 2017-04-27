@@ -37,6 +37,59 @@ lässt sich dies durch die exponentielle Abnahme der Intensität $I$
 Dabei fällt die Intensität nach der Strecke $x$ exponetiell mit dem Absorptionskoeffizienten
 $\alpha$ ab. Dieser ist zum Beispiel für Luft sehr groß, sodass in der Medizin ein Ultraschallgel
 als Medium zwischen Ultraschallsender und Material genutzt wird.
+
+Außerdem wird ein Teil der Schalwelle reflektiert, sobald diese auf eine Grenzfläche trifft.
+Das Verhältnis aus reflektierter und einfallender Intensität wird als Reflexionskoeffizient
+$R$ bezeichnet
+\begin{equation}
+  R = \left(\frac{Z_1 - Z_2}{Z_1 + Z_2} \right)^2 \, .
+  \label{eqn:5}
+\end{equation}
+Das $Z$ steht für die bereits erwähnte akustische Impedanz. Aus $T = 1 - R$ lässt
+sich der transmittierte Anteil $T$ bestimmen.
+
+Erzeugt werden kann Ultraschall unter Zuhilfenahme des piezo-elektrischen Effekts.
+Ein piezoelektrischer Kristall, meist ein Quartz, wird duch ein sich periodisch änderndes elektrisches Feld
+zu Schwingungen angeregt und strahlt dadurch Ultraschallwellen ab. Stimmt die Frequenz des
+elektrischen Wechselfeldes mit der Eigenfrequenz des Kristalls überein (liegt also ein
+Resonanzfall vor),
+erreichen die abgestrahlten Ultraschallwellen hohe Amplituden und damit auch hohe Energieichten.
+Der piezo-elektrische Effekt lässt sich umkehren und somit lassen sich die
+Kristalle auch als Schallempfänger nutzen. Einlaufende Schallwellen regen den Kristall dabei zu Schwingungen an.
+
+Häufig werden in der Medizin Laufzeitmessungen mittels Ultraschall durchgeführt,
+um an Informationen zu gelangen. Dabei gibt es zwei Verfahren:
+\begin{itemize}
+  \item \textbf{Durchschallungsverfahren}
+  Bei diesem Verfahren befinden sich Sender und Empfänger gegenüber voneinander.
+  Dazwischen befindet sich das zu durchschallende Material. Bei einer Fehlstelle
+  in der Probe wird die Intensität abgeschwächt. Im Gegensatz zum Impuls-Echo-Verfahren
+  ist keine quantitative Aussage darüber möglich.
+  \begin{figure}{h}
+    \centering
+    \includegraphics[scale=0.5]{durchschall.png}
+    \caption{Das Prinzip des Durchschallungsverfahren.}
+    \label{fig:1}
+  \end{figure}
+
+  \item \textbf{Impuls-Echo-Verfahren}
+  Im Gegensatz zum Durchschallungsverfahren fungiert hier der Sender auch als Empfänger.
+  Dabei kommt zum Tragen, dass Schalwellen an Grenzwellen teilweise reflektiert werden (siehe oben).
+  Fehlstellen können mit diesem Verfahren quantitativ bestimmt werden, so kann man aus der
+  Höhe des Echos auf die Größe der Fehlstelle schließen. Außerdem kann mithilfe der Formel
+  \begin{equation}
+    s = \frac{1}{2} c \, t
+    \label{eqn:6}
+  \end{equation}
+  bei bekannter Schallgeschwindigkeit $c$ die Position $S$ der Fehlstelle bestimmt werden.
+  Für die Darstellung der Laufzeitmessung gibt es den A-Scan, B-Scan und TM-Scan.
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{impuls.png}
+    \caption{Skizze des Impuls-Echo-Verfahrens.}
+    \label{fig:2}
+  \end{figure}
+\end{itemize}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 \subsection{Versuchsdurchführung}
@@ -89,7 +142,7 @@ in Tabelle \ref{tab:1} , die aus dem Durchschallungsverfahren in Tabelle \ref{ta
   den Amplitudenwert an. Die Längenmessung ist auf einen Fehler von $\pm \, \num{0.5}$
   genau.}
 \end{figure}
-Die Bestimmung der Schallgeschwindigkeiten gescheiht nun durch lineare Regression.
+Die Bestimmung der Schallgeschwindigkeiten geschieht nun durch lineare Regression.
 Dies ist notwendig, da innerhalb des Sondenmaterials eine gewisse Strecke zurückgelegt werden
 muss, die ansonsten als systematischer Fehler in die Rechnung eingehen würden.
 Regression der Länge-Laufzeit Wertepaare mit

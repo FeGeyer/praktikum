@@ -17,12 +17,12 @@ in Tabelle \ref{tab:1} , die aus dem Durchschallungsverfahren in Tabelle \ref{ta
       \toprule
       $l$/\si{\milli\metre} & $U$/\si{\volt} & $\symup{\Delta}t$/\si{\micro\second} & TGC/\si{\decibel} \\
       \midrule
-      31 & 0.202 & 23.16 & 0 \\
-      40.1 & 0.193 & 29.68 & 0 \\
-      61.58 & 0.31 & 45.62 & 17.81 \\
-      71.3 & - & 52.46 & 20.58 \\
-      80.2 & 0.154 & 59.66 & 18.16 \\
-      102 & 0.105 & 75.90 & 32.85 \\
+      31.00 & 0.202 & 23.16 & 0 \\
+      40.10 & 0.193 & 29.68 & 0 \\
+      61.58 & 0.310 & 45.62 & 17.81 \\
+      71.30 & - & 52.46 & 20.58 \\
+      80.20 & 0.154 & 59.66 & 18.16 \\
+      102.00 & 0.105 & 75.90 & 32.85 \\
       121.18 & 0.105 & 88.38 & 32.85 \\
       \bottomrule
     \end{tabular}
@@ -36,22 +36,23 @@ in Tabelle \ref{tab:1} , die aus dem Durchschallungsverfahren in Tabelle \ref{ta
       \toprule
       $l$/\si{\milli\metre} & $U$/\si{\volt} & $\symup{\Delta}t$/\si{\micro\second} & TGC/\si{\decibel} \\
       \midrule
-      31 & 0.729 & 12.48 & 0 \\
-      40.1 & 0.759 & 15.46 & 0 \\
-      61.58 & 0.271 & 23.70 & 0 \\
-      71.3 & - & 27.18 & 0 \\
-      80.2 & 0.154 & 30.50 & 0 \\
-      102 & 0.271 & 38.71 & 15.48 \\
+      31.00 & 0.729 & 12.48 & 0     \\
+      40.10 & 0.759 & 15.46 & 0     \\
+      61.58 & 0.271 & 23.70 & 0     \\
+      71.30 & -     & 27.18 & 0     \\
+      80.20  & 0.154 & 30.50 & 0     \\
+      102.00    & 0.271 & 38.71 & 15.48 \\
       121.18 & 0.329 & 45.19 & 17.99 \\
       \bottomrule
     \end{tabular}
-    \caption{Messwerte der Messung per Durchschallungsverfahren.}
+    \caption{Messwerte der Messung per Durchschallungsverfahren.\\}
     \label{tab:2}
   \end{subtable}
   \caption{$l$ bezeichnet jeweils die Höhe der Zylinder, $U$ die Spannungsamplitude des
   gemessenen Peaks, $\symup{\Delta}t$ den zeitlichen Abstand zwischen senden des Schallimpulses
   und empfangen des Signals und TGC gibt den verwendeten Verstärkungsfaktor für
-  den Amplitudenwert an.}
+  den Amplitudenwert an. Die Längenmessung ist auf einen Fehler von $\pm \, \num{0.5}$
+  genau.}
 \end{figure}
 Die Bestimmung der Schallgeschwindigkeiten gescheiht nun durch lineare Regression.
 Dies ist notwendig, da innerhalb des Sondenmaterials eine gewisse Strecke zurückgelegt werden
@@ -114,19 +115,19 @@ Zu beachten sind hier drei Dinge:
 Die Dämpfung verläuft exponentiell, der Dämpfungskoeffizient $\alpha$ wird daher durch Regression
 mit einer Funktion:
 \begin{equation}
-  U(l) = U_0 * e^{\alpha * l}
+  U(l) = U_0 \cdot e^{\alpha l}
 \end{equation}
 in "phython-scipy" bestimmt. Zu erwähnen ist, dass die für die Zylinder mit Länge
 $l=\SI{71.3}{\milli\metre}$ gemessenen Werte nicht genutzt werden können, da dieser
 Zylinder aus zwei kürzeren Stücken zusammengesetzt wurde und sich so eine Signalabschwächende
 Grenzschicht zwischen den beiden Zylindern bildet. Für das Impuls-Echo-Verfahren ergeben sich:
 \begin{align*}
-  U_0 &= {0.84(33)}{\volt}\\
+  U_0 &= \SI{0.84(33)}{\volt}\\
   \alpha &= \num{-21(5)}
 \end{align*}
 und für das Durchschallungsverfahren:
 \begin{align*}
-  U_0 &= {0.69(18)}{\volt}\\
+  U_0 &= \SI{0.69(18)}{\volt}\\
   \alpha &= \num{-32(11)}
 \end{align*}
 Die Verläufe mit Regression sind in den Abbildungen \ref{abb:3} und \ref{abb:4} dargestellt.
@@ -148,6 +149,19 @@ Die Verläufe mit Regression sind in den Abbildungen \ref{abb:3} und \ref{abb:4}
   der Signallaufzeit bei beiden Messmethoden mit Regression.}
 \end{figure}
 \section{Diskussion}
+\subsection{Schallgeschwindigkeitsmessung}
+Bei allen Messwerten muss mit einem nicht quantifizierbaren Fehler gerechnet werden,
+da das Ablesen der Werte in der Messsoftware durch das setzen von Markern geschieht,
+die den Peak nie genau treffen können.\\
+Beide Ergebnisse liegen innerhalb der gegenseitigen Messungenauigkeit. Ebenfalls liegt
+der Literaturwert von \SI[per-mode=reciprocal]{2730}{\metre\per\second} in den Intervallen
+beider Ergebnisse. Das Fehlerintervall des durch die Durchschallungsmessung gewonnen Wertes
+ist jedoch geringer als das des Wertes aus der Impuls-Echo-Methode. Dies erscheint logisch,
+muss das Signal bei der Impuls-Echo-Methode den doppelten Weg zurücklegen, weshalb eventuelle
+Fehler im Material einen größeren Einfluss haben und somit eine größere systematische
+Fehlerquelle bieten. Auffällig ist die große Abweichung zwischen den Werten der Sondeninternen
+Laufzeit.
+
 \newpage
 \nocite{*}
 \printbibliography

@@ -20,6 +20,10 @@ DlaengeMM = unp.uarray(DlaengeMM, 0.02)
 Ic = (IlaengeMM*10**(-3)) / (0.5*IdeltatMikros*10**(-6))
 Dc = (DlaengeMM*10**(-3)) / (DtMikros*10**(-6))
 
+print(Ic)
+print(np.mean(unp.nominal_values(Ic)))
+print(np.sqrt(1/7*np.sum((unp.std_devs(Ic))**2)))
+
 Icmean = ufloat(np.mean(unp.nominal_values(Ic)), stats.sem(unp.nominal_values(Ic)))
 Dcmean = ufloat(np.mean(unp.nominal_values(Dc)), stats.sem(unp.nominal_values(Dc)))
 
@@ -126,3 +130,8 @@ plt.savefig("ImpDump.pdf")
 
 print(DUnull, Dalpha)
 print(IUnull, Ialpha)
+
+print(cD * (4.43*0.5) * 10 ** (-3))
+print(cD * (8.67*0.5) * 10 ** (-3))
+print(cD * (4.52*0.5) * 10 ** (-3))
+print(cD * (8.76*0.5) * 10 ** (-3))

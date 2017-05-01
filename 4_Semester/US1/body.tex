@@ -253,12 +253,12 @@ Zylinder aus zwei kürzeren Stücken zusammengesetzt wurde und sich so eine Sign
 Grenzschicht zwischen den beiden Zylindern bildet. Für das Impuls-Echo-Verfahren ergeben sich:
 \begin{align*}
   U_0 &= \SI{0.84(33)}{\volt}\\
-  \alpha &= \num{-21(5)}
+  \alpha &= \SI[per-mode=reciprocal]{-21(5)}{\per\metre}
 \end{align*}
 und für das Durchschallungsverfahren:
 \begin{align*}
   U_0 &= \SI{0.69(18)}{\volt}\\
-  \alpha &= \num{-32(11)}
+  \alpha &= \SI[per-mode=reciprocal]{-32(11)}{\per\metre}
 \end{align*}
 Die Verläufe mit Regression sind in den Abbildungen \ref{abb:3} und \ref{abb:4} dargestellt.
 \begin{figure}
@@ -279,7 +279,7 @@ Die Verläufe mit Regression sind in den Abbildungen \ref{abb:3} und \ref{abb:4}
   der Signallaufzeit bei beiden Messmethoden mit Regression.}
 \end{figure}
 \subsection{Vermessung des Augenmodells}
-Die gewonnen Messwerte sind in Tabelle \ref{tab:3} dargestellt. Für die Schallgeschwindigkeit
+Die gewonnen Messwerte sind in Tabelle \ref{tab:3} dargestellt. Für die Schallgeschwindigkeit\cite{anleitung}
 in der Glaskörperflüssigkeit gilt $c_{GK} = \SI[per-mode=reciprocal]{1410}{\metre\per\second}$
 und für die Linse $c_L = \SI[per-mode=reciprocal]{2500}{\metre\per\second}$
 \begin{figure}
@@ -295,8 +295,7 @@ und für die Linse $c_L = \SI[per-mode=reciprocal]{2500}{\metre\per\second}$
     Retina & 69.60 \\
     \bottomrule
   \end{tabular}
-  \caption{Ergebnisse der Vermessung des Augenmodells im Maßstab 3:1. Angegeben sind
-  die verfahrensbedingt erhaltenen doppelten Laufzeiten.}
+  \caption{Messergebnisse.}
   \label{tab:3}
 \end{subtable}
 \begin{subtable}{0.59\textwidth}
@@ -311,18 +310,93 @@ und für die Linse $c_L = \SI[per-mode=reciprocal]{2500}{\metre\per\second}$
     Retina & 52.24 & 17.42\\
     \bottomrule
   \end{tabular}
-  \caption{Berechnete Abstände zwischen Schallsonde und Grenzschichten, angegeben
-  für das Augenmodell (Maßstab 3:1) und zurückgerechnet auf ein menschliches Auge.}
-  \label{tab:3}
+  \caption{Berechnete Werte.}
+  \label{tab:4}
 \end{subtable}
+\caption{Dargestellt sind in \subref{tab:3} die Ergebnisse der Vermessung des Augenmodells im Maßstab 3:1,
+angegeben als Verfahrensbedingt doppelte Laufzeiten. In \subref{tab:4} finden sich
+die berechnete Abstände zwischen Schallsonde und den angegebenen Grenzschichten
+für das Augenmodell (Maßstab 3:1) und zurückgerechnet auf ein menschliches Auge. }
+\end{figure}
+\subsection{Bestimmung der Dicke von Acrylplatten mithilfe des Cepstrum}
+Das vermessene Cepstrum findet sich in Abbildung \ref{abb:5}, die daraus erhaltenen
+Messwerte in Tabelle \ref{tab:5}.
+\begin{figure}
+\begin{subfigure}{0.79\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{Cepstrum2.png}
+  \caption{Ausschnitt des aufgenommenes Cepstrum.}
+  \label{abb:5}
+\end{subfigure}
+\begin{subtable}{0.2\textwidth}
+  \centering
+  \begin{tabular}{c c }
+    \toprule
+    Peak & $t$/\si{\micro\second} \\
+    \midrule
+    1 & 4.43\\
+    2 & 8.67\\
+    3 & 13.19\\
+    4 & 17.43\\
+    \bottomrule
+  \end{tabular}
+  \caption{Messwerte.}
+  \label{tab:5}
+\end{subtable}
+\caption{Das Bild des Aufgenommenen Cepstrums wurde derart beschnitten, dass die
+Reflextionen der Grenzschichtend der Vorlaufstrecke nicht mitaufgenommen werden.
+Ebenfalls wurde der Bereich Oberhalb von 100 Einheiten der y-Achse (im Original ebenfalls
+Einheitenlos) abgeschnitten, da dort keine Informationen enthalten sind. Bei den
+Messwerten in \subref{tab:5} gehören 1. und 2. sowie 3. und 4. Messwert so zusammen,
+dass 3. und 4. Reflextionen von 1. und 2. sind. Wieder handelt es sich um die doppelten Werte.}
+\end{figure}
+Es ergeben sich also zwei Werte für die Dicke der Platten. Als Schallgeschwindigkeit wird
+der aus dem Durchschallverfahren bestimmte Wert genutzt, da sein Fehlerintervall kleiner
+ist. In Tabelle \ref{tab:6} sind die bestimmte Werte für die Plattendicke angegeben.
+\begin{figure}
+\begin{subtable}{0.7\textwidth}
+  \centering
+  \begin{tabular}{S S S S S}
+    \toprule
+    \multicolumn {1}{c}{} & \multicolumn{2}{c}{Platte 1} & \multicolumn {2}{c}{Platte 2}\\
+    Paar & {$\symup{\Delta}t$/\si{\micro\second}} & {$d$/\si{\milli\metre}} & {$\symup{\Delta}t$/\si{\micro\second}} & {$d$/\si{\milli\metre}} \\
+    \midrule
+    1 & 2.215 & \num{6.04(5)} & 4.335 & \num{11.82(9)} \\
+    2 & 2.260 & \num{6.16(5)} & 4.380 & \num{11.95(9)} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Berechnete Werte.}
+  \label{tab:6}
+\end{subtable}
+\begin{subtable}{0.29\textwidth}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    Platte & $d$/\si{\milli\metre} \\
+    \midrule
+    1 & 7\\
+    2 & 12\\
+    \bottomrule
+  \end{tabular}
+  \caption{Vergleichswerte.}
+  \label{tab:7}
+\end{subtable}
+\caption{Dargestellt sind in \subref{tab:6} die Ergebnisse für beide gemessenen Paare von Peaks.
+Die Differenz $\symup{\Delta}t$ der Laufzeiten ist dabei aus den Messwerten (siehe Tabelle \ref{tab:5})
+berechnet und halbiert, da die doppelte Laufzeit gemessen wurde. In \subref{tab:7} finden
+sich die durch direkte Vermessung der Platten erhaltenen Werte.}
 \end{figure}
 \section{Diskussion}
-\subsection{Schallgeschwindigkeitsmessung}
 Bei allen Messwerten muss mit einem nicht quantifizierbaren Fehler gerechnet werden,
 da das Ablesen der Werte in der Messsoftware durch das Setzen von Markern geschieht,
-die den Peak nie genau treffen können.\\
+die den Peak nie genau treffen können. Die erhaltenen Abweichungen führen bei den
+hohen Schallgeschwindigkeiten im Material leicht zu großen Abweichungen. Dieser
+Fehler wiegt insbesondere bei den letzten beiden Versuchsteilen schwer, da der erhobene
+Datensatz dort extrem klein war, weshalb ein ansonsten durch die statistische Behandlung der
+Daten veringerter Fehler dort ungedämpft in die Ergebnisse eingeht.
+\subsection{Schallgeschwindigkeitsmessung}
 Beide Ergebnisse liegen innerhalb der gegenseitigen Messungenauigkeit. Ebenfalls liegt
-der Literaturwert von \SI[per-mode=reciprocal]{2730}{\metre\per\second} in den Intervallen
+der Literaturwert\cite{acryl} von \SI[per-mode=reciprocal]{2730}{\metre\per\second} in den Intervallen
 beider Ergebnisse. Das Fehlerintervall des durch die Durchschallungsmessung gewonnen Wertes
 ist jedoch geringer als das des Wertes aus der Impuls-Echo-Methode. Dies erscheint logisch,
 muss das Signal bei der Impuls-Echo-Methode den doppelten Weg zurücklegen, weshalb eventuelle
@@ -339,6 +413,19 @@ Hohe relative Fehler der Werte lassen sich wieder durch den begrenzten Datensatz
 erklären. Ebenfalls problematisch sind die langen Laufzeiten bei der Impuls-Echo-Messung.
 Die erhaltenen Daten sind daher bereits stärker gedämpft, weshalb die Ausgleichsrechnung
 statisch signifikantere Fehler ergeben sollte.
+\subsection{Messung am Augenmodell}
+Für das Augenmodell ergeben sich realistische Werte. Der Durchmesser eines Menschlichen
+Auges liegt laut Literatur\cite{auge} zwischen \SI{17}{\milli\metre} und \SI{30}{\milli\metre},
+je nach Alter des betrachteten Präparates. Der ermittelte Werte trifft daher auf das Auge eines
+Kleinkindes zu.
+\subsection{Dickenbestimmung per Cepstrum}
+Im Vergleich mit den durch direkte Vermessung erhaltenen Werten zeigen sich Abweichungen.
+Lediglich bei einem der vier Werte liegt der Vergleichswert im Fehlerintervall. Die maximale relative
+Abweichung ist mit \SI{0.96}{\milli\metre} (dies entspricht \SI{13}{\percent}) jedoch
+vergleichsweise gering. Insbesondere bei den in Acryl vorhandenen hohen Schallgeschwindigeiten
+kann dies leicht zu großen Abweichungen führen.
+
+
 
 \newpage
 \nocite{*}

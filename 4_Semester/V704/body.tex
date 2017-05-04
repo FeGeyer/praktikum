@@ -1,6 +1,8 @@
 \maketitle
+\setcounter{page}{1}
 \tableofcontents
 \newpage
+\pagenumbering{arabic}
 \section{Theorie}
 \subsection{Wirkungsquerschnitt und exponentielles Absorbtionsgesetz}
 
@@ -55,7 +57,14 @@ erreicht werden, treten vor allem die folgenden drei Arten von Wechselwirkungen 
   Teil seiner Energie und beschleunigt dabei das getroffene Elektron. Beide Teilchen bewegen
   sich dabei weiter, ändern ihre Richtung jedoch (sie werden "gestreut"). Dadurch nimmt
   die Intensität des Teilchenstrahls ab. Der dabei zu betrachtene Wirkungsquerschnitt bestimmt
-  sich jedoch nicht nach dem weiter oben genannten Zusammenhang. Für $\gamma$-Quanten, deren
+  sich jedoch nicht nach dem weiter oben genannten Zusammenhang, sondern durch:
+  \begin{equation}
+    \sigma = 2 \pi r_\symup{e}^2 \left\{ \frac{1+\epsilon}{\epsilon^2} \left[ \frac{2(1+\epsilon)}
+    {1+2\epsilon} - \frac{1}{\epsilon} \ln(1+2\epsilon) \right] + \frac{1}{2\epsilon}
+    \ln(1+2\epsilon) - \frac{1+3\epsilon}{(1+2\epsilon)^2} \right\}
+    \label{eqn:3}
+  \end{equation}
+  mit $\epsilon = \symup{E}_\gamma / m_0c^2$. Für $\gamma$-Quanten, deren
   Energie klein im Vergleich zur Ruheenergie des getroffenen Elektrons ist. $\sigma$ bestimmt sich
   dann näherungsweise als
   \begin{equation}
@@ -72,11 +81,106 @@ Die oben genannten Effekte treten beim Durchgang eines $\gamma$-Strahls durch ei
 Absorbermaterial zusammen auf und überlagern sich daher, es kann jedoch in bestimmten
 Energiebereichen eine Dominanz bestimmter Effekte beobachtet werden. Der Verlauf einer solchen
 Kurve ist in Abbildung \ref{abb:1} dargestellt.
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=0.3\textwidth]{Germanium.png}
+    \caption{Energieabhängigkeit der einzellnen Wechselwirkungen von $\gamma$-Strahlung in
+    einem Germaniumabsorber sowie die Totalabsorbtion \cite{anleitung}.}
+    \label{abb:1}
+\end{figure}
 \subsection{Wechselwirkung von Beta-Strahlung mit Materie}
-
+$\beta$-Stahlung besteht aus bei Kernprozessen freigewordenen Elektronen ($\beta^-$) bzw.
+Positronen ($\beta^+$). Diese entstehen durch Umwandlung überschüssiger Neutronen bzw.
+Protonen in instabilen Kernkonfigurationen. Die Umwandlungen finden dabei nach folgenden
+Umwandlungsgleichungen statt:
+\begin{align}
+  \beta^- \, &: \, \symup{n} \rightarrow \symup{p} + \symup{e^-} + \symup{\bar{\nu}_e} \\
+  \beta^+ \, &: \, \symup{p} \rightarrow \symup{n} + \symup{e^+} + \symup{\nu_e}.
+\end{align}
+Die Maximalenergie des $\beta$-Teilchens ist dabei die in diesem Prozess freiwerdende Energie,
+diese muss aber nicht zwangsläufig komplett auf das $\beta$-Teilchen übertragen werden.
+Das Energiespektrum ist daher im gegensatz zum $\gamma$-Quant kontinuierlich. Sowohl
+das entstehende Kernteilchen sowie das (Anti-)Neutrino treten in keine Nennenswerte Wechselwirkung
+mit dem bestrahlten Material. Im Gegensatz zum $\gamma$-Quant kann ein $\beta$-Teilchen
+bei einem Durchgang durch die Absorberschicht weitaus mehr Wechselwirkungen erleiden,
+was die Beschreibung durch ein Absorbtionsgesetz schwierig macht. Die Vielzahl der
+Wechselwirkungen lässt sich dabei in die folgenden drei Prozesse einteilen:
+\begin{enumerate}
+  \item \textbf{Elastische Streuung an Atomkernen}: Die geladenen $\beta$-Teilchen
+  treten dabei in das Coulomb-Feld der Atomkerne ein und werden daran abgelenkt.
+  Dieser Prozess findet oft hintereinander statt, sodass das Teilchen einen weitaus längeren
+  Weg durch die Materieschicht zurücklegt, als nur den theoretische Weg zwischen Quelle und
+  Ende der Bahn (der sogenannten maximalen Reichweite $R_{\symup{max}}$).
+  Die Richtungsänderung und damit die Streuung des Strahls ist dabei enorm,
+  die Bremsung der einzellnen Teilchen aber nur gering.
+  \item \textbf{Inelastische Streuung an Atomkernen}: In diesem Fall erfährt das Teilchen
+  eine Beschleunigung durch das elektrostatische Feld des Atomkerns. Dabei muss
+  Energie in Form von Strahlung abgegeben werden. Dieser Verlust in Form von \textbf{Bremsstrahlung}
+  führt zu einer Abbremsung des Teilchens, für realistische Energien von $\beta$-Teilchen
+  kann dadurch die beobachteten, bis zur kompletten Bremsung gehenden, Energieverluste
+  jedoch nicht erklärt werden.
+  \item \textbf{Inelastische Streuung an Elektronen}: Hiebei sorgen Stöße zwischen
+  Elektronen des Absorbermaterials und den $\beta$-Teilchen für eine Anregung oder das vollständige
+  Entfernen von Elektronen aus den Elektronenschalen der Absorberatome (Ionisation). Ein einzellner
+  solcher Stoß führt nur zu geringen Energieverlusten, ein $\beta$-Teilchen führt jedoch
+  viele solcher Stöße hintereinander aus, sodass bereits geringe Plattendicken zu vollständiger
+  Abbremsung der Teilchen bewirkt, insbesondere bei Platten aus schweren Elementen
+  mit dementsprechend vielen Elektronen.
+\end{enumerate}
+Da es nicht vorherzusagen ist, welche dieser Stoßprozesse das $\beta$-Teilchen tatsächlich
+durchführt, kann kein allgemeingültiges Absorbtionsgesetz angegeben werden. Werden jedoch
+nicht zu dicke Schichten Absorbermaterial sowie Strahler, bei denen die Energieverteilung
+statistisch (siehe Abbildung \ref{abb:2}) ist genommen, ist ein Absorbtionsgesetz wie \ref{eqn:1} in guter Näherung gültig.
+Die Absorbtionskurve verhält sich dann wie in Abbildung \ref{abb:3} dargestellt. Durch
+schneiden der linearen Verlängerung des anfänglichen Abfalls der Intensität mit der
+Untergrundstrahlung kann ein guter Näherungswert für $R_\symup{max}$ gewonnen werden,
+aus dem sich nach folgender empirisch gewonnenen Formel die Maximalenergie der
+emmitierten Teilchen bestimmen lässt:
+\begin{equation}
+  E_\symup{max} = 1.92 \sqrt{R_\symup{max}^2 + 0.22 R_\symup{max}} \; [\si{\mega\electronvolt}],
+  \label{eqn:3}
+\end{equation}
+wobei $R_\symup{max}$ einer Massenbelegung (Einheit: \si{\gram\per\square\centi\metre})
+entspricht.
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+      \includegraphics[width=\textwidth]{betaspektrum.png}
+      \caption{Kontinuierliches Emmisionsspektrum eines $\beta$-Strahler \cite{anleitung}.}
+      \label{abb:2}
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+      \includegraphics[width=\textwidth]{betafit.png}
+      \caption{Absorbtionskure für einen $\beta$-Strahler, die lineare Weiterführung
+      ist gestrichelt angedeutet \cite{anleitung}.}
+      \label{abb:3}
+  \end{subfigure}
+  \caption{}
+\end{figure}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+Der Versuchsaufbau besteht aus einem in einer Abschirmung angebrachten Geiger-Müller-Zählrohr,
+das in gerader Linie auf die Strahlenquelle gerichtet ist. Zwischen Strahlenquelle und Zählrohr
+können in einem Plattenwagen Absorberplatten unterschiedlicher Dicke angebracht werden.
+Die Messzeit des Zählrohrs lässt sich dabei in Sekunden einstellen und variieren.
+Als Strahlenquelle für die Messung mit $\gamma$-Strahlung wird eine $\ce{^{137}Cs}$-Probe verwendet,
+für die mit $\beta$-Strahlung eine $\ce{^{99}Tc}$-Probe.
+\begin{figure}
+  \centering
+    \includegraphics[width=0.6\textwidth]{aufbau.png}
+    \caption{Skizze des Versuchsaufbaus \cite{anleitung}.}
+    \label{abb:4}
+\end{figure}
 \subsection{Versuchsdurchführung}
+Zuerst werden die Dicken der Platten mit einer Schiebelehre vermessen sowie die Nullraten
+an den Zählrohren für \SI{1000}{\second} gemessen. Dann werden für verschiedene Plattendicken
+und Materialien ($\ce{Cu}$, $\ce{Zn}$ bei $\gamma$-Strahlung sowie $\ce{Pb}$ und $\ce{Fe}$
+bei $\beta$-Strahlung)
+die Zählraten an den Geiger-Müller-Zählrohren gemessen, die Zähldauer wird wenn nötig
+erhöht um auswertbare Daten zu erhalten. Die Platten werden dabei kombiniert und eng
+aneinander gedrückt, um höhere Dicken zu erreichen.
 \section{Auswertung}
 \section{Diskussion}
 \newpage

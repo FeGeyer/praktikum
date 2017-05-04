@@ -182,6 +182,39 @@ die Zählraten an den Geiger-Müller-Zählrohren gemessen, die Zähldauer wird w
 erhöht um auswertbare Daten zu erhalten. Die Platten werden dabei kombiniert und eng
 aneinander gedrückt, um höhere Dicken zu erreichen.
 \section{Auswertung}
+\subsection{Bestimmung der Absoprtionskoeffizienten}
+Für den Absorptionskoeffizient von Kupfer gilt \SI[per-mode=reciprocal]{2.77(15)e5}{\per\metre}
+\begin{table}
+  \centering
+  \begin{tabular}{c c c}
+    \toprule
+     & Zink & Kupfer \\
+    \midrule
+    N(0) / \si[per-mode=reciprocal]{\per\second} & \num{139.8(29)} & \num{144.6(11)}  \\
+    $\mu$ / \si[per-mode=reciprocal]{\per\metre} & \num{47.3(17)} & \num{63.0(12)} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Ergebnisse.}
+  \label{tab:1}
+\end{table}
+
+\begin{figure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{CuGamma.pdf}
+    \caption{Messwerte von Kupfer mit Regression.}
+    \label{sub:1}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{ZnGamma.pdf}
+    \caption{Messwerte von Zink.}
+    \label{sub:2}
+  \end{subfigure}
+  \caption{Ergebnisse.}
+  \label{fig:1}
+\end{figure}
+
 \section{Diskussion}
 \newpage
 \nocite{*}

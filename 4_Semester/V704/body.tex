@@ -189,8 +189,18 @@ die Zählraten an den Geiger-Müller-Zählrohren gemessen, die Zähldauer wird w
 erhöht um auswertbare Daten zu erhalten. Die Platten werden dabei kombiniert und eng
 aneinander gedrückt, um höhere Dicken zu erreichen.
 \section{Auswertung}
-\subsection{Bestimmung der Absoprtionskoeffizienten}
-Für den Absorptionskoeffizient von Kupfer gilt \SI[per-mode=reciprocal]{2.77(15)e5}{\per\metre}
+\subsection{Bestimmung der Absorptionskoeffizienten für Zink und Kupfer.}
+\label{sec:a}
+Aus Formel \eqref{eqn:1} ergibt sich
+\begin{equation}
+  \symup{ln}(N(D)) = - \mu D + \symup{ln}(N_0) \, .
+  \label{eqn:6}
+\end{equation}
+Aus dieser Formel lässt sich mittels linearer Regression der Absorptionskoeffizient
+$\mu$ und die Größe $N(0)$ für die beiden Probematerialien bestimmen. Verwendet wurde
+ein $\ce{^{137}Cs}$-Strahler.
+Die Ergebnisse sind in Tabelle \ref{tab:1} dargestellt.
+
 \begin{table}
   \centering
   \begin{tabular}{c c c}
@@ -201,9 +211,11 @@ Für den Absorptionskoeffizient von Kupfer gilt \SI[per-mode=reciprocal]{2.77(15
     $\mu$ / \si[per-mode=reciprocal]{\per\metre} & \num{47.3(17)} & \num{63.0(12)} \\
     \bottomrule
   \end{tabular}
-  \caption{Ergebnisse.}
+  \caption{Absorptionskoeffizient $\mu$ und $N_0$ für Zink und Kupfer.}
   \label{tab:1}
 \end{table}
+
+Die Regression selbst findet sich in Abbildung \ref{fig:1}.
 
 \begin{figure}
   \begin{subfigure}{0.5\textwidth}
@@ -215,11 +227,48 @@ Für den Absorptionskoeffizient von Kupfer gilt \SI[per-mode=reciprocal]{2.77(15
   \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{ZnGamma.pdf}
-    \caption{Messwerte von Zink.}
+    \caption{Messwerte von Zink mit Regression.}
     \label{sub:2}
   \end{subfigure}
-  \caption{Ergebnisse.}
+  \caption{Grafische Darstellung der Regression.}
   \label{fig:1}
+\end{figure}
+\newpage
+\subsection{Vergleich zwischen gemessenen und gerechneten Werten.}
+Für die Theoriewerte des Absorptionskoeffizienten der Compton-Streuung
+$\mu_{\symup{com}}$ wird \eqref{eqn:4} mit \eqref{eqn:5} verwendet. Dabei ist
+$\epsilon = 1.295$ und $r_{\symup e} = \SI{2.82e-15}{\metre}$.
+\begin{table}
+  \centering
+  \begin{tabular}{c c c c c c c}
+    \toprule
+    Material & $\sigma_{\symup{com}}$ / \si{\centi\metre\squared} & $z$ & $\rho$ / \si[per-mode=reciprocal]{\gram\per\cubic\centi\metre}
+    & $M$ / \si[per-mode=reciprocal]{\gram\per\mol} & $\mu_{\symup{com}}$ / \si[per-mode=reciprocal]{\per\meter} & $\mu_{\symup{mess}}$ / \si[per-mode=reciprocal]{\per\meter} \\
+    \midrule
+    Kupfer & \num{2.57e-25} & 29 & \num{8.96} &
+    \num{63.55} & \num{63.2} & \num{63.0(12)} \\
+    Zink & \num{2.57e-25} & 30 & \num{7.14} &
+    \num{65.38} & \num{50.6} & \num{47.3(17)} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Werte zur Bestimmung von $\mu_{\symup{com}}$.}
+  \label{tab:2}
+\end{table}
+Es zeigt sich, dass sich die Werte für Kupfer innerhalb der Messungenauigkeit decken.
+Bei Zink ist dies nicht der Fall, jedoch ist der relative Fehler mit (\num{6.5(33)})\%
+verhältnismäßig gering. Die gute Übereinstimmung legt den Schluss nahe, dass in diesem Versuch
+der Compton-Effekt als Absorptionsmechanismus überwiegt. Ein weiterer Beleg dafür ist, dass für die Paarerzeugung
+die Energie fehlt. Möglicherweise spielt bei Zink der Photo-Effekt noch eine Rolle.
+
+\subsection{\texorpdfstring{\gamma}-Strahlung.}
+Nun wird für $\beta$-Strahlung so wie in Kapitel \ref{sec:a} eine Absorptionskurve aufgenommen
+und daraus der Absorptionskoeffizient bestimmt. Das verwendete Material ist Aluminium.
+Die dazugehörige Abbildung ist
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{AlBeta.pdf}
+  \caption{Absorptionskurve für $\beta$-Strahlung mit zweifacher Regression.}
+  \label{}
 \end{figure}
 
 \section{Diskussion}

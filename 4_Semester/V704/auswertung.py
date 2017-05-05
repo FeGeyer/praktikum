@@ -43,6 +43,8 @@ ZnN0 = ufloat(paramsZn[1], errorsZn[1])
 ZnN0 = unp.exp(ZnN0)
 ZnMu = ufloat(paramsZn[0], errorsZn[0])
 
+print("")
+print("Aufgabenteil a)")
 print("Kupfer (N(0), mu): ", CuN0, CuMu)
 print("Zink (N(0), mu): ",ZnN0, ZnMu)
 
@@ -98,8 +100,11 @@ MCu = 63.546 # g/mol
 muZn = zZn*const.N_A*rhoZN/MZn * sigma *100
 muCu = zCu*const.N_A*rhoCu/MCu * sigma *10**(2)
 
+print("")
+print("Aufgabenteil b)")
 print("Errechneter Wert mu Zink: ", muZn)
 print("Errechneter Wert mu Kupfer: ", muCu)
+print("Relative Abweichung Zink: ", (1- ZnMu/muZn)*100)
 
 # Aufgabenteil c)
 # Einlesen der Daten
@@ -111,10 +116,10 @@ ln_Al = np.log(AlN/AlT - NulleffektAl)
 # Lineare Regression
 def g(x, m, n):
     return m*x + n
-paramsAl1, covarianceAl1 = curve_fit(g, AlD[0:5], ln_Al[0:5])
+paramsAl1, covarianceAl1 = curve_fit(g, AlD[0:4], ln_Al[0:4])
 errorsAl1 = np.sqrt(np.diag(covarianceAl1))
 AlN1 = ufloat(paramsAl1[1], errorsAl1[1])
-AlN1 = unp.exp(AlN1)
+#AlN1 = unp.exp(AlN1)
 AlM1 = ufloat(paramsAl1[0], errorsAl1[0])
 
 #def h(x, b):
@@ -124,24 +129,34 @@ AlM1 = ufloat(paramsAl1[0], errorsAl1[0])
 #AlN2 = ufloat(paramsAl2[0], errorsAl2[0])
 #AlN2 = unp.exp(AlN2)
 #AlM2 = ufloat(paramsAl2[0], errorsAl2[0])
-
-print(AlN1, AlM1)
+print("")
+print("Aufgabenteil c)")
+print("Y-Achsenabschnitt: ",AlN1)
+print("Steigung: ", AlM1)
 #print(AlN2)
 
 # Bestimmung von Rmax
 
 r = (NulleffektAl - AlN1)/(AlM1)*10**(6)
-print(r)
+print("Rmax in mikro m: ",r)
+rho = 2.71
+rmax = r*10**(-4) * rho
+E = 1.92*unp.sqrt((rmax)**2 + 0.22*rmax)
+print("Emax in MeV: ", E)
 
-
+# Plot
 plt.figure(3)
-al = np.linspace(100, 410)
+al2 = np.linspace(90*10**(-6), 277*10**(-6))
+al = np.linspace(100*10**(-6), 410*10**(-6))
 plt.yscale('log')
-plt.xlabel(r"$D / \mu m$")
+plt.xlabel(r"$D / \mathrm{\mu m}$")
 plt.ylabel(r"$N / \mathrm{s}^{-1}$")
-plt.xlim(120, 410)
-plt.plot(AlD*10**(6), (AlN/AlT), 'ro', label="Messwerte")
-plt.axhline(y=NulleffektAl,xmin=0, xmax=1, hold=None, label="Fit")
+plt.xlim(90*10**(-6), 410*10**(-6))
+plt.xticks([1*10**(-4), 1.5*10**(-4), 2*10**(-4), 2.5*10**(-4), 3*10**(-4), 3.5*10**(-4), 4*10**(-4)],
+["100", "150", "200", "250", "300", "350", "400"])
+plt.plot(AlD, (AlN/AlT), 'ro', label="Messwerte")
+plt.axhline(y=NulleffektAl,xmin=0, xmax=1, hold=None, label="Regression nach Rmax")
+plt.plot(al2, np.exp(g(al2, *paramsAl1)), 'g', label="Regression vor Rmax")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("AlBeta.pdf")

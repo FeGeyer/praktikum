@@ -4,6 +4,7 @@ import uncertainties.unumpy as unp
 from uncertainties import ufloat
 from scipy.optimize import curve_fit
 from scipy.stats import stats
+import scipy.constants as const
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 18
 
@@ -42,8 +43,8 @@ ZnN0 = ufloat(paramsZn[1], errorsZn[1])
 ZnN0 = unp.exp(ZnN0)
 ZnMu = ufloat(paramsZn[0], errorsZn[0])
 
-print("Kupfer: ", CuN0, CuMu)
-print("Zink: ",ZnN0, ZnMu)
+print("Kupfer (N(0), mu): ", CuN0, CuMu)
+print("Zink (N(0), mu): ",ZnN0, ZnMu)
 
 # Plots
 # Kupfer
@@ -81,3 +82,66 @@ plt.plot(x2plot, np.exp(f(x2plot, *paramsZn)), 'b', label="Regression")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("ZnGamma.pdf")
+
+# Auswertung b)
+NL = 2.69*10**(19) # in cm^(-3)
+sigma = 2.565592506*10**(-25) # in cm²
+
+zZn = 30
+rhoZN = 7.14 # g/cm^3
+MZn = 65.38 # g/mol
+
+zCu = 29
+rhoCu = 8.96 # g/cm³
+MCu = 63.546 # g/mol
+
+muZn = zZn*const.N_A*rhoZN/MZn * sigma *100
+muCu = zCu*const.N_A*rhoCu/MCu * sigma *10**(2)
+
+print("Errechneter Wert mu Zink: ", muZn)
+print("Errechneter Wert mu Kupfer: ", muCu)
+
+# Aufgabenteil c)
+# Einlesen der Daten
+AlD, AlDerr, AlT, AlN = np.genfromtxt('ALBeta.txt', unpack=True)
+# Nulleffekt
+NulleffektAl = 0.256
+AlD = AlD *10**(-6)
+ln_Al = np.log(AlN/AlT - NulleffektAl)
+# Lineare Regression
+def g(x, m, n):
+    return m*x + n
+paramsAl1, covarianceAl1 = curve_fit(g, AlD[0:5], ln_Al[0:5])
+errorsAl1 = np.sqrt(np.diag(covarianceAl1))
+AlN1 = ufloat(paramsAl1[1], errorsAl1[1])
+AlN1 = unp.exp(AlN1)
+AlM1 = ufloat(paramsAl1[0], errorsAl1[0])
+
+#def h(x, b):
+#    return b
+#paramsAl2, covarianceAl2 = curve_fit(h, AlD[8], ln_Al[8])
+#errorsAl2 = np.sqrt(np.diag(covarianceAl2))
+#AlN2 = ufloat(paramsAl2[0], errorsAl2[0])
+#AlN2 = unp.exp(AlN2)
+#AlM2 = ufloat(paramsAl2[0], errorsAl2[0])
+
+print(AlN1, AlM1)
+#print(AlN2)
+
+# Bestimmung von Rmax
+
+r = (NulleffektAl - AlN1)/(AlM1)*10**(6)
+print(r)
+
+
+plt.figure(3)
+al = np.linspace(100, 410)
+plt.yscale('log')
+plt.xlabel(r"$D / \mu m$")
+plt.ylabel(r"$N / \mathrm{s}^{-1}$")
+plt.xlim(120, 410)
+plt.plot(AlD*10**(6), (AlN/AlT), 'ro', label="Messwerte")
+plt.axhline(y=NulleffektAl,xmin=0, xmax=1, hold=None, label="Fit")
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("AlBeta.pdf")

@@ -96,6 +96,7 @@ Kurve ist in Abbildung \ref{abb:1} dargestellt.
     \label{abb:1}
 \end{figure}
 \subsection{Wechselwirkung von Beta-Strahlung mit Materie}
+\label{sec:beta}
 $\beta$-Stahlung besteht aus bei Kernprozessen freigewordenen Elektronen ($\beta^-$) bzw.
 Positronen ($\beta^+$). Diese entstehen durch Umwandlung überschüssiger Neutronen bzw.
 Protonen in instabilen Kernkonfigurationen. Die Umwandlungen finden dabei nach folgenden
@@ -189,7 +190,8 @@ die Zählraten an den Geiger-Müller-Zählrohren gemessen, die Zähldauer wird w
 erhöht um auswertbare Daten zu erhalten. Die Platten werden dabei kombiniert und eng
 aneinander gedrückt, um höhere Dicken zu erreichen.
 \section{Auswertung}
-\subsection{Bestimmung der Absorptionskoeffizienten für Zink und Kupfer.}
+\subsection{Bestimmung der Absorptionskoeffizienten für Zink und Kupfer unter Einfluss von
+\texorpdfstring{$\gamma$} \, - Strahlung.}
 \label{sec:a}
 Aus Formel \eqref{eqn:1} ergibt sich
 \begin{equation}
@@ -235,6 +237,7 @@ Die Regression selbst findet sich in Abbildung \ref{fig:1}.
 \end{figure}
 \newpage
 \subsection{Vergleich zwischen gemessenen und gerechneten Werten.}
+\label{sec:vergleich}
 Für die Theoriewerte des Absorptionskoeffizienten der Compton-Streuung
 $\mu_{\symup{com}}$ wird \eqref{eqn:4} mit \eqref{eqn:5} verwendet. Dabei ist
 $\epsilon = 1.295$ und $r_{\symup e} = \SI{2.82e-15}{\metre}$.
@@ -256,22 +259,62 @@ $\epsilon = 1.295$ und $r_{\symup e} = \SI{2.82e-15}{\metre}$.
 \end{table}
 Es zeigt sich, dass sich die Werte für Kupfer innerhalb der Messungenauigkeit decken.
 Bei Zink ist dies nicht der Fall, jedoch ist der relative Fehler mit (\num{6.5(33)})\%
-verhältnismäßig gering. Die gute Übereinstimmung legt den Schluss nahe, dass in diesem Versuch
-der Compton-Effekt als Absorptionsmechanismus überwiegt. Ein weiterer Beleg dafür ist, dass für die Paarerzeugung
-die Energie fehlt. Möglicherweise spielt bei Zink der Photo-Effekt noch eine Rolle.
+verhältnismäßig gering.
 
-\subsection{\texorpdfstring{\gamma}-Strahlung.}
+\subsection{Absorptionskurve der \texorpdfstring{$\beta$} \, - Strahlung.}
 Nun wird für $\beta$-Strahlung so wie in Kapitel \ref{sec:a} eine Absorptionskurve aufgenommen
 und daraus der Absorptionskoeffizient bestimmt. Das verwendete Material ist Aluminium.
-Die dazugehörige Abbildung ist
+Der dazugehörige Graph ist in Abbildung \ref{fig:2} zu finden. Die Regression wurde ein zwei
+Bereiche aufgeteilt, der Schnittpunkt der beiden linearen Ausgleichsgraden ist $R_{\symup{max}}$,
+also die maximale Reichweite der $\beta$-Teilchen, siehe Abbildung \ref{abb:3}. Die Parameter der Regression finden sich
+in Tabelle \ref{tab:3}.
+\begin{table}
+  \centering
+  \begin{tabular}{c c c}
+    \toprule
+    & Steigung $m$ / \si[per-mode=reciprocal]{\per\meter} & Y-Achsenabschnitt $n$ / \si[per-mode=reciprocal]{\per\second} \\
+    \midrule
+    Regression 1 & \num{-3.28(31)e4} &  \num{6.8(4)} \\
+    Regression 2 & 0 & \num{0.256} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Parameter der beiden Regressionen aus der $\beta$-Absorptionskurve.}
+  \label{tab:3}
+\end{table}
+
+Mithilfe der Formel
+\begin{equation}
+  R_{\symup{max}} = \frac{m_2 - m_1}{n_1 - n_2}
+  \label{eqn:7}
+\end{equation}
+lässt sich aus den Werten der Regression der Schnittpunkt berechnen, also $R_{\symup{max}}$.
+Die x-Koordinate hat den Wert \SI{199(23)}{\micro\meter}. Mit diesem Wert
+lässt sich aus \eqref{eqn:3} die Maximalenergie des verwendeten Strahlers bestimmen.
+Zuvor wird, wie in Kapitel \ref{sec:beta} beschrieben, $R_{\symup{max}}$ mit der Dichte
+von Aluminum (\SI{2.71}{\gram\per\cubic\centi\meter}) multipliziert. Daraus folgt
+$E_{\symup{max}} = \SI{0.234(16)}{\mega\electronvolt}$.
+
 \begin{figure}
   \centering
   \includegraphics[scale=0.3]{AlBeta.pdf}
   \caption{Absorptionskurve für $\beta$-Strahlung mit zweifacher Regression.}
-  \label{}
+  \label{fig:2}
 \end{figure}
 
 \section{Diskussion}
+Besonders die Werte aus Kapitel \ref{sec:vergleich} liegen im Bereich der Messungenauigkeit
+oder haben einen vergleichweise geringen relativen Fehler. Die gute Übereinstimmung legt den Schluss nahe, dass in diesem Versuch
+der Compton-Effekt als Absorptionsmechanismus überwiegt. Ein weiterer Beleg dafür ist, dass für die Paarerzeugung
+die Energie fehlt. Möglicherweise spielt bei Zink der Photo-Effekt noch eine Rolle, der für
+die Abweichung im Bezug auf den Absorptionskoeffizienten $\mu_{\symup{com}}$ gesorgt hat.
+Alles in allem hat dieser Versuchsteil für gute Ergebnisse mit kleinen Unsicherheiten gesorgt. \\
+\\
+Bei der $\beta$-Strahlung weicht der x-Wert von $R_{\symup{max}}$ von dem tatsächlichen
+Schnittpunkt der Regressionen (ca. \SI{250}{\micro\meter}, siehe \ref{fig:2}) ab. Problematisch
+bei diesem Versuchsteil war, dass sich nur der letzte Messwert zur Bestimmung der zweiten Regression
+eignete. Dies ist eine mögliche Fehlerquelle. Außerdem ist die kosmische Hintergrundstrahlung
+immer ein Fehlerfaktor, der vielleicht durch längeres Messen der Nullrate minimiert werden könnte.
+
 \newpage
 \nocite{*}
 \printbibliography

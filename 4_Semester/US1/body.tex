@@ -3,9 +3,9 @@
 \newpage
 \section{Theorie}
 \label{sec:theorie}
-Dieser Versuch basiert zum Großteil auf Ultraschall. Dieser beginnt ungefähr bei
-\SI{20}{\kilo\hertz} und geht bis ca. \SI{1}{\giga\hertz}. Unterhalb, von \SI{16}{\hertz}
-bis \SI{20}{\kilo\hertz}, liegt der menschliche Hörbereich. Oberhalb von Ultraschall gibt
+Zentrales Thema des Versuchs ist Ultraschall. Dieser liegt ungefähr im Frequenzband von
+\SI{20}{\kilo\hertz} bis \SI{1}{\giga\hertz}. Unterhalb dieser Frequenz, von \SI{16}{\hertz}
+bis \SI{20}{\kilo\hertz}, liegt der menschliche Hörbereich. Oberhalb der Frequenz von Ultraschall gibt
 es noch den Hyperschall und unterhalb des menschlichen Hörbereichs den Infraschall. Schall
 lässt sich darstellen als longitudinale Welle
 \begin{equation}
@@ -13,22 +13,7 @@ lässt sich darstellen als longitudinale Welle
     \label{eqn:1}
 \end{equation}
 mit $Z = c \cdot \rho$ als akustische Impedanz, die abhängig ist von der Dichte
-$\rho$ des Materials und der materialabhängigen Schallgeschwindigkeit $c$. In Flüssigkeiten
-gilt für die Schallgeschwindigkeit
-\begin{equation}
-    c_{\symup{Fl}} = \sqrt{\frac{1}{\kappa \cdot \rho}}
-    \label{eqn:2}
-\end{equation}
-mit $\kappa$ als Kompressibilität und $\rho$ als Dichte. Bei Festkörpern können im Gegensatz
-zu Gasen und Flüssigkeiten nicht nur Longitudinalwellen, sondern auch Transversalwellen auftreten.
-Außerdem fließt statt der Kompressibilität $\kappa^{-1}$ in \eqref{eqn:2} das Elastizitätsmodul $E$ ein
-\begin{equation}
-    c_{\symup{Fe}} = \sqrt{\frac{E}{\rho}} \, .
-    \label{eqn:3}
-\end{equation}
-Allerdings sind Schallgeschwindigkeiten in Festkörpern richtungsabhängig, sodass
-sich die Schallgeschwindigkeit von longitudinalen - und transversalen Wellen unterscheidet.
-
+$\rho$ des Materials und der materialabhängigen Schallgeschwindigkeit $c$.
 Durch Absorption verliert die Schallwelle bei der Ausbreitung Energie. Beschreiben
 lässt sich dies durch die exponentielle Abnahme der Intensität $I$
 \begin{equation}
@@ -41,13 +26,8 @@ als Medium zwischen Ultraschallsender und Material genutzt wird.
 
 Außerdem wird ein Teil der Schalwelle reflektiert, sobald diese auf eine Grenzfläche trifft.
 Das Verhältnis aus reflektierter und einfallender Intensität wird als Reflexionskoeffizient
-$R$ bezeichnet
-\begin{equation}
-  R = \left(\frac{Z_1 - Z_2}{Z_1 + Z_2} \right)^2 \, .
-  \label{eqn:5}
-\end{equation}
-Das $Z$ steht für die bereits erwähnte akustische Impedanz. Aus $T = 1 - R$ lässt
-sich der transmittierte Anteil $T$ bestimmen.
+$R$ bezeichnet.
+
 
 Erzeugt werden kann Ultraschall unter Zuhilfenahme des piezo-elektrischen Effekts.
 Ein piezoelektrischer Kristall, meist ein Quartz, wird duch ein sich periodisch änderndes elektrisches Feld
@@ -69,54 +49,56 @@ um an Informationen zu gelangen. Dabei gibt es zwei Verfahren:
   \begin{figure}{h}
     \centering
     \includegraphics[scale=0.5]{durchschall.png}
-    \caption{Das Prinzip des Durchschallungsverfahren.}
+    \caption{Das Prinzip des Durchschallungsverfahren \cite{anleitung}.}
     \label{fig:1}
   \end{figure}
 
   \item \textbf{Impuls-Echo-Verfahren}
   Im Gegensatz zum Durchschallungsverfahren fungiert hier der Sender auch als Empfänger.
   Dabei kommt zum Tragen, dass Schalwellen an Grenzwellen teilweise reflektiert werden (siehe oben).
-  Fehlstellen können mit diesem Verfahren quantitativ bestimmt werden, so kann man aus der
+  Mit diesem Verfahren können Fehlstellen bestimmt werden, so kann man aus der
   Höhe des Echos auf die Größe der Fehlstelle schließen. Außerdem kann mithilfe der Formel
   \begin{equation}
     s = \frac{1}{2} c \, t
     \label{eqn:6}
   \end{equation}
-  bei bekannter Schallgeschwindigkeit $c$ die Position $S$ der Fehlstelle bestimmt werden, siehe Abbildung \ref{fig:2}.
-  Für die Darstellung der Laufzeitmessung gibt es den A-Scan, B-Scan und TM-Scan.
+  bei bekannter Schallgeschwindigkeit $c$ und Zeit $t$ die Position $s$ der Fehlstelle bestimmt werden, siehe Abbildung \ref{fig:2}.
+  Für die Darstellung der Laufzeitmessung gibt es den A-Scan, B-Scan und TM-Scan. Beim A-Scan wird die Amplitude
+  gemessen (A: Amplitude), beim B-Scan wird die Amplitude in Helligkeit (B steht für Brightness) umgewandelt und
+  beim TM-Scan wird die Amplitude gegen die gegeneinander verschobenen Echozüge von hintereinander liegenden Impulsen aufgetragen (TM: time motion).
   \begin{figure}
     \centering
     \includegraphics[scale=0.5]{impuls.png}
-    \caption{Skizze des Impuls-Echo-Verfahrens.}
+    \caption{Skizze des Impuls-Echo-Verfahrens \cite{anleitung}.}
     \label{fig:2}
   \end{figure}
 \end{itemize}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
-Das Experiment setzt sich aus Ultraschallechoskop, einer Ultraschallsonde mit
+Der Aufbau des Versuchs besteht aus Ultraschallechoskop, einer Ultraschallsonde mit
 \SI{2}{\mega\hertz} und einem Rechner mit dem Programm EchoView, um die Daten darstellen zu können.
 Am Echoskop lässt einstellen, ob eine (Impuls-Echo-Verfahren) oder zwei (Durchschallungsverfahren, siehe Kapitel \ref{sec:theorie})
-Ultraschallsonden verwendet werden. Außerdem lässt sich ein Gain in \si{\decibel} und
-der TGC (auch in \si{\decibel}) wählen. Als Untersuchungsmaterial stehen verschieden lange Acrylzylinder und
+Ultraschallsonden verwendet werden. Außerdem lässt sich eine Verstärkung in \si{\decibel} und
+der TGC, ein zeitabhängiger Verstärkungsfaktor, (TGC: Time Gain Control, auch in \si{\decibel}) wählen. Als Untersuchungsmaterial stehen verschieden lange Acrylzylinder und
 - platten, ein Augenmodell und als Kontaktmittel bidestilliertes Wasser zur Verfügung.
 \subsection{Versuchsdurchführung}
 Zuerst werden einige Testmessungen durchgeführt und probeweise die Schallgeschwindigkeit
 bestimmt. Diese Messungen werden aber im Folgenden nicht weiter behandelt. Danach wird
 das Impuls-Echo-Verfahren angewandt. Zu diesem Zweck wurden alle Acrylzylinder mit einer
 Schieblehre mit einer Genauigkeit von \SI{0.2}{\milli\meter} vermessen. Als nächstes
-wird der Zylinder mit bidestilliertem Wasser behandelt und die Ultraschallsonde angebracht.
+werden Zylinder und Ultraschallsonde mit bidestilliertem Wasser gekoppelt.
 Mittels eines A-Scans und Makern werden Amplitude der Reflexion und Laufzeit des Impulses
 festgehalten und notiert. Außerdem wird eine eventuell eingestellte Verstärkung (TGC) aufgeschrieben.
-Dies wird für ingesamt sieben verschiedene Längen durchgeführt.
+Dies wird für ingesamt sieben verschiedene Zylinder durchgeführt.
 
 Als nächstes wird das Durchschallungsverfahren angewandt. Dafür wird eine zweite Sonde
 angeschlossen, die als Empfänger fungiert. die Acrylzylinder werden der Länge nach in
 eine Aparatur eingespannnt, die an beiden Enden jeweils eine Sonde hat. Dann werden wieder
-Amplitude, Laufzeit und TGC mittels A-Scan für sieben Längen aufgenommen.
+Amplitude, Laufzeit und TGC mittels A-Scan für sieben Zylinder aufgenommen.
 
-Danach wird der ca. \SI{40}{\milli\meter} Acrylzylinder auf zwei Acrylplatten gestellt,
-um mithilfe des Cepstrums Mehrfachreflexionen zu analysieren. Die verschiedenen Materialeinheiten
-werde mit bidestilliertem Wasser gekoppelt und dann mithilfe des Impuls-Echo-Verfahrens die
+Danach wird ein ca. \SI{40}{\milli\meter} Acrylzylinder auf zwei Acrylplatten gestellt,
+um mithilfe des Cepstrums Mehrfachreflexionen zu analysieren. Der Zylinder und die Platten
+werden mit bidestilliertem Wasser gekoppelt und mithilfe des Impuls-Echo-Verfahrens werden die
 Reflexionen aufgenommen. Dabei ist zu beachten, dass die Verstärkung so aufgenommen wird,
 dass drei Reflexionen zu sehen sind. Im Programm EchoView lässt sich dann das Cepstrum
 als Diagramm auftragen.
@@ -129,7 +111,7 @@ später mit den realen Längen eines menschlichen Auges abgeglichen.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{auge.png}
-  \caption{Augenmodell im Querschnitt.}
+  \caption{Augenmodell im Querschnitt \cite{anleitung}.}
   \label{fig:3}
 \end{figure}
 \section{Auswertung}

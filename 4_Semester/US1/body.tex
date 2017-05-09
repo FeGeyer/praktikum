@@ -118,7 +118,7 @@ später mit den realen Längen eines menschlichen Auges abgeglichen.
 \subsection{Bestimmung der Schallgeschwindigkeit in Acryl}
 Die aus der Messung nach dem Impuls-Echo-Verfahren gewonnenen Messwerte finden sich
 in Tabelle \ref{tab:1} , die aus dem Durchschallungsverfahren in Tabelle \ref{tab:2}.
-\begin{figure}
+\begin{table}
   \centering
   \begin{subtable}{0.49\textwidth}
     \centering
@@ -162,7 +162,7 @@ in Tabelle \ref{tab:1} , die aus dem Durchschallungsverfahren in Tabelle \ref{ta
   und empfangen des Signals und TGC gibt den verwendeten Verstärkungsfaktor für
   den Amplitudenwert an. Die Längenmessung ist auf einen Fehler von $\pm \, \SI{0.02}{\milli\metre}$
   genau.}
-\end{figure}
+\end{table}
 Die Bestimmung der Schallgeschwindigkeiten gescheiht nun durch lineare Regression.
 Zu beachten ist, dass sich die Laufzeiten bei der Messung per Impuls-Echo-Verfahren
 Verfahrensbedingt auf die doppelte Länge beziehen. Es werden daher in den Rechnungen die halben gemessenen
@@ -212,13 +212,13 @@ Zu beachten sind hier drei Dinge:
 \begin{enumerate}
   \item Beim Impuls-Echo-Verfahren wird Verfahrensbedingt die dopplete Strecke zurückgelegt.
   \item Manche Amplituden mussten mit Verstärkung gemessen werden. Diese ist in den Tabellen
-  \ref{tab:1} und \ref{tab:2} als "TGC"-Wert in \si{\decibel} angegeben. Die Umrechnung in einen
+  \ref{tab:1} und \ref{tab:2} als \textsc{TGC}-Wert in \si{\decibel} angegeben. Die Umrechnung in einen
   linearen Faktor geschieht durch:
   \begin{equation}
     G(g) = 10^{ \left( g \cdot \frac{1}{20} \right)}
     \label{eqqA:1}
   \end{equation}
-  mit "TGC"-Wert $g$.
+  mit \textsc{TGC}-Wert $g$.
   \item Beim Durchschallverfahren wurde eine Empfangsverstärkung von \SI{10}{\decibel}
   zugeschaltet. Diese kann auch nach \ref{eqqA:1} eliminiert werden. Die für beide Verfahren
   genutzte Sendeverstärkung von ebenfalls \SI{10}{\decibel} verbleibt in den Messwerten,
@@ -263,8 +263,14 @@ Die Verläufe mit Regression sind in den Abbildungen \ref{abb:3} und \ref{abb:4}
 \subsection{Vermessung des Augenmodells}
 Die gewonnen Messwerte sind in Tabelle \ref{tab:3} dargestellt. Für die Schallgeschwindigkeit\cite{anleitung}
 in der Glaskörperflüssigkeit gilt $c_{GK} = \SI[per-mode=reciprocal]{1410}{\metre\per\second}$
-und für die Linse $c_L = \SI[per-mode=reciprocal]{2500}{\metre\per\second}$
-\begin{figure}
+und für die Linse $c_L = \SI[per-mode=reciprocal]{2500}{\metre\per\second}$. Sind die
+Laufzeitdifferenzen $\symup{\Delta}t$ zwischen den Grenzflächen bekannt, kann nach
+\begin{equation}
+  S = \frac{1}{2} c \cdot \symup{\Delta}t
+\end{equation}
+der Abstand zwischen den Schichten bestimmt werden. Der Faktor $1/2$ ist notwending,
+da beim Impuls-Echo-Verfahren die doppelten Laufzeiten gemessen werden.
+\begin{table}
 \begin{subtable}{0.39\textwidth}
   \centering
   \begin{tabular}{c c}
@@ -299,7 +305,7 @@ und für die Linse $c_L = \SI[per-mode=reciprocal]{2500}{\metre\per\second}$
 angegeben als Verfahrensbedingt doppelte Laufzeiten. In \subref{tab:4} finden sich
 die berechnete Abstände zwischen Schallsonde und den angegebenen Grenzschichten
 für das Augenmodell (Maßstab 3:1) und zurückgerechnet auf ein menschliches Auge. }
-\end{figure}
+\end{table}
 \subsection{Bestimmung der Dicke von Acrylplatten mithilfe des Cepstrum}
 Das vermessene Cepstrum findet sich in Abbildung \ref{abb:5}, die daraus erhaltenen
 Messwerte in Tabelle \ref{tab:5}.
@@ -335,7 +341,7 @@ dass 3. und 4. Reflextionen von 1. und 2. sind. Wieder handelt es sich um die do
 Es ergeben sich also zwei Werte für die Dicke der Platten. Als Schallgeschwindigkeit wird
 der aus dem Durchschallverfahren bestimmte Wert genutzt, da sein Fehlerintervall kleiner
 ist. In Tabelle \ref{tab:6} sind die bestimmte Werte für die Plattendicke angegeben.
-\begin{figure}
+\begin{table}
 \begin{subtable}{0.7\textwidth}
   \centering
   \begin{tabular}{S S S S S}
@@ -367,12 +373,17 @@ ist. In Tabelle \ref{tab:6} sind die bestimmte Werte für die Plattendicke angeg
 Die Differenz $\symup{\Delta}t$ der Laufzeiten ist dabei aus den Messwerten (siehe Tabelle \ref{tab:5})
 berechnet und halbiert, da die doppelte Laufzeit gemessen wurde. In \subref{tab:7} finden
 sich die durch direkte Vermessung der Platten erhaltenen Werte.}
-\end{figure}
+Die Laufzeitdifferenzen ergeben sich aus
+\end{table}
+\begin{equation}
+  \symup{\Delta}t = \frac{t_2 - t_1}{2}.
+\end{equation}
+Wieder ist der Faktor $1/2$ notwendig, da doppelte Laufzeiten gemessen wurden. Aus
+dem Wert für $\symup{\Delta}t$ lässt sich dann durch $d = ct$ der Durchmesser
+der vermessenen Platte bestimmen.
 \section{Diskussion}
-Bei allen Messwerten muss mit einem nicht quantifizierbaren Fehler gerechnet werden,
-da das Ablesen der Werte in der Messsoftware durch das Setzen von Markern geschieht,
-die den Peak nie genau treffen können. Die erhaltenen Abweichungen führen bei den
-hohen Schallgeschwindigkeiten im Material leicht zu großen Abweichungen. Dieser
+Bei allen Messwerten ist zu beachten, dass die erhaltenen Abweichungen bei den
+hohen Schallgeschwindigkeiten in den Material leicht zu großen Abweichungen führen. Dieser
 Fehler wiegt insbesondere bei den letzten beiden Versuchsteilen schwer, da der erhobene
 Datensatz dort extrem klein war, weshalb ein ansonsten durch die statistische Behandlung der
 Daten veringerter Fehler dort ungedämpft in die Ergebnisse eingeht.
@@ -394,7 +405,10 @@ Die erhaltenen Werte liegen jeweils im Bereich der gegenseitigen Messungenauigke
 Hohe relative Fehler der Werte lassen sich wieder durch den begrenzten Datensatz
 erklären. Ebenfalls problematisch sind die langen Laufzeiten bei der Impuls-Echo-Messung.
 Die erhaltenen Daten sind daher bereits stärker gedämpft, weshalb die Ausgleichsrechnung
-statisch signifikantere Fehler ergeben sollte.
+statisch signifikantere Fehler ergeben sollte. Ein Literaturwert\cite{daempf} von \SI{1.41}{\per\centi\metre}
+liegt in keinem der beiden Fehlerintervalle. Auch die relativen Fehler sind mit \SI{85}{\percent}
+für die Durchschallungsmessung sowie \SI{77}{\percent} sehr hoch. Der Schluss eines
+systematischen Fehlers liegt nahe.
 \subsection{Messung am Augenmodell}
 Für das Augenmodell ergeben sich realistische Werte. Der Durchmesser eines Menschlichen
 Auges liegt laut Literatur\cite{auge} zwischen \SI{17}{\milli\metre} und \SI{30}{\milli\metre},

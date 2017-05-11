@@ -116,28 +116,27 @@ ln_Al = np.log(AlN/AlT - NulleffektAl)
 # Lineare Regression
 def g(x, m, n):
     return m*x + n
-paramsAl1, covarianceAl1 = curve_fit(g, AlD[0:4], ln_Al[0:4])
+paramsAl1, covarianceAl1 = curve_fit(g, AlD[0:6], ln_Al[0:6])
 errorsAl1 = np.sqrt(np.diag(covarianceAl1))
 AlN1 = ufloat(paramsAl1[1], errorsAl1[1])
 #AlN1 = unp.exp(AlN1)
 AlM1 = ufloat(paramsAl1[0], errorsAl1[0])
 
-#def h(x, b):
-#    return b
-#paramsAl2, covarianceAl2 = curve_fit(h, AlD[8], ln_Al[8])
-#errorsAl2 = np.sqrt(np.diag(covarianceAl2))
-#AlN2 = ufloat(paramsAl2[0], errorsAl2[0])
+# Fit die Zweite
+paramsAl2, covarianceAl2 = curve_fit(g, AlD[7:9], ln_Al[7:9])
+errorsAl2 = np.sqrt(np.diag(covarianceAl2))
+AlN2 = ufloat(paramsAl2[1], errorsAl2[1])
 #AlN2 = unp.exp(AlN2)
-#AlM2 = ufloat(paramsAl2[0], errorsAl2[0])
+AlM2 = ufloat(paramsAl2[0], errorsAl2[0])
 print("")
 print("Aufgabenteil c)")
-print("Y-Achsenabschnitt: ",AlN1)
-print("Steigung: ", AlM1)
+print("Y-Achsenabschnitt: ",AlN1, AlN2)
+print("Steigung: ", AlM1, AlM2)
 #print(AlN2)
 
 # Bestimmung von Rmax
 
-r = (NulleffektAl - AlN1)/(AlM1)*10**(6)
+r = (AlN2 - AlN1)/(AlM1-AlM2)*10**(6)
 print("Rmax in mikro m: ",r)
 rho = 2.71
 rmax = r*10**(-4) * rho
@@ -146,8 +145,9 @@ print("Emax in MeV: ", E)
 
 # Plot
 plt.figure(3)
-al2 = np.linspace(90*10**(-6), 277*10**(-6))
+al2 = np.linspace(90*10**(-6), 290*10**(-6))
 al = np.linspace(100*10**(-6), 410*10**(-6))
+al3 = np.linspace(330*10**(-6), 410*10**(-6))
 plt.yscale('log')
 plt.xlabel(r"$D / \mathrm{\mu m}$")
 plt.ylabel(r"$N / \mathrm{s}^{-1}$")
@@ -156,7 +156,8 @@ plt.xticks([1*10**(-4), 1.5*10**(-4), 2*10**(-4), 2.5*10**(-4), 3*10**(-4), 3.5*
 ["100", "150", "200", "250", "300", "350", "400"])
 plt.plot(AlD, (AlN/AlT), 'ro', label="Messwerte")
 plt.axhline(y=NulleffektAl,xmin=0, xmax=1, hold=None, label="Untergrund")
-plt.plot(al2, np.exp(g(al2, *paramsAl1)), 'g', label="Regression 1")
+plt.plot(al, np.exp(g(al, *paramsAl1)), 'g', label="Regression 1")
+plt.plot(al, np.exp(g(al, *paramsAl2)), 'y', label="Regression 2")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("AlBeta.pdf")

@@ -45,7 +45,79 @@ Damit Resonanzabsorption auftritt
 \subsection{Versuchsaufbau}
 \subsection{Versuchsdurchführung}
 \section{Auswertung}
-
+\subsection{Zur mathematischen Behandlung der Messwerte}
+Die gemessenen Vorgänge unterliegen einer Poission-Verteilung, der Fehler eines
+Messwertes $x_i$ ist somit durch $\sqrt{x_i}$ gegeben. Die dargestellten Ausgleichsrechnungen
+wurden durch die Funktion \textsc{curve-fit} aus dem \textsc{python}-Paket \textsc{scipy.optimise}
+unter berücksichtigung des Fehlers durchgeführt.
+\subsection{Nullmessung}
+Es wurden innerhalb von \SI{900}{\second} \num{164} Ausschläge am Geiger-Müller-Zählrohr
+gemessen. Dies entspricht einem Wert von $N_\symup{null} = \SI[per-mode=reciprocal]{0.18}{\per\second}$.
+Dieser Wert ist zwar gering, aber gerade bei längeren Messintervallen statistisch
+signifikant, sodass er von den Messwerten abgezogen werden muss.
+\subsection{Messung von Indium}
+\begin{figure}
+  \centering
+    \begin{subfigure}{0.7\textwidth}
+    \centering
+      \includegraphics[width=\textwidth]{Indium.pdf}
+      \caption{Grafische Darstellung der Messwerte mit Regression.}
+      \label{fig:1}
+    \end{subfigure}
+    \begin{subtable}{0.25\textwidth}
+      \centering
+      \begin{tabular}{c c}
+        \toprule
+        t / \si{\minute} & N \\
+        \midrule
+        4 & 2584 \\
+        8 & 2335 \\
+        12 & 2192 \\
+        16 & 2069 \\
+        20 & 1979 \\
+        24 & 1924 \\
+        28 & 1833 \\
+        32 & 1766 \\
+        36 & 1632 \\
+        40 & 1557 \\
+        44 & 1448 \\
+        48 & 1504 \\
+        52 & 1416 \\
+        56 & 1382 \\
+        60 & 1314 \\
+        \bottomrule
+      \end{tabular}
+      \caption{Messwerte.}
+      \label{tab:1}
+    \end{subtable}
+    \caption{In Tabelle \subref{tab:1} sind die für das Isotop
+    $\ce{^{116}In}$ gemessenen Werte eingetragen. Diese Werte sind
+    nicht vom Nulleffekt bereinigt. In Grafik \subref{fig:1} findet sich die
+    halblogarithmische Darstellung der vom Nulleffekt bereinigten Messwerte mit
+    einer linearen Regression.}
+  \end{figure}
+  Die Messwerte finden sich in Tabelle \ref{tab:1}. Die Werte fallen mit einer
+  Exponentialfunktion
+  \begin{equation}
+    N(t) = N_0 \symup{e}^{- \mu t}
+    \label{eq:1}
+  \end{equation}
+  ab. Es bietet sich also eine lineare Regression mit einer Funktion
+  \begin{equation*}
+    n(t) = \ln{N_0} - \mu t
+  \end{equation*}
+  durch die logarithmierten Messwerte an. Aus \ref{eq:1} folgt weiterhin für die Halbwertszeit $T_{1/2}$:
+  \begin{equation}
+    T_{1/2} = \ln{\frac{1}{2}} \cdot -\mu^{-1}
+  \end{equation}
+  Es ergeben sich also folgende Konstanten:
+  $N_0$:
+  \begin{align*}
+    \mu_\symup{In} =& \, \SI[per-mode=reciprocal]{1.91(8)e-4}{\per\second} \\
+    N_{0\symup{, In}} =& \, \SI[per-mode=reciprocal]{10.3(2)}{\per\second} \\
+    T_{1/2} =& \, \SI{60.3(25)}{\minute}.
+  \end{align*}
+Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildung \ref{fig:1}.
 \section{Diskussion}
 
 \newpage

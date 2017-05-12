@@ -38,8 +38,77 @@ mit $u$ als Anzahl der Treffer, $n$ als Anzahl Neutronen pro Sekunde und $d$ als
 einer \SI{1}{\centi\meter\squared} breiten Folie. Der Wirkungsquerschnitt ist stark geschwindigkeitsanhängig.
 Wenn die Geschwindigkeit des Neutrons hoch genug ist, dass die De-Broglie Wellenlänge klein gegen den Radius
 des Kerns ist, kann geometrische Optik angewendet werden und es müssen keine Interferenzeffekte betrachtet werden.
+Damit Resonanzabsorption auftritt muss die Energie des Neutrons der Differenz zweier Energieniveaus von A* entsprechen.
+Aus einer Formel von Breit und Wigner folgt somit die Relation
+\begin{equation*}
+  \sigma \propto \frac{1}{v} \, .
+\end{equation*}
+Daraus wird bestätigt, dass bei kleinen Geschwindigkeiten die Wahrscheinlichkeit steigt, dass
+das Neutron vom Kern aufgenommen wird.\\
+\\
+Da Neutronen instabil ist als freies Teilchen, müssen sie vor dem Versuch erzeugt werden. Dabei läuft
+folgende Reaktion ab:
+\begin{equation*}
+  \ce{^{9}_{4}Be} + \ce{^{4}_{2}He} \rightarrow \ce{^{12}_{6}C} + \ce{^{1}_{0}\symup{n}}
+\end{equation*}
+Die $\alpha$-Teilchen stammen aus dem Zerfall von $\ce{^{226}Ra}$. Die Neutronen werden nun noch abgebremst,
+da aufgrund obiger Überlegungen niederenergetische Neutronen am besten geeignet sind. Zu diesem Zweck
+werden die Neutronen auf dicke Materieschichten mit leichten Atomkernen geschossen, damit sie wegen
+elastischen Stößen Energie abgeben. Aus dem Gesetz zum elatischen Stoß folgt, dass die Energieübertragung
+maximiert wird, falls die Massen der Stoßpartner gleich sind. Dafür bietet sich Wasserstoff an.
+Der Aufbau zur Erzeugung der niederenergetischen Elektronen ist in Abbildung \ref{fig:2} abgebildet.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{quelle.png}
+  \caption{Quelle zur Erzeugung von niederenergetischen Neutronen \cite{anleitung}.}
+  \label{fig:2}
+\end{figure}
+Die Neutronen, die diese Apparatur verlassen, haben eine Energie von \SI{0.025}{\electronvolt} bei einer
+Temperatur von \SI{290}{\kelvin}. Daraus folgt eine mittlere Neutronengeschwindigkeit von \SI{2.2}{\kilo\meter\per\second}.
+Solche Neutronen werden als thermische Neutronen bezeichnet. \\
+\\
+In diesem Versuch werden folgende Zerfälle untersucht:
+\begin{align}
+  \ce{^{115}_{49}In} \, +& \, \symup n \rightarrow   \ce{^{116}_{49}In} \rightarrow  \ce{^{116}_{50}Sn} + \symup{\beta}^- + \overline{\symup{\nu}}_{\symup{e}} \\
+  \ce{^{107}_{47}Ag} \, +& \, \symup n \rightarrow   \ce{^{108}_{47}Ag} \rightarrow  \ce{^{108}_{50}Cd} + \symup{\beta}^- + \overline{\symup{\nu}}_{\symup{e}} \label{eqn:2}\\
+  \ce{^{109}_{47}Ag} \, +& \, \symup n \rightarrow   \ce{^{110}_{47}Ag} \rightarrow  \ce{^{110}_{48}Cd} + \symup{\beta}^- + \overline{\symup{\nu}}_{\symup{e}} \label{eqn:3}
+\end{align}
+Dabei ist jedoch für Silber eine Besonderheit zu beachten: Silber liegt in der Natur zu 52,3 \% als $\ce{^{107}Ag}$
+und zu 48,7 \% als $\ce{^{109}Ag}$. Die Zerfälle \eqref{eqn:2} und \eqref{eqn:3} laufen gleichzeitig ab und
+die Gesamtaktivität besteht aus der Addition der beiden Einzelaktivitäten. Da $\ce{^{110}Ag}$ aber sehr kurzlebig
+ist, kommt nach einiger Zeit $t^*$ sämtliche Aktivität nur noch von $\ce{^{108}Ag}$ (siehe Abbildung \ref{fig:3}). Über diese Relation und das
+Zerfallsgesetz
+\begin{equation}
+  N(t) = N_0 \, e^{-\lambda t}
+  \label{eqn:4}
+\end{equation} mit $\lambda$ als Zerfallskonstante und $N_0 = N(0)$ lassen sich die beiden Halbwertszeiten getrennt voneinander bestimmen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{silber.png}
+  \caption{Zerfallsdiagramm eines Materials, dass zwei unterschiedlich langelebige Isotope besitzt \cite{anleitung}.}
+  \label{fig:3}
+\end{figure}
 
-Damit Resonanzabsorption auftritt
+Aus \eqref{eqn:4} folgt für die Halbwertszeit
+\begin{equation}
+  T = \symup{ln}(2) / \lambda \, .
+  \label{eqn:5}
+\end{equation}
+Da die Bestimmung von $N(t)$ nicht ohne weiteres möglich ist, wird eine neue Größe
+$N_{\symup{\Delta t}}(t)$. Diese wird definiert als
+\begin{equation}
+  N_{\symup{\Delta t}}(t) = N(t) - N(t + \symup{\Delta t})
+  \label{eqn:6}
+\end{equation}
+mit $\symup{\Delta t}$ als beliebigem Zeitintervall. Aus \eqref{eqn:4} folgt mit der Definition
+\eqref{eqn:6}
+\begin{equation}
+  \symup{ln}[N_{\symup{\Delta t}}(t)] = \symup{ln}\left[N_0 (1 - e^{- \lambda \symup{\Delta t}})\right] - \lambda t \, .
+  \label{eqn:7}
+\end{equation}
+Aus \eqref{eqn:7} lässt sich mittels linearer Ausgleichsrechnung $\lambda$ und damit aus \eqref{eqn:5}
+$T$ bestimmen. Das Zeitintervall $\symup{\Delta t}$ ist dabei von Material zu Material unterschiedlich
+und wird angegeben.
 
 \section{Durchführung}
 \subsection{Versuchsaufbau}

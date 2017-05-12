@@ -103,7 +103,7 @@ $N_{\symup{\Delta t}}(t)$. Diese wird definiert als
 mit $\symup{\Delta t}$ als beliebigem Zeitintervall. Aus \eqref{eqn:4} folgt mit der Definition
 \eqref{eqn:6}
 \begin{equation}
-  \symup{ln}[N_{\symup{\Delta t}}(t)] = \symup{ln}\left[N_0 (1 - e^{- \lambda \symup{\Delta t}})\right] - \lambda t \, .
+  \symup{ln}[N_{\symup{\Delta t}}(t)] = \symup{ln}\left[N_0 (1 - \symup{e}^{- \lambda \symup{\Delta t}})\right] - \lambda t \, .
   \label{eqn:7}
 \end{equation}
 Aus \eqref{eqn:7} lässt sich mittels linearer Ausgleichsrechnung $\lambda$ und damit aus \eqref{eqn:5}
@@ -112,7 +112,23 @@ und wird angegeben.
 
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+Der Versuchsaufbau ist in \ref{fig:4} zu sehen. Mit dem Geiger-Müller-Zählrohr werden
+die Zerfälle nachgewiesen, die Bleiummantelung soll dabei den Einfluss der Umgebungsstrahlung
+minimieren. Das Gerät zum Anzeigen der Zerfälle hat dabei zwei Speicherplätze,
+die laufend überschrieben werden. Das Zeitintervall, in dem gemessen werden soll,
+lässt sich am Gerät einstellen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{aufbau.png}
+  \caption{Schematischer Versuchsaufbau. \cite{anleitung}}
+  \label{fig:4}
+\end{figure}
+
 \subsection{Versuchsdurchführung}
+Zuerst wurde \SI{900}{\second} lang der Nulleffekt gemessen. Danach wurde zuerst für Indium 15 Messwerte
+mit einem Zeitintervall $\symup{\Delta t} = \SI{4}{\minute}$ und dann für Silber 53 Messwerte mit einem
+Zeitintervall $\symup{\Delta t} = \SI{8}{\second}$ bestimmt.
+
 \section{Auswertung}
 \subsection{Zur mathematischen Behandlung der Messwerte}
 Die gemessenen Vorgänge unterliegen einer Poission-Verteilung, der Fehler eines

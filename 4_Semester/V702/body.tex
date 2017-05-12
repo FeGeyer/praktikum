@@ -79,9 +79,9 @@ die Gesamtaktivität besteht aus der Addition der beiden Einzelaktivitäten. Da 
 ist, kommt nach einiger Zeit $t^*$ sämtliche Aktivität nur noch von $\ce{^{108}Ag}$ (siehe Abbildung \ref{fig:3}). Über diese Relation und das
 Zerfallsgesetz
 \begin{equation}
-  N(t) = N_0 \, e^{-\lambda t}
+  N(t) = N_0 \, e^{-\mu t}
   \label{eqn:4}
-\end{equation} mit $\lambda$ als Zerfallskonstante und $N_0 = N(0)$ lassen sich die beiden Halbwertszeiten getrennt voneinander bestimmen.
+\end{equation} mit $\mu$ als Zerfallskonstante und $N_0 = N(0)$ lassen sich die beiden Halbwertszeiten getrennt voneinander bestimmen.
 \begin{figure}
   \centering
   \includegraphics[scale=0.4]{silber.png}
@@ -91,7 +91,7 @@ Zerfallsgesetz
 
 Aus \eqref{eqn:4} folgt für die Halbwertszeit
 \begin{equation}
-  T = \symup{ln}(2) / \lambda \, .
+  T = \symup{ln}(2) / \mu \, .
   \label{eqn:5}
 \end{equation}
 Da die Bestimmung von $N(t)$ nicht ohne weiteres möglich ist, wird eine neue Größe
@@ -103,10 +103,10 @@ $N_{\symup{\Delta t}}(t)$. Diese wird definiert als
 mit $\symup{\Delta t}$ als beliebigem Zeitintervall. Aus \eqref{eqn:4} folgt mit der Definition
 \eqref{eqn:6}
 \begin{equation}
-  \symup{ln}[N_{\symup{\Delta t}}(t)] = \symup{ln}\left[N_0 (1 - \symup{e}^{- \lambda \symup{\Delta t}})\right] - \lambda t \, .
+  \symup{ln}[N_{\symup{\Delta t}}(t)] = \symup{ln}\left[N_0 (1 - \symup{e}^{- \mu \symup{\Delta t}})\right] - \mu t \, .
   \label{eqn:7}
 \end{equation}
-Aus \eqref{eqn:7} lässt sich mittels linearer Ausgleichsrechnung $\lambda$ und damit aus \eqref{eqn:5}
+Aus \eqref{eqn:7} lässt sich mittels linearer Ausgleichsrechnung $\mu$ und damit aus \eqref{eqn:5}
 $T$ bestimmen. Das Zeitintervall $\symup{\Delta t}$ ist dabei von Material zu Material unterschiedlich
 und wird angegeben.
 
@@ -147,7 +147,7 @@ signifikant, sodass er von den Messwerten abgezogen werden muss.
     \centering
       \includegraphics[width=\textwidth]{Indium.pdf}
       \caption{Grafische Darstellung der Messwerte mit Regression.}
-      \label{fig:1}
+      \label{fig:5}
     \end{subfigure}
     \begin{subtable}{0.25\textwidth}
       \centering
@@ -177,33 +177,18 @@ signifikant, sodass er von den Messwerten abgezogen werden muss.
     \end{subtable}
     \caption{In Tabelle \subref{tab:1} sind die für das Isotop
     $\ce{^{116}In}$ gemessenen Werte eingetragen. Diese Werte sind
-    nicht vom Nulleffekt bereinigt. In Grafik \subref{fig:1} findet sich die
+    nicht vom Nulleffekt bereinigt. In Grafik \subref{fig:5} findet sich die
     halblogarithmische Darstellung der vom Nulleffekt bereinigten Messwerte mit
     einer linearen Regression.}
   \end{figure}
-  Die Messwerte finden sich in Tabelle \ref{tab:1}. Die Werte fallen mit einer
-  Exponentialfunktion
-  \begin{equation}
-    N(t) = N_0 \symup{e}^{- \mu t}
-    \label{eq:1}
-  \end{equation}
-  ab. Es bietet sich also eine lineare Regression mit einer Funktion
-  \begin{equation*}
-    n(t) = \ln{N_0} - \mu t
-  \end{equation*}
-  durch die logarithmierten Messwerte an. Aus \ref{eq:1} folgt weiterhin für die Halbwertszeit $T_{1/2}$:
-  \begin{equation}
-    T_{1/2} = \ln{\frac{1}{2}} \cdot -\mu^{-1}
-    \label{eq:2}
-  \end{equation}
-  Es ergeben sich also folgende Konstanten:
-  $N_0$:
+  Die Messwerte finden sich in Tabelle \ref{tab:1}. Die Werte verhalten sich nach \eqref{eqn:4}.
+Die Regression wird nach \eqref{eqn:7} ausgeführt. Mit \eqref{eqn:5} ergeben sich also folgende Konstanten:
   \begin{align*}
     \mu_\symup{In} =& \, \SI[per-mode=reciprocal]{1.91(8)e-4}{\per\second} \\
     N_{0\symup{, In}} =& \, \SI[per-mode=reciprocal]{10.3(2)}{\per\second} \\
-    T_{1/2\symup{, In}} =& \, \SI{60.3(25)}{\minute}.
+    T_{\symup{In}} =& \, \SI{60.3(25)}{\minute}.
   \end{align*}
-Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildung \ref{fig:1}.
+Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildung \ref{fig:5}.
 \subsection{Messung von Silber}
 \begin{table}
   \centering
@@ -236,36 +221,36 @@ Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildun
   \caption{Diagramm der Messwerte. Die nicht betrachteten Messwerte sind ohne Angabe
   der Fehler eingetragen. Ebenfalls eingetragen sind die Zerfallsgeraden
   der Isotope $\ce{^{108}Ag}$ und $\ce{^{110}Ag}$.}
-  \label{fig:2}
+  \label{fig:6}
 \end{figure}
 Die Messwerte finden sich in Tabelle \ref{tab:2}. Messwerte, die deutlich als fehlerhaft
 erkennbar sind, werden in den Berechnungen nicht beachtet und sind in der Tabelle
-durchgestrichen. Die grafische Darstellung der Messwerte findet sich in Abbildung \ref{fig:2}
+durchgestrichen. Die grafische Darstellung der Messwerte findet sich in Abbildung \ref{fig:6}.
 Die Messkurve lässt sich in drei Intervalle einteilen, die in der Grafik durch
 gepunktete vertikale Linien getrennt sind. Im ersten Intervall dominiert das
 kurzlebige $\ce{^{110}Ag}$ die gemessenen Zerfälle. In einem folgenden Übergangsintervall
 kann über eine eventuelle Dominanz eines Isotops keine Aussage getroffen werden.
 Im letzten Intervall überwiegt dann das langlebigere $\ce{^{108}Ag}$. Lineare
 Ausgleichsrechnung durch die Messwerte der beiden relevanten Intervalle liefert
-Werte für $\mu$ und $N_0$. Aus $\mu$ kann aus \eqref{eq:2} wieder die Halbwertszeit
+Werte für $\mu$ und $N_0$. Aus $\mu$ kann aus \eqref{eqn:5} wieder die Halbwertszeit
 des Isotops bestimmt werden. Für $\ce{^{110}Ag}$ ergibt sich:
 \begin{align*}
   \mu_\symup{Ag-110} =& \, \SI[per-mode=reciprocal]{0.24(4)}{\per\second} \\
   N_{0\symup{, Ag-110}} =& \, \SI[per-mode=reciprocal]{17.9(16)}{\per\second} \\
-  T_{1/2\symup{, Ag-110}} =& \, \SI{2.9(5)}{\second}
+  T_{\symup{Ag-110}} =& \, \SI{2.9(5)}{\second}
 \end{align*}
 und für $\ce{^{108}Ag}$
 \begin{align*}
   \mu_\symup{Ag-108} =& \, \SI[per-mode=reciprocal]{5.6(1)e-3}{\per\second} \\
   N_{0\symup{, Ag-108}} =& \, \SI[per-mode=reciprocal]{2.4(4)}{\per\second} \\
-  T_{1/2\symup{, Ag-108}} =& \, \SI{2.05(35)}{\minute}
+  T_{\symup{Ag-108}} =& \, \SI{2.05(35)}{\minute}
 \end{align*}
 \section{Diskussion}
 \begin{table}
   \centering
   \begin{tabular}{c c c c}
     \toprule
-    Isotop & Quelle & $\mu$ & $T_{1/2}$\\
+    Isotop & Quelle & $\mu$ & $T$\\
     \midrule
     $\ce{^{108}Ag}$ & \cite{Ag-108} & \SI[per-mode=reciprocal]{4.9e-3}{\per\second} & \SI{2.37}{\minute} \\
     $\ce{^{110}Ag}$ & \cite{Ag-110} & \SI[per-mode=reciprocal]{2.8e-2}{\per\second} & \SI{24.6}{\second} \\

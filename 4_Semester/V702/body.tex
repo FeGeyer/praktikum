@@ -194,13 +194,14 @@ signifikant, sodass er von den Messwerten abgezogen werden muss.
   durch die logarithmierten Messwerte an. Aus \ref{eq:1} folgt weiterhin für die Halbwertszeit $T_{1/2}$:
   \begin{equation}
     T_{1/2} = \ln{\frac{1}{2}} \cdot -\mu^{-1}
+    \label{eq:2}
   \end{equation}
   Es ergeben sich also folgende Konstanten:
   $N_0$:
   \begin{align*}
     \mu_\symup{In} =& \, \SI[per-mode=reciprocal]{1.91(8)e-4}{\per\second} \\
     N_{0\symup{, In}} =& \, \SI[per-mode=reciprocal]{10.3(2)}{\per\second} \\
-    T_{1/2} =& \, \SI{60.3(25)}{\minute}.
+    T_{1/2\symup{, In}} =& \, \SI{60.3(25)}{\minute}.
   \end{align*}
 Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildung \ref{fig:1}.
 \subsection{Messung von Silber}
@@ -226,15 +227,73 @@ Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildun
     112 & 24 & \sout{224} & \sout{6} & 336 & 6 & & \\
     \bottomrule
   \end{tabular}
-  \caption{Messwerte .}
+  \caption{Messwerte der Messung an Silberisotopen.}
   \label{tab:2}
 \end{table}
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Silber.pdf}
+  \caption{Diagramm der Messwerte. Die nicht betrachteten Messwerte sind ohne Angabe
+  der Fehler eingetragen. Ebenfalls eingetragen sind die Zerfallsgeraden
+  der Isotope $\ce{^{108}Ag}$ und $\ce{^{110}Ag}$.}
+  \label{fig:2}
+\end{figure}
 Die Messwerte finden sich in Tabelle \ref{tab:2}. Messwerte, die deutlich als fehlerhaft
 erkennbar sind, werden in den Berechnungen nicht beachtet und sind in der Tabelle
-durchgestrichen. Die betrachteten Messwerte 
-
+durchgestrichen. Die grafische Darstellung der Messwerte findet sich in Abbildung \ref{fig:2}
+Die Messkurve lässt sich in drei Intervalle einteilen, die in der Grafik durch
+gepunktete vertikale Linien getrennt sind. Im ersten Intervall dominiert das
+kurzlebige $\ce{^{110}Ag}$ die gemessenen Zerfälle. In einem folgenden Übergangsintervall
+kann über eine eventuelle Dominanz eines Isotops keine Aussage getroffen werden.
+Im letzten Intervall überwiegt dann das langlebigere $\ce{^{108}Ag}$. Lineare
+Ausgleichsrechnung durch die Messwerte der beiden relevanten Intervalle liefert
+Werte für $\mu$ und $N_0$. Aus $\mu$ kann aus \eqref{eq:2} wieder die Halbwertszeit
+des Isotops bestimmt werden. Für $\ce{^{110}Ag}$ ergibt sich:
+\begin{align*}
+  \mu_\symup{Ag-110} =& \, \SI[per-mode=reciprocal]{0.24(4)}{\per\second} \\
+  N_{0\symup{, Ag-110}} =& \, \SI[per-mode=reciprocal]{17.9(16)}{\per\second} \\
+  T_{1/2\symup{, Ag-110}} =& \, \SI{2.9(5)}{\second}
+\end{align*}
+und für $\ce{^{108}Ag}$
+\begin{align*}
+  \mu_\symup{Ag-108} =& \, \SI[per-mode=reciprocal]{5.6(1)e-3}{\per\second} \\
+  N_{0\symup{, Ag-108}} =& \, \SI[per-mode=reciprocal]{2.4(4)}{\per\second} \\
+  T_{1/2\symup{, Ag-108}} =& \, \SI{2.05(35)}{\minute}
+\end{align*}
 \section{Diskussion}
-
+\begin{table}
+  \centering
+  \begin{tabular}{c c c c}
+    \toprule
+    Isotop & Quelle & $\mu$ & $T_{1/2}$\\
+    \midrule
+    $\ce{^{108}Ag}$ & \cite{Ag-108} & \SI[per-mode=reciprocal]{4.9e-3}{\per\second} & \SI{2.37}{\minute} \\
+    $\ce{^{110}Ag}$ & \cite{Ag-110} & \SI[per-mode=reciprocal]{2.8e-2}{\per\second} & \SI{24.6}{\second} \\
+    $\ce{^{116}In}$ & \cite{In-116} & \SI[per-mode=reciprocal]{2.1e-4}{\per\second} & \SI{54.29}{\minute} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Literaturwerte.}
+  \label{tab:3}
+\end{table}
+In Tabelle \ref{tab:3} finden sich Literaturwerte für die einzellnen Isotope. Beim Vergleich
+der Werte für $\ce{^{108}Ag}$ zeigen sich gute Übereinstimmungen. Der für Literaurwert für $\mu$
+liegt zwar nicht im Fehlerintervall des bestimmten Wertes, die Halbwertszeit stimmt jedoch
+im Bereich der Messungeauigkeit überein. Für $\ce{^{110}Ag}$ finden sich große
+Abweichungen zwischen Theorie und Experiment. Die vermutliche Fehlerquelle ist die
+generell kurze Halbwertszeit beider Isotope. Besonders bei $\ce{^{110}Ag}$ findet
+aufgrund der geringen Halbwertszeit
+auf dem Weg zwischen Anregungsbehälter und Messaufbau eine signifikante Menge an
+Zerfallsprozessen statt. Das Messergebnis wird somit verfälscht. Außerdem können für
+ein so kurzlebiges Isotop nur wenige Messwerte aufgenommen werden, sodass die Datenmenge
+aus der die Regression bestimmt wird entsprechend klein ist. Dies ist bei dem
+relativ langlebigen Isotop $\ce{^{110}Ag}$ ein geringeres Problem. Hier wird bei
+langen Messdauern jedoch die Untergrundstrahlung signifikant, sodass ein Trennen
+der Zerfallsprozesse vom Untergrund schwieriger wird.\\
+Auch $\ce{^{116}In}$ gibt es keinen Wert, der im Bereich der Messtolleranz liegt.
+Die relativen Fehler sind jedoch mit \SI{6.07}{\percent} für die Halbwertszeit
+und \SI{5.24}{\percent} für die Zerfallskonstante gering. Mögliche Fehlerquelle
+sind hier statistische Schwankungen. Widerholte Messungen
+würde genauere Ergebnisse bringen.
 \newpage
 \nocite{*}
 \printbibliography

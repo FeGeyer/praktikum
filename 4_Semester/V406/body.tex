@@ -13,7 +13,8 @@ Desweiteren muss unterschieden werden, ob die Lichtquelle im endlichen liegt und
 Lichtstrahl auseinander läuft, oder ob die Lichtquelle so weit von der Beugungsebene
 entfernt liegt, dass der Lichtstrahl als paralleles Bündel auftrifft. Es wird dann
 davon gesprochen, dass die Lichtquelle "ins Unendliche verschoben wurde". Der erste Fall wird
-als $\textsc{Fresnel}$-Beugung bezeichnet, der Zweite als $\textsc{Frauenhofer}$-Beugung.\\
+als $\textsc{Fresnel}$-Beugung bezeichnet, der Zweite als $\textsc{Frauenhofer}$-Beugung
+(siehe Abbildung \ref{abb:1}).\\
 Die $\textsc{Frauenhofer}$-Beugung wird hier am Parallelspalt diskutiert. Es gelten
 folgende Annahmen.
 \begin{itemize}
@@ -26,13 +27,46 @@ folgende Annahmen.
   \item Es treffen ebene Wellen der Form
   \begin{equation}
     A(z,t) = A_0 \exp \left ( \symup{i} \left(\omega t - \frac{2 \pi z}{\lambda}\right) \right)
+    \label{eq:1}
   \end{equation}
   mit Wellenlänge $\lambda$ auf die Beugungsebene auf. Um dies zu realisieren ist
   kohärentes Licht notwendig, dass "aus dem Unendlichen" kommend auf den Spalt trifft.
   Als Quelle solchen Lichtes werden beispielsweise Laser genutzt.
 \end{itemize}
 Alle Punkte der eintreffenden Wellenfront sind nun nach dem $\textsc{Huygens}$schen
-Prinzip Ausgangspunkt einer sich kugelförmig ausbreitenden Elementarwelle.
+Prinzip Ausgangspunkt einer sich kugelförmig ausbreitenden Elementarwelle. Trifft der
+Strahl auf den Spalt führt dies dazu, dass der Lichtstrahlen in Teilstrahlen
+aufgeteilt wird, die untereinander interferieren, da es einen Gangunterschied $s$ zwischen ihnen
+gibt (siehe Abbildung \ref{abb:2}) Aus diesem Gangunterschied lässt sich eine Phasenunterschied
+$\delta$ betimmen:
+\begin{equation}
+  \delta = \frac{2 \pi s}{\lambda} = \frac{2 \pi x \sin(\varphi)}{\lambda}.
+  \label{eq:2}
+\end{equation}
+Aus \eqref{eq:1} und \eqref{eq:2} lässt sich nun ein Ausdruck für die Amplitude $B$
+in Abhängigkeit des Winkels finden:
+\begin{equation}
+  B(\varphi) = A_0 b \, \symup{sinc}(\eta)
+\end{equation}
+mit
+\begin{equation}
+  \eta = \frac{\pi b \sin(\varphi)}{\lambda}.
+\end{equation}
+Die Amplitude ist jedoch nicht messbar, da die Frequenz des Lichtes extrem hoch
+und daher für Messgeräte nicht auflösbar ist. Messbar ist jedoch die Intensität,
+die dem Quadrat der Amplitudenfunktion entspricht:
+\begin{equation}
+  I(\varphi) \propto B(\varphi)^2 = A_0^2 b^2 \, \symup{sinc}^2(\eta).
+  \label{eq:3}
+\end{equation}
+Diese Funktion wird auch als Beugungsfigur bezeichnet.\\
+Wie für den Einzelspalt lässt sich eine Beugungsfigur auch für den Doppelspalt definieren.
+Hier muss jedoch der Gangunterschied $s$ anders definiert werden (siehe Abbildung \ref{abb:3}).
+Man erhält:
+\begin{equation}
+  B(\varphi)^2 = A_0^2 \cos^2\left(\frac{\pi s \sin(\varphi)}{\lambda} \right) \, \symup{sinc}^2(\eta).
+  \label{eq:4}
+\end{equation}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 \subsection{Versuchsdurchführung}

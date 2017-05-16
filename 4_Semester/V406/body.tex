@@ -4,6 +4,7 @@
 \newpage
 \pagenumbering{arabic}
 \section{Theorie}
+\subsection{Berechnung der Beugungsbildes durch Interferenz}
 Ziel des Versuchs ist die Betrachtung der $\textsc{Frauenhofer}$-Lichtbeugung an Parallel- und
 Doppelspalten.
 Optische Beugung tritt immer dann auf, wenn Licht auf ein Objekt trifft, dessen
@@ -14,7 +15,13 @@ Lichtstrahl auseinander läuft, oder ob die Lichtquelle so weit von der Beugungs
 entfernt liegt, dass der Lichtstrahl als paralleles Bündel auftrifft. Es wird dann
 davon gesprochen, dass die Lichtquelle "ins Unendliche verschoben wurde". Der erste Fall wird
 als $\textsc{Fresnel}$-Beugung bezeichnet, der Zweite als $\textsc{Frauenhofer}$-Beugung
-(siehe Abbildung \ref{abb:1}).\\
+(siehe Abbildung \ref{abb:1}).
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{fresfrau.png}
+  \caption{Veranschaulichung der $\textsc{Fresnel}$- und $\textsc{Frauenhofer}$-Beugung \cite{anleitung}.}
+  \label{abb:1}
+\end{figure}
 Die $\textsc{Frauenhofer}$-Beugung wird hier am Parallelspalt diskutiert. Es gelten
 folgende Annahmen.
 \begin{itemize}
@@ -47,6 +54,7 @@ Aus \eqref{eq:1} und \eqref{eq:2} lässt sich nun ein Ausdruck für die Amplitud
 in Abhängigkeit des Winkels finden:
 \begin{equation}
   B(\varphi) = A_0 b \, \symup{sinc}(\eta)
+  \label{eq:3}
 \end{equation}
 mit
 \begin{equation}
@@ -57,19 +65,78 @@ und daher für Messgeräte nicht auflösbar ist. Messbar ist jedoch die Intensit
 die dem Quadrat der Amplitudenfunktion entspricht:
 \begin{equation}
   I(\varphi) \propto B(\varphi)^2 = A_0^2 b^2 \, \symup{sinc}^2(\eta).
-  \label{eq:3}
+  \label{eq:4}
 \end{equation}
-Diese Funktion wird auch als Beugungsfigur bezeichnet.\\
+Diese Funktion wird auch als Beugungsfigur bezeichnet.
+\begin{figure}
+\centering
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{einzel.png}
+    \caption{Einzelspalt \cite{anleitung}.}
+    \label{abb:2}
+  \end{subfigure}
+  \begin{subfigure}{0.6\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{doppel.png}
+    \caption{Doppelspalt \cite{anleitung}.}
+    \label{abb:3}
+  \end{subfigure}
+  \caption{Veranschaulichung der Interferenzeffekte an Einzel- und Doppelspalt}
+\end{figure}
 Wie für den Einzelspalt lässt sich eine Beugungsfigur auch für den Doppelspalt definieren.
 Hier muss jedoch der Gangunterschied $s$ anders definiert werden (siehe Abbildung \ref{abb:3}).
 Man erhält:
 \begin{equation}
   B(\varphi)^2 = A_0^2 \cos^2\left(\frac{\pi s \sin(\varphi)}{\lambda} \right) \, \symup{sinc}^2(\eta).
-  \label{eq:4}
+  \label{eq:5}
 \end{equation}
+Aufgrund der großen Abstände zwischen Photoelement und Beugungsebene lässt
+sich sowohl für den Einzel- als auch für den Doppelspalt der Winkel $\varphi$
+in guter Näherung durch
+\begin{equation}
+  \varphi \approx \tan(\varphi) = \frac{\symup{\Delta}x - x_0}{L}
+  \label{eq:6}
+\end{equation}
+bestimmen. $L$ ist dabei der Abstand zwischen Spalt und Photoelementebene, $x_0$ die Position
+des Maximums 0. Ordnung und $\symup{\Delta}x$ der Abstand zwischen $x_0$ und dem
+betrachteten Punkt.
+\subsection{Berechnung des Beugungsbildes durch Fourier-Transformation}
+Die Intensitätsfunktion kann auch aus der Fourier-Transformierten der sogenannten
+Aperturfunktion, also jener Funktion die das Objekt, an dem gebeugt wird, beschreibt,
+bestimmt werden. Die Aperturfunktion ist dabei für alle $x$ der beugenden Geometrie
+gleich der Amplitude $A_0$ (also beispielsweise zwischen den Begrenzungen eines Spaltes),
+ansonsten ist sie null. Die Fourier-Transformationsformel
+\begin{equation}
+  g(\xi) = \int_{-\infty}^\infty f(x) \exp(\symup{i} x \xi)
+  \label{eq:7}
+\end{equation}
+liefert dann mit der Aperturfunktion $f(x)$ das Beugungsbild. Rücktransformation liefert
+entsprechend die Geometrie des Objektes.
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+Der Versuchsaufbau (siehe Abbildung \ref{abb:4}) besteht aus einer optischen Bank
+auf der ein Laser, eine Halterung mit Spaltplatten und ein Photoelement befestigt werden.
+Das Photoelement ist dabei auf einer Schiene befestigt, auf der es über eine Milimeterschraube
+quer zur optischen Bank verschoben werden kann. Als Laser wird ein Helium-Neon-Laser
+mit einer Wellenlänge von $\lambda \approx \SI{633}{\nano\metre}$ genutzt. Es stehen
+Spaltplatten mit verschiedenen Einzel- und Doppelspalten zur Auswahl. Das Photoelement
+ist an ein Amperemeter mit einem Messbereich in Größenordnungen zwischen \num{e-3}
+und \SI{e-9}{\ampere} angeschlossen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{aufbau.png}
+  \caption{Versuchsaufbau \cite{anleitung}.}
+  \label{abb:4}
+\end{figure}
 \subsection{Versuchsdurchführung}
+In einem vorbereitenden Schritt muss der Dunkelstrom am Photoelement gemessen werden.
+Als Dunkelstrom bezeichnet man den durch das Restlicht des Abgedunkelten Raums auf das
+Photoelement einfallende Licht. Dann werden die Beugungsbilder eins Einzelspalts
+sowie zwei verschiedener Doppelspalte vermessen. Beim Einzelspalt werden neben dem
+Hauptmaximum zusätzlich die Nebenmaxima 1. Ordnung gemessen, bei den Doppelspalten
+die Nebenmaxima bis zur 2. Ordnung. Der Messbereich des Amperemeters wird dabei
+nach Bedarf angepasst.
 \section{Auswertung}
 \section{Diskussion}
 \newpage

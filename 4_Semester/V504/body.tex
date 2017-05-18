@@ -30,7 +30,28 @@ zu fokusieren. Dafür wird eine Anode in die Anordnung gebracht, die Emitierende
 dient als Kathode. Die Elektronen bewegen sich also nach ihrer Emission auf die Anode zu.
 Einen solchen Aufbau bezeichnet man als Hochvakuumdiode. Bei Nutzung einer solchen
 Anordnung stellt man jedoch fest, dass der an der Anode gemessene Strom von der Spannung
-der Anode abhängt und erst ab einer Sättigungsspannung $I_S$ alle Elektronen die Annode erreichen. 
+der Anode abhängt und erst ab einer Sättigungsspannung $I_S$ alle Elektronen die Annode erreichen.
+Grund dafür ist die Beschleunigung, die die Elektronen im elektrischen Feld erfahren.
+Die Ladungsdichte $\rho$ im inneren der Diode ist somit Ortsabhängig. Als Konsequenz der
+Kontinuitätsgleichung
+\begin{equation}
+  j = - \rho v
+\end{equation}
+wird das elektrische Feld nahe der Kathode sehr schwach, da es von
+den austretenden Elektronen abgeschirmt werden. Die nachströmenden Elektronen können
+die Anode dann nicht mehr erreichen. Der an der Annode gemessene Strom kann sich
+also nur an den Sättigungsstrom annähern. Aus der $\textsc{Poisson}$-Gleichung
+und der Energieerhaltung folgt für den Verlauf der Stromdichte in der Diode:
+\begin{equation}
+  j = \frac{4}{9} \varepsilon_0 \sqrt{2 e_0 / m_0} \frac{a^2}{V^{3/2}},
+  \lable{eq:3}
+\end{equation}
+das sogenannte $\textsc{Langmuir-Schottkysche}$ Raumladungsgesetz. $a$ bezeichnet dabei
+die $x$-Position der Anode.\\
+Aus \eqref{eq:3} folgt, dass ohne anliegendes Potential $V$ kein Anodenstrom messbar ist.
+In der Realität lässt sich aufgrund der Geschwindigkeit, die die Elektronen auch ohne
+anliegende Spannung besitzen, ein gewisser Strom messen. Dieser Strom wird Anlaufstrom
+genannt. 
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 \subsection{Versuchsdurchführung}

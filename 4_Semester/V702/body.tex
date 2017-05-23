@@ -5,15 +5,15 @@
 \pagenumbering{arabic}
 \section{Theorie}
 Atomkerne zerfallen, wenn das Verhältnis zwischen Anzahl von Neutronen und Protonen
-bestimmte Grenzen überschreitet. Eine wichtige Größe zum Zerfall von Atomen in die
+bestimmte Grenzen überschreitet. Eine wichtige Größe zum Zerfall von Atomen ist die
 Halbwertszeit $T$. Diese bezeichnet den Zeitraum, in dem die Hälfte der instabilen Kerne
 zerfallen ist. In diesem Versuch wird eine Methode diskutiert, die Halbwertszeit von Nukliden zu bestimmen,
 deren $T$ in der Größenordnung Sekunden bis Stunden liegt. Da diese zu Beginn der Messung hergestellt
 werden müssen, geschieht dies durch den Beschuss stabiler Kerne mit Neutronen, da diese die Coulomb-Barriere
 nicht überwinden müssen. Im folgenden wird diese Kernreaktion betrachtet.
 
-Sobald ein Neutron von einem Kern A aufgenommen wurde,  entsteht ein neuer Kern A*, den man Compound -
-oder Zwischenkern nennt. Ihn unterscheidet von seinem Vorgänger die kinetische und Bindungsenergie
+Sobald ein Neutron von einem Kern A aufgenommen wird,  entsteht ein neuer Kern A*, der Compound -
+oder Zwischenkern genannt wird. Ihn unterscheidet von seinem Mutternuklid die kinetische und Bindungsenergie
 des Neutrons. Diese Energie verteilt sich auf viele Nukleonen, die dadurch in höhere Energiezustände
 gebracht werden. Deswegen ist es nicht möglich, dass der Kern das neue Nukleon oder ein anderes abstößt.
 Aus diesem Grund geht der Kern nach der Emmission eines $\gamma$ - Quants wieder in seinen Grundzustand über:
@@ -23,7 +23,7 @@ Aus diesem Grund geht der Kern nach der Emmission eines $\gamma$ - Quants wieder
 mit m als Massenzahl und z als Kernladungszahl. Der neue Kern $\ce{^{m + 1}_{z}A}$ ist nicht mehr stabil,
 da er mehr Neutronen als ein stabiler Kern enthält. Er zerfällt nach längerer Zeit nach folgender Gleichung:
 \begin{equation*}
-    \ce{^{m + 1}_{z}A} \rightarrow \ce{^{m+1}_{z+1}C} + \symup{\beta}^- + \symup{E_{kin}} + \overline{\symup{\nu}}_{\symup{e}}
+    \ce{^{m + 1}_{z}A} \rightarrow \ce{^{m+1}_{z+1}C} + \symup{\beta}^- + E_{\symup{kin}} + \overline{\symup{\nu}}_{\symup{e}}
 \end{equation*}
 mit $\overline{\symup{\nu}}_{\symup{e}}$ als Antineutrino. Der Massendefekt in der obigen Gleichung wird
 durch die kinetische Energie von Elektron und Antineutrino ausgeglichen.
@@ -46,12 +46,12 @@ Aus einer Formel von Breit und Wigner folgt somit die Relation
 Daraus wird bestätigt, dass bei kleinen Geschwindigkeiten die Wahrscheinlichkeit steigt, dass
 das Neutron vom Kern aufgenommen wird.\\
 \\
-Da Neutronen instabil ist als freies Teilchen, müssen sie vor dem Versuch erzeugt werden. Dabei läuft
+Da Neutronen als freie Teilchen instabil sind, müssen sie vor dem Versuch erzeugt werden. Dabei läuft
 folgende Reaktion ab:
 \begin{equation*}
   \ce{^{9}_{4}Be} + \ce{^{4}_{2}He} \rightarrow \ce{^{12}_{6}C} + \ce{^{1}_{0}\symup{n}}
 \end{equation*}
-Die $\alpha$-Teilchen stammen aus dem Zerfall von $\ce{^{226}Ra}$. Die Neutronen werden nun noch abgebremst,
+Die $\alpha$-Teilchen stammen aus dem Zerfall von $\ce{^{226}Ra}$. Die Neutronen werden noch abgebremst,
 da aufgrund obiger Überlegungen niederenergetische Neutronen am besten geeignet sind. Zu diesem Zweck
 werden die Neutronen auf dicke Materieschichten mit leichten Atomkernen geschossen, damit sie wegen
 elastischen Stößen Energie abgeben. Aus dem Gesetz zum elatischen Stoß folgt, dass die Energieübertragung
@@ -63,8 +63,8 @@ Der Aufbau zur Erzeugung der niederenergetischen Elektronen ist in Abbildung \re
   \caption{Quelle zur Erzeugung von niederenergetischen Neutronen \cite{anleitung}.}
   \label{fig:2}
 \end{figure}
-Die Neutronen, die diese Apparatur verlassen, haben eine Energie von \SI{0.025}{\electronvolt} bei einer
-Temperatur von \SI{290}{\kelvin}. Daraus folgt eine mittlere Neutronengeschwindigkeit von \SI{2.2}{\kilo\meter\per\second}.
+Die Neutronen, die diese Apparatur verlassen, haben eine Energie von \SI{0.025}{\electronvolt}. Diese entspricht
+einer Temperatur von \SI{290}{\kelvin}. Daraus folgt eine mittlere Neutronengeschwindigkeit von \SI{2.2}{\kilo\meter\per\second}.
 Solche Neutronen werden als thermische Neutronen bezeichnet. \\
 \\
 In diesem Versuch werden folgende Zerfälle untersucht:
@@ -95,26 +95,27 @@ Aus \eqref{eqn:4} folgt für die Halbwertszeit
   \label{eqn:5}
 \end{equation}
 Da die Bestimmung von $N(t)$ nicht ohne weiteres möglich ist, wird eine neue Größe
-$N_{\symup{\Delta t}}(t)$. Diese wird definiert als
+$N_{\symup{\Delta}t}(t)$ eingeführt. Diese wird definiert als
 \begin{equation}
-  N_{\symup{\Delta t}}(t) = N(t) - N(t + \symup{\Delta t})
+  N_{\symup{\Delta}t}(t) = N(t) - N(t + \symup{\Delta}t)
   \label{eqn:6}
 \end{equation}
-mit $\symup{\Delta t}$ als beliebigem Zeitintervall. Aus \eqref{eqn:4} folgt mit der Definition
+mit $\symup{\Delta}t$ als beliebigem Zeitintervall. Aus \eqref{eqn:4} folgt mit der Definition
 \eqref{eqn:6}
 \begin{equation}
-  \symup{ln}[N_{\symup{\Delta t}}(t)] = \symup{ln}\left[N_0 (1 - \symup{e}^{- \mu \symup{\Delta t}})\right] - \mu t \, .
+  \symup{ln}[N_{\symup{\Delta}t}(t)] = \symup{ln}\left[N_0 (1 - \symup{e}^{- \mu \symup{\Delta}t})\right] - \mu t \, .
   \label{eqn:7}
 \end{equation}
 Aus \eqref{eqn:7} lässt sich mittels linearer Ausgleichsrechnung $\mu$ und damit aus \eqref{eqn:5}
-$T$ bestimmen. Das Zeitintervall $\symup{\Delta t}$ ist dabei von Material zu Material unterschiedlich
+$T$ bestimmen. Das Zeitintervall $\symup{\Delta}t$ ist dabei von Material zu Material unterschiedlich
 und wird angegeben.
 
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 Der Versuchsaufbau ist in \ref{fig:4} zu sehen. Mit dem Geiger-Müller-Zählrohr werden
-die Zerfälle nachgewiesen, die Bleiummantelung soll dabei den Einfluss der Umgebungsstrahlung
-minimieren. Das Gerät zum Anzeigen der Zerfälle hat dabei zwei Speicherplätze,
+die Zerfälle nachgewiesen, wobei die Bleiummantelung den Einfluss der Umgebungsstrahlung
+und die Strahlung außerhalb des Versuchsaufbaus
+minimieren soll. Das Gerät zum Anzeigen der Zerfälle hat dabei zwei Speicherplätze,
 die laufend überschrieben werden. Das Zeitintervall, in dem gemessen werden soll,
 lässt sich am Gerät einstellen.
 \begin{figure}
@@ -125,9 +126,9 @@ lässt sich am Gerät einstellen.
 \end{figure}
 
 \subsection{Versuchsdurchführung}
-Zuerst wurde \SI{900}{\second} lang der Nulleffekt gemessen. Danach wurde zuerst für Indium 15 Messwerte
-mit einem Zeitintervall $\symup{\Delta t} = \SI{4}{\minute}$ und dann für Silber 53 Messwerte mit einem
-Zeitintervall $\symup{\Delta t} = \SI{8}{\second}$ bestimmt.
+Zuerst wurde \SI{900}{\second} lang der Nulleffekt gemessen. Danach werden für Indium 15 Messwerte
+mit einem Zeitintervall $\symup{\Delta}t = \SI{4}{\minute}$ und für Silber 53 Messwerte mit einem
+Zeitintervall $\symup{\Delta}t = \SI{8}{\second}$ bestimmt.
 
 \section{Auswertung}
 \subsection{Zur mathematischen Behandlung der Messwerte}

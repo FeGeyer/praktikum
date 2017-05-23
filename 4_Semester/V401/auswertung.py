@@ -39,6 +39,6 @@ nLuftMean = ufloat(np.mean(unp.nominal_values(nLuft)), stats.sem(nLuft))
 print(nLuftMean)
 print(nCO2Mean)
 
-np.savetxt('Wellenl.txt', np.column_stack([deltad * 10**3, z_well, wl*10**9]) , fmt="%.2f")
+np.savetxt('Wellenl.txt', np.column_stack([deltad * 10**-3, z_well, wl*10**9]) , fmt="%.2f")
 np.savetxt('Luft.txt', np.column_stack([deltaP, z_Luft, nLuft]) , fmt="%.6f")
 np.savetxt('CO2.txt', np.column_stack([deltaP, z_CO2, nCO2]) , fmt="%.6f")

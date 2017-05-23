@@ -4,9 +4,101 @@
 \newpage
 \pagenumbering{arabic}
 \section{Theorie}
+\begin{equation}
+  \symup{\Delta} d = z \frac{\lambda}{2}
+  \label{eq:1}
+\end{equation}
+\begin{equation}
+  b \cdot \symup{\Delta}n = \frac{z \lambda}{2}
+  \label{eq:2}
+\end{equation}
+\begin{equation}
+  n(p_0, T_0) = 1 + \symup{\Delta}n \frac{T \cdot p_0}{T_0 \cdot (p - p^\prime)}
+  \label{eq:3}
+\end{equation}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 \section{Auswertung}
+\subsection{Wellenlänge eines Helium-Neon-Lasers}
+\begin{table}
+  \centering
+  \caption{Messwerte für die Messung an einem Helium-Neon-Laser sowie für jedes Wertepaar
+  berechnete Wellenlänge.}
+  \begin{tabular}{c c c}
+    \toprule
+    $\symup{\Delta}d$ / \si{\milli\metre} & $z$ & $\lambda$ \\
+    \midrule
+    2 & 1286 & 619.98 \\
+    2 & 1327 & 600.82 \\
+    2 & 1284 & 620.94 \\
+    2 & 1305 & 610.95 \\
+    2 & 1340 & 594.99 \\
+    2 & 1288 & 619.01 \\
+    2 & 1326 & 601.27 \\
+    2 & 1300 & 613.30 \\
+    2 & 1330 & 599.47 \\
+    2 & 1292 & 617.10 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:1}
+\end{table}
+
+Die Messwerte finden sich in Tabelle \ref{tab:1}. Ebenfalls in dieser Tabelle finden
+sich die nach \eqref{eq:wel} berechneten
+
+
+\subsection{Brechungsindex von Luft und CO2}
+
+\begin{table}[h]
+  \centering
+  \caption{In Tabelle \subref{tab:2} sind die gemessenen Werte bei Füllung der
+  Kammer mit Luft, in Tabelle \subref{tab:3} für CO2 eingetragen. Außerdem
+  eingetragen ist der für jedes Wertepaar berechnete Brechungsindex $n$.}
+    \begin{subtable}{0.49\textwidth}
+    \centering
+    \begin{tabular}{c c c}
+      \toprule
+      $P$ / \si{\bar} & $z$ & $n$ \\
+      \midrule
+      0.2132 & 46 & 1.000416 \\
+      0.2132 & 33 & 1.000298 \\
+      0.2132 & 47 & 1.000425 \\
+      0.2132 & 32 & 1.000289 \\
+      0.2132 & 37 & 1.000334 \\
+      0.2132 & 35 & 1.000316 \\
+      0.2132 & 33 & 1.000298 \\
+      0.2132 & 50 & 1.000452 \\
+      0.2132 & 34 & 1.000307 \\
+      0.2132 & 33 & 1.000298 \\
+      \bottomrule
+    \end{tabular}
+    \caption{Werte für Luft.}
+    \label{tab:2}
+  \end{subtable}
+    \begin{subtable}{0.49\textwidth}
+    \centering
+    \begin{tabular}{c c c}
+      \toprule
+      $P$ / \si{\bar} & $z$ & $n$ \\
+      \midrule
+      0.2132 & 52 & 1.000470 \\
+      0.2132 & 50 & 1.000452 \\
+      0.2132 & 50 & 1.000452 \\
+      0.2132 & 51 & 1.000461 \\
+      0.2132 & 53 & 1.000479 \\
+      0.2132 & 52 & 1.000470 \\
+      0.2132 & 50 & 1.000452 \\
+      0.2132 & 50 & 1.000452 \\
+      0.2132 & 52 & 1.000470 \\
+      0.2132 & 52 & 1.000470 \\
+      \bottomrule
+    \end{tabular}
+    \caption{Werte für CO2.}
+    \label{tab:3}
+    \end{subtable}
+
+\end{table}
+
 \section{Diskussion}
 \newpage
 \nocite{*}

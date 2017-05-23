@@ -20,7 +20,7 @@
 \subsection{Versuchsaufbau}
 \section{Auswertung}
 \subsection{Wellenlänge eines Helium-Neon-Lasers}
-\begin{table}
+\begin{table}[h]
   \centering
   \caption{Messwerte für die Messung an einem Helium-Neon-Laser sowie für jedes Wertepaar
   berechnete Wellenlänge.}
@@ -44,8 +44,13 @@
 \end{table}
 
 Die Messwerte finden sich in Tabelle \ref{tab:1}. Ebenfalls in dieser Tabelle finden
-sich die nach \eqref{eq:wel} berechneten
-
+sich die nach \eqref{eq:1} berechneten Wellenlängen. Die an der Millimeterschraube
+gemessenen Verschiebungen müssen durch die Hebelübersetzung von \num{5.017} geteilt
+werden, um die tatsächliche Verschiebung des Spiegels zu erhalten.
+Durch Mittelwertbildung erhält man einen Wert von:
+\begin{align*}
+  \lambda = \SI{609.8(31)}{\nano\metre}.
+\end{align*}
 
 \subsection{Brechungsindex von Luft und CO2}
 
@@ -54,6 +59,7 @@ sich die nach \eqref{eq:wel} berechneten
   \caption{In Tabelle \subref{tab:2} sind die gemessenen Werte bei Füllung der
   Kammer mit Luft, in Tabelle \subref{tab:3} für CO2 eingetragen. Außerdem
   eingetragen ist der für jedes Wertepaar berechnete Brechungsindex $n$.}
+  \label{tab:4}
     \begin{subtable}{0.49\textwidth}
     \centering
     \begin{tabular}{c c c}
@@ -96,10 +102,44 @@ sich die nach \eqref{eq:wel} berechneten
     \caption{Werte für CO2.}
     \label{tab:3}
     \end{subtable}
-
 \end{table}
 
+Zur Bestimmung der Brechnungsindize der beiden Gase nach \eqref{eq:3} (mit \eqref{eq:2})
+sind einige Werte notwendig. Diese sind wie folgt:
+\begin{align*}
+  \text{Normaldruck: } p_0 =& \; \SI{1.0132}{\bar} \\
+  \text{Normaltemperatur: } T_0 =& \; \SI{273.15}{\kelvin} \\
+  \text{Umgebungstemperatur: } T =& \; \SI{293.15}{\kelvin} \\
+  \text{Durchmesser der Zelle: } b =& \; \SI{50}{\milli\metre} \\
+  \text{Wellenlänge Laser: } \lambda =& \; \SI{635}{\nano\metre}. \\
+\end{align*}
+Weiter ist zu beachten, dass sich die Kammer in allen Fällen nur auf \SI{-0.8}{\bar}
+evakuieren ließ, sodass der verbeleibende Kammerinnendruck bei \SI{0.2132}{\bar}
+lag. Der Nullpunkt der Skala des Manometers ist auf $p_0$ geeicht. Die gemessenen
+Werte sowie die nach \eqref{eq:3} bestimmten Brechungsindize sind in Tabelle \ref{tab:4}
+dargestellt. Der in den Rechnungen benötigte Wert $\symup{\Delta}n$ wird nach \eqref{eq:2}
+bestimmt. Aufgrund der großen Abweichung zwischen dem auf dem Laser angegebenen und dem
+oben bestimmten Wert für $\lambda$ wird ersterer in den Rechnungen genutzt. Es ergeben
+sich folgende Mittelwerte:
+\begin{align*}
+  n_\symup{Luft} =& \; \num{1.000343(20)} \\
+  n_\symup{CO2} =& \; \num{1.000463(3)}. \\
+\end{align*}
+
 \section{Diskussion}
+Im Vergleich mit dem auf dem Laser angebenen Wert von \SI{635}{\nano\metre} für die
+Wellenlänge zeigen sich Abweichungen, die nicht im Bereich der Messungenauigkeiten liegen.
+Es ist daher von einem systematischen Fehler auszugehen. Denkbar sind vorallem
+Fehlzählungen. Auch wenn die Geschwindigkeit, mit der der Spiegel verstellt wurde,
+extrem gering war, kann nicht ausgeschlossen werden, dass die Frequenz, mit der
+die resultierenden Maxima am Photodetektor vorbeizogen das Auflösungsvermögen eben
+dieses überstiegen.\\
+Bei Vergleich zwischen den für die Brechungsindize gemessenen Werten mit Literaturwerten
+von \num{1.0002765}\cite{luft} für Luft und \num{1.0004476}\cite{co2} für CO2 zeigen
+sich ebenfalls keine Übereinstimmungen im Fehlerintervall. Die relativen Abweichungen
+sind mit \num{4.65e-3} und \SI{1.24e-3}{\percent} jedoch extrem gering. Auch hier sind
+Fehlzählungen das Wahrscheinlichste. Eine erneute Messung mit einem genaueren Messgerät
+sollte daher alle Werte verbessern können.
 \newpage
 \nocite{*}
 \printbibliography

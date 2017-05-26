@@ -4,20 +4,101 @@
 \newpage
 \pagenumbering{arabic}
 \section{Theorie}
+Licht als elektromagnetische Welle breitet sich als ebene Welle nach der Gleichung
 \begin{equation}
-  \symup{\Delta} d = z \frac{\lambda}{2}
+  \vec{E}(x, t) = \vec{E}_0 \, \symup{cos}(kx-\omega t - \delta)
+  \label{eqn:2}
+\end{equation}
+aus. Dabei ist $E$ die elektrische Feldstärke, $k$ die Wellenzahl, $\omega$ die Kreisfrequenz und $\delta$ der Phasenwinkel.
+Wenn für das Licht die Maxwellschen Gleichungen und das Prinzip der linearen Superposition
+gilt, dann lässt sich die Überlagerung mehrerer Lichtwellen einfach aus der vektoriellen Addition
+der Wellengleichungen bestimmen. Da es aber aufgrund der hohen Lichtfrequenz nicht möglich ist,
+diese experimentell zu bestimmen, wird stattdessen die Intensität betrachtet, die sich über
+die Beziehung
+\begin{equation*}
+    I \propto |\vec{E}|^2
+\end{equation*}
+aus der elektrischen Feldstärke ergibt. Mit einigen Vereinfachungen folgt somit für die Intensität
+überlagerter Lichwellen
+\begin{equation}
+  I = 2 \cdot \symup{const} \, \vec{E}_0^2 \, \symup{cos}(\delta_2 - \delta_1) \, .
+  \label{eqn:1}
+\end{equation}
+Somit ist die Intensität der überlagerten Welle abhängig von der Differenz der Phasenwinkel.
+Auch eine komplette Auslöschung ist möglich, falls die Differenz ungerade Vielfache von
+$\pi$ ergibt.
+
+Da die Phasenwinkel bei konventionellen Lichtquellen statistische Funktionen der Zeit sind,
+fällt der Interferenzterm mei der Mittelung über einen großen Zeitraum weg. Deshalb
+ist es wichtig, sogenanntes kohärentes Licht zu benutzen. Diese Art des Lichts zeichnet sich
+dadurch aus, dass $k$, $\omega$ und $\delta$ in \eqref{eqn:2} konstant sind. Dies wird durch
+die Verwendung von Lasern realisiert. Diese sind zwar nicht im Unendlichen kohärent, doch für die
+im Experiment verwendeteten Längenskalen ausreichend. Damit sind alle Vorraussetzungen für
+die Interferenzfähigkeit des Lichtes vorhanden.  \\
+\\
+Der prinzipielle Aufbau das Michelson-Interferometers ist in Abbildung \ref{fig:1} dargestellt. Dabei
+ist L die Lichtquelle, $\symup{S}_1$ und $\symup{S}_2$ Spiegel, P ein semipermeabler Spiegel
+und D ein Photodetektor.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{michelson.png}
+  \caption{Prinzipieller Aufbau des Michelson-Interferometers.}
+  \label{fig:1}
+\end{figure}
+Um Interferenzeffekte untersuchen zu können, wird der Lichtstrahl
+am semipermeablen Spiegel P in zwei Teilstrahlen aufgespalten. Einer setzt seinen Weg ohne Richtungsänderung fort,
+der andere senkrecht zur Einfallsrichtung. Nachdem beide Strahlen an $\symup{S}_1$ bzw. $\symup{S}_2$
+gespiegelt worden sind, treffen sie erneut auf P und werden erneut wie oben beschrieben aufgespalten. Damit die beiden Teilstrahlen
+kohärent sind, werden die Abstände $\overline{\symup{S}_1 \symup P}$ und $\overline{\symup{S}_2 \symup P}$
+annähernd gleich gewählt und eine Kompensationsplatte mit gleichem Brechungsindex und gleicher Dicke wie P
+zwischen P und $\symup{S}_2$ gebracht, da im Gegensatz zu dem von $\symup{S}_1$ kommenden Strahl der
+von $\symup{S}_2$ kommende Strahl P nur einmal statt dreimal durchläuft. Sind diese Vorraussetzungen
+erfüllt, dann ensteht ein Gangunterschied von $\lambda / 2$ zwischen den beiden Teilstrahlen.
+Somit löschen sich die beiden Strahlen aus und der Photodetektor D erfasst an der Stelle x
+einen dunklen Fleck. Wird einer der beiden Spiegel um ein Stück d verschoben, ergibt sich statt
+$\lambda / 2$ ein Wegunterschied von $2 \cdot d$ und die am Photodetektor D erfasste Intensität
+ändert sich. Wenn man d kontinuierlich ändert, oszilliert die Intensität zwischen 0 (Auslöschung)
+und dem Maximalwert. Somit lässt sich der Aufbau zur Wellenlängenbestimmung nutzen und es ergibt sich
+\begin{equation}
+  \symup{\Delta} d = z \frac{\lambda}{2} \ \ \text{bzw.} \ \ \lambda = \frac{2 \symup{\Delta} d}{z} \, .
   \label{eq:1}
 \end{equation}
+Dabei ist $z$ die Anzahl der Intensitätsmaxima. \\
+\\
+Eine andere Nutzungsweise des Michelson-Interferometers ist die Bestimmung von Brechungsindizes.
+Der Aufbau ist in Abbildung \ref{fig:2} dargestellt.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.35]{n.png}
+  \caption{Aufbau des Michelson-Interferometers zur Bestimmung von Brechungsindizes.}
+  \label{fig:2}
+\end{figure}
+Das Medium der Dicke $b$ soll den Brechungsindex
+$n + \symup{\Delta} n$ besitzen, an allen anderen Orten im Versuchsaufbau sei er $n$. Wird $\symup{\Delta} n$
+langsam erhöht, erscheinen weder wechselnde Intensitäten an der Stelle x. Dabei entspricht $b \cdot \symup{\Delta} n $
+gerade $\symup{\Delta} d$ aus \eqref{eq:1} und es ergibt sich
 \begin{equation}
-  b \cdot \symup{\Delta}n = \frac{z \lambda}{2}
+  b \cdot \symup{\Delta}n = \frac{z \lambda}{2} \, .
   \label{eq:2}
 \end{equation}
+Um aus $\symup{\Delta} n$ den wirklichen Brechungsindex $n$ des verwendeten Mediums zu bestimmen,
+nutzt man
 \begin{equation}
-  n(p_0, T_0) = 1 + \symup{\Delta}n \frac{T \cdot p_0}{T_0 \cdot (p - p^\prime)}
+  n(p_0, T_0) = 1 + \symup{\Delta}n \frac{T \cdot p_0}{T_0 \cdot (p - p^\prime)} \, .
   \label{eq:3}
 \end{equation}
+Dabei sind $p_0$ und $T_0$ Druck und Temperatur unter Normalbedingungen, $T$ die Umgebungstemperatur
+$p - p'$ die relative Änderungs des Druckes, der zu wechselnden Intensitäten führt.
+
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{aufbau.png}
+  \caption{Aufbau der Messapparatur.}
+  \label{fig:3}
+\end{figure}
+\subsection{Versuchsdurchführung}
 \section{Auswertung}
 \subsection{Wellenlänge eines Helium-Neon-Lasers}
 \begin{table}[h]

@@ -57,7 +57,8 @@ Ag2N0 = ufloat(paramsAg2[1], errorsAg2[1])
 print("Silber-lang:")
 print("mu:",Ag2Mu)
 print("N0/s:",Ag2N0)
-print("T1/2 /s:",np.log(2)/-Ag2Mu)
+#print("T1/2 /s:",np.log(2)/-Ag2Mu)
+print("T1/2 /s:",-0.5*Ag2N0/Ag2Mu)
 
 Delta = tAgs[0:5]*Ag2Mu + Ag2N0
 
@@ -71,7 +72,8 @@ Ag1N0 = ufloat(paramsAg1[1], errorsAg1[1])
 print("Silber-kurz:")
 print("mu:",Ag1Mu)
 print("N0/s:",Ag1N0)
-print("T1/2 /s:",np.log(2)/-Ag1Mu)
+#print("T1/2 /s:",np.log(2)/-Ag1Mu)
+print("T1/2 /s:",-0.5*Ag1N0/Ag1Mu)
 
 x2plot = np.linspace(0,7)
 plt.figure(2)

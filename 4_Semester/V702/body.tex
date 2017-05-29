@@ -131,20 +131,21 @@ mit einem Zeitintervall $\symup{\Delta}t = \SI{4}{\minute}$ und für Silber 53 M
 Zeitintervall $\symup{\Delta}t = \SI{8}{\second}$ bestimmt.
 
 \section{Auswertung}
-\subsection{Zur mathematischen Behandlung der Messwerte}
+\subsection{Behandlung der Messwerte}
 Die gemessenen Vorgänge unterliegen einer Poission-Verteilung, der Fehler eines
 Messwertes $x_i$ ist somit durch $\sqrt{x_i}$ gegeben. Die dargestellten Ausgleichsrechnungen
 wurden durch die Funktion \textsc{curve-fit} aus dem \textsc{python}-Paket \textsc{scipy.optimise}
-unter berücksichtigung des Fehlers durchgeführt.
+durchgeführt. Finden fehlerbehaftete Größen
+in Formeln Anwendung, wird der resultierende Fehler in \textsc{uncertainties} bestimmt.
 \subsection{Nullmessung}
-Es wurden innerhalb von \SI{900}{\second} \num{164} Ausschläge am Geiger-Müller-Zählrohr
+Es werden innerhalb von \SI{900}{\second} \num{164} Ausschläge am Geiger-Müller-Zählrohr
 gemessen. Dies entspricht einem Wert von $N_\symup{null} = \SI[per-mode=reciprocal]{0.18}{\per\second}$.
 Dieser Wert ist zwar gering, aber gerade bei längeren Messintervallen statistisch
 signifikant, sodass er von den Messwerten abgezogen werden muss.
 \subsection{Messung von Indium}
 \begin{figure}[h]
   \centering
-    \begin{subfigure}{0.5\textwidth}
+    \begin{subfigure}{0.74\textwidth}
     \centering
       \includegraphics[width=\textwidth]{Indium.pdf}
       \caption{Grafische Darstellung der Messwerte mit Regression.}
@@ -152,100 +153,108 @@ signifikant, sodass er von den Messwerten abgezogen werden muss.
     \end{subfigure}
     \begin{subtable}{0.25\textwidth}
       \centering
-      \begin{tabular}{c c}
+      \begin{tabular}{c c c}
         \toprule
-        $t$ / \si{\minute} & $N$ \\
+        $t$ / \si{\minute} & $N$ & $\sigma_\symup{N}$ \\
         \midrule
-        4 & 2584 \\
-        8 & 2335 \\
-        12 & 2192 \\
-        16 & 2069 \\
-        20 & 1979 \\
-        24 & 1924 \\
-        28 & 1833 \\
-        32 & 1766 \\
-        36 & 1632 \\
-        40 & 1557 \\
-        44 & 1448 \\
-        48 & 1504 \\
-        52 & 1416 \\
-        56 & 1382 \\
-        60 & 1314 \\
+        4 & 2540 & 50 \\
+        8 & 2291 & 48 \\
+        12 & 2148 & 46 \\
+        16 & 2025 & 45 \\
+        20 & 1935 & 44 \\
+        24 & 1880 & 43 \\
+        28 & 1789 & 42 \\
+        32 & 1722 & 42 \\
+        36 & 1588 & 40 \\
+        40 & 1513 & 39 \\
+        44 & 1404 & 37 \\
+        48 & 1460 & 38 \\
+        52 & 1372 & 37 \\
+        56 & 1338 & 37 \\
+        60 & 1270 & 36 \\
         \bottomrule
       \end{tabular}
       \caption{Messwerte.}
       \label{tab:1}
     \end{subtable}
     \caption{In Tabelle \subref{tab:1} sind die für das Isotop
-    $\ce{^{116}In}$ gemessenen Werte eingetragen. Diese Werte sind
-    nicht vom Nulleffekt bereinigt. In Grafik \subref{fig:5} findet sich die
+    $\ce{^{116}In}$ gemessenen Werte mit Fehler $\sigma_\symup{N} = \sqrt{N}$ eingetragen. Diese Werte sind
+    vom Nulleffekt bereinigt. In Grafik \subref{fig:5} findet sich die
     halblogarithmische Darstellung der vom Nulleffekt bereinigten Messwerte mit
     einer linearen Regression.}
   \end{figure}
   Die Messwerte finden sich in Tabelle \ref{tab:1}. Die Werte verhalten sich nach \eqref{eqn:4}.
 Die Regression wird nach \eqref{eqn:7} ausgeführt. Mit \eqref{eqn:5} ergeben sich also folgende Konstanten:
   \begin{align*}
-    \mu_\symup{In} =& \, \SI[per-mode=reciprocal]{1.91(8)e-4}{\per\second} \\
-    N_{0\symup{, In}} =& \, \SI[per-mode=reciprocal]{10.3(2)}{\per\second} \\
-    T_{\symup{In}} =& \, \SI{60.3(25)}{\minute}.
+    \mu_\symup{In} =& \, \SI[per-mode=reciprocal]{1.92(8)e-4}{\per\second} \\
+    N_{0\symup{, In}} =& \, \num[per-mode=reciprocal]{2.48(5)e3}\\
+    T_{\symup{In}} =& \, \SI{60.2(25)}{\minute}.
   \end{align*}
 Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildung \ref{fig:5}.
 \subsection{Messung von Silber}
 \begin{table}
   \centering
-  \begin{tabular}{c c | c c | c c | c c}
+  \begin{tabular}{c c c | c c c | c c c | c c c}
     \toprule
-    $t$ / \si{\second} & $N$ & $t$ / \si{\second} & $N$ & $t$ / \si{\second} & $N$ & $t$ / \si{\second} & $N$ \\
+    $t$ / \SI{8}{\second} & $N$ & $\sigma_\symup{N} $ & $t$ / \SI{8}{\second} &
+     $N$ & $\sigma_\symup{N} $ & $t$ / \SI{8}{\second} & $N$ & $\sigma_\symup{N} $
+     & $t$ / \SI{8}{\second} & $N$ & $\sigma_\symup{N} $\\
     \midrule
-    8 & 146 & 120 & 21 & \sout{232} & \sout{6} & 344 & 6 \\
-    16 & 120 & 128 & 18 & \sout{240} & \sout{11} & 352 & 3 \\
-    24 & 86 & \sout{136} & \sout{22} & 248 & 10 & 360 & 4 \\
-    \sout{32} & \sout{87} & 144 & 16 & \sout{256} & \sout{3} & \sout{368} & \sout{15} \\
-    40 & 60 & \sout{152} & \sout{22} & \sout{264} & \sout{4} & 376 & 5 \\
-    \sout{48} & \sout{58} & 160 & 17 & 272 & 10 & 384 & 5\\
-    56 & 43 & 168 & 15 & 280 & 9 & \sout{392} & \sout{9}\\
-    \sout{64} & \sout{51} & \sout{176} & \sout{5} & \sout{288} & \sout{5} & 400 & 2 \\
-    72 & 34 & 184 & 11 & 296 & 9 & 408 & 5 \\
-    80 & 24 & 192 & 12 & 304 & 10 & \sout{416} & \sout{9} \\
-    88 & 24 & \sout{200} & \sout{13} & \sout{312} & \sout{6} & 424 & 5 \\
-    \sout{96} & \sout{26} & 208 & 9 & 320 & 10 & & \\
-    104 & 23 & 216 & 9 & 328 & 10 & & \\
-    112 & 24 & \sout{224} & \sout{6} & 336 & 6 & & \\
+    8 & 145 & 12 & 112 & 23 & 5 & 216 & 8 & 3 & 320 & 9 & 3 \\
+    16 & 119 & 11 & 120 & 20 & 4 & 224 & 5 & 2 & 328 & 9 & 3 \\
+    24 & 85 & 9 & 128 & 17 & 4 & 232 & 5 & 2 & 336 & 5 & 2 \\
+    32 & 86 & 9 & 136 & 21 & 5 & 240 & 10 & 3 & 344 & 5 & 2 \\
+    40 & 59 & 8 & 144 & 15 & 4 & 248 & 9 & 3 & 352 & 2  & 1 \\
+    48 & 57 & 8 & 152 & 21 & 5 & 256 & 2 & 1 & 360 & 3  & 2 \\
+    56 & 42 & 6 & 160 & 16 & 4 & 264 & 3 & 2 & 368 & 14 & 4 \\
+    64 & 50 & 7 & 168 & 14 & 4 & 272 & 9 & 3 & 376 & 4  & 2 \\
+    72 & 33 & 6 & 176 & 4  & 2 & 280 & 8 & 3 & 384 & 4  & 2 \\
+    80 & 23 & 5 & 184 & 10 & 3 & 288 & 4 & 2 & 392 & 8  & 3 \\
+    88 & 23 & 5 & 192 & 11 & 3 & 296 & 8 & 3 & 408 & 4  & 2 \\
+    96 & 25 & 5 & 200 & 12 & 3 & 304 & 9 & 3 & 416 & 8  & 3 \\
+    104 & 22 & 5 & 208 & 8 & 3 & 312 & 5 & 2 & 424 & 4 & 2 \\
     \bottomrule
   \end{tabular}
-  \caption{Messwerte der Messung an Silberisotopen.}
+  \caption{Messwerte der Messung an Silberisotopen mit Fehler $\sigma_\symup{N} = \sqrt{N}$.}
   \label{tab:2}
 \end{table}
 \begin{figure}
 \centering
   \includegraphics[width=\textwidth]{Silber.pdf}
-  \caption{Diagramm der Messwerte. Die nicht betrachteten Messwerte sind ohne Angabe
-  der Fehler eingetragen. Ebenfalls eingetragen sind die Zerfallsgeraden
+  \caption{Diagramm der vom Nulleffekt bereinigten Messwerte.
+   Ebenfalls eingetragen sind die Zerfallsgeraden
   der Isotope $\ce{^{108}Ag}$ und $\ce{^{110}Ag}$.}
   \label{fig:6}
 \end{figure}
-Die Messwerte finden sich in Tabelle \ref{tab:2}. Messwerte, die deutlich als fehlerhaft
-erkennbar sind, werden in den Berechnungen nicht beachtet und sind in der Tabelle
-durchgestrichen. Die grafische Darstellung der Messwerte findet sich in Abbildung \ref{fig:6}.
+Die Messwerte finden sich in Tabelle \ref{tab:2}. Die halblogarithmische Darstellung
+der Messwerte findet sich in Abbildung \ref{fig:6}.
 Die Messkurve lässt sich in drei Intervalle einteilen, die in der Grafik durch
 gepunktete vertikale Linien getrennt sind. Im ersten Intervall dominiert das
 kurzlebige $\ce{^{110}Ag}$ die gemessenen Zerfälle. In einem folgenden Übergangsintervall
 kann über eine eventuelle Dominanz eines Isotops keine Aussage getroffen werden.
 Im letzten Intervall überwiegt dann das langlebigere $\ce{^{108}Ag}$. Lineare
-Ausgleichsrechnung durch die Messwerte der beiden relevanten Intervalle liefert
+Ausgleichsrechnung durch die logarithmierten Messwerte der beiden relevanten Intervalle liefert
 Werte für $\mu$ und $N_0$. Aus $\mu$ kann aus \eqref{eqn:5} wieder die Halbwertszeit
 des Isotops bestimmt werden. Für $\ce{^{110}Ag}$ ergibt sich:
 \begin{align*}
-  \mu_\symup{Ag-110} =& \, \SI[per-mode=reciprocal]{0.24(4)}{\per\second} \\
-  N_{0\symup{, Ag-110}} =& \, \SI[per-mode=reciprocal]{17.9(16)}{\per\second} \\
-  T_{\symup{Ag-110}} =& \, \SI{2.9(5)}{\second}
+  \mu_\symup{Ag-110} =& \, \SI[per-mode=reciprocal]{0.026(2)}{\per\second} \\
+  N_{0\symup{, Ag-110}} =& \, \num[per-mode=reciprocal]{171(13)} \\
+  T_{\symup{Ag-110}} =& \, \SI{26.7(22)}{\second}
 \end{align*}
 und für $\ce{^{108}Ag}$
 \begin{align*}
-  \mu_\symup{Ag-108} =& \, \SI[per-mode=reciprocal]{5.6(1)e-3}{\per\second} \\
-  N_{0\symup{, Ag-108}} =& \, \SI[per-mode=reciprocal]{2.4(4)}{\per\second} \\
-  T_{\symup{Ag-108}} =& \, \SI{2.05(35)}{\minute}
+  \mu_\symup{Ag-108} =& \, \SI[per-mode=reciprocal]{0.005(1)}{\per\second} \\
+  N_{0\symup{, Ag-108}} =& \, \num[per-mode=reciprocal]{25(7)}\\
+  T_{\symup{Ag-108}} =& \, \SI{2.4(5)}{\minute}
 \end{align*}
+Werden die beiden Geraden kombiniert, ergiebt sich die in \ref{fig:7} dargestellte
+Summenkurve.
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{2Silber.pdf}
+  \caption{Diagramm der vom Nulleffekt bereinigten Messwerte mit Summenkurve.}
+  \label{fig:7}
+\end{figure}
 \section{Diskussion}
 \begin{table}
   \centering
@@ -261,23 +270,18 @@ und für $\ce{^{108}Ag}$
   \caption{Literaturwerte.}
   \label{tab:3}
 \end{table}
-In Tabelle \ref{tab:3} finden sich Literaturwerte für die einzellnen Isotope. Beim Vergleich
-der Werte für $\ce{^{108}Ag}$ zeigen sich gute Übereinstimmungen. Der für Literaurwert für $\mu$
-liegt zwar nicht im Fehlerintervall des bestimmten Wertes, die Halbwertszeit stimmt jedoch
-im Bereich der Messungeauigkeit überein. Für $\ce{^{110}Ag}$ finden sich große
-Abweichungen zwischen Theorie und Experiment. Die vermutliche Fehlerquelle ist die
-generell kurze Halbwertszeit beider Isotope. Besonders bei $\ce{^{110}Ag}$ findet
-aufgrund der geringen Halbwertszeit
-auf dem Weg zwischen Anregungsbehälter und Messaufbau eine signifikante Menge an
-Zerfallsprozessen statt. Das Messergebnis wird somit verfälscht. Außerdem können für
-ein so kurzlebiges Isotop nur wenige Messwerte aufgenommen werden, sodass die Datenmenge
-aus der die Regression bestimmt wird entsprechend klein ist. Dies ist bei dem
-relativ langlebigen Isotop $\ce{^{110}Ag}$ ein geringeres Problem. Hier wird bei
-langen Messdauern jedoch die Untergrundstrahlung signifikant, sodass ein Trennen
-der Zerfallsprozesse vom Untergrund schwieriger wird.\\
+In Tabelle \ref{tab:3} finden sich Literaturwerte für die einzellnen Isotope. Für
+beide Silberisotope liegen die Theoriewerte sowohl für
+Zerfallskonstante als auch für Halbwertszeit im Fehlerintervall der berechneten Werte.
+Die Abweichung der nominellen Werte von den Literaturwerten ist bei der Messung des
+kurzlebigeren $\ce{^{110}Ag}$ signifikant größer als bei $\ce{^{108}Ag}$. Dies ist darauf
+zurückzuführen, dass auf dem Weg zwischen Anregungsbehälter und Messaufbau bereits eine
+signifikante Menge an Zerfallsprozessen des kurzlebigeren Isotops stattgefunden hat,
+sodass die Messwerte verfälscht werden. Dies ist beim langlebigeren Isotop ein
+geringeres Problem.\\
 Auch $\ce{^{116}In}$ gibt es keinen Wert, der im Bereich der Messtolleranz liegt.
-Die relativen Fehler sind jedoch mit \SI{6.07}{\percent} für die Halbwertszeit
-und \SI{5.24}{\percent} für die Zerfallskonstante gering. Mögliche Fehlerquelle
+Die relativen Fehler sind jedoch mit \SI{5.91}{\percent} für die Halbwertszeit
+und \SI{4.76}{\percent} für die Zerfallskonstante gering. Mögliche Fehlerquelle
 sind hier statistische Schwankungen. Widerholte Messungen
 würde genauere Ergebnisse bringen.
 \newpage

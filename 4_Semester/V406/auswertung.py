@@ -53,7 +53,7 @@ iDoppelk =iDoppelk*10**(3)
 iDoppelk = iDoppelk - 2
 # Fit
 def f (x, A0, b, c, g):
-    return A0 * (np.cos((np.pi*g*np.sin(abs(x-c)/L))/wellenlaenge))**2 * (A0**2) * (b**2) * (wellenlaenge/(np.pi*b*np.sin((abs(x-c))/L)))**2 * (np.sin((np.pi*b*np.sin((abs(x-c))/L))/wellenlaenge))**2
+    return A0 * (np.cos((np.pi*g*np.sin(abs(x-c)/L))/wellenlaenge))**2 * (wellenlaenge/(np.pi*b*np.sin((abs(x-c))/L)))**2 * (np.sin((np.pi*b*np.sin((abs(x-c))/L))/wellenlaenge))**2
 
 paramsDoppelk, covarianceDoppelk = curve_fit(f, dDoppelk, iDoppelk, p0=[np.max(iDoppelk), 0.15, 25, 0.25])
 errorsDoppelk = np.sqrt(np.diag(covarianceDoppelk))
@@ -66,6 +66,7 @@ print("Doppelspalt klein")
 print("")
 print("Spaltbreite: ",b2)
 print("A0: ",A02)
+print("Maximum: ", np.max(iDoppelk))
 print("Maximumsbestimmung: ",c2)
 print("Gitterkonstante: ",d1)
 
@@ -103,6 +104,7 @@ print("Doppelspalt groß")
 print("")
 print("Spaltbreite: ",b3)
 print("A0: ",A03)
+print("Maximum: ", np.max(iDoppelg))
 print("Maximumsbestimmung: ",c3)
 print("Gitterkonstante: ",d2)
 

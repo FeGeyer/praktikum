@@ -55,8 +55,8 @@ print(exponent)
 plt.figure(2)
 x1 = np.linspace(2, 4.2)
 plt.xlim(2, 4.2)
-plt.xlabel(r"$U / \mathrm{V}$")
-plt.ylabel(r"$I / \mathrm{mA}$")
+plt.xlabel(r"$U$")
+plt.ylabel(r"$I$")
 #plt.xscale('log')
 #plt.yscale('log')
 plt.plot(logU, logI,'r.', label="Raumladungsgebiet")
@@ -65,3 +65,31 @@ plt.plot(x1, f(x1, *paramsRaum), 'b-', label="Regression")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("raumladung.pdf")
+
+# Aufgabenteil c)
+U, I6 = np.genfromtxt('anlaufstrom.txt', unpack=True)
+I6 = I6 * 10**(-9) # Umrechnen in Ampere
+U = U - 1*10**6 * I6
+logI6 = np.log(I6)
+U = U[0:9]
+logI6 = logI6[0:9]
+
+paramsA, covarianceA = curve_fit(f, U, logI6)
+errorsA= np.sqrt(np.diag(covarianceA))
+exponent2 = ufloat(paramsA[0], errorsA[0])
+
+T = - (const.e)/(const.k*exponent2)
+print("")
+print("Aufgabenteil c): ")
+print(T)
+
+plt.figure(3)
+x2 = np.linspace(-0.1, 0.9)
+plt.xlim(-0.1, 0.9)
+plt.xlabel(r"$U / \mathrm{V}$")
+plt.ylabel(r"$I$")
+plt.plot(U, logI6, 'r.', label="Anlaufgebiet")
+plt.plot(x2, f(x2, *paramsA), 'b-', label="Regression")
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("anlauf.pdf")

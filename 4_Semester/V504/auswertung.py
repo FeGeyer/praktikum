@@ -24,11 +24,13 @@ plt.tight_layout()
 plt.savefig("kennlinien.pdf")
 
 # Sättigungsstrom
-Is1 = np.max(I1)
-Is2 = np.max(I2)
-Is3 = np.max(I3)
-Is4 = np.max(I4)
-Is5 = np.max(I5)
+Is1 = np.max(I1) * 10**(-3)
+Is2 = np.max(I2) * 10**(-3)
+Is3 = np.max(I3) * 10**(-3)
+Is4 = np.max(I4) * 10**(-3)
+Is5 = np.max(I5) * 10**(-3)
+#Is = [Is1, Is2, Is3, Is4, Is5]
+#Is = Is * 10**(-3)
 
 print("")
 print("Aufgabenteil a): ")
@@ -93,3 +95,28 @@ plt.plot(x2, f(x2, *paramsA), 'b-', label="Regression")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("anlauf.pdf")
+
+# Aufgabenteil d)
+Uh, Ih = np.genfromtxt('leistung.txt', unpack=True)
+NWL = 0.9
+sigma = 5.7*10**(-12)
+g = 0.32
+eta = 0.28
+T2 = ((Uh * Ih - NWL)/(sigma * g * eta))**(1/4)
+T2mean = ufloat(np.mean(T2), stats.sem(T2))
+print("")
+print("Aufgabenteil d): ")
+print(T2mean)
+
+# Aufgabenteil e)
+e0Phi1 = -np.log((Is1 * (const.h)**3)/(4 * g *10**(-4) * np.pi * const.e * const.m_e * (const.k)**2 * T2[0]**2)) * const.k * T2[0] /const.e
+e0Phi2 = -np.log((Is2 * (const.h)**3)/(4 * g *10**(-4) * np.pi * const.e * const.m_e * (const.k)**2 * T2[1]**2)) * const.k * T2[1] /const.e
+e0Phi3 = -np.log((Is3 * (const.h)**3)/(4 * g *10**(-4) * np.pi * const.e * const.m_e * (const.k)**2 * T2[2]**2)) * const.k * T2[2] /const.e
+e0Phi4 = -np.log((Is4 * (const.h)**3)/(4 * g *10**(-4) * np.pi * const.e * const.m_e * (const.k)**2 * T2[3]**2)) * const.k * T2[3] /const.e
+e0Phi5 = -np.log((Is5 * (const.h)**3)/(4 * g *10**(-4) * np.pi * const.e * const.m_e * (const.k)**2 * T2[4]**2)) * const.k * T2[4] /const.e
+
+e0Phi = [e0Phi1, e0Phi2, e0Phi3, e0Phi4, e0Phi5]
+e0Phimean = ufloat(np.mean(e0Phi), stats.sem(e0Phi))
+print("")
+print("Aufgabenteil e): ")
+print(e0Phimean)

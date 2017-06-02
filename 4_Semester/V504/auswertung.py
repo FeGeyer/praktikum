@@ -14,6 +14,8 @@ Ukenn, I1, I2, I3, I4, I5 = np.genfromtxt('kennlinien.txt', unpack=True)
 # Plot
 plt.figure(1)
 plt.xlim(0, 260)
+plt.xlabel(r"$U / \mathrm{V}$")
+plt.ylabel(r"$I / \mathrm{mA}$")
 plt.plot(Ukenn, I1,'.', label="Kennlinie 1")
 plt.plot(Ukenn, I2,'.', label="Kennlinie 2")
 plt.plot(Ukenn, I3,'.', label="Kennlinie 3")
@@ -29,8 +31,7 @@ Is2 = np.max(I2) * 10**(-3)
 Is3 = np.max(I3) * 10**(-3)
 Is4 = np.max(I4) * 10**(-3)
 Is5 = np.max(I5) * 10**(-3)
-#Is = [Is1, Is2, Is3, Is4, Is5]
-#Is = Is * 10**(-3)
+
 
 print("")
 print("Aufgabenteil a): ")
@@ -55,15 +56,14 @@ print(exponent)
 
 
 plt.figure(2)
-x1 = np.linspace(2, 4.2)
-plt.xlim(2, 4.2)
+x1 = np.linspace(2, logU[5])
+plt.xlim(2, 5.5)
 plt.xlabel(r"$U$")
 plt.ylabel(r"$I$")
-#plt.xscale('log')
-#plt.yscale('log')
-plt.plot(logU, logI,'r.', label="Raumladungsgebiet")
+plt.plot(logU, logI,'r.', label="Gefittete Werte")
 plt.plot(x1, f(x1, *paramsRaum), 'b-', label="Regression")
-#plt.plot(np.log(Ukenn[1:25]), np.log(I5[1:25]), 'g.', label="Alle Werte")
+plt.axvline(x = logU[5], ymin=0, ymax=1, ls=':', color='k')
+plt.plot(np.log(Ukenn[7:25]), np.log(I5[7:25]), 'g.', label="Nicht-gefittete Werte")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("raumladung.pdf")
@@ -73,10 +73,10 @@ U, I6 = np.genfromtxt('anlaufstrom.txt', unpack=True)
 I6 = I6 * 10**(-9) # Umrechnen in Ampere
 U = U - 1*10**6 * I6
 logI6 = np.log(I6)
-U = U[0:9]
-logI6 = logI6[0:9]
+U1 = U[0:9]
+logI61 = logI6[0:9]
 
-paramsA, covarianceA = curve_fit(f, U, logI6)
+paramsA, covarianceA = curve_fit(f, U1, logI61)
 errorsA= np.sqrt(np.diag(covarianceA))
 exponent2 = ufloat(paramsA[0], errorsA[0])
 
@@ -86,11 +86,14 @@ print("Aufgabenteil c): ")
 print(T)
 
 plt.figure(3)
-x2 = np.linspace(-0.1, 0.9)
-plt.xlim(-0.1, 0.9)
+x2 = np.linspace(-0.015, U1[8])
+plt.xlim(-0.015, 1)
+plt.ylim(-23, -18)
 plt.xlabel(r"$U / \mathrm{V}$")
 plt.ylabel(r"$I$")
-plt.plot(U, logI6, 'r.', label="Anlaufgebiet")
+plt.plot(U1, logI61, 'r.', label="Gefittete Werte")
+plt.axvline(x = U1[8], ymin=0, ymax=1, ls=':', color='k')
+plt.plot(U[9:12], logI6[9:12], 'g.', label="Nicht-gefittete Werte")
 plt.plot(x2, f(x2, *paramsA), 'b-', label="Regression")
 plt.legend(loc="best")
 plt.tight_layout()

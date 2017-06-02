@@ -37,7 +37,7 @@ zu fokusieren. Dafür wird eine Anode in die Anordnung gebracht, die Emitierende
 dient als Kathode. Die Elektronen bewegen sich also nach ihrer Emission auf die Anode zu.
 Einen solchen Aufbau bezeichnet man als Hochvakuumdiode (siehe Abbildung \ref{abb:5}). Bei Nutzung einer solchen
 Anordnung stellt man jedoch fest, dass der an der Anode gemessene Strom von der Spannung
-der Anode abhängt und erst ab einer Sättigungsspannung $I_S$ alle Elektronen die Annode erreichen.
+der Anode abhängt und erst ab einer Sättigungsspannung $I_{\symup{S}}$ alle Elektronen die Annode erreichen.
 Grund dafür ist die Beschleunigung, die die Elektronen im elektrischen Feld erfahren.
 Die Ladungsdichte $\rho$ im inneren der Diode ist somit Ortsabhängig. Als Konsequenz der
 Kontinuitätsgleichung
@@ -121,6 +121,191 @@ in \SI{0.1}{\volt} Schritten erhöht, wodurch sich das Gegenfeld zwischen Anode 
 erhöht.
 
 \section{Auswertung}
+\subsection{Aufnahme der Kennlinien und Bestimmung des Sättigungsstroms $I_{\symup{S}}$}
+\label{sec:a}
+In Tabelle \ref{tab:1} befinden sich die Werte, die zur Bestimmung der Kennlinien genutzt
+werden. Die zugehörige graphische Darstellung findet sich in Abbildung \ref{fig:1}.
+\begin{table}
+  \centering
+  \caption{Messwerte zur Bestimmung der Kennlinien.}
+  \label{tab:1}
+    \begin{tabular}{c c c c c c}
+      \toprule
+      $U$ / \si{\volt} & $I_1$ / \si{\milli\ampere} & $I_2$ / \si{\milli\ampere} & $I_3$ / \si{\milli\ampere} &
+      $I_4$ / \si{\milli\ampere} & $I_5$ / \si{\milli\ampere} \\
+      \midrule
+      0 & 0 & 0 & 0 & 0 & 0 \\
+      10 & 0.007 & 0.014 & 0.022 & 0.027 & 0.030 \\
+      20 & 0.014 & 0.031 & 0.047 & 0.062 & 0.077 \\
+      30 & 0.018 & 0.045 & 0.076 & 0.103 & 0.129 \\
+      40 & 0.020 & 0.054 & 0.102 & 0.145 & 0.183 \\
+      50 & 0.021 & 0.059 & 0.120 & 0.188 & 0.241 \\
+      60 & 0.022 & 0.061 & 0.132 & 0.225 & 0.308 \\
+      70 & 0.022 & 0.063 & 0.139 & 0.250 & 0.359 \\
+      80 & 0.022 & 0.065 & 0.143 & 0.262 & 0.407 \\
+      90 & 0.023 & 0.066 & 0.146 & 0.271 & 0.452 \\
+      100 & 0.024 & 0.066 & 0.145 & 0.283 & 0.493 \\
+      110 & 0.025 & 0.066 & 0.147 & 0.293 & 0.529 \\
+      120 & 0.025 & 0.066 & 0.149 & 0.298 & 0.555 \\
+      130 & 0.025 & 0.067 & 0.150 & 0.301 & 0.575 \\
+      140 & 0.025 & 0.068 & 0.151 & 0.304 & 0.590 \\
+      150 & 0.025 & 0.068 & 0.152 & 0.307 & 0.605 \\
+      160 & 0.025 & 0.068 & 0.153 & 0.312 & 0.615 \\
+      170 & 0.026 & 0.069 & 0.154 & 0.314 & 0.621 \\
+      180 & 0.026 & 0.069 & 0.156 & 0.315 & 0.626 \\
+      190 & 0.026 & 0.070 & 0.157 & 0.317 & 0.628 \\
+      200 & 0.026 & 0.070 & 0.157 & 0.317 & 0.632 \\
+      210 & 0.026 & 0.070 & 0.157 & 0.318 & 0.634 \\
+      220 & 0.026 & 0.070 & 0.157 & 0.319 & 0.638 \\
+      230 & 0.026 & 0.070 & 0.158 & 0.321 & 0.641 \\
+      240 & 0.026 & 0.071 & 0.159 & 0.322 & 0.644 \\
+      250 & 0.027 & 0.071 & 0.159 & 0.323 & 0.647 \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.35]{kennlinien.pdf}
+  \caption{Graphische Darstellung der Messwerte zur Bestimmung der Kennlinien.}
+  \label{fig:1}
+\end{figure}
+Die Sättigungsströme sind die maximalen Werte aus Tabelle \ref{tab:1}, also
+$I_{\symup S 1} = \SI{0.027}{\milli\ampere}$, $I_{\symup S 2} = \SI{0.071}{\milli\ampere}$, $I_{\symup S 2} = \SI{0.159}{\milli\ampere}$,
+$I_{\symup S 4} = \SI{0.323}{\milli\ampere}$ und $I_{\symup S 5} = \SI{0.647}{\milli\ampere}$.
+
+\subsection{Bestimmung des Raumladungsgebietes}
+Für die Messwerte $I_5$ wird das Raumladungsgebiet untersucht. Nach \eqref{eq:4} hat
+dabei der Strom eine $V^{\frac{3}{2}}$ Abhängigkeit. Diese wird mittels linearer Regression untersucht.
+Dazu werden die Spannung und der Strom logarithmiert und gegeneinander aufgetragen. Dies und die
+Regression sind in Abbildung \ref{fig:2} zu sehen. Eine lineare Ausgleichsrechnung ergibt für
+den Exponenten der Spannung \num{1.291(14)}.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{raumladung.pdf}
+  \caption{Graph zur Untersuchung des Raumladungsgebietes. Die gestrichelte Linie gibt an,
+  bis wohin die $V^{\frac{3}{2}}$ Abhängigkeit gilt und somit bis zu welcher Spannung vom
+  Raumladungsgebiet gesprochen werden kann.}
+  \label{fig:2}
+\end{figure}
+
+\subsection{Untersuchung des Anlaufstromgebiets}
+Die Messwerte zur Kennlinie des Anlaufstromgebietes befinden sich in Tabelle
+\ref{tab:2}.
+\begin{table}[h]
+  \centering
+  \caption{Messwerte zur Kennlinie des Anlaufstromsgebiet.}
+  \label{tab:2}
+  \begin{tabular}{c c}
+    \toprule
+    $U$ / \si{\volt} & $I_6$ / \si{\nano\ampere} \\
+    \midrule
+    0.0 & 9.50 \\
+    0.1 & 5.00 \\
+    0.2 & 3.00 \\
+    0.3 & 1.60 \\
+    0.4 & 0.90 \\
+    0.5 & 0.50 \\
+    0.6 & 0.32 \\
+    0.7 & 0.20 \\
+    0.8 & 0.13 \\
+    0.9 & 0.125 \\
+    0.96 & 0.11 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Die grafische Darstellung ist in Abbildung \ref{fig:3} zu finden.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{anlauf.pdf}
+  \caption{Graph zur Untersuchung des Anlaufstromgebietes. Die zwei Messwerte rechts von der
+  gestrichelten Linie sind nicht in den Fit einbezogen worden, da sie nicht zu den restlichen Werten
+  des Anlaufstromgebietes passen. Sie sind vermutlich durch Messrauschen entstanden.}
+  \label{fig:3}
+\end{figure}
+Dabei ist zu beachten, dass die Spannung im Graph angepasst wurde,
+da am Innenwiderstand des Amperemeters Spannung abfällt, siehe Abbildung \ref{abb:8}.
+Deshalb sind die Spannungen kleiner als in Tabelle \ref{tab:2} angegeben.
+Mithilfe der Regression soll ein Ausdruck für die Kathodentemperatur $T$ gefunden
+werden. Dazu wird \eqref{eq:5} umgestellt zu
+\begin{equation*}
+    \symup{ln}(I) = \symup{ln}(\symup{const}) - \frac{\symup{e}_0}{\symup k \cdot T} \, .
+\end{equation*}
+Die Steigung der linearen Regression gibt eine Wert für $\symup{e}_0/(\symup k \cdot T)$ an
+und es folgt
+\begin{equation}
+    T = - \frac{\symup{e}_0}{\symup k \cdot x}
+    \label{eqn:1}
+\end{equation}
+mit $x$ als Steigung der lienaren Regression. Aus \eqref{eqn:1} ergibt sich
+$T = \SI{2.17(5)e3}{\kelvin}$.
+
+\subsection{Temperaturbestimmung aus Leistungsbilanz}
+Für die Kennlinien aus Kapitel \ref{sec:a} wurden die Heizspannungen und -ströme
+aus Tabelle \ref{tab:3} genutzt.
+\begin{table}[h]
+  \centering
+  \caption{Heizspannungen und -ströme der Kennlinien aus Tabelle \ref{tab:1}.}
+  \label{tab:3}
+  \begin{tabular}{c c}
+    \toprule
+    $U_{\symup{H}}$ / \si{\volt} & $I_{\symup{H}}$ / \si{\ampere} \\
+    \midrule
+    3 & 1.8 \\
+    3.5 & 1.9 \\
+    4 & 2 \\
+    4.2 & 2.1 \\
+    4.7 & 2.2 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Mit der Gleichung
+\begin{equation}
+    T = \left(\frac{U_{\symup{H}} \cdot I_{\symup{H}} - N_{\symup{WL}}}{\eta \, \sigma \, f} \right)^{\frac{1}{4}}
+    \label{eqn:2}
+\end{equation}
+lassen sich Werte für $T$ finden. Dabei ist $N_{\symup{WL}} = \SI{0.9}{\watt}$ die als Wärmeleitung abgegebene Leistung,
+$\eta = \num{0.28}$ der Emissiongrad der Oberfläche, $\sigma = \SI{5.7e-12}{\watt\per\centi\meter\squared\kelvin^4}$
+die Boltzmannsche Strahlungskonstante und $f = \SI{0.32}{\centi\meter\squared}$ die emittierende Kathodenoberfläche.
+Da es fünf verschiedene Heizleistungen gibt, gibt es auch fünf verschiedene Temperaturen. Diese finden sich
+in Tabelle \ref{tab:4}.
+\begin{table}[h]
+  \centering
+  \caption{Temperaturen aus \eqref{eqn:2}.}
+  \label{tab:4}
+  \begin{tabular}{c c c c c}
+    \toprule
+    $T_1$ / \si{\kelvin} & $T_2$ / \si{\kelvin} & $T_3$ / \si{\kelvin} & $T_4$ / \si{\kelvin} & $T_5$ / \si{\kelvin} \\
+    \midrule
+    1722.89 & 1831.78 & 1930.94 & 1984.43 & 2073.47 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Der Mittelwert ergibt sich zu $T = \SI{1.91(6)e3}{\kelvin}$.
+
+\subsection{Bestimmung der Austrittsarbeit}
+Aus den Sättigungströmen aus Kapitel \ref{sec:a} und den Temperaturen aus Tabelle \ref{tab:4}
+lassen sich mit Formel \eqref{eq:3} berechnen. Diese wird umgestellt zu
+\begin{equation}
+  \symup{e}_0 \Phi = - \symup{ln}\left(\frac{I_{\symup{S}} \, \symup{h}^3}{4 \pi \, \symup{e}_0 \, \symup{m}_0 \, \symup{k}^2 \, T^2} \right) \cdot \symup k T
+  \label{eqn:3}
+\end{equation}
+Es ergeben sich mit \eqref{eqn:3} die Werte in Tabelle \ref{tab:5}.
+\begin{table}
+  \centering
+  \caption{Austrittsarbeiten bei verschiedenen Temperaturen und Sättigungsströmen.}
+  \label{tab:5}
+    \begin{tabular}{c c c c c}
+      \toprule
+      $\symup e_0 \phi_1$ / \si{\electronvolt} & $\symup e_0 \phi_2$ / \si{\electronvolt} &
+      $\symup e_0 \phi_3$ / \si{\electronvolt} & $\symup e_0 \phi_4$ / \si{\electronvolt} &
+      $\symup e_0 \phi_5$ / \si{\electronvolt} \\
+      \midrule
+      4.32 & 4.46 & 4.58 & 4.60 & 4.69 \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+Der Mittelwert der Austrittsarbeiten beträgt $\symup{e}_0 \Phi = \SI{4.53(7)}{\electronvolt}$.
+
 \section{Diskussion}
 \newpage
 \nocite{*}

@@ -19,7 +19,7 @@ die Elektronen am absoluten Nullpunkt besitzen würden. Diese Überlegung führt
 mit einigen Kentnissen über das Verhalten der Elektronen in ihrem Phasenraum auf die
 $\textsc{Richardson}$-Gleichung
 \begin{equation}
-  j_S(T) = 4 \pi \frac{e_0 m_0 k^2}{h^3} T^2 \exp\left(\frac{-e_0 \phi}{k T} \right),
+  j_{\symup{S}}(T) = 4 \pi \frac{e_0 m_0 k^2}{h^3} T^2 \exp\left(\frac{-e_0 \phi}{k T} \right),
   \label{eq:3}
 \end{equation}
 mit der aus der Temperatur $T$ die Sättigungsstromdichte, also den Strom der Elektronen
@@ -189,6 +189,7 @@ den Exponenten der Spannung \num{1.291(14)}.
 \end{figure}
 
 \subsection{Untersuchung des Anlaufstromgebiets}
+\label{sec:c}
 Die Messwerte zur Kennlinie des Anlaufstromgebietes befinden sich in Tabelle
 \ref{tab:2}.
 \begin{table}[h]
@@ -240,7 +241,7 @@ mit $x$ als Steigung der lienaren Regression. Aus \eqref{eqn:1} ergibt sich
 $T = \SI{2.17(5)e3}{\kelvin}$.
 
 \subsection{Temperaturbestimmung aus Leistungsbilanz}
-Für die Kennlinien aus Kapitel \ref{sec:a} wurden die Heizspannungen und -ströme
+Zur Erzeugung der Kennlinien aus Kapitel \ref{sec:a} wurden die Heizspannungen und -ströme
 aus Tabelle \ref{tab:3} genutzt.
 \begin{table}[h]
   \centering
@@ -284,9 +285,10 @@ Der Mittelwert ergibt sich zu $T = \SI{1.91(6)e3}{\kelvin}$.
 
 \subsection{Bestimmung der Austrittsarbeit}
 Aus den Sättigungströmen aus Kapitel \ref{sec:a} und den Temperaturen aus Tabelle \ref{tab:4}
-lassen sich mit Formel \eqref{eq:3} berechnen. Diese wird umgestellt zu
+lassen sich mit Formel \eqref{eq:3} berechnen. Dabei ist zu beachten, dass
+$j_{\symup{S}} = I_{\symup{S}}/f$ gilt. \eqref{eq:3} wird umgestellt zu
 \begin{equation}
-  \symup{e}_0 \Phi = - \symup{ln}\left(\frac{I_{\symup{S}} \, \symup{h}^3}{4 \pi \, \symup{e}_0 \, \symup{m}_0 \, \symup{k}^2 \, T^2} \right) \cdot \symup k T
+  \symup{e}_0 \Phi = - \symup{ln}\left(\frac{I_{\symup{S}} \, \symup{h}^3}{4 \pi \, f \, \symup{e}_0 \, \symup{m}_0 \, \symup{k}^2 \, T^2} \right) \cdot \symup k T
   \label{eqn:3}
 \end{equation}
 Es ergeben sich mit \eqref{eqn:3} die Werte in Tabelle \ref{tab:5}.
@@ -313,7 +315,7 @@ die Austrittsarbeit von Wolfram mit zweiterer Methode bestimmt wurde und diese v
 \SI{4.54}{\electronvolt} nur 0.22\% abweicht (und innerhalb der Messungenauigkeit liegt), legt
 dies den Schluss nahe, dass die Heizleistungsbetrachtung bessere Werte liefert als die Methode,
 die Temperatur mithilfe des Anlaufstromgebietes zu untersuchen. Erklären lässt sich das damit,
-dass bei zweiterer Methode Ströme im \si{\nano\ampere}-Bereich gemessen werden, welche
+dass in Kapitel \ref{sec:c} Ströme im \si{\nano\ampere}-Bereich gemessen werden, welche
 schwierig exakt zu bestimmen sind.
 
 Die Bestimmung des Raumladungsgebietes und die Verifizierung der Gültigkeit des

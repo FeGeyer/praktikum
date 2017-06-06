@@ -200,17 +200,17 @@ Die Messwerte zur Kennlinie des Anlaufstromgebietes befinden sich in Tabelle
     \toprule
     $U$ / \si{\volt} & $I_6$ / \si{\nano\ampere} \\
     \midrule
-    0.0 & 9.50 \\
-    0.1 & 5.00 \\
-    0.2 & 3.00 \\
-    0.3 & 1.60 \\
-    0.4 & 0.90 \\
-    0.5 & 0.50 \\
-    0.6 & 0.32 \\
-    0.7 & 0.20 \\
-    0.8 & 0.13 \\
-    0.9 & 0.125 \\
-    0.96 & 0.11 \\
+    0.00 & 9.500 \\
+    0.10 & 5.000 \\
+    0.20 & 3.000 \\
+    0.30 & 1.600 \\
+    0.40 & 0.900 \\
+    0.50 & 0.500 \\
+    0.60 & 0.320 \\
+    0.70 & 0.200 \\
+    0.80 & 0.130 \\
+    0.90 & 0.125 \\
+    0.96 & 0.110 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -252,9 +252,9 @@ aus Tabelle \ref{tab:3} genutzt.
     \toprule
     $U_{\symup{H}}$ / \si{\volt} & $I_{\symup{H}}$ / \si{\ampere} \\
     \midrule
-    3 & 1.8 \\
+    3.0 & 1.8 \\
     3.5 & 1.9 \\
-    4 & 2 \\
+    4.0 & 2.0 \\
     4.2 & 2.1 \\
     4.7 & 2.2 \\
     \bottomrule
@@ -266,7 +266,7 @@ Mit der Gleichung
     \label{eqn:2}
 \end{equation}
 lassen sich Werte für $T$ finden. Dabei ist $N_{\symup{WL}} = \SI{0.9}{\watt}$ die als Wärmeleitung abgegebene Leistung,
-$\eta = \num{0.28}$ der Emissiongrad der Oberfläche, $\sigma = \SI{5.7e-12}{\watt\per\centi\meter\squared\kelvin^4}$
+$\eta = \num{0.28}$ der Emissiongrad der Oberfläche, $\sigma$ = \SI[per-mode=reciprocal]{5.7e-12}{\watt\per\centi\meter\squared\per\kelvin\tothe{4}}
 die Boltzmannsche Strahlungskonstante und $f = \SI{0.32}{\centi\meter\squared}$ die emittierende Kathodenoberfläche.
 Da es fünf verschiedene Heizleistungen gibt, gibt es auch fünf verschiedene Temperaturen. Diese finden sich
 in Tabelle \ref{tab:4}.

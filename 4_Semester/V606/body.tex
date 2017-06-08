@@ -1,0 +1,148 @@
+\maketitle
+\setcounter{page}{1}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Theorie}
+Ziel des Versuchs ist die Untersuchung der Suszeptibilität $\chi$ paramagnetischer Oxide
+von Selten-Erd-Verbindungen.
+\subsection{Theorie des Paramagnetismus}
+Der Paramagnetismus ist ein Quantenphysikalisches Phänomen,
+von daher muss eine Beziehung für die Suszeptibilität auch aus Quantenphysikalischen
+Überlegungen folgen.\\
+\noindent
+Für die Magnetische Flussdichte $\vec{B}$ gilt in Materie die Beziehung
+\begin{equation}
+  \vec{B} = \mu_0 \vec{H} + \vec{M}
+\end{equation}
+mit Magnetfeldkonstante $\mu_0$, magnetischer Feldstärke $\vec{H}$ und Magnetisierung $\vec{M}$.
+Die Magnetisierung auf atomarer Ebene aufgrund magnetischer Momente. Sie berechnet sich zu
+\begin{equation}
+  \vec{M} = \mu_0 \chi \vec{H},
+\end{equation}
+hängt also von der selbst Temperatur- und Magentfeldabhängigen Subszeptibilität $\chi$ ab.
+Quelle des Paramagnetismus ist der nicht verschwindende Gesamtdrehimpuls bestimmter Atome,
+der eine Ausrichtung der magnetischen Momente zu einem äußeren Feld bewirkt. Der Gesamtdrehimpuls $\vec{J}$
+eines Atoms ist näherungsweise die Vektorsumme aus Gesamtbahndrehimpuls $\vec{L}$
+und dem Gesamtspin $\vec{S}$ der Elektronen, die sich jeweils aus den Vektorsummen der
+Einzelanteile aller Elektronen zusammensetzen. Für die magnetischen Momente der beiden
+Drehimpulsanteile folgt aus Quantenphysikalischen Überlegungen nun:
+\begin{align}
+  | \vec{\mu}_L | &= \mu_B \sqrt{L(L+1)} \\
+  | \vec{\mu}_S | &= \mu_B \, g_{S} \sqrt{S(S+1)},
+\end{align}
+wobei $L$ und $S$ die Quentenzahl des jeweiligen Drehimpulses, $\mu_\symup{B} \coloneq
+1/2 \, e_0 m_0^{-1} \hbar$ das $\textsc{Bohrsche}$ Magneton und $g_S$ das gyromagentische
+Verhältnis sind. Für den Betrag des Gesamtmoments folgt aus geometrischen Überlegungen
+dem Cosinussatz und der Quantenmechanik weiter:
+\begin{equation}
+  | \vec{\mu}_J | \approx \mu_B \sqrt{J(J+1)} \, g_J,
+\end{equation}
+wobei $g_J$ der $\textsc{Landé}$-Faktor
+\begin{equation}
+  g_J = \frac{ 3 J(J+1) + ( S(S+1) - L(L+1) ) }{ 2 J(J+1) }
+\end{equation}
+ist. Als letztes Ergebnis aus der Quantenmechanik ist die Richtungsquantelung wichtig.
+Sie besagt, dass nicht beliebige Winkel zwischen $\vec{\mu}_J$ und $\vec{H}$ möglich sind,
+sodern nur solche, bei denen die $z$-Komponente des Momentes die Beziehung
+\begin{equation}
+  \mu_{J, \, z} = - \mu_B \, \g_J \, m
+  \label{eq:1}
+\end{equation}
+erfüllt, wobei $m$ die ganzzahlige Orientierungsquentenzahl bezeichnet. Für das
+magnetische Moment folgen daher $2J+1$ mögliche Winkel relativ zu $\vec{H}$. Jedem
+dieser Winkel ist nun eine potentielle Energie zugeordnet. Aus \eqref{eq:1} folgt
+mit statistischen Methoden sowie der ebenfalls statistischen $\textsc{Boltzmann}$-Verteilung
+letztlich für $\chi$:
+\begin{equation}
+  \chi = \frac{\mu_0 \, \mu_B^2 \, g_J^2 \, N \, J(J+1)}{3 \l, k_B \, T}
+\end{equation}
+mit $\textsc{Boltzmann}$-Konstante $k_B$ und der Anzahl der Momente pro Volumeneinheit $N$.
+Man erkennt die $T^{-1}$ Proportionalität der Suszeptibilität, die auch als $\textsc{Curiesches}$
+Gesetz des Paramagnetismus bekannt ist.\\
+\noindent
+Verantwortlich für die besonders starke Ausprägung des Paramagnetismus bei Seltenen-Erden
+ist das Vorhandensein von einer ungesättigten 4f-Schale, die, da tief in der 6s-Schale liegend, auch noch
+bei ihren Ionen vorhanden sind. Aussagen über diese Konstellation und die Konsequenzen
+für den Gesamtdrehimpuls erlauben die $\textsc{Hundschen}$-Regeln:
+\begin{itemize}
+  \item[1.] Der Gesamtspin $\vec{S}$ nimmt den maximal möglichen Wert an, den das $\textsc{Pauli}$-Prinzip erlaubt.
+  \item[2.] Der Gesamtbahndrehimpuls $\vec{L}$ nimmt den nach 1 und dem $\textsc{Pauli}$-Prinzip möglichen
+  maxmimalen Wert an.
+  \item[3.] Für den Gesamtdrehimpuls $\vec{J}$ gilt:
+  \begin{equation}
+  \vec{J} =
+    \begin{cases}
+      \vec{L} - \vec{S} \; , \, \text{Schale weniger als halb besetzt} \\
+      \vec{L} + \vec{S} \; , \, \text{Schale mehr als halb besetzt}
+    \end{cases}
+  \end{equation}
+\end{itemize}
+\subsection{Messmethode zur Bestimmung der Suszeptibiliät}
+\label{abs:1.2}
+\begin{figure}
+  \centering
+  \includegraphics[scale = 0.5]{Bruecke.png}
+  \caption{Aufbau der verwendeten Brückenschaltung\cite{anleitung}.}
+  \label{abb:1}
+\end{figure}
+Zur Messung der Suszeptibilität bietet sich eine Brückenschaltung wie in Abbildung \ref{abb:1}
+an. Die Bestimmung der Suszeptibilität finden nun über zwei Spulen statt, deren Induktivitäten
+abgeglichen werden und von denen eine mit der Probe befüllt wird. Es ergeben sich nun zwei Grundsätzliche
+Möglichkeiten:
+\begin{itemize}
+  \item [1.] Zu Anfang wird die Brückenschaltung über ein Potentiometer
+  so abgeglichen, dass keine Spannung mehr messbar ist.
+  Danach wird die Probe in eine Spule eingebracht. Aus der resultierenden gemessenen Spannung $U_\symup{Br}$
+  kann nun für hohe Speisespannungsfrequenzen näherungsweise nach
+  \begin{equation}
+    \chi \approx 4 \frac{F}{Q} \frac{U_\symup{Br}}{U_\symup{Sp}}
+    \label{eq:2}
+  \end{equation}
+  mit Spulenquerschnitt $F$ und Probenquerschnitt $Q$.
+  \item [2.] Wieder wird die Brückenschaltung abgeglichen. Nach Einbringen der Probe wird die
+  Brücke wieder abgeglichen. Aus den Einstellungen am Potentiometer ermittelt man nun nach
+  \begin{equation}
+    \chi = 2 \frac{ \symup{\Delta} R}{R_3} \frac{F}{Q}
+  \end{equation}
+  die Suszeptibilität.
+\end{itemize}
+In beiden Fällen muss der Probenquerschnitt korrigiert werden, da die Proben aus gepresstem
+Pulver bestehen, sodass die Dichte eines Einkristalls nicht erreicht wird. Die Korrektur
+ergiebt sich zu:
+\begin{equation}
+  Q_\symup{real} = \frac{m_\symup{p}}{L \rho_\symup{w}}
+\end{equation}
+mit Probenmasse $m_\symup{p}$ und Materildichte $\rho_\symup{w}$.
+\section{Durchführung}
+\subsection{Versuchsaufbau}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{Aufbau.png}
+  \caption{Schematischer Versuchsaufbau\cite{anleitung}.}
+  \label{abb:2}
+\end{figure}
+Der Schematische Versuchsaufbau ist in \ref{abb:2} dargestellt. Er besteht aus einem Sinusgenerator,
+der die Brückenschaltung (vergleiche Abschnitt \ref{1.2}) speist. Das Signal der Brückenschaltung
+wird um den Faktor 10 vorverstärkt und gelangt danach ein einen Selektivverstärker.
+Der Selektivverstärker ist notwendig, da an der Brückenspannung multifrequente
+Störsignale auftreten, von denen das monofrequente Messsignal befreit werden muss.
+Im Selektivverstärker integriert ist ein weiter x10 Verstärker. Das entstörte und verstärkte
+Signal kann über ein AC-\si{\milli\volt}-Meter abgelesen werden.
+\subsection{Versuchsdurchführung}
+In einem ersten Versuchsteil wird die Durchlasskurve des Selektivverstärkers bestimmt.
+Dazu wird der Verstärker an einen Synthesizer angeschlossen. Um die Durchlassfrequenz des
+Verstärkers wird die Frequenz der Synthesizerspannung variiert und die jeweils zugehörige
+Ausgangsspannung gemessen.\\
+\noindent
+In einem zweiten Teil wird die Frequenz des Sinusgenerators auf die vorher bestimmte
+Durchlassfrequenz eingestellt. Danach wird die Brückenschaltung sorgfältig auf 0 abgeglichen
+und die Einstellungen der Widerstände werden notiert. Die Probe wird in die Halterung eingebracht
+und die resultierende Spannungsänderung wird festgehalten. Die Schaltung wird wieder
+auf 0 abgeglichen und die Werte werden notiert. Dies wird für jede Probe drei mal wiederholt.
+Abschließsend werden die Proben vermessen.
+\section{Auswertung}
+\section{Diskussion}
+\newpage
+\nocite{*}
+\printbibliography

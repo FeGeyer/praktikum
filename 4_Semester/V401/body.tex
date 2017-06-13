@@ -12,7 +12,7 @@ Licht als elektromagnetische Welle breitet sich als ebene Welle nach der Gleichu
 aus. Dabei ist $E$ die elektrische Feldstärke, $k$ die Wellenzahl, $\omega$ die Kreisfrequenz und $\delta$ der Phasenwinkel.
 Wenn für das Licht die Maxwellschen Gleichungen und das Prinzip der linearen Superposition
 gilt, dann lässt sich die Überlagerung mehrerer Lichtwellen einfach aus der vektoriellen Addition
-der Wellengleichungen bestimmen. Da es aber aufgrund der hohen Lichtfrequenz nicht möglich ist,
+der Felder bestimmen. Da es aber aufgrund der hohen Lichtfrequenz nicht möglich ist,
 diese experimentell zu bestimmen, wird stattdessen die Intensität betrachtet, die sich über
 die Beziehung
 \begin{equation*}
@@ -21,18 +21,20 @@ die Beziehung
 aus der elektrischen Feldstärke ergibt. Mit einigen Vereinfachungen folgt somit für die Intensität
 überlagerter Lichwellen
 \begin{equation}
-  I = 2 \cdot \symup{const} \, \vec{E}_0^2 \, \symup{cos}(\delta_2 - \delta_1) \, .
+  I = 2 \cdot \symup{const} \, \vec{E}_0^2 \, \left(\symup{cos}(\delta_2 - \delta_1) + 1\right) \, .
   \label{eqn:1}
 \end{equation}
+mit $\symup{cos}(\delta_2 - \delta_1)$ als Interferenzterm.
 Somit ist die Intensität der überlagerten Welle abhängig von der Differenz der Phasenwinkel.
 Auch eine komplette Auslöschung ist möglich, falls die Differenz ungerade Vielfache von
 $\pi$ ergibt.
 
 Da die Phasenwinkel bei konventionellen Lichtquellen statistische Funktionen der Zeit sind,
-fällt der Interferenzterm mei der Mittelung über einen großen Zeitraum weg. Deshalb
+fällt der Interferenzterm bei Mittelung über einen großen Zeitraum weg. Deshalb
 ist es wichtig, sogenanntes kohärentes Licht zu benutzen. Diese Art des Lichts zeichnet sich
-dadurch aus, dass $k$, $\omega$ und $\delta$ in \eqref{eqn:2} konstant sind. Dies wird durch
-die Verwendung von Lasern realisiert. Diese sind zwar nicht im Unendlichen kohärent, doch für die
+dadurch aus, dass $k$, $\omega$ und $\delta$ in \eqref{eqn:2} konstant sind. Erzeugen lässt
+es sich zum Beispiel, wenn Licht aus ein und derselben Lichtquelle mit sich selbst interferiert.
+In diesem Versuch wird jedoch stattdessen ein Laser verwendet. Diese sind zwar nicht im Unendlichen kohärent, doch für die
 im Experiment verwendeteten Längenskalen ausreichend. Damit sind alle Vorraussetzungen für
 die Interferenzfähigkeit des Lichtes vorhanden.  \\
 \\
@@ -75,18 +77,19 @@ Der Aufbau ist in Abbildung \ref{fig:2} dargestellt.
 \end{figure}
 Das Medium der Dicke $b$ soll den Brechungsindex
 $n + \symup{\Delta} n$ besitzen, an allen anderen Orten im Versuchsaufbau sei er $n$. Wird $\symup{\Delta} n$
-langsam erhöht, erscheinen weder wechselnde Intensitäten an der Stelle x. Dabei entspricht $b \cdot \symup{\Delta} n $
+langsam erhöht, erscheinen wieder wechselnde Intensitäten an der Stelle x. Dabei entspricht $b \cdot \symup{\Delta} n $
 gerade $\symup{\Delta} d$ aus \eqref{eq:1} und es ergibt sich
 \begin{equation}
   b \cdot \symup{\Delta}n = \frac{z \lambda}{2} \, .
   \label{eq:2}
 \end{equation}
 Um aus $\symup{\Delta} n$ den wirklichen Brechungsindex $n$ des verwendeten Mediums zu bestimmen,
-nutzt man
+wird
 \begin{equation}
   n(p_0, T_0) = 1 + \symup{\Delta}n \frac{T \cdot p_0}{T_0 \cdot (p - p^\prime)} \, .
   \label{eq:3}
 \end{equation}
+genutzt.
 Dabei sind $p_0$ und $T_0$ Druck und Temperatur unter Normalbedingungen, $T$ die Umgebungstemperatur
 $p - p'$ die relative Änderungs des Druckes, der zu wechselnden Intensitäten führt.
 

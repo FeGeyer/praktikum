@@ -51,9 +51,54 @@ dann lassen sich alle experimentellen Resultate auf theoretischer Basis bestäti
   Somit lässt sich das Auftreten einer Grenfrequenz erklären.
   \item Die Lichtintensität verhält sich proportional zur Zahl der Photonen pro Zeit- und Raumwinkeleinheit.
 \end{itemize}
+Um die kinetische Energie der schnellsten Elektronen zu berechnen, wird die
+Gegenfeldmethode\footnote{Näheres in Kapitel \ref{sec:aufbau}} verwendet. Dabei endet
+der Elektronenfluss von Kathode zu Anode, falls
+\begin{equation}
+    \symup{e}_0 U_g = \frac{1}{2} \, \symup{m}_0 v_{\symup{max}}
+    \label{eqn:2}
+\end{equation}
+gilt. Dabei ist $v_{\symup{max}}$ die Geschwindigkeit der schnellsten Elektronen
+und $\symup{e}_0$ und $\symup{m}_0$ die Elementarladung bzw. die Ruhemasse des Elektrons.
+Aus \eqref{eqn:1} und \eqref{eqn:2} folgt
+\begin{equation}
+    h \, \nu = \symup{e}_0 U_g +A_k \, .
+    \label{eqn:3}
+\end{equation}
+Aus \eqref{eqn:3} lässt sich also das Verhältnis von Wirkungsquantum $h$ zu Elementarladung
+$\symup{e}_0$ bestimmen.
+
+Im Versuch ergibt sich allerdings das Problem, dass der Phtotstrom nicht abrupt
+bei $U = U_g$ abfällt, sondern wie in Abbildung \ref{fig:5} sich der Grenzspannung annähert.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{photo.png}
+  \caption{Der Photostrom in Abhängigkeit von der Bremsspannung.}
+  \label{fig:5}
+\end{figure}
+Dies lässt sich dadurch erklären, dass die Elektronen, die durch die Photonen
+ausgelöst werden, nicht alle die gleiche Energie besitzen, da schon die Elektronen
+im Metall nicht alle monoenergetisch sind. Die Energieverteilung im Festkörper wird
+durch die Fermi-Dirac Statistik festgelegt. Diese besagt, dass die Energie der Elektronen
+zwischen 0 und der materialabhängigen Fermi-Energie $\xi$ variiert. Es lässt sich zeigen,
+dass zwischen dem Photostrom und der Bremsspannung die Beziehung
+\begin{equation*}
+    I_{\symup{ph}} \approx U^2
+\end{equation*}
+gilt. \\
+\\
+Ein weiteres Problem ergibt sich, wenn die Austrittsarbeit der Anode $A_a$ sehr groß ist.
+Falls also $A_k < h \, \nu < A_a$ gilt, dann ist zwar der Photoeffekt theoretisch möglich, aber
+es tritt kein Photostrom auf, da die Energie der Elektronen nicht ausreicht, um die Austrittsarbeit
+der Anode zu überwinden. Aus diesem Grund muss eine Beschleunigerspannung $U_b$ angelegt werden, damit
+ein Phototstrom auftritt. Dann gilt
+\begin{equation*}
+  h \, \nu + \symup{e}_0 U_b \geq A_a \, .
+\end{equation*}
 
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+\label{sec:aufbau}
 \begin{figure}[h]
   \centering
   \includegraphics[scale=0.4]{aufbau.png}
@@ -84,7 +129,17 @@ verwendet.
   \caption{Schaltbild zur Untersuchung der Ernergie der ausgelösten Elektronen.}
   \label{fig:4}
 \end{figure}
+Dies ist die sogennante Gegenfeldmethode. Zwischen Kathode und Anode wird eine variable
+Spannung $U$ angelegt, die umpolbar ist. Mit dem Picoamperemeter lässt sich dann der
+Photostrom messen.
 \subsection{Versuchsdurchführung}
+Für fünf verschiedene Wellenlängen wird der Photostrom in Abhängigkeit von der Gegenspannung
+$U$ gemessen. Es werden pro Wellenlänge zehn Messwerte aufgenommen. Dabei wird bei besonders
+langwelligem Licht teilweise eine Beschleunigerspannung angelegt, um die Grenzspannung
+$U_g$ zu erreichen. Danach wird für die Wellenlänge
+$\lambda = \SI{578}{\nano\meter}$ eine Kennlinie aufgenommen. Dazu wird die Spannung
+im Bereich $\SI{-20}{\volt} \leq U \leq \SI{20}{\volt}$ variiert und dabei der Photostrom
+aufgenommen.
 
 \section{Auswertung}
 

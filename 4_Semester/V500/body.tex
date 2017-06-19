@@ -142,7 +142,183 @@ im Bereich $\SI{-20}{\volt} \leq U \leq \SI{20}{\volt}$ variiert und dabei der P
 aufgenommen.
 
 \section{Auswertung}
-
+\begin{table}
+  \centering
+  \caption{Messwerte für die einzellenen Spektrallinien. Spannungen mit positiven
+  Vorzeichnen sind Beschleunigungsspannungen, solche mit negativem Vorzeichen
+  Bremsspannungen.}
+  \label{tab:1}
+  \subcaptionbox{Orange}[0.18\textwidth]{
+    \begin{tabular}{c c}
+      \toprule
+      $U_g$/\si{\volt} & $I$/\si{\nano\ampere}\\
+      \midrule
+      0.20 & 0.040 \\
+      0.15 & 0.032 \\
+      0.10 & 0.028 \\
+      0.05 & 0.022 \\
+      0.00 & 0.018 \\
+      -0.05 & 0.014 \\
+      -0.10 & 0.010 \\
+      -0.15 & 0.008 \\
+      -0.20 & 0.004 \\
+      -0.25 & 0.003 \\
+      -0.30 & 0.002 \\
+      -0.35 & 0.000 \\
+      \\
+      \\
+      \\
+      \\
+      \\
+      \\
+      \bottomrule
+    \end{tabular}
+    }
+  \subcaptionbox{Grün}[0.18\textwidth]{
+    \begin{tabular}{c c}
+      \toprule
+      $U_g$/\si{\volt} & $I$/\si{\nano\ampere}\\
+      \midrule
+      0.10 & 0.135 \\
+      0.05 & 0.115 \\
+      0.00 & 0.095 \\
+      -0.05 & 0.080 \\
+      -0.10 & 0.065 \\
+      -0.15 & 0.050 \\
+      -0.20 & 0.035 \\
+      -0.25 & 0.025 \\
+      -0.30 & 0.015 \\
+      -0.35 & 0.005 \\
+      -0.40 & 0.000 \\
+      \\
+      \\
+      \\
+      \\
+      \\
+      \\
+      \\
+      \bottomrule
+    \end{tabular}
+    }
+  \subcaptionbox{Violett 1}[0.18\textwidth]{
+      \begin{tabular}{c c}
+        \toprule
+        $U_g$/\si{\volt} & $I$/\si{\nano\ampere}\\
+        \midrule
+        0.00 & 0.110 \\
+        -0.05 & 0.095 \\
+        -0.10 & 0.085 \\
+        -0.15 & 0.070 \\
+        -0.20 & 0.060 \\
+        -0.25 & 0.050 \\
+        -0.30 & 0.035 \\
+        -0.35 & 0.025 \\
+        -0.40 & 0.015 \\
+        -0.45 & 0.005 \\
+        -0.50 & 0.000 \\
+        \\
+        \\
+        \\
+        \\
+        \\
+        \\
+        \\
+        \bottomrule
+      \end{tabular}
+      }
+    \subcaptionbox{Violett 2}[0.18\textwidth]{
+      \begin{tabular}{c c}
+        \toprule
+        $U_g$/\si{\volt} & $I$/\si{\nano\ampere}\\
+        \midrule
+        0.00 & 0.070 \\
+        -0.05 & 0.062 \\
+        -0.10 & 0.054 \\
+        -0.15 & 0.048 \\
+        -0.20 & 0.042 \\
+        -0.25 & 0.035 \\
+        -0.30 & 0.030 \\
+        -0.35 & 0.024 \\
+        -0.40 & 0.018 \\
+        -0.45 & 0.016 \\
+        -0.50 & 0.010 \\
+        -0.55 & 0.007 \\
+        -0.60 & 0.004 \\
+        -0.65 & 0.002 \\
+        -0.70 & 0.000 \\
+        \\
+        \\
+        \\
+        \bottomrule
+      \end{tabular}
+      }
+    \subcaptionbox{Violett 3}[0.18\textwidth]{
+      \begin{tabular}{c c}
+        \toprule
+        $U_g$/\si{\volt} & $I$/\si{\nano\ampere} \\
+        \midrule
+        0.00 & 0.012 \\
+        -0.05 & 0.010 \\
+        -0.10 & 0.010 \\
+        -0.15 & 0.009 \\
+        -0.20 & 0.008 \\
+        -0.25 & 0.007 \\
+        -0.30 & 0.006 \\
+        -0.35 & 0.006 \\
+        -0.40 & 0.005 \\
+        -0.45 & 0.004 \\
+        -0.50 & 0.004 \\
+        -0.55 & 0.004 \\
+        -0.60 & 0.003 \\
+        -0.65 & 0.003 \\
+        -0.70 & 0.002 \\
+        -0.75 & 0.001 \\
+        -0.80 & 0.001 \\
+        -0.85 & 0.000 \\
+        \bottomrule
+      \end{tabular}
+      }
+\end{table}
+Die Messwerte sind in Tabelle \ref{tab:1} aufgetragen. In Abbildung \ref{abb:1} sind
+die Werte für $U_g$ gegen die Wurzel des Photostroms aufgetragen. Eine
+Regression in $\textsc{curve-fit}$ aus dem $\textsc{Phython}$-Paket
+$\textsc{scipy.optimize}$ mit einer Funktion:
+\begin{equation*}
+  \sqrt{I} = m U + n
+\end{equation*}
+liefert die in Tabelle \ref{tab:2} dargestellten Werte für die
+Grenzspannung $U_{Grr \text{xD}}$. Diese bestimmt sich aus dem Schnittpunkt der
+Regression mit der $U$-Achse, also zu
+\begin{equation*}
+  - \frac{n}{m}.
+\end{equation*}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Photostrom.pdf}
+  \caption{Gegeneinander Auftragen der Messwerte mit Regression.}
+  \label{abb:1}
+\end{figure}
+\begin{table}
+  \centering
+  \caption{Für die Grenzspannung bestimmte Werte.}
+  \label{tab:2}
+    \begin{tabular}{c c}
+      \toprule
+      $\lambda$/\si{\nano\metre} & $U_g$/\si{\volt} \\
+      \midrule
+      579 (Orange)    & \num{0.406(11)} \\
+      546 (Grün)      & \num{0.483(17)} \\
+      436 (Violett 1) & \num{0.679(34)} \\
+      434 (Violett 2) & \num{0.824(27)} \\
+      405 (Violett 3) & \num{0.991(22)} \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+Auftragen der Grenzspannungen gegen die jeweiligen nach
+\begin{equation*}
+  \eta = \frac{c}{\lambda}
+\end{equation*}
+mit Vakuumlichtgeschwindigkeit $c$ bestimmten Frequenzen.
 \section{Diskussion}
 \newpage
 \nocite{*}

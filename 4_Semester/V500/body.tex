@@ -142,6 +142,7 @@ im Bereich $\SI{-20}{\volt} \leq U \leq \SI{20}{\volt}$ variiert und dabei der P
 aufgenommen.
 
 \section{Auswertung}
+\subsection{Bestimmung der Austrittsarbeit des Kathodenmaterials}
 \begin{table}
   \centering
   \caption{Messwerte für die einzellenen Spektrallinien. Spannungen mit positiven
@@ -287,11 +288,12 @@ $\textsc{scipy.optimize}$ mit einer Funktion:
   \sqrt{I} = m U + n
 \end{equation*}
 liefert die in Tabelle \ref{tab:2} dargestellten Werte für die
-Grenzspannung $U_{Grr \text{xD}}$. Diese bestimmt sich aus dem Schnittpunkt der
+Grenzspannung $U_{G}$. Diese bestimmt sich aus dem Schnittpunkt der
 Regression mit der $U$-Achse, also zu
 \begin{equation*}
-  - \frac{n}{m}.
+    U_G = - \frac{n}{m}.
 \end{equation*}
+Die resultierenden Fehler berechnen sich aus der $\textsc{Gaußschen}$-Fehlerfortpflanzung.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{Photostrom.pdf}
@@ -318,8 +320,92 @@ Auftragen der Grenzspannungen gegen die jeweiligen nach
 \begin{equation*}
   \eta = \frac{c}{\lambda}
 \end{equation*}
-mit Vakuumlichtgeschwindigkeit $c$ bestimmten Frequenzen.
+mit Vakuumlichtgeschwindigkeit $c$ bestimmten Frequenzen liefert Abbildung \ref{abb:2}.
+Eine erneute, in diesem Fall jedoch unter Berücksichtigung der Fehler durchgeführte,
+lineare Regression durch die Werte gibt für die Steigung ($\symup{h}/\symup{e}$)
+sowie den y-Achsenabschitt (Austrittsarbeit $A_A$ normiert auf $\symup{e}$):
+\begin{align*}
+  \symup{h}/\symup{e} &= \SI[per-mode=reciprocal]{2.45(26)e-15}{\joule\second\per\coulomb}\\
+  |A_A| &= \SI{0.86(15)}{\electronvolt}.
+\end{align*}
+Die Fehler berechnen sich wieder aus der $\textsc{Gaußschen}$-Fehlerfortpflanzung.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Austritt.pdf}
+  \caption{Auftragen der Gegenspannung gegen die Lichtfrequenz mit Regression und Fehler.}
+  \label{abb:2}
+\end{figure}
+\subsection{Betrachtung der \SI{578}{\nano\metre} Kennlinie}
+Die Messwerte sind in Tabelle \ref{tab:3} dargestellt. In Abbildung \ref{abb:3}
+findet sich die daraus resultierende Grafik. Auffällig ist der sich einstellende
+Sättigungsstrom, dieser resultiert daraus, dass bei ausreichend hohen Beschleunigungsspannungen
+alle Elektronen die Anode erreichen, da die Anzahl der ausgelösten Elektronen nur proportional
+zur Lichtintensität, jedoch nicht zur Beschleunigungsspannung ist. Desweiteren kann bei hohen
+Lichtintensitäten ein entgegengesetzter Strom auftreten. Dieser wird durch die thermische
+Emission von Elektronen aus dem Kathodenmaterial erzeugt, welches bereits bei geringen
+Temperaturen verdampft.
+\begin{figure}
+  \centering
+  \subcaptionbox{Kennlinie \label{abb:3}}[0.7\textwidth]{
+    \includegraphics[width=0.7\textwidth]{Kennlinie.pdf}
+    }
+  \hfill
+  \subcaptionbox{Messwerte \label{tab:3}}[0.29\textwidth]{
+    \begin{tabular}{c c | c c}
+      \toprule
+      $U_g$/\si{\volt} & $I$/\si{\nano\ampere} & $U_g$/\si{\volt} & $I$/\si{\nano\ampere}\\
+      \midrule
+      -0.50 & 0.000 & 1.00 & 0.180 \\
+      -0.45 & 0.000 & 1.20 & 0.240 \\
+      -0.40 & 0.000 & 1.40 & 0.320 \\
+      -0.35 & 0.000 & 1.60 & 0.420 \\
+      -0.30 & 0.002 & 1.80 & 0.540 \\
+      -0.25 & 0.003 & 2.00 & 0.660 \\
+      -0.20 & 0.006 & 3 & 1.0 \\
+      -0.15 & 0.008 & 4 & 1.8 \\
+      -0.10 & 0.010 & 5 & 2.2 \\
+      -0.05 & 0.014 & 6 & 2.3 \\
+      -0.00 & 0.018 & 7 & 2.4 \\
+      0.05 & 0.022 & 8 & 2.6 \\
+      0.10 & 0.028 & 9 & 2.6 \\
+      0.15 & 0.032 & 10 & 2.6 \\
+      0.20 & 0.038 & 11 & 2.6 \\
+      0.25 & 0.044 & 12 & 2.6 \\
+      0.30 & 0.052 & 13 & 2.6 \\
+      0.35 & 0.058 & 14 & 2.6 \\
+      0.40 & 0.066 & 15 & 2.6 \\
+      0.45 & 0.072 & 16 & 2.6 \\
+      0.50 & 0.080 & 17 & 2.6 \\
+      0.60 & 0.098 & 18 & 2.6 \\
+      0.70 & 0.100 & 19 & 2.6 \\
+      0.80 & 0.120 & 20 & 2.6 \\
+      0.90 & 0.150 &    &     \\
+      \bottomrule
+    \end{tabular}
+    }
+  \hfill
+  \caption{Kennlinie der Photokathode für die \SI{578}{\nano\metre} Spektrallinie der
+  Hg-Dampflampe.}
+\end{figure}
 \section{Diskussion}
+Aus den in $\textsc{phython-scipy}$ implementierten Literaturwerten für h und e folgt
+als Vergleichswert:
+\begin{equation*}
+  (\symup{h}/\symup{e})_{\symup{theo}} = \SI[per-mode=reciprocal]{4.14e-15}{\joule\second\per\coulomb}.
+\end{equation*}
+Zum bestimmten Wert von \SI[per-mode=reciprocal]{2.45(26)e-15}{\joule\second\per\coulomb}
+zeigt sich eine relative Abweichung von ca. \SI{40.8}{\percent}. Da jedoch die Größenordnung
+des Theoriewertes bei dieser Präzisionsmessung erreicht werden konnte, kann dennoch
+von einem Erfolgreichen Experiment gesprochen werden. Die Fehler resultieren vermutlich
+aus Problemen mit dem Versuchsaufbau. So konnte für viele Lininen nur dann ein Messwert
+aufgenommen werden, wenn die Photokathode gedreht wurde oder der Abstand zwischen Kathode
+und Prisma stark verändert wurde. Dadurch waren gerade für die schwächeren Linien nur
+geringe Einstrahlungsintensitäten und damit Anodenströme zu Erreichen,
+sodass davon ausgegegangen werden muss,
+dass es zu Fehler in den Grenzspannungen kommt. Auch ist das Anodenmaterial nicht bekannt,
+daher kann hier kein Vergleich vorgenommen werden. Austrittsarbeiten für Metalle
+liegen jedoch meist im Bereich einiger \si{\electronvolt}, der relative Fehler deckt
+sich somit in etwa mit dem von $\symup{h}/\symup{e}$.
 \newpage
 \nocite{*}
 \printbibliography

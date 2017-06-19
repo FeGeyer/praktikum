@@ -115,6 +115,19 @@ Zählwerk abgelesen. Auch diese Messung wird zehnmal durchgeführt. Anschließen
 Messzelle erneut evakuiert und diesmal CO2 eingefüllt. Auch diesmal werden die Intensitätsmaxima
 abgelesen und die Messung zehnmal wiederholt.
 \section{Auswertung}
+\subsection{Fehlerrechnung}
+Für die Fehlerrechnung gibt:
+\begin{equation}
+  \overline{T} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+\end{equation}
+den Mittelwert, sowie:
+\begin{equation}
+  \sigma_{\overline{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\overline{T}-T_i)^2}
+\end{equation}
+den Fehler des Mittelwertes.
+In Fällen, in denen zwei fehlerbehaftete Größen in einer Gleichung zur Bestimmung
+einer anderen Größe verwendung finden, wird der resultierende Fehler durch
+$\textsc{uncertainties}$ in $\textsc{python}$ berechnet.
 \subsection{Wellenlänge eines Helium-Neon-Lasers}
 \begin{table}[h]
   \centering
@@ -226,14 +239,14 @@ sich folgende Mittelwerte:
 Im Vergleich mit dem auf dem Laser angebenen Wert von \SI{635}{\nano\metre} für die
 Wellenlänge zeigen sich Abweichungen, die nicht im Bereich der Messungenauigkeiten liegen.
 Es ist daher von einem systematischen Fehler auszugehen. Denkbar sind vorallem
-Fehlzählungen. Auch wenn die Geschwindigkeit, mit der der Spiegel verstellt wurde,
-extrem gering war, kann nicht ausgeschlossen werden, dass die Frequenz, mit der
-die resultierenden Maxima am Photodetektor vorbeizogen das Auflösungsvermögen eben
-dieses überstiegen.\\
+Fehlzählungen. Da die Apperatur extrem empfindlich gegenüber jeglichen Erschütterungen
+ist und diese nie vollständig ausgeschlossen werden können ist es möglich, dass einzellne
+Maxima aufgrunddessen mehrfach gezählt wurden.\\
 Bei Vergleich zwischen den für die Brechungsindize gemessenen Werten mit Literaturwerten
 von \num{1.0002765}\cite{luft} für Luft und \num{1.0004476}\cite{co2} für CO2 zeigen
 sich ebenfalls keine Übereinstimmungen im Fehlerintervall. Die relativen Abweichungen
-sind mit \num{4.65e-3} und \SI{1.24e-3}{\percent} jedoch extrem gering. Auch hier sind
+sind mit \num{14.4} und \SI{2.7}{\percent} in den letzten Stellen jedoch bei der Messung
+von CO2 weitaus geringer als bei der Messung von Luft. Auch hier sind
 Fehlzählungen das Wahrscheinlichste. Eine erneute Messung mit einem genaueren Messgerät
 sollte daher alle Werte verbessern können.
 \newpage

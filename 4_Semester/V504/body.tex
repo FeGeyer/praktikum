@@ -169,9 +169,24 @@ werden. Die zugehörige graphische Darstellung findet sich in Abbildung \ref{fig
   \caption{Graphische Darstellung der Messwerte zur Bestimmung der Kennlinien.}
   \label{fig:1}
 \end{figure}
-Die Sättigungsströme sind die maximalen Werte aus Tabelle \ref{tab:1}, also
-$I_{\symup S 1} = \SI{0.027}{\milli\ampere}$, $I_{\symup S 2} = \SI{0.071}{\milli\ampere}$, $I_{\symup S 2} = \SI{0.159}{\milli\ampere}$,
-$I_{\symup S 4} = \SI{0.323}{\milli\ampere}$ und $I_{\symup S 5} = \SI{0.647}{\milli\ampere}$.
+Die Sättigungsströme sind die maximalen Werte aus Tabelle \ref{tab:1} und in Tabelle
+\ref{tab:3} zu finden.
+\begin{table}[h]
+  \centering
+  \caption{Heizspannungen und -ströme der Kennlinien aus Tabelle \ref{tab:1} mit den Sättigungsströmen.}
+  \label{tab:3}
+  \begin{tabular}{c c c}
+    \toprule
+    $U_{\symup{H}}$ / \si{\volt} & $I_{\symup{H}}$ / \si{\ampere} & $I_s$ / \si{\milli\ampere} \\
+    \midrule
+    3.0 & 1.8 & 0.027 \\
+    3.5 & 1.9 & 0.071 \\
+    4.0 & 2.0 & 0.159 \\
+    4.2 & 2.1 & 0.323  \\
+    4.7 & 2.2 & 0.647  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \subsection{Bestimmung des Raumladungsgebietes}
 Für die Messwerte $I_5$ wird das Raumladungsgebiet untersucht. Nach \eqref{eq:4} hat
@@ -196,21 +211,21 @@ Die Messwerte zur Kennlinie des Anlaufstromgebietes befinden sich in Tabelle
   \centering
   \caption{Messwerte zur Kennlinie des Anlaufstromsgebiet.}
   \label{tab:2}
-  \begin{tabular}{c c}
+  \begin{tabular}{c c c}
     \toprule
-    $U$ / \si{\volt} & $I_6$ / \si{\nano\ampere} \\
+    $U$ / \si{\volt} & $I_6$ / \si{\nano\ampere} & $U_{\symup{korr}}$ / \si{\volt} \\
     \midrule
-    0.00 & 9.500 \\
-    0.10 & 5.000 \\
-    0.20 & 3.000 \\
-    0.30 & 1.600 \\
-    0.40 & 0.900 \\
-    0.50 & 0.500 \\
-    0.60 & 0.320 \\
-    0.70 & 0.200 \\
-    0.80 & 0.130 \\
-    0.90 & 0.125 \\
-    0.96 & 0.110 \\
+    0.00 & 9.500 & -0.00950 \\
+    0.10 & 5.000 & 0.09500 \\
+    0.20 & 3.000 & 0.19700 \\
+    0.30 & 1.600 & 0.29840 \\
+    0.40 & 0.900 & 0.39910 \\
+    0.50 & 0.500 & 0.49950 \\
+    0.60 & 0.320 & 0.59968 \\
+    0.70 & 0.200 & 0.69980 \\
+    0.80 & 0.130 & 0.79987 \\
+    0.90 & 0.125 & 0.89987 \\
+    0.96 & 0.110 & 0.95989 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -226,11 +241,11 @@ die Ströme logarithmiert aufgetragen.
 \end{figure}
 Dabei ist zu beachten, dass die Spannung im Graph angepasst wurde,
 da am Innenwiderstand des Amperemeters Spannung abfällt, siehe Abbildung \ref{abb:8}.
-Deshalb sind die Spannungen kleiner als in Tabelle \ref{tab:2} angegeben.
+Die Spannungen sind in Tabelle \ref{tab:2} angegeben.
 Mithilfe der Regression soll ein Ausdruck für die Kathodentemperatur $T$ gefunden
 werden. Dazu wird \eqref{eq:5} umgestellt zu
 \begin{equation*}
-    \symup{ln}(I) = \symup{ln}(\symup{const}) - \frac{\symup{e}_0}{\symup k \cdot T} \, .
+    \symup{ln}(I) = \symup{ln}(\symup{const}) - \frac{\symup{e}_0 \, U}{\symup k \cdot T} \, .
 \end{equation*}
 Die Steigung der linearen Regression gibt eine Wert für $\symup{e}_0/(\symup k \cdot T)$ an
 und es folgt
@@ -242,30 +257,16 @@ mit $x$ als Steigung der lienaren Regression. Aus \eqref{eqn:1} ergibt sich
 $T = \SI{2.17(5)e3}{\kelvin}$.
 
 \subsection{Temperaturbestimmung aus Leistungsbilanz}
-Zur Erzeugung der Kennlinien aus Kapitel \ref{sec:a} wurden die Heizspannungen und -ströme
+Zur Erzeugung der Kennlinien aus Kapitel \ref{sec:a} werden die Heizspannungen und -ströme
 aus Tabelle \ref{tab:3} genutzt.
-\begin{table}[h]
-  \centering
-  \caption{Heizspannungen und -ströme der Kennlinien aus Tabelle \ref{tab:1}.}
-  \label{tab:3}
-  \begin{tabular}{c c}
-    \toprule
-    $U_{\symup{H}}$ / \si{\volt} & $I_{\symup{H}}$ / \si{\ampere} \\
-    \midrule
-    3.0 & 1.8 \\
-    3.5 & 1.9 \\
-    4.0 & 2.0 \\
-    4.2 & 2.1 \\
-    4.7 & 2.2 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
 Mit der Gleichung
 \begin{equation}
     T = \left(\frac{U_{\symup{H}} \cdot I_{\symup{H}} - N_{\symup{WL}}}{\eta \, \sigma \, f} \right)^{\frac{1}{4}}
     \label{eqn:2}
 \end{equation}
-lassen sich Werte für $T$ finden. Dabei ist $N_{\symup{WL}} = \SI{0.9}{\watt}$ die als Wärmeleitung abgegebene Leistung,
+lassen sich Werte für $T$ finden. Diese folgt aus der Annahme, dass die zugeführte
+elektrische Leistung in Form von Wärmestrahlung abgestrahlt und in Form von
+Wärmeleitung abgegeben wird. Dabei ist $N_{\symup{WL}} = \SI{0.9}{\watt}$ die als Wärmeleitung abgegebene Leistung,
 $\eta = \num{0.28}$ der Emissiongrad der Oberfläche, $\sigma$ = \SI[per-mode=reciprocal]{5.7e-12}{\watt\per\centi\meter\squared\per\kelvin\tothe{4}}
 die Boltzmannsche Strahlungskonstante und $f = \SI{0.32}{\centi\meter\squared}$ die emittierende Kathodenoberfläche.
 Da es fünf verschiedene Heizleistungen gibt, gibt es auch fünf verschiedene Temperaturen. Diese finden sich
@@ -286,7 +287,7 @@ Der Mittelwert ergibt sich zu $T = \SI{1.91(6)e3}{\kelvin}$.
 
 \subsection{Bestimmung der Austrittsarbeit}
 Aus den Sättigungströmen aus Kapitel \ref{sec:a} und den Temperaturen aus Tabelle \ref{tab:4}
-lassen sich mit Formel \eqref{eq:3} berechnen. Dabei ist zu beachten, dass
+lässt sich mit Formel \eqref{eq:3} die Austrittsarbeit berechnen. Dabei ist zu beachten, dass
 $j_{\symup{S}} = I_{\symup{S}}/f$ gilt. \eqref{eq:3} wird umgestellt zu
 \begin{equation}
   \symup{e}_0 \Phi = - \symup{ln}\left(\frac{I_{\symup{S}} \, \symup{h}^3}{4 \pi \, f \, \symup{e}_0 \, \symup{m}_0 \, \symup{k}^2 \, T^2} \right) \cdot \symup k T
@@ -320,10 +321,11 @@ dass in Kapitel \ref{sec:c} Ströme im \si{\nano\ampere}-Bereich gemessen werden
 schwierig exakt zu bestimmen sind.
 
 Die Bestimmung des Raumladungsgebietes und die Verifizierung der Gültigkeit des
-Langmuir-Schottkyschen Raumladungsgesetzes ist alles in allem gut verlaufen. Der gemessene Wert liegt
-zwar nicht innerhalb der Messungenauigkeit, die relative Abweichung ist mit 13.93\% aber vertretbar.
-Möglich ist, dass durch eine Verringerung der Messwerte, die zum fitten benutzt werden,
-ein besseres Ergebnis erzielt werden kann.
+Langmuir-Schottkyschen Raumladungsgesetzes ist alles in allem eher schlecht verlaufen. Der
+gemessene Wert liegt nicht innerhalb der Messungenauigkeit, die relative Abweichung beträgt 13.93\%.
+Allerdings ist die Abweichung des Fehlerintervalls mit $15 \sigma$ ziemlich groß. Die Ursache dafür liegt ihrer endlichen Größe
+und in der Bauart der Anode,
+die nicht alle von der Kathode emittierten Elektronen aufnehmen kann.
 \newpage
 \nocite{*}
 \printbibliography

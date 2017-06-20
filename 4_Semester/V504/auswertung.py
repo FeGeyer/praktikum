@@ -80,10 +80,12 @@ paramsA, covarianceA = curve_fit(f, U1, logI61)
 errorsA= np.sqrt(np.diag(covarianceA))
 exponent2 = ufloat(paramsA[0], errorsA[0])
 
+np.savetxt('Ukorri.txt', np.column_stack([U]) , fmt="%.5f")
 T = - (const.e)/(const.k*exponent2)
 print("")
 print("Aufgabenteil c): ")
 print(T)
+print(U)
 
 plt.figure(3)
 x2 = np.linspace(-0.015, U1[8])

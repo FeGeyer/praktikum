@@ -8,21 +8,21 @@ Ziel des Versuchs ist die Untersuchung der Temperaturabhängigkeit des glühelek
 Effektes an einer Hochvakuumdiode. Als glühelektrischen Effekt wird die Emission von Elektronen aus einem
 aufgeheizten Metall bezeichnet. Dabei muss an den Elektronen die sogenannte
 Austrittsarbeit geleistet werden. Zur Erklärung dieses Begriffs ist die Vorstellung
-des Metalls als Potentialtopf sinnvoll. Die positiv geladenen Kerne sind ein einem
+des Metalls als Potentialtopf sinnvoll. Die positiv geladenen Kerne sind an einem
 Gitter gebunden, das Potential der Kerne erzeugt einen Potentialtopf, der um $\phi$
 vom umgebenden Potential abweicht. In diesem
 Topf können sich die Elektronen frei bewegen, sie sind nicht mehr an ein Atom gebunden.
 Um den Potentialtopf verlassen zu können, müssen die Elektronen mindestens dieses Potential
-überwinden. Zusätzlich müssen sie die $\textsc{Fermische}$ Grenzenergie $\zeta$ besitzen,
-die aus dem $\textsc{Pauli}$-Prinzip resultiert. Sie entspricht der Energie, die
-die Elektronen am absoluten Nullpunkt besitzen würden. Diese Überlegung führt zusammen
+überwinden. Diese Überlegung führt zusammen
 mit einigen Kentnissen über das Verhalten der Elektronen in ihrem Phasenraum auf die
 $\textsc{Richardson}$-Gleichung
 \begin{equation}
   j_{\symup{S}}(T) = 4 \pi \frac{e_0 m_0 k^2}{h^3} T^2 \exp\left(\frac{-e_0 \phi}{k T} \right),
   \label{eq:3}
 \end{equation}
-mit der aus der Temperatur $T$ die Sättigungsstromdichte, also den Strom der Elektronen
+mit der aus der Temperatur $T$ sowie den Konstanten $e_0$ (Elementarladung),
+$m_0$ (Elektronenruhemasse), $k$ ($\textsc{Bolzmann}$-Konstante) und
+$h$ ($\textsc{Planksches}$ Wirkungsquantum) die Sättigungsstromdichte, also den Strom der Elektronen
 aus der Metalloberfläche, berechnet werden.\\
 \begin{figure}
   \centering
@@ -31,22 +31,22 @@ aus der Metalloberfläche, berechnet werden.\\
   \label{abb:5}
 \end{figure}
 Versuchsanordnungen zur Messung dieses Zusammenhanges schließen zwangsläufig ein
-Vakuum ein, um Wechselwirkungen zwischen emitierten Elektronen und Umgebung zu Verhindern.
+Vakuum ein, um Wechselwirkungen zwischen emittierten Elektronen und Umgebung zu verhindern.
 Zusätzlich wird in ihnen ein elektrisches Feld angelegt, um die ungerichtete Elektronenemission
-zu fokusieren. Dafür wird eine Anode in die Anordnung gebracht, die Emitierende Metaloberfläche
+zu fokussieren. Dafür wird eine Anode in die Anordnung gebracht, die emittierende Metalloberfläche
 dient als Kathode. Die Elektronen bewegen sich also nach ihrer Emission auf die Anode zu.
 Einen solchen Aufbau bezeichnet man als Hochvakuumdiode (siehe Abbildung \ref{abb:5}). Bei Nutzung einer solchen
-Anordnung stellt man jedoch fest, dass der an der Anode gemessene Strom von der Spannung
-der Anode abhängt und erst ab einer Sättigungsspannung $I_{\symup{S}}$ alle Elektronen die Annode erreichen.
+Anordnung wird jedoch festgestellt, dass der an der Anode gemessene Strom von der Spannung
+der Anode abhängt und erst ab einer Sättigungsspannung $I_{\symup{S}}$ alle Elektronen die Anode erreichen.
 Grund dafür ist die Beschleunigung, die die Elektronen im elektrischen Feld erfahren.
-Die Ladungsdichte $\rho$ im inneren der Diode ist somit Ortsabhängig. Als Konsequenz der
+Die Ladungsdichte $\rho$ im Inneren der Diode ist somit Ortsabhängig. Als Konsequenz der
 Kontinuitätsgleichung
 \begin{equation}
   j = - \rho v
 \end{equation}
 wird das elektrische Feld nahe der Kathode sehr schwach, da es von
 den austretenden Elektronen abgeschirmt wird. Die nachströmenden Elektronen können
-die Anode dann nicht mehr erreichen. Der an der Annode gemessene Strom kann sich
+die Anode dann nicht mehr erreichen. Der an der Anode gemessene Strom kann sich
 also nur an den Sättigungsstrom annähern. Aus der $\textsc{Poisson}$-Gleichung
 und der Energieerhaltung folgt für den Verlauf der Stromdichte in der Diode:
 \begin{equation}
@@ -59,7 +59,7 @@ Aus \eqref{eq:4} folgt, dass ohne anliegendes Potential ($V \le 0$) kein Anodens
 In der Realität lässt sich aufgrund der Geschwindigkeit, die die Elektronen auch ohne
 anliegende Spannung besitzen, ein gewisser Strom messen. Dieser Strom wird Anlaufstrom
 genannt. Die Energie der Elektronen muss jedoch auch groß genug sein, ein äußeres
-Potential $V$ zu überwinden. Allgemein erhält man für die Anlaufstomstärke:
+Potential $V$ zu überwinden. Allgemein gilt für die Anlaufstomstärke:
 \begin{equation}
   j(V) = j_0 \exp\left(-\frac{e_0 \phi_A + e_0 V}{kT}\right),
   \label{eq:5}
@@ -68,8 +68,8 @@ wobei $\phi_A$ die Austrittsarbeit des Anodenmaterials bezeichnet, die ebenfalls
 überwunden werden muss.\\
 Die Kombination der durch \eqref{eq:5}, \eqref{eq:4} und \eqref{eq:3} beschriebenen Abhängigkeiten
 liefern die sogenannte Kennlinie der Hochvakuumdiode. Ohne anliegende Spannung kann nur
-ein Anlaufstrom gemessen werden. Wird die Spannung erhöht, misst man die $V^{3/2}$-Abhängigkeit
-des Raumladungsgesetzes. Steigt die Spannung weiter, so strebt der gemessene Anodenstrom gegen
+ein Anlaufstrom gemessen werden. Wird die Spannung erhöht, wird die $V^{3/2}$-Abhängigkeit
+des Raumladungsgesetzes gemessen. Steigt die Spannung weiter, so strebt der gemessene Anodenstrom gegen
 einen Sättigungswert. Ein Beispiel für eine Kennline bei konstantem $T$ ist in \ref{abb:6}
 gegeben.
 \begin{figure}
@@ -80,13 +80,13 @@ gegeben.
 \end{figure}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
-Zur Bestimmung von Kennlinien wird ein Konstantspannungsgerät mit reglebaren Spannungen
-zwischen Annode und Kathode geschaltet. Die in diesem
+Zur Bestimmung von Kennlinien wird ein Konstantspannungsgerät mit regelbaren Spannungen
+zwischen Anode und Kathode geschaltet. Die in diesem
 Kreislauf anliegenden Spannungen und Stromstärken werden über Messgeräte gemessen.
 In einem zweiten Kreislauf wird an der Kathode ein Konstantspannungsgerät zur Erzeugung
 der Heizspannung angeschlossen. Auch hier wird die Spannung gemessen (siehe \ref{abb:7}).
 Für die Messung der Anlaufstromkurve wird eine abgewandelte Version dieser Schaltung
-verwendet. Das Spannungsmessgerät des Annode-Kathode
+verwendet. Das Spannungsmessgerät des Anode-Kathode
 Kreislaufs wird entfernt, die Spannungsquelle wird umgepolt und durch ein Konstantspannungsgerät
 im \SI{1}{\volt} Bereich ersetzt. Das Amperemeter wird durch eines mit Messbereich im \si{\nano\ampere}
 Bereich ersetzt (siehe \ref{abb:8}).
@@ -94,7 +94,7 @@ Bereich ersetzt (siehe \ref{abb:8}).
 \centering
   \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{aufbkenn.png}
+    \includegraphics[width=\textwidth]{aufbken.png}
     \caption{Versuchsaufbau zur Bestimung von Kennlinen\cite{anleitung}. Der XY-Schreiber
     wird nicht in die tatsächliche Schaltung integriert.}
     \label{abb:7}

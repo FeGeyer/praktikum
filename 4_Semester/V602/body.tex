@@ -5,32 +5,143 @@
 \pagenumbering{arabic}
 \section{Theorie}
 Ziel des Versuchs ist die expermentelle Betrachtung des Röntgenemissionsspektrums
-von Kupfer sowie verschiedener Absorbtionsspektren.\\
-\noindent
+von Kupfer sowie verschiedener Absorbtionsspektren.
+\subsection{Entstehung von Röntgenstrahlung}
 Röntgenstrahlung entsteht bei der Wechselwirkung von beschleunigten Elektronen
 mit Materie. Die Elektronen werden dabei in einer evakuiertien Röhre (der sogenannten
 Röntgenröhre) unter Zuhilfenahme des glühelektrischen Effekts aus einer Kathode ausgelöst
 und zu einer Anode hin beschleunigt. Beim Auftreffen auf das Anodenmaterial führen
 zwei Prozesse zur Entstehung von Röntgenstrahlung:
-\begin{enumerate}
-  \item [1.: Bremsstrahlung] Die Elektronen treten hierbei in Wechselwirkung mit den
+\begin{itemize}
+  \item [1.]\textbf{Bremsstrahlung:} Die Elektronen treten hierbei in Wechselwirkung mit den
   Coulombfeldern der Atomkerne des Anodenmaterials. Die durch den dabei folgenden
-  Abbremsvorgang verloren gegenagene Energie wird in Form eines Photons emittiert.
+  Abbremsvorgang verloren gegangene Energie wird in Form eines Photons emittiert.
   Das resultierende Spektrum ist kontinuierlich. Es weist eine Grenzwellenlänge auf,
   unter der keine Röntgenstrahlung gemessen werden kann. Sie berechnet sich zu
   \begin{equation}
     \lambda_{\symup{min}} = \frac{hc}{e_0U}
   \end{equation}
-  (mit Plankschem Wirkungsquantum $h$, Vakuumlichtgeschwindigkeit $c$ und Elektronenruhemasse $e_0$)
+  (mit $\textsc{Plankschem}$ Wirkungsquantum $h$, Vakuumlichtgeschwindigkeit $c$ und Elektronenruhemasse $e_0$)
   und entspricht der vollständigen Abbremsung des Elektrons, bei dem die
   aus der Beschleunigung gewonnene gesamte kinetische Energie umgewandelt wird.
   Dieses Spektrum ist kontinuierlich, es wird daher oft als kontinuierliches Bremsspektrum
   oder auch als Bremsberg bezeichnet.
-  \item [2. Charakteristisches Spektrum]
-\end{enumerate}
+  \item [2.] \textbf{Charakteristisches Spektrum} Das charakteristische Spektrum der Röntgenstrahlung
+  resultiert aus der Ionisation der Anodenatome durch die einfallenden Elektronen.
+  Die von der Kathode emittierten Elektronen schlagen dabei Elektronen aus den inneren
+  Schalen der Atome. Elektronen aus höheren Schalen fallen in die entstandenen Löcher
+  und emittieren dabei Röntgenquenten. Die Energie der Röntgenquanten entspricht dabei
+  der Differenz zwischen dem Ursprungsniveau und dem Zielniveau des Elektrons. Aus der
+  Beziehung
+  \begin{equation}
+    E_n = -E_{\symup{Ryd}} z_{\symup{eff}}^2 \cdot \frac{1}{n^2}
+  \end{equation}
+  mit $\textsc{Rydberg}$-Energie $E_{\symup{Ryd}} \approx \SI{13.6}{\electronvolt}$
+  lässt sich die Bindungsenergie einer Elektronenschale ermitteln.
+  Die Konstante $z_{\symup{eff}} = z - \sigma$ gibt hierbei die effektive Kernladung
+  berechnet aus der tatsächlichen Kernladung und der Abschirmkonstante $\sigma$ an.
+  Die beim Abfall
+  entstehenden scharfen Linien im Röntgenspektrum werden als $K_\alpha$, $K_\beta$,
+  $L_\alpha$ etc. bezeichnet. Der Großbuchstabe gibt dabei an, auf welche Schale das
+  Elektron fällt, der griechische Buchstabe wie viele Schalen darüber es sich ursprünglich
+  befand.
+  Da die Abschrimkonstante dabei für jedes Elektron der äußeren Schale unterschiedlich ist,
+  unterscheiden sich auch die Bindungsenergien innerhalb der äußeren Schale.
+  Dies führt dazu, dass eine Linie des charakteristischen Spektrums aus mehreren nah
+  beieinanderliegenden Einzellinien besteht. Diese lassen sich mit eingem Aufwand auflösen,
+  diese Linien werden als Feinstruktur bezeichnet. Diese Linien sind dem Bremsspektrum aufgesetzt
+  siehe Abbildung \ref{abb:1}.
+\end{itemize}
+\subsection{Absorbtion von Röntgenstrahlung}
+Bei der Wechselwirkung von Röntgenstrahlung unter \SI{1}{\mega\electronvolt} mit Materie
+spielen im wesentlichen zwei Effekte eine Rolle. Zum einen die Comptonstreuung, die
+nur in Absorbern mit wenigen Elektronen nennenswerte Auswirkungen hat und zum anderen
+den inneren Photoeffekt. Die einstrahlenden Röntgenquenten treffen dabei auf die
+Hüllenenelktronen der Absorberatome, wobei sie mit einer gewissen Wahrscheinlichkeit
+absorbiert werden. Die Absorbtionswahrscheinlichkeit ist dabei antiproportional zur
+Energie der einfallenden Röntgenstrahlung. Erreichen die Röntgenquanten jedoch die
+Bindungsenergie der Elektronen einer Schale können sie diese ionisieren. Dabei steigt
+die Absorptionsrate extrem an, es bildet sich eine sogenannte Absorptionskante die
+mit dem Buchstaben der ionisierten Schale bezeichnet wird (siehe Abbildung \ref{abb:2}).
+Auch hierbei muss die
+Feinstruktur beachtet werden. Die Bindungsenergie eines Elektrons in einer Schale,
+die diese Feinstruktur aufweist, berechnet sich dabei nach der $\textsc{Sommerfeldschen}$-
+Feinstrukturformel
+\begin{equation}
+  E_{n,\, j} = -E_{\symup{Ryd}}  \left( z_{\symup{eff, \, 1}}^2 \cdot \frac{1}{n^2}
+  + \alpha^2 z_{\symup{eff, \, 2}}^4 \cdot \frac{1}{n^3} \left( \frac{1}{j+1/2} -
+  \frac{3}{4n} \right) \right)
+\end{equation}
+mit Hauptquentenzahl $n$, Gesamtdrehimpulsquantenzahl $j$ und Feinstrukturkonstante $\alpha$.
+Die Bestimmung der Abschrimkonstante $\sigma$ aus dieser Beziehung ist jedoch extrem
+kompliziert und kann auch aus der Energiedifferenz zwischen zwei Feinstrukturkanten
+erfolgen.
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{Emmisionsspektrum\cite{prezi} \label{abb:1}}[0.49\textwidth]{
+  \centering
+    \includegraphics[width=0.49\textwidth]{Emissionsspektrum.png}
+    }
+  \subcaptionbox{Absorbtionsspektrum\cite{anleitung} \label{abb:2}}[0.49\textwidth]{
+  \centering
+    \includegraphics[width=0.3\textwidth]{Abs.png}
+    }
+  \hfill
+  \caption{Emissions- und Absorbtionsspektrum von Röntengenstrahlung.}
+\end{figure}
+\subsection{Die Bragg-Gleichung}
+Für Messungen an Röntgenstrahlung ist abschließend noch die $\textsc{Bragg}$-Gleichung
+hilfreich. Die Röntgenquanten fallen dabei auf ein Gitter ein (beispielsweise ein
+Einkristall) und werden dort in Abhängigkeit des Einfallswinkels gebeugt. Aus der Beziehung
+\begin{equation}
+  2 d \sin{\theta} = n \lambda
+  \label{eq:3}
+\end{equation}
+folgt dann mit der Gitterkonstante $d$ zu jedem Winkel die Wellenlänge, die unter
+diesem Winkel konstruktiv interferiert. $n$ gibt hierbei die Beugungsordnung an.
+Dies ist in Abbildung \ref{abb:3} dargestellt.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.2]{bragg.png}
+  \caption{Veranschaulichung der Beugung nach $\textsc{bragg}$ am Kristallgitter
+  \cite{anleitung}.}
+  \label{abb:3}
+\end{figure}
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+Der Aufbau besteht aus einer Vorgefertigten Apperatur. In ihr befindet sich eine
+Röntgenröhre mit Cu-Anode, ein drehbar gelagertes Geiger-Müller-Zählrohr sowie ein
+LiF-Kristall. Auf dem Sensor des Geiger-Müller-Zählrohrs befindet
+sich eine Blende, damit nur das erste Beugungsmaximum gemessen wird. Die Apperatur ist
+mit einem Computer verbunden, an dem ein Programm die Messung automatisiert durchführen
+kann. An der Röntgenröhre sind Beschleunigungsspannung und Emissionsstrom einstellbar.
+Der Versuchsaufbau findet sich in Abbildung \ref{abb:4}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{Aufbau.png}
+  \caption{Versuchsaufbau \cite{anleitung}.}
+  \label{abb:4}
+\end{figure}
 \subsection{Versuchsdurchführung}
+Der Versuch besteht aus drei Teilen:
+\begin{enumerate}
+  \item In einem ersten Versuchsteil wird die $\textsc{Bragg}$-Bedingung untersucht. Der Winkel
+  des LiF-Kristalls wird dabei fest auf einen Winkel von \SI{14}{\degree}
+  eingestellt und ein Winkelbereich von \num{26}
+  bis \SI{30}{\degree} in \SI{0.1}{\degree}-Schritten mit
+  dem Geiger-Müller-Zählrohr abgefahren. Das dabei bestimmte Maximum wird mit dem
+  aus \eqref{eq:3} bestimmten Theoriewert verglichen.
+  \item Im zweiten Versuchsteil wird im 2:1 Koppelmodus der Kristall von \num{4}
+  bis \SI{26}{\degree} umfahren und in \SI{0.2}{\degree} Schritten für
+  mindestens \SI{5}{\second} die Intensität
+  gemessen. Mit der Bragg-Bedingung lässt sich hieraus das Emissionsspektrum der
+  Röntgenröhre ermitteln.
+  \item Im letzten Versuchsteil werden für \num{6} verschiedene Absorbermaterialen
+  die Absorbtionsspektren aufgenommen. Die Absorber werden dabei vor dem Geiger-Müller-Zählrohr
+  eingespannt und der Kristall in \SI{0.1}{\degree}-Schritten umfahren. Für jeden
+  Winkel wird dabei ca. \SI{20}{\second} die Intensität gemessen. Aus den Messwerten
+  lassen sich die Absorbtionsspektren bestimmen.
+\end{enumerate}
 \section{Auswertung}
 \section{Diskussion}
 \newpage

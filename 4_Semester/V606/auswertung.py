@@ -60,27 +60,43 @@ R = 0.7 # ohm
 
 # Differenzen bilden
 dyR = dyR1 - dyR2 # Ohm
-dyU = dyU2 - dyU1 # Ohm
+dyU = (dyU2 - dyU1)*10**(-3) # V
 
 gdR = gdR1 - gdR2 # Ohm
-gdU = gdU2 - gdU1 # Ohm
+gdU = (gdU2 - gdU1)*10**(-3) # V
 
 ndR = ndR1 - ndR2 # Ohm
-ndU = ndU2 - ndU1 # Ohm
+ndU = (ndU2 - ndU1)*10**(-3) # V
 
 # Qreal ausrechnen
 dyQ = dyM/(dyL * dyRho) * 100 # mm^2
 gdQ = gdM/(gdL * gdRho) * 100 # mm^2
 ndQ = ndM/(ndL * ndRho) * 100 # mm^2
 
-# Mit zweiter Methode
-dyChi = 2 * dyR/R3 * F/(dyQ)
-gdChi = 2 * gdR/R3 * F/(gdQ)
-ndChi = 2 * ndR/R3 * F/(ndQ)
+# Mit Widerstandsmethode
+dyChiR = 2 * dyR/R3 * F/(dyQ)
+gdChiR = 2 * gdR/R3 * F/(gdQ)
+ndChiR = 2 * ndR/R3 * F/(ndQ)
 
-dyChimean = ufloat(np.mean(dyChi), stats.sem(dyChi))
-gdChimean = ufloat(np.mean(gdChi), stats.sem(gdChi))
-ndChimean = ufloat(np.mean(ndChi), stats.sem(ndChi))
-print("Chi von Dy: ", dyChimean)
-print("Chi von Gd: ", gdChimean)
-print("Chi von Nd: ", ndChimean)
+dyChiRmean = ufloat(np.mean(dyChiR), stats.sem(dyChiR))
+gdChiRmean = ufloat(np.mean(gdChiR), stats.sem(gdChiR))
+ndChiRmean = ufloat(np.mean(ndChiR), stats.sem(ndChiR))
+
+print("")
+print("Chi von Dy mit R: ", dyChiRmean)
+print("Chi von Gd mit R: ", gdChiRmean)
+print("Chi von Nd mit R: ", ndChiRmean)
+
+# Mit Spannungsmethode
+dyChiU = 4 * F/dyQ * dyU/0.96
+gdChiU = 4 * F/gdQ * gdU/0.96
+ndChiU = 4 * F/ndQ * ndU/0.96
+
+dyChiUmean = ufloat(np.mean(dyChiU), stats.sem(dyChiU))
+gdChiUmean = ufloat(np.mean(gdChiU), stats.sem(gdChiU))
+ndChiUmean = ufloat(np.mean(ndChiU), stats.sem(ndChiU))
+
+print("")
+print("Chi von Dy mit U: ", dyChiUmean)
+print("Chi von Gd mit U: ", gdChiUmean)
+print("Chi von Nd mit U: ", ndChiUmean)

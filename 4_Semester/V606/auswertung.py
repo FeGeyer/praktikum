@@ -50,6 +50,8 @@ dyM = 15.1 # g
 gdM = 14.08  # g
 ndM = 9.0  # g
 
+R3 = 998 # Ohm
+
 # Konstanten Spule
 n = 250
 F = 86.6 # mm²
@@ -57,14 +59,14 @@ l = 135 # mm
 R = 0.7 # ohm
 
 # Differenzen bilden
-dyR = dyR1 - dyR2
-dyU = dyU2 - dyU1
+dyR = dyR1 - dyR2 # Ohm
+dyU = dyU2 - dyU1 # Ohm
 
-gdR = gdR1 - gdR2
-gdU = gdU2 - gdU1
+gdR = gdR1 - gdR2 # Ohm
+gdU = gdU2 - gdU1 # Ohm
 
-ndR = ndR1 - ndR2
-ndU = ndU2 - ndU1
+ndR = ndR1 - ndR2 # Ohm
+ndU = ndU2 - ndU1 # Ohm
 
 # Qreal ausrechnen
 dyQ = dyM/(dyL * dyRho) * 100 # mm^2
@@ -72,12 +74,13 @@ gdQ = gdM/(gdL * gdRho) * 100 # mm^2
 ndQ = ndM/(ndL * ndRho) * 100 # mm^2
 
 # Mit zweiter Methode
-dyChi = 2 * dyR/dyR1 * F/(dyQ)
-gdChi = 2 * gdR/gdR1 * F/(gdQ)
-ndChi = 2 * ndR/ndR1 * F/(ndQ)
+dyChi = 2 * dyR/R3 * F/(dyQ)
+gdChi = 2 * gdR/R3 * F/(gdQ)
+ndChi = 2 * ndR/R3 * F/(ndQ)
 
 dyChimean = ufloat(np.mean(dyChi), stats.sem(dyChi))
-print(ndR)
-print(dyChi)
-print(gdChi)
-print(ndChi)
+gdChimean = ufloat(np.mean(gdChi), stats.sem(gdChi))
+ndChimean = ufloat(np.mean(ndChi), stats.sem(ndChi))
+print("Chi von Dy: ", dyChimean)
+print("Chi von Gd: ", gdChimean)
+print("Chi von Nd: ", ndChimean)

@@ -82,20 +82,33 @@ dyChiRmean = ufloat(np.mean(dyChiR), stats.sem(dyChiR))
 gdChiRmean = ufloat(np.mean(gdChiR), stats.sem(gdChiR))
 ndChiRmean = ufloat(np.mean(ndChiR), stats.sem(ndChiR))
 
+
+print("")
+print("Q von Nd: ", ndQ)
+print("Q von Gd: ", gdQ)
+print("Q von Dy: ", dyQ)
 print("")
 print("Chi von Dy mit R: ", dyChiRmean)
 print("Chi von Gd mit R: ", gdChiRmean)
 print("Chi von Nd mit R: ", ndChiRmean)
 
 # Mit Spannungsmethode
-dyChiU = 4 * F/dyQ * dyU/0.96
-gdChiU = 4 * F/gdQ * gdU/0.96
-ndChiU = 4 * F/ndQ * ndU/0.96
+dyChiU = 4 * F/dyQ * dyU/0.9
+gdChiU = 4 * F/gdQ * gdU/0.9
+ndChiU = 4 * F/ndQ * ndU/0.9
 
 dyChiUmean = ufloat(np.mean(dyChiU), stats.sem(dyChiU))
 gdChiUmean = ufloat(np.mean(gdChiU), stats.sem(gdChiU))
 ndChiUmean = ufloat(np.mean(ndChiU), stats.sem(ndChiU))
 
+dyUmean = ufloat(np.mean(dyU), stats.sem(dyU))
+gdUmean = ufloat(np.mean(gdU), stats.sem(gdU))
+ndUmean = ufloat(np.mean(ndU), stats.sem(ndU))
+
+print("")
+print("Delta U von Nd: ", ndUmean)
+print("Delta U von Gd: ", gdUmean)
+print("Delta U von Dy: ", dyUmean)
 print("")
 print("Chi von Dy mit U: ", dyChiUmean)
 print("Chi von Gd mit U: ", gdChiUmean)
@@ -132,6 +145,19 @@ gdChi = (const.mu_0 * muB**2 * gdGj**2 * gdN * gdJ*(gdJ+1))/(3 * const.k * T)
 dyChi = (const.mu_0 * muB**2 * dyGj**2 * dyN * dyJ*(dyJ+1))/(3 * const.k * T)
 
 #ndChi = np.round(ndChi, 4)
+
+#print("N für Nd: ", ndN)
+#print("N für Gd: ", gdN)
+#print("N für Dy: ", dyN)
+
+dyRmean = ufloat(np.mean(dyR), stats.sem(dyR))
+gdRmean = ufloat(np.mean(gdR), stats.sem(gdR))
+ndRmean = ufloat(np.mean(ndR), stats.sem(ndR))
+
+print("")
+print("Delta R für Nd: ", ndRmean)
+print("Delta R für Gd: ", gdRmean)
+print("Delta R für Dy: ", dyRmean)
 
 print("")
 print("Theoretisches Chi von Dy: ", np.round(dyChi, 5))

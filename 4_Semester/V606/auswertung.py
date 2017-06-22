@@ -100,3 +100,40 @@ print("")
 print("Chi von Dy mit U: ", dyChiUmean)
 print("Chi von Gd mit U: ", gdChiUmean)
 print("Chi von Nd mit U: ", ndChiUmean)
+
+# Theoretische Bestimmung
+
+# Konstanten
+T = 293.15 # Kelvin
+muB = 1/2 * const.e/const.m_e * const.hbar
+
+ndMol = 336.4822 # g/mol
+gdMol = 362.4982 # g/mol
+dyMol = 372.9982 # g/mol
+
+ndGj = 8/11
+gdGj = 2
+dyGj = 4/3
+
+ndJ = 4.5
+gdJ = 3.5
+dyJ = 7.5
+
+# Bestimmung von N
+
+ndN = 2 * const.N_A * ndRho/ndMol * 100**3 # 1/m^3
+gdN = 2 * const.N_A * gdRho/gdMol * 100**3 # 1/m^3
+dyN = 2 * const.N_A * dyRho/dyMol * 100**3 # 1/m^3
+
+# Bestimmung von Chi
+
+ndChi = (const.mu_0 * muB**2 * ndGj**2 * ndN * ndJ*(ndJ+1))/(3 * const.k * T)
+gdChi = (const.mu_0 * muB**2 * gdGj**2 * gdN * gdJ*(gdJ+1))/(3 * const.k * T)
+dyChi = (const.mu_0 * muB**2 * dyGj**2 * dyN * dyJ*(dyJ+1))/(3 * const.k * T)
+
+#ndChi = np.round(ndChi, 4)
+
+print("")
+print("Theoretisches Chi von Dy: ", np.round(dyChi, 5))
+print("Theoretisches Chi von Gd: ", np.round(gdChi, 4))
+print("Theoretisches Chi von Nd: ", np.round(ndChi, 6))

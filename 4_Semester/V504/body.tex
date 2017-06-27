@@ -189,12 +189,7 @@ Die Sättigungsströme sind die maximalen Werte aus Tabelle \ref{tab:1} und in T
 \end{table}
 
 \subsection{Bestimmung des Raumladungsgebietes}
-Für die Messwerte $I_5$ wird das Raumladungsgebiet untersucht. Nach \eqref{eq:4} hat
-dabei der Strom eine $V^{\frac{3}{2}}$ Abhängigkeit. Diese wird mittels linearer Regression untersucht.
-Dazu werden die Spannung und der Strom logarithmiert und gegeneinander aufgetragen. Dies und die
-Regression sind in Abbildung \ref{fig:2} zu sehen. Eine lineare Ausgleichsrechnung ergibt für
-den Exponenten der Spannung \num{1.291(14)}.
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[scale=0.3]{raumladung.pdf}
   \caption{Graph zur Untersuchung des Raumladungsgebietes. Die gestrichelte Linie gibt an,
@@ -203,11 +198,17 @@ den Exponenten der Spannung \num{1.291(14)}.
   \label{fig:2}
 \end{figure}
 
+Für die Messwerte $I_5$ wird das Raumladungsgebiet untersucht. Nach \eqref{eq:4} hat
+dabei der Strom eine $V^{\frac{3}{2}}$-Abhängigkeit. Diese wird mittels linearer Regression untersucht.
+Dazu werden die Spannung und der Strom logarithmiert und gegeneinander aufgetragen. Dies und die
+Regression sind in Abbildung \ref{fig:2} zu sehen. Eine lineare Ausgleichsrechnung ergibt für
+den Exponenten der Spannung \num{1.291(14)}.
+
 \subsection{Untersuchung des Anlaufstromgebiets}
 \label{sec:c}
 Die Messwerte zur Kennlinie des Anlaufstromgebietes befinden sich in Tabelle
 \ref{tab:2}.
-\begin{table}[h]
+\begin{table}[h!]
   \centering
   \caption{Messwerte zur Kennlinie des Anlaufstromsgebiet.}
   \label{tab:2}
@@ -325,7 +326,8 @@ Langmuir-Schottkyschen Raumladungsgesetzes ist alles in allem eher schlecht verl
 gemessene Wert liegt nicht innerhalb der Messungenauigkeit, die relative Abweichung beträgt 13.93\%.
 Allerdings ist die Abweichung des Fehlerintervalls mit $15 \sigma$ ziemlich groß. Die Ursache dafür liegt ihrer endlichen Größe
 und in der Bauart der Anode,
-die nicht alle von der Kathode emittierten Elektronen aufnehmen kann.
+die nicht alle von der Kathode emittierten Elektronen aufnehmen kann. Dieser Fehler könnte durch einen optimierten
+Versuchsaufbau verringert werden.
 \newpage
 \nocite{*}
 \printbibliography

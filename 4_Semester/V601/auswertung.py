@@ -53,6 +53,10 @@ x152 = mT152*x152 + bT152
 m20 = y20/x20
 m152 = y152/x152
 
+#np.savetxt('Steigungen.txt', np.column_stack([y20[0:21], m20[0:21], y20[21:42], m20[21:42],
+#y152[0:21], m152[0:21],
+#y152[21:42],m152[21:42]]), fmt="%.3f")
+
 x20mm = np.array([0]*41)
 x152mm = np.array([0]*41)
 
@@ -67,6 +71,7 @@ x152mm = mT152*x152mm + bT152
 
 KDiff = 9-x20mm[31]
 
+print("Maximum: ", x20mm[31], "V")
 print("K aus Differntieller Verteilung: ", KDiff, "V")
 
 plt.figure(1)
@@ -94,6 +99,8 @@ plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("T152.pdf")
 
+
+
 print("")
 print("Teil b)")
 print("")
@@ -115,6 +122,7 @@ DU = ufloat(np.mean(Abstaende), stats.sem(Abstaende))
 
 KHertz = KplusDU - DU
 
+print(KplusDU)
 print("E1-E0 = ",DU, "eV")
 print("K2= ", KHertz, "V")
 
@@ -143,8 +151,12 @@ bIon = ufloat(paramsIon[1], errorsIon[1])
 EIon = -1*bIon/mIon
 EIon = mC * EIon + bC
 
+print(mIon)
+print(bIon)
+
 print("Ionisierungsenergie + K: " , EIon, "eV")
 print("Ionisierungsenergie: " , EIon-(KDiff+KHertz)/2, "eV")
+print((KDiff+KHertz)/2)
 
 xSpace = np.linspace(90, 215)
 plt.figure(3)
@@ -154,8 +166,8 @@ plt.xlabel(r"$U/$V")
 plt.ylabel(r"$I(U)/\mathrm{mm}$")
 plt.plot(mC*cx+bC, cy, 'rx', label=r"Ionisierungsmessung")
 plt.plot(mC*xSpace+bC, f(xSpace, *paramsIon), 'r-', label=r"Regression")
-plt.annotate(s=r"$U_{\mathrm{ion}} + \bar{K}$", xy=(unp.nominal_values(EIon), 0),
-xytext=(16,10), arrowprops=dict(arrowstyle='-'))
+plt.axvline(x=unp.nominal_values(EIon), ymin=0, ymax=1, color="k", ls=':',
+ label=r"$U_{\mathrm{Ion}} + \bar{K}$")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("Ion.pdf")

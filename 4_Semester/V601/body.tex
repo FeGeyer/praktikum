@@ -195,9 +195,273 @@ bei einer konstanten Gegenspannung von \SI{-1}{\volt} aufgenommen, indem wieder 
 $U_B$ aufgetragen wird.
 
 \section{Auswertung}
-
+\subsection{Fehlerrechnung}
+\label{Fehler}
+Für die Fehlerrechnung gibt:
+\begin{equation}
+  \overline{T} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+\end{equation}
+den Mittelwert, sowie:
+\begin{equation}
+  \sigma_{\overline{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\overline{T}-T_i)^2}
+\end{equation}
+den Fehler des Mittelwertes.
+In Fällen, in denen fehlerbehaftete Größen in einer Gleichung zur Bestimmung
+einer anderen Größe verwendung finden, wird der resultierende Fehler durch
+$\textsc{uncertainties}$ in $\textsc{python}$ berechnet.
+\subsection{Bestimmen der Umrechnungsfaktoren der U-Achsen}
+\label{Umrechnung}
+Zuerst werden für alle Messreihen die Skalierungsfaktoren der $U$-Achsen bestimmt,
+um die Messwerte von \si{\milli\metre} in \si{\volt} umzurechnen. Dafür werden
+die Abstände der einzellnen Skalenpunkte zum Nullpunkt gemessen und durch die
+Funktion $\textsc{curve-fit}$ aus dem Paket
+$\textsc{optimize}$ in $\textsc{python-scipy}$ mit einer linearen Funktion
+\begin{equation*}
+  U(x) = m \cdot x + n
+\end{equation*}
+gefittet. In Tabelle \ref{tab:1} finden sich die Abstände aller Skalenpunkte,
+In Tabelle \ref{tab:2} die Parameter der Umrechnungsfunktion. Die aus der Regression
+folgenden Fehler sind, insbesondere bei den für die Umrechnung wichtigen Geradensteigungen,
+so klein das sie weitaus geringer als die bestmögliche Ablesegenauigkeit auf dem Millimeterpapier
+sind. Die Fehler werden daher vernachlässigt.
+\begin{table}
+  \centering
+  \caption{Abstände der Skalenpunkte vom Nullpunkt}
+  \label{tab:1}
+  \begin{tabular}{S S | S S | S S | S S}
+    \toprule
+    \multicolumn {2}{c}{$T \approx \SI{20}{\celsius}$} &
+    \multicolumn {2}{c}{$T = \SI{152}{\celsius}$} &
+    \multicolumn {2}{c}{Franck-Hertz-Kurve} &
+    \multicolumn {2}{c}{Ionisierung} \\
+    $U/$\si{\volt} & $x/$\si{\milli\metre} & $U/$\si{\volt} & $x/$\si{\milli\metre} &
+    $U/$\SI{5}{\volt} & $x/$\si{\milli\metre} & $U/$\SI{5}{\volt} & $x/$\si{\milli\metre} \\
+    \midrule
+    1 & 21 & 1 & 19 & 1 & 22 & 1 & 35 \\
+    2 & 39 & 2 & 39 & 2 & 42 & 2 & 71 \\
+    3 & 58 & 3 & 56 & 3 & 61 & 3 & 105 \\
+    4 & 76 & 4 & 76 & 4 & 79 & 4 & 140 \\
+    5 & 84 & 5 & 95 & 5 & 98 & 5 & 174 \\
+    6 & 103 & 6 & 114 & 6 & 118 & 6 & 215 \\
+    7 & 123 & 7 & 133 & 7 & 136 & & \\
+    8 & 143 & 8 & 163 & 8 & 154 & & \\
+    9 & 160 & 9 & 172 & 9 & 171 & & \\
+    10 & 184 & 10 & 192 & 10 & 190 & & \\
+    11 & 199 & 11 & 208 & 11 & 209 & & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{table}
+  \centering
+  \caption{Parameter der Umrechnungsfunktion}
+  \label{tab:2}
+  \begin{tabular}{c | c  c  c  c}
+    \toprule
+    Messreihe &
+    $T \approx \SI{20}{\celsius}$ &
+    $T = \SI{152}{\celsius}$ &
+    Franck-Hertz-Kurve &
+    Ionisierung \\
+    \midrule
+    $m/$\si[per-mode=reciprocal]{\volt\per\milli\metre} &  0.0560 & 0.0519 &  0.2662 & 0.1411 \\
+    $n/$\si[per-mode=reciprocal]{\volt} & -0.0576 & 0.0218 & -0.8909 & 0.0884 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Betrachtung der differentiellen Energieverteilung}
+Die aus den erhaltenen integralen Energieverteilungen durch Anlegen von Steigungsdreiecken
+in \SI{5}{\milli\metre}-Schritten nach $m_{\symup{mom}} = \symup{\Delta}y / \symup{\Delta}x$
+erhaltenen Momentansteigungen finden sich in Tabelle \ref{tab:3}. Auftragen der Momentansteigungen
+in nach Abschnitt \ref{Umrechnung} umgerechneten \SI{5}{\milli\metre}-Schritten liefert
+die Abbildungen \ref{Abb:1} ($T \approx \SI{20}{\celsius}$) und \ref{Abb:2} ($T = \SI{152}{\celsius}$)
+daregstellten Näherungen für die Ableitung der integralen Energieverteilung, also
+eine Näherung für die differntielle Energieverteilung.
+\begin{table}
+  \centering
+  \caption{Kantenlängen der Steigungsdreiecke sowie daraus berechnete Momentansteigungen.
+  $\symup{\Delta}x$ beträgt jeweils \SI{5}{\milli\metre}.}
+  \label{tab:3}
+  \begin{tabular}{S S | S S || S S | S S}
+    \toprule
+    \multicolumn {4}{c}{$T \approx \SI{20}{\celsius}$} &
+    \multicolumn {4}{c}{$T = \SI{152}{\celsius}$} \\
+    $\symup{\Delta}y$ & $m_{\symup{mom}}$ &
+    $\symup{\Delta}y$ & $m_{\symup{mom}}$ &
+    $\symup{\Delta}y$ & $m_{\symup{mom}}$ &
+    $\symup{\Delta}y$ & $m_{\symup{mom}}$ \\
+    \midrule
+    0.50 & 2.246 & 2.50 & 11.230 & 15.500 & 55.125 & 3.000 & 10.669 \\
+    0.50 & 2.246 & 2.00 & 8.984  & 14.500 & 51.568 & 2.500 & 8.891 \\
+    0.50 & 2.246 & 2.50 & 11.230 & 10.000 & 35.564 & 0.035 & 0.124 \\
+    0.50 & 2.246 & 3.00 & 13.476 & 13.000 & 46.234 & 0.035 & 0.124 \\
+    0.75 & 3.369 & 5.00 & 22.461 & 6.000 & 21.339 & 0.035 & 0.124 \\
+    0.75 & 3.369 & 5.50 & 24.707 & 2.000 &  7.113 & 0.035 & 0.124 \\
+    0.75 & 3.369 & 7.00 & 31.445 & 2.000 &  7.113 & 0.035 & 0.124 \\
+    0.75 & 3.369 & 8.50 & 38.183 & 4.000 & 14.226 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 16.50 &  74.120 & 4.500 & 16.004 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 50.00 & 224.606 & 5.000 & 17.782 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 23.00 & 103.319 & 5.500 & 19.560 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 2.00 & 8.984 & 6.000 & 21.339 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 0 & 0 & 6.000 & 21.339 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 0 & 0 & 7.000 & 24.895 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 0 & 0 & 7.500 & 26.673 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 0 & 0 & 6.000 & 21.339 & 0.035 & 0.124 \\
+    1.50 & 6.738 & 0 & 0 & 6.000 & 21.339 & 0.035 & 0.124 \\
+    1.00 & 4.492 & 0 & 0 & 7.000 & 24.895 & 0.035 & 0.124 \\
+    2.00 & 8.984 & 0 & 0 & 6.000 & 21.339 & 0.035 & 0.124 \\
+    1.50 & 6.738 & 0 & 0 & 7.000 & 24.895 & 0.035 & 0.124 \\
+    2.00 & 8.984 &  &  & 5.000 & 17.782 &  &  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}
+  \centering
+  \subcaptionbox{$T \approx \SI{20}{\celsius}$ \label{abb:1}}[0.49\textwidth]{
+    \includegraphics[width=0.49\textwidth]{T20.pdf}
+    }
+  \hfill
+  \subcaptionbox{$T = \SI{152}{\celsius}$ \label{abb:2}}[0.49\textwidth]{
+    \includegraphics[width=0.49\textwidth]{T152.pdf}
+    }
+  \hfill
+  \caption{Näherungsweise differentielle Energieverteilungen.}
+\end{figure}
+In Abbildung \ref{abb:1} ist gut der nach der $\textsc{Fermi-Dirac}$-Statistik
+zu erwartende breite Peak zu sehen. Das Maximum des Peaks liegt bei \SI{8.63}{\volt}.
+Aus der Differenz zwischen Beschleunigungsspannung $U_{\symup{B}} = \SI{9}{\volt}$
+und dem Maximum folgt für das Kontaktpotential ein Wert von:
+\begin{equation*}
+  K_1 = \SI{0.37}{\volt}.
+\end{equation*}
+Die Abweichung zwischen den Abbildungen \ref{abb:1} und \ref{abb:2} lassen sich dadurch
+erklären, dass bei der deutlich höheren Temperatur von $T = \SI{152}{\celsius}$ die mittlere
+freie Weglänge stark abnimmt, sodass es zu mehr Stößen kommt.
+\subsection{Auswertung der Frack-Hertz Kurve}
+Die Abstände zwischen zwei Maxima sind in Tabelle \ref{tab:4} angegeben. Mittelwertbildung
+nach den in Kapitel \ref{Fehler} aufgeführten Formeln liefert zusammen mit den in Kapitel
+\ref{Umrechnung} errechneten Zusammenhängen einen Wert von
+\begin{equation*}
+  \symup{\Delta}E = \SI{3.93(7)}{\electronvolt}
+\end{equation*}
+für die Anregungsenergie von Quecksilber. Diese Energie entspricht einer Wellenlänge
+von
+\begin{equation*}
+  \lambda = \SI{316(6)}{\nano\metre},
+\end{equation*}
+also einer Wellenlänge im bereich des UV-Lichtes. Zwischen dem erstem Maximum und dem
+Nullpunkt der Messung muss zusätzlich zur Anregungsenergie noch das Kontaktpotential überwunden werden.
+Aus der Differenz zwischen $U$-Wert des ersten Maximums (\SI{4.97}{\volt}) und der oben
+bestimmten Anregungsenergie folgt für das Kontaktpotential ein Wert von:
+\begin{equation*}
+  K_2 = \SI{1.04(7)}{\volt}
+\end{equation*}
+\begin{table}
+  \centering
+  \caption{Abstände zwischen 2 Maxima.}
+  \label{tab:4}
+  \begin{tabular}{c c}
+    \toprule
+    Nr. & $\symup{\Delta}x/$\si{\milli\metre}\\
+    \midrule
+    1 & 17 \\
+    2 & 17 \\
+    3 & 18 \\
+    4 & 19 \\
+    5 & 18 \\
+    6 & 18 \\
+    7 & 19 \\
+    8 & 19 \\
+    9 & 18 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Auswertung der Ionisierungskurve}
+Die aus der Ionisierungskurve entnommene und hier beachteten Messwertpaare
+finden sich in Tabelle \ref{tab:5}. Eine lineare Regression durch die nicht Umgerechneten
+Werte wie in Kapitel \ref{Umrechnung} liefert für die Regressionsgerade:
+\begin{align*}
+  m &= \num{1.46(4)} \\
+  n &= \SI{-144(7)}{\milli\metre}.
+\end{align*}
+Aus dem Schnittpunkt der Gerade mit der $x$-Achse sowie nach Umrechnung folgt für
+$U_\symup{Ion}+\bar{K} = -n/m$:
+\begin{equation*}
+  U_\symup{Ion}+\bar{K} = \SI{14.1(8)}{\volt}.
+\end{equation*}
+Subtraktion mit dem Mittelwert der vorher bestimmten Werte für $K$ von
+$\bar{K} = \SI{0.703(35)}{\volt}$ liefert:
+\begin{equation*}
+  U_\symup{Ion} = \SI{13.3(8)}{\electronvolt}.
+\end{equation*}
+Die Regression findet sich in Abbildung \ref{abb:3}.
+\begin{figure}
+  \centering
+  \subcaptionbox{Grafische Darstellung mit Regression \label{abb:3}}[0.7\textwidth]{
+    \includegraphics[width=0.7\textwidth]{Ion.pdf}
+    }
+  \hfill
+  \subcaptionbox{Messwertpaare \label{tab:5}}[0.29\textwidth]{
+    \begin{tabular}{c c}
+      \toprule
+      $x/$\si{\milli\metre} & $y/$\si{\milli\metre}\\
+      \midrule
+      95 & 4 \\
+      100 & 7 \\
+      105 & 12 \\
+      110 & 15 \\
+      115 & 19 \\
+      120 & 24 \\
+      125 & 29 \\
+      130 & 35 \\
+      135 & 42 \\
+      140 & 47 \\
+      145 & 55 \\
+      150 & 62 \\
+      155 & 68 \\
+      160 & 76 \\
+      165 & 84 \\
+      170 & 92 \\
+      175 & 102 \\
+      180 & 110 \\
+      185 & 120 \\
+      190 & 129 \\
+      195 & 139 \\
+      200 & 150 \\
+      205 & 160 \\
+      210 & 170 \\
+      \bottomrule
+    \end{tabular}
+    }
+  \hfill
+  \caption{Ionisierungsmessung.}
+\end{figure}
 \section{Diskussion}
-
+Im Vergleich zwischen dem bestimmten Wert von \SI{3.93(7)}{\electronvolt} und dem
+Literaturwert von \SI{4.9}{\electronvolt}\cite{Anregungsenergie} fällt eine Große
+Abweichung auf. Der Literaturwert befindet sich in einer 14-$\sigma$ Umgebung
+um den Experimentell bestimmten Wert. Es ist also mit starken systematischen Fehlern
+zu rechnen. Wahrscheinlichste Fehlerquelle ist hierbei das Voltmeter des Spannungsgerätes
+des Beschleunigungsstroms. Hier wurde als maximaler Wert ca. \SI{55}{\volt} angezeigt,
+das Gerät ließ sich auch im Gegensatz zu den anderen Voltmetern nicht über die Skalengrenze
+übersteuern. Es liegt damit der Schluss nahe, dass das Voltmeter einen zu geringen
+Wert angezeigt hat. Tatächlich führt eine Betrachtung eines höheren Maximalspannungswertes
+und damit einer geänderten Achsenskalierung zu einem weitaus besseren Wert für die
+Anregungsenergie.\\
+\noindent
+Bei der Betrachtung der Ionisierungsmessung liegt der Literaturwert von
+\SI{10.438}{\electronvolt} \cite{Ionisierungsenergie}
+hingegen in einer 4-$\sigma$ Umgebung um den experimentell Bestimmten Wert von
+\SI{13.3(8)}{\electronvolt}.
+Problematisch war hier das Festlegen des Intervalls der Messwerte, durch die die Sekante
+gelegt werden kann. Ein hinzunehmen weiterer Messwert in Richtung Nullpunkt könnte den
+Wert dem Literaturwert annähern, ist aber zunehmend schwer zu Rechtfertigen. Auch ist
+hier wahrscheinlich, dass die gleichen Fehler wie bei der Messung der Anregungsenergie
+auftreten. Generell sollte das Experiment zur Verifizierung der Messwerte mit einem
+anderen Spannungsgerät widerholt werden. Problematisch gestaltete sich in allen
+unter Beheizung durchgeführten Versuchsteilen ein Konstanthalten der Temperatur
+im Aufbau, daher ist auch hier mit systematischen Fehlern zu rechnen.
+Ein Gerät das eine konstante Heizung ermöglicht könnte die Messgenauigkeit stark
+erhöhen.
 \newpage
 \nocite{*}
 \printbibliography

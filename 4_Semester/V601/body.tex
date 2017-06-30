@@ -4,12 +4,195 @@
 \newpage
 \pagenumbering{arabic}
 \section{Theorie}
+\subsection{Franck-Hertz-Versuch im Idealfall}
+Der Franck-Hertz-Versuch ist insofern ein historisch bedeutender Versuch, als
+dass er als einer der ersten Versuche die Quantisierung der Elektronenhülle eines
+Atoms nachweisen konnte. Die Bestimmung der diskreten Energiewerte
+der Elektronenhülle wird Atomspektroskopie genannt. Die Methode dieser Atomspektroskopie
+beinhalten hauptsächlich die Wechelwirkungen der Elektronenhüllen mit elektromagnetischer Strahlung.
+Weiterhin lassen sich mit Elektronenstoßexperimenten Aussagen über die Beschaffenheit
+der Elektronenhülle treffen. Dabei werden Atome mit Elektronen bestimmter Energien beschossen
+und die Energieverluste der Elektronen ausgewertet. Der Franck-Hertz-Versuch bedient sich
+dieser Methodik. Dabei werden (im Idealfall) monoenergetische Elektronen auf Quecksilberatome
+geschossen. Die von den Atomen aufgenommene Energie lässt sich aus der Differenz der kinetischen
+Energien der gestoßenen Elektronen bestimmen. Falls nämlich ein inelastischer Stoß
+vorliegt, dann entspricht der Energiedifferenz der Elektronen gerade der Energiedifferenz ($E_1 - E_0$)
+zwischen dem Grund - und dem ersten angeregten Zustand des Hg-Atoms
+\begin{equation*}
+    \frac{m_0 \cdot v^2_\symup{vor}}{2} - \frac{m_0 \cdot v^2_\symup{nach}}{2} = E_1 - E_0 \,
+\end{equation*}
+mit $m_0$ als Ruhemasse des Elektrons, $v_\symup{vor}$ bzw. $v_\symup{nach}$ als Geschwindigkeiten
+vor und nach dem Stoß und $E_0$ bzw. $E_1$ als Energie im Grund- bzw. im ersten Grundzustand. Mithilfe der
+der Gegenfeldmethode wird die Energie gemessen. \\
+\\
+Der prinzipielle Aufbau ist in Abbildung \ref{fig:1} zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.35]{schema.png}
+  \caption{Der Aufbau des Franck-Hertz-Versuchs im Schema. \cite{anleitung}}
+  \label{fig:1}
+\end{figure}
+Er besteht hauptsächlich aus einer evakuierten Glasröhre mit einem Tropfen Quecksilber
+darin. Sobald das Quecksilber verdampft ist, stellt sich gemäß der Dampfdruckkurve
+ein Gleichgewichtsdruck $p_\symup{sät}$ ein, der eine Temperaturabhängigkeit besitzt.
+Somit kann durch Variation der Temperatur die Dampfdichte gesteuert werden. Ein Glühdraht
+aus Wolfram wird eingeführt und erhitzt, bis sich durch den glühelektrischen Effekt
+eine Elektronenwolke um den Draht gebildet hat. Gegenüber dem Drahlt liegt eine Netzelektrode,
+an welche die positive Gleichspannung $U_B$ angelegt wird. DIe Elektronen werden nun auf
+der Strecke zwischen Draht und Elektrode durch das elektrische Feld beschleunigt und erhalten die
+Energie
+\begin{equation*}
+  \frac{m_0 \cdot v^2_\symup{vor}}{2} = e_0 \cdot U_B \, .
+\end{equation*}
+Dabei ist $e_0$ die Elementarladung. Hinter der Netzelektrode befindet sich eine Anode,
+an der man den Auffängerstrom $I_A$ messen kann. Außerdem liegt im Vergleich zu
+$U_B$ eine geringe Gegenspannung an. Das bedeutet, dass nur Elektronen, deren kinetische Energie
+in Feldrichtung größer oder gleich $e_0 \cdot U_A$ ist, die Auffängerelektrode erreichen
+können. \\
+\\
+Da sich aber sowohl zwischen Draht und Netzelektrode als auch zwischen
+Netzelektrode und Auffängerelektrode noch die Quecksilberatome befinden, kommt es
+zu Stößen. Dabei sind zwei Fälle zu unterscheiden:
+\begin{itemize}
+  \item Falls die Energie $U_B \cdot e_0$ gering ist finden nur elastische Stöße statt.
+  Da die Massen der Stoßpartner so unterschiedlich groß sind, findet praktisch keine
+  Energieübertragung statt. Allerdings ändert sich die Flugrichtung der Elektronen signifikant.
+
+  \item Falls
+  \begin{equation*}
+    \frac{m_0 \cdot v^2_\symup{vor}}{2} \geq E_1 - E_0
+  \end{equation*}
+  gilt, dann wird das Quecksilberatom durch den Stoß mit dem Elektron angeregt.
+  Es erhält die Energiedifferenz $E_1 - E_0$ und die Energie des Elektrons wird
+  um den Betrag der Energiedifferenz verringert. Nach einer Relaxationszeit
+  in der Größenordnung \SI{e-8}{\second} emmittiert das Quecksilberatom ein Photon
+  mit der Frequenz
+  \begin{equation*}
+      h \nu = E_1 - E_0
+  \end{equation*}
+  und fällt in den Grundzustand zurück.
+\end{itemize}
+
+Die Anregung der Hg-Atome lässt sich über den Strom $I_A$ beobachten. Falls nämlich
+$U_B$ ausgehend von 0 kontinuierlich erhöht wird, dann wird ab $U_B \geq U_A$ ein
+Strom $I_A$ gemessen. Tritt bei weiterer Erhöhung der oben genannte zweite Fall ein,
+also dass die kinetische Energie der Elektronen ein wenig größer oder gleich der Energiedifferenz
+$E_1 - E_0$ wird, dann stoßen diese inelastisch und geben Energie ab. Damit fehlt ihnen
+aber Energie, um das Gegenfeld $U_A$ zu überwinden und die Beschleunigungsstrecke ist ebenfalls
+zu kurz, um die Elektronen auf die benötigte Geschwindigkeit zu beschleunigen. Somit
+fällt der Strom an der Auffängerelektrode signifikant ab. Wird die Beschleunigungsspannung
+aber weiter erhöht, können die Elektronen früher stoßen und haben danach noch genug Strecke,
+um auf eine Geschwindigkeit zu beschleunigen, mit deren Hilfe das Gegenfeld $U_A$
+überwunden werden kann. Somit steigt der Strom $I_A$ erneut.
+Erreichen die Elektronen aber nach einem Stoß erneut die Energie
+$E_1 - E_0$, so wird ein zweiter Stoß ausgeführt und der Strom sinkt wieder schlagartig
+ab. In Abbildung \ref{fig:2} ist dieser Zusammenhang als Graph dargestellt.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.35]{strom.png}
+  \caption{Der Strom $I_A$ gegen die Beschleunigungsspannung $U_B$ im Idealfall aufgetragen. \cite{anleitung}}
+  \label{fig:2}
+\end{figure}
+Der Abstand $U_1$ zweier Maxima ergibt sich aus
+\begin{equation}
+  U_1 = \frac{1}{e_0} (E_1 - E_0) \, .
+  \label{eqn:1}
+\end{equation}
+
+\subsection{Effekte mit Einfluss auf den Franck-Hertz-Versuch}
+Die Kurve aus Abbildung \ref{fig:2} entspricht nicht den tatsächlichen Messergebnissen,
+da im vorigen Kapitel nur der Idealfall betrachtet wurde. Folgende Effekte haben jedoch
+einen Einfluss auf die Gestalt der Kurve:
+\begin{itemize}
+  \item Falls Glühdraht und Netzelektrode verschiedene Austrittsarbieten haben, was
+  häufig der Fall ist, da der Glühdraht oft mit einer Metalllegierung ummantelt wird, dessen
+  Austrittsarbeit niedriger liegt als die des Materials, aus dem die Glühkathode besteht,
+  um bereits bei niedrigen Spannungen einen glühelektrischen Effekt zu erzielen, ist das
+  Potential zwischen Draht und Elektrode verschieden von $U_B$.
+  \begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.35]{pot.png}
+    \caption{Potentialgefälle zwischen Draht und Elektrode. \cite{anleitung}}
+    \label{fig:3}
+  \end{figure}
+  In Abbildung \ref{fig:3} sind die Verhältnisse dargestellt. Es ergibt sich
+  \begin{equation}
+    K = \frac{1}{e_0} (\Phi_B - \Phi_G)
+    \label{eqn:2}
+  \end{equation}
+  als Audruck für das sogenannte Kontaktpotential. Die Franck-Hertz-Kurve ist um
+  $K$ verschoben.
+
+  \item Bisher ist davon ausgegnagen worden, dass alle Elektronen beim Anlegen der
+  Beschleunigungsspannung eine Energie von 0 haben. Diese Annahme ist jedoch falsch,
+  da die Elektronen aufgrund der Fermi-Dirac-Statistik bereits zufällig verteilte
+  Energien besitzen. Das bedeutet, dass sie beim Stoß mit einem Quecksilberatom
+  bereits eine höhere Geschwindigkeit besitzen, als sie eigentlich durch die Beschleunigungsspannung
+  erhalten haben. Damit können die Elektronen nicht mehr nur bei einem bestimmten Spannungswert,
+  sondern in einem endlichen Intervall inelastisch stoßen. Die Franck-Hertz-Kurve aus
+  Abbildung \ref{fig:2} wird bei Annäherung an ein Maximum also ihren Anstieg verringern
+  und danach stetig auf ein Minimum statt auf 0 fallen. Weiterhin spielen die elastische
+  Stöße eine Rolle. Die Richtungsänderung ist irrelevant, falls der Stoß innerhalb der
+  Beschleunigungsstrecke stattfindet, da das elektrische Feld die Elektronen wieder
+  auf Kurs bringt, aber sobald ein elastischer Stoß im Gegenfeld geschieht, werden
+  die Elektronen die Auffängerelektrode nicht mehr erreichen und die Franck-Hertz-Kurve
+  sich verbreitern und abflachen.
+
+  \item Damit die Elektronen mit den Hg-Atomen stoßen können, muss die mittlere freie Weglänge
+  $\overline w$ der Atome gegenüber dem Anstand $a$ zwischen Draht und Elektrode um den
+  Faktor 1000 bis 4000 kleiner sein. Die mittleren freie Weglänge lässt sich berechnen
+  aus
+  \begin{equation}
+    \overline w = \num{0.0029}/p_\symup{sät}
+    \label{eqn:3}
+  \end{equation}
+  mit
+  \begin{equation}
+    p_\symup{sät} = \num{5.5e7} \cdot \symup e^{-6876/T}
+  \end{equation}
+  mit $T$ als Temperatur. Somit gibt es wohl einen Temperaturbereich und damit auch
+  einen Dampfdruckbereich, für die der Franck-Hertz-Effekt gut zu beobachten ist.
+  Wird der Dampfdruckbereich unterschritten, wird die mittlere freie Weglänge größer
+  und die Elektronen erreichen mit höherer Wahrscheinlichkeit die Auffängerelektrode ohne
+  dabei zu stoßen. Wird $p_\symup{sät}$ zu groß, dann treten vermehrt elastische Stöße
+  auf, die zu den bereits beschriebenen Richtungsänderungen führen. Damit sinkt die Anzahl
+  der Elektronen, die die Auffängerelektrode erreichen können.
+\end{itemize}
 
 \section{Durchführung}
-
 \subsection{Versuchsaufbau}
+In Abbildung \ref{fig:4} ist der Schaltplan des Versuchsuafbaus zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{aufbau.png}
+  \caption{Schaltplan des Versuchsaufbaus. \cite{anleitung}}
+  \label{fig:4}
+\end{figure}
+Er besteht im Wesentlichen aus der bereits beschrieben Glasröhre mit den angelegten
+Spannungen $0 \leq U_B \leq \SI{60}{\volt}$ und $0 \leq U_A \leq \SI{11}{\volt}$, die
+über ein Konstantspannungsgerät geliefert werden.
+Die Temperatur kann mithilfe des regelbaren Heizgenerators eingestellt werden,
+der das Blechgehäuse um die Glasröhre heizt.
+Die aktuelle
+Temperatur wird über einen Temperaturfühler abgelesen. Der Auffängerstrom $I_A$ wird über das
+Picomaperemeter abgelesen. Über den XY-Schreiber lassen sich $I_A$ und wahlweise $U_A$ oder
+$U_B$ gegeneinander auftragen.
 
 \subsection{Versuchsdurchführung}
+Zuerst wird der Auffängerstrom $I_A$ bei konstantem $U_B$ in Abhängigkeit von $U_A$
+gemessen. Dafür wird der XY-Schreiber so präpariert, dass $U_A$ auf der x- und $I_A$
+auf der y-Achse liegt. Sodann wird bei $U_B = \SI{11}{\volt}$ bzw. $\SI{10}{\volt}$
+und bei Zimmertemperatur $U_A$ von 0 bis \SI{11}{\volt} gesteigert und $U_A$ gegen
+$I_A$ vom XY-Schreiber aufgetragen. Zum Schluss wird der Plot noch mit einer \SI{1}{\volt}-Skala
+versehen und die Messung bei ca. \SI{150}{\celsius} wiederholt. \\
+\\
+Danach wird die Apparatur auf ca. \SI{105}{\celsius} erhitzt und diesmal bei konstantem
+$U_A = \SI{-30}{\volt}$ die Beschleunigungsspannung über den angegebenen Bereich varriert
+und der Auffängerstrom $I_A$ gegen die Beschleunigungsspannung vom XY-Schreiber aufgetragen. \\
+\\
+Zum Schluss werden bei $T = \SI{160}{\celsius}, \SI{170}{\celsius}, \SI{180}{\celsius}, \SI{190}{\celsius}$ und $\SI{200}{\celsius}$ Franck-Hertz-Kurven
+bei einer konstanten Gegenspannung von \SI{-1}{\volt} aufgenommen, indem wieder $I_A$ gegen
+$U_B$ aufgetragen wird.
 
 \section{Auswertung}
 

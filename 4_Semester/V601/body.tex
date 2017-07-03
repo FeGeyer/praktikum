@@ -213,17 +213,17 @@ $\textsc{uncertainties}$ in $\textsc{python}$ berechnet.
 \label{Umrechnung}
 Zuerst werden für alle Messreihen die Skalierungsfaktoren der $U$-Achsen bestimmt,
 um die Messwerte von \si{\milli\metre} in \si{\volt} umzurechnen. Dafür werden
-die Abstände der einzellnen Skalenpunkte zum Nullpunkt gemessen und durch die
+die Abstände der einzelnen Skalenpunkte zum Nullpunkt gemessen und durch die
 Funktion $\textsc{curve-fit}$ aus dem Paket
 $\textsc{optimize}$ in $\textsc{python-scipy}$ mit einer linearen Funktion
 \begin{equation*}
   U(x) = m \cdot x + n
 \end{equation*}
 gefittet. In Tabelle \ref{tab:1} finden sich die Abstände aller Skalenpunkte,
-In Tabelle \ref{tab:2} die Parameter der Umrechnungsfunktion. Die aus der Regression
+in Tabelle \ref{tab:2} die Parameter der Umrechnungsfunktion. Die aus der Regression
 folgenden Fehler sind, insbesondere bei den für die Umrechnung wichtigen Geradensteigungen,
-so klein das sie weitaus geringer als die bestmögliche Ablesegenauigkeit auf dem Millimeterpapier
-sind. Die Fehler werden daher vernachlässigt.
+so klein, dass sie weitaus geringer sind als die bestmögliche Ablesegenauigkeit auf dem Millimeterpapier.
+Die Fehler werden daher vernachlässigt.
 \begin{table}
   \centering
   \caption{Abstände der Skalenpunkte vom Nullpunkt}
@@ -273,7 +273,7 @@ Die aus den erhaltenen integralen Energieverteilungen durch Anlegen von Steigung
 in \SI{5}{\milli\metre}-Schritten nach $m_{\symup{mom}} = \symup{\Delta}y / \symup{\Delta}x$
 erhaltenen Momentansteigungen finden sich in Tabelle \ref{tab:3}. Auftragen der Momentansteigungen
 in nach Abschnitt \ref{Umrechnung} umgerechneten \SI{5}{\milli\metre}-Schritten liefert
-die Abbildungen \ref{Abb:1} ($T \approx \SI{20}{\celsius}$) und \ref{Abb:2} ($T = \SI{152}{\celsius}$)
+die Abbildungen \ref{abb:1} ($T \approx \SI{20}{\celsius}$) und \ref{abb:2} ($T = \SI{152}{\celsius}$)
 daregstellten Näherungen für die Ableitung der integralen Energieverteilung, also
 eine Näherung für die differntielle Energieverteilung.
 \begin{table}
@@ -348,7 +348,7 @@ von
 \begin{equation*}
   \lambda = \SI{316(6)}{\nano\metre},
 \end{equation*}
-also einer Wellenlänge im bereich des UV-Lichtes. Zwischen dem erstem Maximum und dem
+also einer Wellenlänge im Bereich des UV-Lichtes. Zwischen dem erstem Maximum und dem
 Nullpunkt der Messung muss zusätzlich zur Anregungsenergie noch das Kontaktpotential überwunden werden.
 Aus der Differenz zwischen $U$-Wert des ersten Maximums (\SI{4.97}{\volt}) und der oben
 bestimmten Anregungsenergie folgt für das Kontaktpotential ein Wert von:
@@ -437,9 +437,9 @@ Die Regression findet sich in Abbildung \ref{abb:3}.
 \end{figure}
 \section{Diskussion}
 Im Vergleich zwischen dem bestimmten Wert von \SI{3.93(7)}{\electronvolt} und dem
-Literaturwert von \SI{4.9}{\electronvolt}\cite{Anregungsenergie} fällt eine Große
+Literaturwert von \SI{4.9}{\electronvolt}\cite{Anregungsenergie} fällt eine große
 Abweichung auf. Der Literaturwert befindet sich in einer 14-$\sigma$ Umgebung
-um den Experimentell bestimmten Wert. Es ist also mit starken systematischen Fehlern
+um den experimentell bestimmten Wert. Es ist also mit starken systematischen Fehlern
 zu rechnen. Wahrscheinlichste Fehlerquelle ist hierbei das Voltmeter des Spannungsgerätes
 des Beschleunigungsstroms. Hier wurde als maximaler Wert ca. \SI{55}{\volt} angezeigt,
 das Gerät ließ sich auch im Gegensatz zu den anderen Voltmetern nicht über die Skalengrenze
@@ -454,10 +454,10 @@ hingegen in einer 4-$\sigma$ Umgebung um den experimentell Bestimmten Wert von
 \SI{13.3(8)}{\electronvolt}.
 Problematisch war hier das Festlegen des Intervalls der Messwerte, durch die die Sekante
 gelegt werden kann. Ein hinzunehmen weiterer Messwert in Richtung Nullpunkt könnte den
-Wert dem Literaturwert annähern, ist aber zunehmend schwer zu Rechtfertigen. Auch ist
+Wert dem Literaturwert annähern, ist aber zunehmend schwer zu rechtfertigen. Auch ist
 hier wahrscheinlich, dass die gleichen Fehler wie bei der Messung der Anregungsenergie
 auftreten. Generell sollte das Experiment zur Verifizierung der Messwerte mit einem
-anderen Spannungsgerät widerholt werden. Problematisch gestaltete sich in allen
+anderen Spannungsgerät wiederholt werden. Problematisch gestaltete sich in allen
 unter Beheizung durchgeführten Versuchsteilen ein Konstanthalten der Temperatur
 im Aufbau, daher ist auch hier mit systematischen Fehlern zu rechnen.
 Ein Gerät das eine konstante Heizung ermöglicht könnte die Messgenauigkeit stark

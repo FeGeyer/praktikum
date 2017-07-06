@@ -195,3 +195,31 @@ z = 40
 sigmaZr = z - np.sqrt(kEnergieZr/13.6-(const.alpha**2 * z**4)/4)
 print("")
 print("Abschirmkonstante Zirkonium: ", sigmaZr)
+
+#Moseley
+Ek = [kEnergieZn, kEnergieGe, kEnergieBr, kEnergieSr, kEnergieZr]
+Z = [30, 32, 35, 38, 40]
+
+#Fit
+def f(x, m, b):
+    return m * x + b
+
+paramsR, covarianceR = curve_fit(f, Z, np.sqrt(Ek), p0 = [13.6, 0])
+errorsR = np.sqrt(np.diag(covarianceR))
+R = ufloat(paramsR[0], errorsR[0])
+b = ufloat(paramsR[1], errorsR[1])
+
+R = R**2
+print(R)
+
+plt.figure(7)
+x = np.linspace(29, 41)
+plt.xlim(29, 41)
+#plt.ylim(33, 166)
+plt.xlabel(r"$Z$")
+plt.ylabel(r"$E_k^(1/2) / \mathrm{eV}$")
+plt.plot(Z, np.sqrt(Ek), 'r.', label="Messwerte")
+plt.plot(x, f(x, *paramsR), 'b', label="Regression")
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("moseley.pdf")

@@ -11,14 +11,7 @@ plt.rcParams['font.size'] = 18
 # Emissionsspektrum
 # Einlesen der Daten
 thetaCu, ICu = np.genfromtxt('emission.txt', unpack = True)
-plt.figure(1)
-#plt.xlim(29.5, 40.5)
-plt.xlabel(r"$2 \Theta$")
-plt.ylabel(r"$I / \mathrm{N/s}$")
-plt.plot(thetaCu, ICu, 'r-', label="Messwerte")
-plt.legend(loc="best")
-plt.tight_layout()
-plt.savefig("emission.pdf")
+
 
 # Einlesen und in Energie umwandeln
 d = 201.4 *10**(-12) #m
@@ -128,7 +121,22 @@ plt.savefig("zirkonium.pdf")
 # Emission
 thetaCu = thetaCu/2
 maxEnergie10 = const.h * const.c /(2*d*np.sin(2*np.pi*5/360))/const.e
-#maxEnergie104 = const.h * const.c /(2*d*np.sin(2*np.pi*5.2/360))/const.e
+ECu = const.h * const.c /(2*d*np.sin(2*np.pi*thetaCu/360))/const.e
+np.savetxt('emissionE.txt', np.column_stack([ECu*10**(-3), ICu]),fmt="%.3f")
+
+plt.figure(1)
+ax = plt.gca()
+ax.invert_xaxis()
+#plt.xlim(19.8, 11.8)
+#plt.ylim(91, 141)
+plt.xlabel(r"$E / \mathrm{keV}$")
+plt.ylabel(r"$I / \mathrm{N/s}$")
+ax.plot(ECu*10**(-3), ICu, 'r-', label="Messwerte")
+#ax.axvline(x = 13.25, ymin=0, ymax=1, ls='-.', color="k", label=r"$\mathrm{K_{\alpha}}$")
+#ax.axvline(x = 15.3, ymin=0, ymax=1, ls=':', color="k", label=r"$\mathrm{K_{\beta}}$")
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("emission.pdf")
 print("")
 print("Maximale Energie bei Grenzwinkel 10°: ", maxEnergie10*10**(-3))
 
@@ -210,16 +218,70 @@ R = ufloat(paramsR[0], errorsR[0])
 b = ufloat(paramsR[1], errorsR[1])
 
 R = R**2
-print(R)
+print("")
+print("--------------------------------------")
+print("Rydberg-Energie: ", R)
 
 plt.figure(7)
 x = np.linspace(29, 41)
 plt.xlim(29, 41)
 #plt.ylim(33, 166)
 plt.xlabel(r"$Z$")
-plt.ylabel(r"$E_k^(1/2) / \mathrm{eV}$")
+plt.ylabel(r"$E_k^{1/2} / \mathrm{eV}$")
 plt.plot(Z, np.sqrt(Ek), 'r.', label="Messwerte")
 plt.plot(x, f(x, *paramsR), 'b', label="Regression")
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("moseley.pdf")
+
+#Wismut
+thetaWi, IWi = np.genfromtxt('wismut.txt', unpack = True)
+thetaWi = thetaWi/2
+EWi = const.h * const.c /(2*d*np.sin(2*np.pi*thetaWi/360))/const.e
+np.savetxt('wismutE.txt', np.column_stack([EWi*10**(-3), IWi]),fmt="%.1f")
+
+plt.figure(8)
+ax = plt.gca()
+ax.invert_xaxis()
+plt.xlim(19.8, 11.8)
+plt.ylim(91, 141)
+plt.xlabel(r"$E / \mathrm{keV}$")
+plt.ylabel(r"$I / \mathrm{N/s}$")
+ax.plot(EWi*10**(-3), IWi, 'r-', label="Messwerte")
+ax.axvline(x = 13.25, ymin=0, ymax=1, ls='-.', color="k", label=r"$\mathrm{K_{\alpha}}$")
+ax.axvline(x = 15.3, ymin=0, ymax=1, ls=':', color="k", label=r"$\mathrm{K_{\beta}}$")
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("wismut.pdf")
+
+E1 = 13.25*10**(3)
+E2 = 15.3*10**(3)
+deltaE = E2- E1
+sigmaWi = 83 - np.sqrt(4/const.alpha * np.sqrt(deltaE/13.6)- 5 * deltaE/13.6) * np.sqrt(1 + 19/32 * const.alpha**2 * deltaE/13.6)
+print("")
+print("Abschirmkonstante Wismut: ", sigmaWi)
+
+deltaE2 = 15.71*10**3-13.42*10**(3)
+sigmaWi2 = 83 - np.sqrt(4/const.alpha * np.sqrt(deltaE2/13.6)- 5 * deltaE2/13.6) * np.sqrt(1 + 19/32 * const.alpha**2 * deltaE2/13.6)
+print("Literaturwert Wismut: ", sigmaWi2)
+
+# Abschirmkonstanten für Emissionsspektrum
+Kalpha = 8.077 *10**3
+Kbeta = 9 *10**3
+deltaK = Kbeta-Kalpha
+sigmaK = 29 - np.sqrt(Kbeta/13.6)
+sigmaL = 29 - np.sqrt(4*(deltaK)/13.6)
+print("")
+print("Sigma k: ", sigmaK)
+print("Sigma L: ", sigmaL)
+
+#Fit für HAlbwertsbreite
+def f(x, m, b):
+    return m * x + b
+
+paramsKbeta, covarianceKbeta = curve_fit(f, ECu[78:80], ICu[78:80])
+errorsKbeta = np.sqrt(np.diag(covarianceKbeta))
+mKbeta = ufloat(paramsR[0], errorsR[0])
+bKbeta = ufloat(paramsR[1], errorsR[1])
+#print(mKbeta)
+#print(bKbeta)

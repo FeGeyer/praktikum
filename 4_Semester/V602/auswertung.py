@@ -108,8 +108,8 @@ np.savetxt('zirkoniumE.txt', np.column_stack([EZr*10**(-3), IZr]),fmt="%.1f")
 plt.figure(6)
 ax = plt.gca()
 ax.invert_xaxis()
-plt.xlim(19.7,13.6)
-plt.ylim(33, 166)
+plt.xlim(22.2,14.7)
+plt.ylim(88, 242)
 plt.xlabel(r"$E / \mathrm{keV}$")
 plt.ylabel(r"$I / \mathrm{N/s}$")
 ax.plot(EZr*10**(-3), IZr, 'r-', label="Messwerte")
@@ -274,14 +274,3 @@ sigmaL = 29 - np.sqrt(4*(deltaK)/13.6)
 print("")
 print("Sigma k: ", sigmaK)
 print("Sigma L: ", sigmaL)
-
-#Fit für HAlbwertsbreite
-def f(x, m, b):
-    return m * x + b
-
-paramsKbeta, covarianceKbeta = curve_fit(f, ECu[78:80], ICu[78:80])
-errorsKbeta = np.sqrt(np.diag(covarianceKbeta))
-mKbeta = ufloat(paramsR[0], errorsR[0])
-bKbeta = ufloat(paramsR[1], errorsR[1])
-#print(mKbeta)
-#print(bKbeta)

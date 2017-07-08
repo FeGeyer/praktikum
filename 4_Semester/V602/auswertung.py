@@ -19,7 +19,7 @@ d = 201.4 *10**(-12) #m
 thetaGe1, IGe = np.genfromtxt('germanium.txt', unpack = True)
 thetaGe1 = thetaGe1/2
 EGe = const.h * const.c /(2*d*np.sin(2*np.pi*thetaGe1/360))/const.e
-np.savetxt('germaniumE.txt', np.column_stack([EGe*10**(-3), IGe]),fmt="%.1f")
+#np.savetxt('germaniumE.txt', np.column_stack([EGe*10**(-3), IGe]),fmt="%.1f")
 
 plt.figure(2)
 ax = plt.gca()
@@ -38,7 +38,7 @@ plt.savefig("germanium.pdf")
 thetaSr1, ISr = np.genfromtxt('strontium.txt', unpack = True)
 thetaSr1 = thetaSr1/2
 ESr = const.h * const.c /(2*d*np.sin(2*np.pi*thetaSr1/360))/const.e
-np.savetxt('strontiumE.txt', np.column_stack([ESr*10**(-3), ISr]),fmt="%.1f")
+#np.savetxt('strontiumE.txt', np.column_stack([ESr*10**(-3), ISr]),fmt="%.1f")
 
 plt.figure(3)
 ax = plt.gca()
@@ -57,7 +57,7 @@ plt.savefig("strontium.pdf")
 thetaBr1, IBr = np.genfromtxt('brom.txt', unpack = True)
 thetaBr1 = thetaBr1/2
 EBr = const.h * const.c /(2*d*np.sin(2*np.pi*thetaBr1/360))/const.e
-np.savetxt('bromE.txt', np.column_stack([EBr*10**(-3), IBr]),fmt="%.1f")
+#np.savetxt('bromE.txt', np.column_stack([EBr*10**(-3), IBr]),fmt="%.1f")
 
 plt.figure(4)
 ax = plt.gca()
@@ -76,7 +76,7 @@ plt.savefig("brom.pdf")
 thetaZn1, IZn = np.genfromtxt('Zink.txt', unpack = True)
 thetaZn1 = thetaZn1/2
 EZn = const.h * const.c /(2*d*np.sin(2*np.pi*thetaZn1/360))/const.e
-np.savetxt('zinkE.txt', np.column_stack([EZn*10**(-3), IZn]),fmt="%.1f")
+#np.savetxt('zinkE.txt', np.column_stack([EZn*10**(-3), IZn]),fmt="%.1f")
 
 plt.figure(5)
 plt.axes([0.1, 0.1, 0.8, 0.8])
@@ -103,7 +103,7 @@ plt.savefig("zink.pdf")
 thetaZr1, IZr = np.genfromtxt('zirkonium.txt', unpack = True)
 thetaZr1 = thetaZr1/2
 EZr = const.h * const.c /(2*d*np.sin(2*np.pi*thetaZr1/360))/const.e
-np.savetxt('zirkoniumE.txt', np.column_stack([EZr*10**(-3), IZr]),fmt="%.1f")
+#np.savetxt('zirkoniumE.txt', np.column_stack([EZr*10**(-3), IZr]),fmt="%.1f")
 
 plt.figure(6)
 ax = plt.gca()
@@ -122,7 +122,8 @@ plt.savefig("zirkonium.pdf")
 thetaCu = thetaCu/2
 maxEnergie10 = const.h * const.c /(2*d*np.sin(2*np.pi*5/360))/const.e
 ECu = const.h * const.c /(2*d*np.sin(2*np.pi*thetaCu/360))/const.e
-np.savetxt('emissionE.txt', np.column_stack([ECu*10**(-3), ICu]),fmt="%.3f")
+#np.savetxt('emissionE.txt', np.column_stack([ECu[0:28]*10**(-3), ICu[0:28],
+#ECu[28:56]*10**(-3), ICu[28:56], ECu[56:84]*10**(-3), ICu[56:84], ECu[84:112]*10**(-3), ICu[84:112]]),fmt="%.3f")
 
 plt.figure(1)
 ax = plt.gca()
@@ -226,7 +227,7 @@ plt.figure(7)
 x = np.linspace(29, 41)
 plt.xlim(29, 41)
 #plt.ylim(33, 166)
-plt.xlabel(r"$Z$")
+plt.xlabel(r"$z$")
 plt.ylabel(r"$E_k^{1/2} / \sqrt{\mathrm{eV}}$")
 plt.plot(Z, np.sqrt(Ek), 'r.', label="Messwerte")
 plt.plot(x, f(x, *paramsR), 'b', label="Regression")
@@ -238,7 +239,8 @@ plt.savefig("moseley.pdf")
 thetaWi, IWi = np.genfromtxt('wismut.txt', unpack = True)
 thetaWi = thetaWi/2
 EWi = const.h * const.c /(2*d*np.sin(2*np.pi*thetaWi/360))/const.e
-np.savetxt('wismutE.txt', np.column_stack([EWi*10**(-3), IWi]),fmt="%.1f")
+#np.savetxt('wismutE.txt', np.column_stack([EWi[0:31]*10**(-3), IWi[0:31],
+#EWi[31:62]*10**(-3), IWi[31:62]]),fmt="%.1f")
 
 plt.figure(8)
 ax = plt.gca()

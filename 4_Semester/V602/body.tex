@@ -606,6 +606,41 @@ Für die oben angegebenen Energien ergeben sich für die Abschirmkonstanten
   \caption{Absorptionsspektrum von Zirkonium.}
   \label{fig:7}
 \end{figure}
+Für die verschiedenen Materialien ergeben sich die Absorptionsenergien aus den Plots und
+aus der Formel
+\begin{equation}
+  \sigma_K = z - \sqrt{\frac{E_k}{E_\symup{Ryd}} - \frac{\alpha^2 \, z^4}{4}}
+  \label{eqn:4}
+\end{equation}
+die Abschirmkonstanten.
+
+\begin{table}
+  \centering
+  \caption{K-Kanten Energien für die verschiedenen Materialien und die daraus resultierenden
+  Abschirmkonstanten $\sigma_K$.}
+  \label{tab:7}
+  \begin{tabular}{c c c}
+    \toprule
+    & $E_K / \si{\kilo\electronvolt}$ & $\sigma_K$ \\
+    \midrule
+    Germanium & 11.17 & 3.59 \\
+    Strontium & 16.20 & 3.89 \\
+    Brom & 13.63 & 3.66 \\
+    Zink & 9.60 & 3.63 \\
+    Zirkonium & 17.99 & 4.10 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Nach dem Moseleyschen Gesetz ist $\sqrt{E_k} \propto z$. In Abbildung \ref{fig:8}
+ist dieser Zusammenhang graphisch dargestellt. Die Steigung zum Quadrat sollte laut
+\eqref{eqn:3} genau der Rydbergenergie entsprechen. Es ergibt sich $m^2 = \SI{13.05(31)}{\electronvolt}$.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{moseley.pdf}
+  \caption{Graphische Darstellung des Moseleyschen Gesetzes mit dem oben berechneten
+  Energien der K-Kanten mit linearer Regression.}
+  \label{fig:8}
+\end{figure}
 
 \section{Diskussion}
 \newpage

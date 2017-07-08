@@ -163,7 +163,7 @@ die Bragg-Bedingung erfüllt.
   }
   \hfill
   \subcaptionbox{Messwerte zum Emissionspektrum. \label{tab:1}}[0.8\textwidth]{
-    \begin{tabular}{c c c c c c c c}
+    \begin{tabular}{c c | c c | c c | c c}
       \toprule
       $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ & $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ &
       $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ & $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ \\
@@ -175,7 +175,7 @@ die Bragg-Bedingung erfüllt.
       36.785 & 41 & 17.051 & 300 & 11.167 & 199 & 8.361 & 186 \\
       35.317 & 54 & 16.733 & 297 & 11.033 & 206 & 8.288 & 186 \\
       33.962 & 66 & 16.427 & 296 & 10.902 & 204 & 8.217 & 285 \\
-      32.708 & 91 & 16.132 & 314 & 10.774 & 194 & 8.146 & 2915 \\
+      32.708 & 91 & 16.132 & 314 & 10.4574 & 194 & 8.146 & 2915 \\
       31.543 & 98 & 15.847 & 284 & 10.650 & 190 & 8.077 & 5724 \\
       30.459 & 110 & 15.573 & 308 & 10.528 & 197 & 8.010 & 4243 \\
       29.447 & 118 & 15.308 & 298 & 10.409 & 183 & 7.960 & 584 \\
@@ -241,15 +241,15 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
   \Delta_{1/2} K_\alpha &= \SI{205}{\electronvolt} \, .
 \end{align*}
 
-\subsection{Absorptionsspektren von leichten und schweren Elementen.}
-\begin{figure}
+\subsection{Absorptionsspektren von leichten Elementen.}
+
+\begin{table}[h! p]
   \centering
-  \subcaptionbox{Graphische Darstellung der Messwerte. \label{sub:3}}[0.7\textwidth]{
-  \includegraphics[width=0.7\textwidth]{germanium.pdf}
-  }
-  \hfill
-  \subcaptionbox{Messwerte. \label{tab:2}}[0.29\textwidth]{
-  \begin{tabular}{c c}
+  \caption{Messwerte der Absorbtionsspektren leichter Absorbermaterialen. Die Absorbermaterialien
+  sind mit ihren Elementsymbolen abgekürzt.}
+  \label{tab:11}
+  \subcaptionbox{Ge \label{tab:2}}[0.14\textwidth]{
+  \begin{tabular}{c c|}
     \toprule
     $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ \\
     \midrule
@@ -280,7 +280,7 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
     10.9 & 68 \\
     10.8 & 68 \\
     10.8 & 68 \\
-    10.7 & 62 \\
+    10.45 & 62 \\
     10.6 & 63 \\
     10.6 & 59 \\
     10.5 & 56 \\
@@ -296,18 +296,9 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
     10.0 & 49 \\
     \bottomrule
   \end{tabular}
-  }
-  \caption{Absorptionsspektrum von Germanium.}
-  \label{fig:3}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{Graphische Darstellung der Messwerte. \label{sub:4}}[0.7\textwidth]{
-  \includegraphics[width=0.7\textwidth]{brom.pdf}
-  }
-  \hfill
-  \subcaptionbox{Messwerte. \label{tab:3}}[0.29\textwidth]{
-  \begin{tabular}{c c}
+  }\qquad \hfill
+  \subcaptionbox{Br \label{tab:3}}[0.14\textwidth]{
+  \begin{tabular}{|c c|}
     \toprule
     $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ \\
     \midrule
@@ -354,19 +345,9 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
     11.9 & 24 \\
     \bottomrule
   \end{tabular}
-  }
-  \caption{Absorptionsspektrum von Brom.}
-  \label{fig:4}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \subcaptionbox{Graphische Darstellung der Messwerte. \label{sub:5}}[0.7\textwidth]{
-  \includegraphics[width=0.7\textwidth]{strontium.pdf}
-  }
-  \hfill
-  \subcaptionbox{Messwerte. \label{tab:4}}[0.29\textwidth]{
-  \begin{tabular}{c c}
+  }\qquad \hfill
+  \subcaptionbox{Sr \label{tab:4}}[0.14\textwidth]{
+  \begin{tabular}{|c c|}
     \toprule
     $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ \\
     \midrule
@@ -413,19 +394,9 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
     13.7 & 122 \\
     \bottomrule
   \end{tabular}
-  }
-  \caption{Absorptionsspektrum von Strontium.}
-  \label{fig:5}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \subcaptionbox{Graphische Darstellung der Messwerte. \label{sub:6}}[0.7\textwidth]{
-  \includegraphics[width=0.7\textwidth]{zink.pdf}
-  }
-  \hfill
-  \subcaptionbox{Messwerte. \label{tab:5}}[0.29\textwidth]{
-  \begin{tabular}{c c}
+  }\qquad \hfill
+  \subcaptionbox{Zn \label{tab:5}}[0.14\textwidth]{
+  \begin{tabular}{|c c|}
     \toprule
     $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ \\
     \midrule
@@ -469,21 +440,12 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
     8.7 & 152 \\
     8.7 & 137 \\
     8.6 & 121 \\
+    & \\
     \bottomrule
   \end{tabular}
-  }
-  \caption{Absorptionsspektrum von Zink.}
-  \label{fig:6}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \subcaptionbox{Graphische Darstellung der Messwerte. \label{sub:7}}[0.7\textwidth]{
-  \includegraphics[width=0.7\textwidth]{zirkonium.pdf}
-  }
-  \hfill
-  \subcaptionbox{Messwerte. \label{tab:6}}[0.29\textwidth]{
-  \begin{tabular}{c c}
+  }\qquad \hfill
+  \subcaptionbox{Zr \label{tab:6}}[0.14\textwidth]{
+  \begin{tabular}{|c c}
     \toprule
     $E / \si{\kilo\electronvolt}$ & $I / \si{\per\second}$ \\
     \midrule
@@ -531,23 +493,40 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
     \bottomrule
   \end{tabular}
   }
-  \caption{Absorptionsspektrum von Zirkonium.}
-  \label{fig:7}
+
+\end{table}
+
+\begin{figure}[h! p]
+  \centering
+  \subcaptionbox{Germanium. \label{fig:3}}[0.45\textwidth]{
+  \includegraphics[width=0.45\textwidth]{germanium.pdf}
+  }
+  \subcaptionbox{Brom. \label{fig:4}}[0.45\textwidth]{
+  \includegraphics[width=0.45\textwidth]{brom.pdf}
+  }\\
+  \subcaptionbox{Strontium. \label{fig:5}}[0.45\textwidth]{
+  \includegraphics[width=0.45\textwidth]{strontium.pdf}
+  }
+  \subcaptionbox{Zink. \label{fig:6}}[0.45\textwidth]{
+  \includegraphics[width=0.45\textwidth]{zink.pdf}
+  }\\
+  \subcaptionbox{Zirkonium. \label{fig:7}}[0.45\textwidth]{
+  \includegraphics[width=0.45\textwidth]{zirkonium.pdf}
+  }
+  \caption{Graphische Darstellung der Absorbtionsspektren leichter Absorbermaterialien
+  aus den in Tabelle \ref{tab:11} eingetragenen Messwerten.}
 \end{figure}
-Für die verschiedenen Materialien ergeben sich die Absorptionsenergien aus den Plots \ref{sub:3} bis
-\ref{sub:7} und
+Für die verschiedenen Materialien ergeben sich die Absorptionsenergien aus den Plots \ref{fig:3} bis
+\ref{fig:7} und
 aus der Formel
 \begin{equation}
   \sigma_K = z - \sqrt{\frac{E_k}{E_\symup{Ryd}} - \frac{\alpha^2 \, z^4}{4}}
   \label{eqn:4}
 \end{equation}
 die Abschirmkonstanten.
-
-\begin{table}
+\begin{figure}
   \centering
-  \caption{K-Kanten Energien für die verschiedenen Materialien und die daraus resultierenden
-  Abschirmkonstanten $\sigma_K$.}
-  \label{tab:7}
+  \subcaptionbox{\label{tab:7}}[0.54\textwidth]{
   \begin{tabular}{c c c}
     \toprule
     & $E_K / \si{\kilo\electronvolt}$ & $\sigma_K$ \\
@@ -559,20 +538,22 @@ die Abschirmkonstanten.
     Zirkonium & 17.99 & 4.10 \\
     \bottomrule
   \end{tabular}
-\end{table}
+  }\hfill
+  \subcaptionbox{\label{fig:8}}[0.45\textwidth]{
+  \includegraphics[width=0.45\textwidth]{moseley.pdf}
+  }\hfill
+  \caption{In Tabelle \ref{tab:7} finden sich die berechneten Energien der K-Kanten und die
+  resultierenden $\sigma_K$. In Abbildung \ref{fig:8} findet sich die zugehörige
+  graphische Darstellung des Moseleyschen Gesetzes mit eben diesen
+  Energien der K-Kanten und linearer Regression.}
+\end{figure}
 Nach dem Moseleyschen Gesetz ist $\sqrt{E_k} \propto z$. In Abbildung \ref{fig:8}
 ist dieser Zusammenhang graphisch dargestellt. Die Steigung zum Quadrat sollte laut
 \eqref{eqn:3} genau der Rydbergenergie entsprechen. Es ergibt sich $m^2 = \SI{13.05(31)}{\electronvolt}$.
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.3]{moseley.pdf}
-  \caption{Graphische Darstellung des Moseleyschen Gesetzes mit dem oben berechneten
-  Energien der K-Kanten mit linearer Regression.}
-  \label{fig:8}
-\end{figure}
 
-In Abbildung \ref{fig:9} befindet sich das Absorptionsspektrum von Wismut.
-\begin{figure}
+\subsection{Absorptionsspektren von Wismut.}
+
+\begin{figure}[p]
   \centering
   \subcaptionbox{Graphische Darstellung der Messwerte. \label{sub:9}}[0.7\textwidth]{
   \includegraphics[width=0.7\textwidth]{wismut.pdf}
@@ -620,6 +601,7 @@ In Abbildung \ref{fig:9} befindet sich das Absorptionsspektrum von Wismut.
   \caption{Absorptionsspektrum von Wismut.}
   \label{fig:9}
 \end{figure}
+In Abbildung \ref{fig:9} befindet sich das Absorptionsspektrum von Wismut.
 Für die Abschirmkonstante ergibt sich mit
 \begin{equation}
   \sigma_L = z - \left(\frac{4}{\alpha}\sqrt{\frac{\Delta E_L}{E_\symup{Ryd}}} - \frac{5\Delta E_L}{E_\symup{Ryd}} \right)^{1/2}

@@ -156,7 +156,7 @@ die Bragg-Bedingung erfüllt.
 \end{figure}
 
 \subsection{Emissionspektrum für Kupfer}
-\begin{figure}[h]
+\begin{figure}
   \centering
   \subcaptionbox{Graphische Darstellung des Emissionspektrums. \label{fig:2}}[0.4\textwidth]{
   \includegraphics[width=0.4\textwidth]{emission.pdf}
@@ -229,6 +229,16 @@ Für die oben angegebenen Energien ergeben sich für die Abschirmkonstanten
 \begin{align*}
     \sigma_K &= \num{3.28} \\
     \sigma_L &= \num{12.52} \, .
+\end{align*}
+\\
+Die Halbwertsbreiten lassen sich aus Tabelle \ref{tab:2} ablesen. Die Untergrundstrahlung
+wird für $K_\beta$ bei $\SI{9.176}{\kilo\electronvolt}$ und bei $\SI{8.688}{\kilo\electronvolt}$
+und für $K_\alpha$ bei $\SI{8.288}{\kilo\electronvolt}$ und bei $\SI{7.878}{\kilo\electronvolt}$.
+Die Breiten der Linien betragen $\SI{0.488}{\kilo\electronvolt}$ bzw. $\SI{0.410}{\kilo\electronvolt}$.
+Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
+\begin{align*}
+  \Delta_{1/2} K_\beta &= \SI{244}{\electronvolt} \\
+  \Delta_{1/2} K_\alpha &= \SI{205}{\electronvolt} \, .
 \end{align*}
 
 \subsection{Absorptionsspektren von leichten und schweren Elementen.}
@@ -616,6 +626,8 @@ Für die Abschirmkonstante ergibt sich mit
   \left(1 + \frac{19}{32} \, \alpha^2 \frac{\Delta E_L}{E_\symup{Ryd}} \right)^{1/2}
   \label{eqn:5}
 \end{equation}
+der Wert $\sigma_L = \num{5.51}$. Dabei ist $\Delta E_L$ die Differenz zwischen den Energien
+der $L_{II}$ - und der $L_{III}$ - Kante.
 
 
 \section{Diskussion}

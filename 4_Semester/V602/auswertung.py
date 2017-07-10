@@ -273,6 +273,12 @@ Kbeta = 9 *10**3
 deltaK = Kbeta-Kalpha
 sigmaK = 29 - np.sqrt(Kbeta/13.6)
 sigmaL = 29 - np.sqrt(4*(deltaK)/13.6)
+sigmaKL = 29 - np.sqrt(8905/13.6)
+sigmaLL = 29 - np.sqrt(4*(8905-8038)/13.6)
+
 print("")
-print("Sigma k: ", sigmaK)
+print("----------------------------------")
+print("Sigma k für Kupfer: ", sigmaK)
+print("Literaturwert: ", sigmaKL)
 print("Sigma L: ", sigmaL)
+print("Literaturwert: ", sigmaLL)

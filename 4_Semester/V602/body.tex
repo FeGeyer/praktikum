@@ -175,7 +175,7 @@ die Bragg-Bedingung erfüllt.
       36.785 & 41 & 17.051 & 300 & 11.167 & 199 & 8.361 & 186 \\
       35.317 & 54 & 16.733 & 297 & 11.033 & 206 & 8.288 & 186 \\
       33.962 & 66 & 16.427 & 296 & 10.902 & 204 & 8.217 & 285 \\
-      32.708 & 91 & 16.132 & 314 & 10.4574 & 194 & 8.146 & 2915 \\
+      32.708 & 91 & 16.132 & 314 & 10.774 & 194 & 8.146 & 2915 \\
       31.543 & 98 & 15.847 & 284 & 10.650 & 190 & 8.077 & 5724 \\
       30.459 & 110 & 15.573 & 308 & 10.528 & 197 & 8.010 & 4243 \\
       29.447 & 118 & 15.308 & 298 & 10.409 & 183 & 7.960 & 584 \\
@@ -231,16 +231,21 @@ Für die oben angegebenen Energien ergeben sich für die Abschirmkonstanten
     \sigma_L &= \num{12.52} \, .
 \end{align*}
 \\
-Die Halbwertsbreiten lassen sich aus Tabelle \ref{tab:2} ablesen. Die Untergrundstrahlung
+Die Halbwertsbreiten lassen sich aus Abbildung \ref{tab:1} ablesen. Die Untergrundstrahlung
 wird für $K_\beta$ bei $\SI{9.176}{\kilo\electronvolt}$ und bei $\SI{8.688}{\kilo\electronvolt}$
-und für $K_\alpha$ bei $\SI{8.288}{\kilo\electronvolt}$ und bei $\SI{7.878}{\kilo\electronvolt}$.
+und für $K_\alpha$ bei $\SI{8.288}{\kilo\electronvolt}$ und bei $\SI{7.878}{\kilo\electronvolt}$ angenommen.
 Die Breiten der Linien betragen $\SI{0.488}{\kilo\electronvolt}$ bzw. $\SI{0.410}{\kilo\electronvolt}$.
 Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
 \begin{align*}
   \Delta_{1/2} K_\beta &= \SI{244}{\electronvolt} \\
   \Delta_{1/2} K_\alpha &= \SI{205}{\electronvolt} \, .
 \end{align*}
-
+Das Auflösungsvermögen beschreibt in der Physik das Maß für den geringsten Abstand
+zweier Messobjekte, die von der Messapparatur mit Sicherheit noch getrennt
+aufgelöst bzw. gemessen werden können. In der Optik ist zum Beispiel das Maß für
+den geringste Abstand, der aufgelöst werden kann, wenn das Intensitätsmaximum eines Objektes auf dem
+ersten Intensitätsminimum des anderen Objektes liegt. Wird dieser Abstand geringer, lassen sich beide
+Objekte nicht mehr sauber voneinander trennen.
 \subsection{Absorptionsspektren von leichten Elementen.}
 
 \begin{table}[h! p]
@@ -280,7 +285,7 @@ Daraus ergeben sich für die Halbwertsbreiten $\Delta_{1/2}$
     10.9 & 68 \\
     10.8 & 68 \\
     10.8 & 68 \\
-    10.45 & 62 \\
+    10.7 & 62 \\
     10.6 & 63 \\
     10.6 & 59 \\
     10.5 & 56 \\
@@ -613,6 +618,49 @@ der $L_{II}$ - und der $L_{III}$ - Kante.
 
 
 \section{Diskussion}
+Alle nachfolgenden Literaturwerte sind zitiert aus \cite{literatur}.
+\begin{table}
+  \centering
+  \caption{Literaturwerte für die gemessenen Größen.}
+  \label{tab:8}
+  \begin{tabular}{c c c}
+    \toprule
+    & $E_K / \si{\kilo\electronvolt}$ & $\sigma_K$ \\
+    \midrule
+    Germanium & 11.11 & 3.68 \\
+    Strontium & 16.12 & 4.00 \\
+    Brom & 13.48 & 3.85 \\
+    Zink & 9.65 & 3.56 \\
+    Zirkonium & 17.99 & 4.10 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Zum Emissionsspektrum von Kupfer lässt sich sagen, dass die maximale Energie des Bremsspektrums
+mit $\approx \SI{35.32}{\kilo\electronvolt}$
+nahe an dem zu erwartenden Wert $\SI{35}{\kilo\electronvolt}$ liegt. Die prozentuale Abweichung
+ist mit unter einem Prozent sehr gering. Erklären lässt sich die Abweichung damit, dass
+aufgrund der Fermi-Dirac-Statistik nicht alle Elektronen vor Anlegen der Beschleunigungsspannung
+die Energie 0 haben, sondern einige auch bereits eine Energie über 0 haben können. Somit folgt,
+dass die maximale Energie etwas über der angelegten Beschleunigungsspannung \SI{35}{\kilo\volt}
+liegt, was ja hier auch der Fall ist.
+
+Die Abschirmkonstanten $\sigma_K = \num{3.28}$ und $\sigma_L = \num{12.52}$ weichen ebenfalls
+nur geringfügig von den Literaturwerten 3.41 bzw. 13.03 ab. Die Abweichungen entstehen von den Abweichungen
+der Energien der $K_\alpha$ - und der $K_\beta$ - Linie. \\
+\\
+Die K-Kanten Energien befinden sich in guter Näherung zum Literaturwert. Im Falle von
+Strontium stimmen sie sogar genau überein. Die größte Abweichung liegt bei Brom mit ungefähr
+\SI{1.1}{\percent}. Die Abweichungen bei den Abschirmkonstanten sind etwas größer, im Schnitt
+\SI{5}{\percent}, aber im vertretbaren Bereich. Mögliche Abweichungen sind bedingt durch eine Abweichung
+vom Sollwinkel der Bragg-Bedingung.
+
+Die aus dem Moseleyschen Gesetz erhaltene Regression sieht sehr linear aus, die aus der
+Steigung gewonnene Rydberg-Energie weicht um etwa \SI{4}{\percent} ab. Diese Abweichung kommt daher,
+dass die Formel, die in der Regression verwendet wurde, nur eine Näherungsformel ist.
+
+Die Abschirmkonstante für Wismut weicht mit \SI{35}{\percent} relativ stark ab vom Literaturwert
+\num{3.60}. Die Abweichung könnte mit Ablesefehlern und der allgemeinen Abweichung vom Sollwinkel
+zusammenhängen.
 \newpage
 \nocite{*}
 \printbibliography

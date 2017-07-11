@@ -171,3 +171,13 @@ plt.axvline(x=unp.nominal_values(EIon), ymin=0, ymax=1, color="k", ls=':',
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("Ion.pdf")
+
+# Anzahl Stöße
+T = np.array([20, 105, 152, 199])
+T = T + 273.15 #in Kelvin
+psat = 5.5*10**7*np.exp(-6876/T)
+w = 0.0029/psat
+a = 1
+lol = a/w
+#lol = np.around(lol, decimals=3)
+print(lol)

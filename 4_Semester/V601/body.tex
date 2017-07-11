@@ -197,15 +197,15 @@ $U_B$ aufgetragen wird.
 \section{Auswertung}
 \subsection{Fehlerrechnung}
 \label{Fehler}
-Für die Fehlerrechnung gibt:
+Für die Fehlerrechnung gibt
 \begin{equation}
   \overline{T} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
 \end{equation}
-den Mittelwert, sowie:
+den Mittelwert, sowie
 \begin{equation}
   \sigma_{\overline{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\overline{T}-T_i)^2}
 \end{equation}
-den Fehler des Mittelwertes.
+den Fehler des Mittelwertes an.
 In Fällen, in denen fehlerbehaftete Größen in einer Gleichung zur Bestimmung
 einer anderen Größe verwendung finden, wird der resultierende Fehler durch
 $\textsc{uncertainties}$ in $\textsc{python}$ berechnet.
@@ -263,8 +263,10 @@ Die Fehler werden daher vernachlässigt.
     Franck-Hertz-Kurve &
     Ionisierung \\
     \midrule
-    $m/$\si[per-mode=reciprocal]{\volt\per\milli\metre} &  0.0560 & 0.0519 &  0.2662 & 0.1411 \\
-    $n/$\si[per-mode=reciprocal]{\volt} & -0.0576 & 0.0218 & -0.8909 & 0.0884 \\
+    $m/$\si[per-mode=reciprocal]{\volt\per\milli\metre} &  \num{0.0560(10)} &
+     \num{0.0519(7)} &  \num{0.2662(19)} & \num{0.1411(14)} \\
+    $n/$\si[per-mode=reciprocal]{\volt} & \num{-0.0576(1131)} & \num{0.0218(0921)}
+     & \num{-0.8909(2316)} & \num{0.0884(1831)} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -326,10 +328,10 @@ eine Näherung für die differntielle Energieverteilung.
   \hfill
   \caption{Näherungsweise differentielle Energieverteilungen.}
 \end{figure}
-In Abbildung \ref{abb:1} ist gut der nach der $\textsc{Fermi-Dirac}$-Statistik
+In Abbildung \ref{abb:1} ist gut der nach der Fermi-Dirac-Statistik
 zu erwartende breite Peak zu sehen. Das Maximum des Peaks liegt bei \SI{8.63}{\volt}.
 Aus der Differenz zwischen Beschleunigungsspannung $U_{\symup{B}} = \SI{9}{\volt}$
-und dem Maximum folgt für das Kontaktpotential ein Wert von:
+und dem Maximum folgt für das Kontaktpotential ein Wert von
 \begin{equation*}
   K_1 = \SI{0.37}{\volt}.
 \end{equation*}
@@ -357,27 +359,28 @@ bestimmten Anregungsenergie folgt für das Kontaktpotential ein Wert von:
 \end{equation*}
 \begin{table}
   \centering
-  \caption{Abstände zwischen 2 Maxima.}
+  \caption{Lage $x$ der Maxima und Abstand zum vorherigen Maximum $\symup{\Delta}x$.}
   \label{tab:4}
-  \begin{tabular}{c c}
+  \begin{tabular}{c c c}
     \toprule
-    Nr. & $\symup{\Delta}x/$\si{\milli\metre}\\
+    Nr. & $x/$\si{\milli\metre} &$\symup{\Delta}x/$\si{\milli\metre}\\
     \midrule
-    1 & 17 \\
-    2 & 17 \\
-    3 & 18 \\
-    4 & 19 \\
-    5 & 18 \\
-    6 & 18 \\
-    7 & 19 \\
-    8 & 19 \\
-    9 & 18 \\
+    1  & 22 & -  \\
+    2  & 39 & 17 \\
+    3  & 56 & 17 \\
+    4  & 74 & 18 \\
+    5  & 93 & 19 \\
+    6  & 111 & 18 \\
+    7  & 129 & 18 \\
+    8  & 148 & 19 \\
+    9  & 167 & 19 \\
+    10 & 185 & 18 \\
     \bottomrule
   \end{tabular}
 \end{table}
 \subsection{Auswertung der Ionisierungskurve}
 Die aus der Ionisierungskurve entnommene und hier beachteten Messwertpaare
-finden sich in Tabelle \ref{tab:5}. Eine lineare Regression durch die nicht Umgerechneten
+finden sich in Tabelle \ref{tab:5}. Eine lineare Regression durch die nicht umgerechneten
 Werte wie in Kapitel \ref{Umrechnung} liefert für die Regressionsgerade:
 \begin{align*}
   m &= \num{1.46(4)} \\
@@ -438,7 +441,7 @@ Die Regression findet sich in Abbildung \ref{abb:3}.
 \section{Diskussion}
 Im Vergleich zwischen dem bestimmten Wert von \SI{3.93(7)}{\electronvolt} und dem
 Literaturwert von \SI{4.9}{\electronvolt}\cite{Anregungsenergie} fällt eine große
-Abweichung auf. Der Literaturwert befindet sich in einer 14-$\sigma$ Umgebung
+Abweichung auf. Der Literaturwert befindet sich in einer 14$\sigma$ Umgebung
 um den experimentell bestimmten Wert. Es ist also mit starken systematischen Fehlern
 zu rechnen. Wahrscheinlichste Fehlerquelle ist hierbei das Voltmeter des Spannungsgerätes
 des Beschleunigungsstroms. Hier wurde als maximaler Wert ca. \SI{55}{\volt} angezeigt,
@@ -450,17 +453,17 @@ Anregungsenergie.\\
 \noindent
 Bei der Betrachtung der Ionisierungsmessung liegt der Literaturwert von
 \SI{10.438}{\electronvolt} \cite{Ionisierungsenergie}
-hingegen in einer 4-$\sigma$ Umgebung um den experimentell Bestimmten Wert von
+hingegen in einer 4$\sigma$ Umgebung um den experimentell bestimmten Wert von
 \SI{13.3(8)}{\electronvolt}.
 Problematisch war hier das Festlegen des Intervalls der Messwerte, durch die die Sekante
-gelegt werden kann. Ein hinzunehmen weiterer Messwert in Richtung Nullpunkt könnte den
+gelegt werden kann. Ein Hinzunehmen weiterer Messwert in Richtung Nullpunkt könnte den
 Wert dem Literaturwert annähern, ist aber zunehmend schwer zu rechtfertigen. Auch ist
 hier wahrscheinlich, dass die gleichen Fehler wie bei der Messung der Anregungsenergie
 auftreten. Generell sollte das Experiment zur Verifizierung der Messwerte mit einem
 anderen Spannungsgerät wiederholt werden. Problematisch gestaltete sich in allen
 unter Beheizung durchgeführten Versuchsteilen ein Konstanthalten der Temperatur
 im Aufbau, daher ist auch hier mit systematischen Fehlern zu rechnen.
-Ein Gerät das eine konstante Heizung ermöglicht könnte die Messgenauigkeit stark
+Ein Gerät, das eine konstante Heizung ermöglicht, könnte die Messgenauigkeit stark
 erhöhen.
 \newpage
 \nocite{*}

@@ -70,7 +70,105 @@ Da diese aber im Allgemeinen sehr unübersichtlich sind, werden zwei Grenzfälle
   \end{equation*}
   der Hülle existiert noch.
 \end{itemize}
-Nun wird die
+Nun wird die Aufspaltung der Energieniveaus näher betrachet. Als erstes wird das
+magnetische Moment zum Gesamtdrehimpuls $\vec{J}$
+\begin{equation}
+  \vec{\mu} = \vec{\mu}_L + \vec{\mu}_S
+  \label{eqn:5}
+\end{equation}
+definiert. Die senkrechte Komponente des magnetischen Moments (relativ zu $\vec{J}$)
+verschwindet dabei. Für den Betrag des magnetischen Moments ergibt sich
+\begin{equation}
+  |\vec{\mu}_J| = \mu_B \, \symup g_J \, \sqrt{J(J+1)} \, .
+  \label{eqn:6}
+\end{equation}
+Dabei gilt
+\begin{equation}
+  \symup g_J = \frac{3 \, J(J+1) + S(S+1) - L(L+1)}{2 \, J(J+1)}
+  \label{eqn:7}
+\end{equation}
+für den sogenannten \textbf{Landé-Faktor}. Weiterhin ist zu beachten, dass sich
+nach Anlegen eines externen Magnetfeldes nur solche Winkel zwischen $\vec{mu}$ und
+$\vec{B}$ ein, bei denen
+\begin{equation*}
+  \mu_{J_z} = - m \, g_J \, \mu_B
+\end{equation*}
+für die z-Komponente des magnetischen Moments gilt. Dabei ist $m$ die bereits oben
+erwähnte \textbf{Orientierungsquantenzahl}, die von $-J, -J + 1, ..., J$ definiert ist.
+Nun lässt sich über $E_\symup{mag} = - \vec{\mu}_J \cdot \vec{B}$ die Energie berechnen,
+die das magnetische Moment im Magnetfeld erhält. Mit \eqref{eqn:7} folgt
+\begin{equation}
+  E_\symup{mag} = m \, \symup g_J \, \mu_B \, .
+  \label{eqn:8}
+\end{equation}
+Mit \eqref{eqn:8} ist nun ein Ausdruck für die Aufspaltung der Energieniveaus
+in äquidistante Niveaus gegeben. Da dies nicht nur auf den Grundzustand, sondern
+auch auf alle angeregten Zustände zutrifft, wird es neue Übergänge zwischen den
+Energieniveaus geben, welche sich in der Aufspaltung der Spektrallinien äußert. \\
+\\
+Zur Bestimmung der Auswahlregeln für Übergänge zwischen den neu entstandenen Energieniveaus
+wird die zeitabhängige Schrödingergleichung gelöst. Als Lösung für die Wellenfunktion
+wird eine Linearkombination aus zwei Lösungen für die an dem Übergang beteiligten
+Energieniveaus genutzt, die da lautet
+\begin{equation*}
+  \Psi_\symup{ges}(\vec{r}, t) = C_\alpha \,  \Psi_\alpha(\vec{r}) \, \symup{exp}
+  \left(-\frac{\symup i}{\hbar} \, E_\alpha \, t \right) +
+  C_\beta \, \Psi_\beta(\vec{r}) \, \symup{exp}
+  \left(-\frac{\symup i}{\hbar} \, E_\beta \, t \right)
+\end{equation*}
+mit $C_{\alpha, \beta}$ als Koeffizienten, die man aus der Normierbarkeit erhält
+und $E_{\alpha, \beta}$ als Energieniveaus,
+zwischen denen der Übergang stattfindet. Im folgenden werden über die Intensität
+der emittierten Strahlung mittels Poyting-Vektor die Auswahlregeln
+\begin{equation}
+  \symup \Delta m = 0, -1 \ \text{und} \ +1
+  \label{eqn:9}
+\end{equation}
+mit $\symup \Delta m = |m_\alpha - m_\beta|$, also der Differenz der Orientierungsquantenzahlen
+der beiden Niveaus. Bei $\symup \Delta m = 0$ ist die emittierte Strahlung linear
+zu $\vec{B}$ polarisiert. Bei $\symup \Delta m = \pm 1$ eine in der Drehrichtung
+unterschiedliche zirkulare Polarisation zu erkennen. \\
+\\
+Da in der zeitabhängigen Schrödingergleichung der Spin nicht berücksichtigt wird,
+sind die bisherigen Ergebnisse nur für den Fall $S = 0$ gültig. Dies nennt man den
+\textbf{Normalen Zeeman-Effekt}. In diesem Fall gilt nach \eqref{eqn:7} für
+alle $J$: $g_J = 1$. Folglich sind die Aufspaltungen unabhängig von den Quantenzahlen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{normal.png}
+  \caption{Aufspaltung der Energieniveaus und zugehörige Polarisation für den
+  normalen Zeeman-Effekt. \cite{anleitung}}
+  \label{fig:1}
+\end{figure}
+Ein Beispiel für eine solche Aufspaltung ist in Abbildung \ref{fig:1} zu sehen.
+Dabei ist zu sehen, dass die Energieniveaus äqudistant sind. Dies folgt aus \eqref{eqn:8},
+da $g_J = 1$ gilt. Es ergibt sich
+\begin{equation}
+  E_\symup{mag}= m \, \mu_B \, B \, .
+  \label{eqn:10}
+\end{equation}
+Die Aufspaltungslinien lassen sich den Auswahlregeln zuordnen, was auch in
+Abbildung \ref{fig:1} dargestellt ist. Allerdings sind je nach Beobachtungsrichtung
+wegen der unterschiedlichen Polarisation nicht alle Linien zu sehen. Die $\pi$-Linie
+(zu $\symup \Delta m = 0$) ist nur sichtbar, wenn die Beobachtungsrichtung
+senkrecht zur Feldrichtung, also transversal, ist. Außerdem ist sie gegenüber
+der feldfreien Linie nicht verschoben, im Gegensatz zu den Linien mit $\symup \Delta m = \pm 1$,
+da sich die Energie um $\mu_B \, B$ im Vergleich zum feldfreien Fall unterscheidet.
+Weil sie zirkular polarisiert sind, erscheinen sie bei transversaler Beobachtung als
+linear polarisiert. So eine Aufspaltung ist in Abbildung \ref{fig:2} zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{normal2.png}
+  \caption{Aufspaltung einer Spektrallinie nach Beobachtungsrichtung beim
+  normalen Zeeman-Effekt.}
+  \label{fig:2}
+\end{figure}
+Der andere Fall, also $S \neq 0$, wird \textbf{Anormaler Zeeman-Effekt} genannt.
+Die Auswahlregeln \eqref{eqn:9} sind auch in diesem Fall noch gültig, dies lässt
+sich über die spinabhängige Schrödingergleichung zeigen. Die Auspaltung wird
+vielfältiger, da $g$ nicht mehr für alle $J$ 1 ist, sondern von $L, S$ und $J$
+abhängt.
+
 
 \section{Auswertung}
 \subsection{Eichung des B-Feldes}

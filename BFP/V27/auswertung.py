@@ -57,8 +57,8 @@ def del_lambda(del_s, delta_s, Disp):
     return 0.5*(del_s/delta_s)*Disp
 
 
-def mg(lam, B):
-    return const.h * const.c / (lam*B*const.value("Bohr magneton"))
+def mg(dl, B, lam):
+    return const.h * const.c / (lam**2*B*const.value("Bohr magneton")) * dl
 
 
 def B(I):
@@ -74,5 +74,7 @@ lam_Blau90_mean = ufloat(np.mean(lam_Blau90), stats.sem(lam_Blau90))
 
 print(lam_Rot_mean, lam_Blau0_mean, lam_Blau90_mean)
 
-mg_Rot = mg(lam_Rot_mean, B(I_Rot_0))
-print(mg_Rot)
+mg_Rot = mg(lam_Rot_mean, B(I_Rot_0), 644*10**(-9))
+mg_blau_0 = mg(lam_Blau0_mean, B(I_Blau_0), 480*10**(-9))
+mg_blau_90 = mg(lam_Blau90_mean, B(I_Blau_90), 480*10**(-9))
+print(mg_Rot, mg_blau_0, mg_blau_90)

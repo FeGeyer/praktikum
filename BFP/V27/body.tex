@@ -1,6 +1,5 @@
 \maketitle
 \setcounter{page}{1}
-\tableofcontents
 \newpage
 \pagenumbering{arabic}
 \section{Theorie}
@@ -186,11 +185,11 @@ Linie mit der gewünschten Polarisation ausgewählt und auf eine Lummer-Gehrke-P
 abgebildet werden. Das entstehende Interferenzmuster wird über eine Digitalkamera
 aufgenommen. Bei monochromatischem Licht erzeugt die Lummer-Gehrke-Platte Gangunterschiede
 von $\lambda$, also genau der eingestrahlten Wellenlänge. Durch Einschalten des Magnetfeldes
-tritt eine Verschiebung der Wellenlänge um $\delta \lambda$ auf, welche wiederum
-die interferierten Straheln um $\delta s$ verschiebt. Dabei ist allerdings zu beachten,
+tritt eine Verschiebung der Wellenlänge um $\symup{\Delta} \lambda$ auf, welche wiederum
+die interferierten Straheln um $\symup{\Delta} s$ verschiebt. Dabei ist allerdings zu beachten,
 dass das Dispersionsgebiet
 \begin{equation}
-    \symup \Delta \lambda_D = \frac{\lambda^2}{2\, d} \cdot \sqrt{\frac{1}{n^2 - 1}}
+    \symup \symup{\Delta} \lambda_D = \frac{\lambda^2}{2\, d} \cdot \sqrt{\frac{1}{n^2 - 1}}
     \label{eqn:11}
 \end{equation}
 nicht überschritten wird, da sonst eine Überlagerung der Wellenlängen auftreten
@@ -199,7 +198,7 @@ Auflösungsvermögen $A$ der Lummer-Gehrke-Platte gilt
 \begin{equation}
   A = \frac{L}{\lambda} (n^2 - 1)
   \label{eqn:12}
-\end{equation}
+\end{equation}\
 mit $L$ als Länge der Platte und $n$ als Brechungsindex.
 \subsection{Versuchsdurchführung}
 Zuerst wurde der Elektromagnet geeicht, indem das B-Feld über ein Gaussmeter
@@ -211,13 +210,18 @@ fallen. Dann werden mittels Digitalkamera Bilder von Interferenzbildern bei vers
 und Magnetfeldstärken aufgenommen, um daraus die Wellenlängenverschiebung zu bestimmen.
 
 \section{Auswertung}
+\subsection{Fehlerrechnung}
+Die Fehlerrechnung wird in $\textsc{Python}$\footnote{Version: 3.6.3} durchgeführt.
+Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$\footnote{Version: 3.6.3},
+die zugehörigen Standartabweichungen durch die Funktion $\textsc{stats.sem}$ aus dem
+Paket $\textsc{scipy}$\footnote{Version: 1.0.0} berechnet. Fehlerfortpflanzung wird
+durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{Version: 3.0.1} automatisiert.
 \subsection{Eichung des B-Feldes}
-Die Messwerte sowie eine graphische Darstellung mit Fit sind in Abbildung \ref{A_Abb:1}
-dargestellt. Der Fit wurde nach least-squares durch die Funktion $\textsc{polyfit}$
-aus dem $\textsc{Python}$\footnote{Version: 3.6.3} Paket
-$\textsc{numpy}$\footnote{Version: 1.13.3} mit einem Polynom 3. Grades erstellt.
+Die Messwerte sowie eine grafische Darstellung mit Fit sind in Abbildung \ref{A_Abb:1}
+zu finden. Der Fit wurde nach least-squares durch die Funktion $\textsc{polyfit}$
+aus dem $\textsc{Python}$ Paket $\textsc{numpy}$ mit einem Polynom 3. Grades erstellt.
 
-\begin{figure}[h!]
+\begin{figure}[p]
   \centering
   \subcaptionbox{Messwerte.}[0.20\textwidth]{
   \centering
@@ -273,6 +277,212 @@ Mit den Werten in \eqref{A_eq:1} folgt also als genäherte Feldstromstärke - Ma
   B(I) = a_3 \cdot I^3 + a_2 \cdot I^2 + a_1 \cdot I + a_0
 \end{equation}
 
+\subsection{\texorpdfstring{Zur Berechnung der $\symup{\Delta}(m \cdot g)$}{}-Werte}
+Die bekannte Formel
+\begin{equation*}
+  E(\lambda) = \frac{hc}{\lambda}
+\end{equation*}
+zur Berechnung der Energie einer elektromagnetischen Welle aus deren Wellenlänge $\lambda$
+sowie dem $\textsc{Planck}$schen Wirkungsquantum $h$ und der Vakuumlichtgeschwindigkeit $c$
+ist offensichtlich nicht linear in $\lambda$. Da für diese Auswertung jedoch ein Wert
+$\symup{\Delta} E(\symup{\Delta} \lambda)$ notwendig ist um nach:
+\begin{equation}
+  \symup{\Delta} E = \underbrace{ \{m_1 g_1 - m_2 g_2 \} }_{\substack{\symup{\Delta}(m \cdot g)}}
+  \mu_B B
+  \label{A_eq:2}
+\end{equation}
+aus einer Magnetfeldstärke $B$ und dem $\textsc{Bohr}$schen Magenton einen Wert $\symup{\Delta}(m \cdot g)$
+zu berechnen, muss die Ableitung $\frac{\partial}{\partial \lambda} E$ bestimmt werden da
+ein Gleichsetzen der beiden Ausdrücke für $E$ aufgrund der erwähnten nicht-linearität verboten ist.
+Aus der Ableitung folgt:
+\begin{equation}
+  \frac{\partial}{\partial \lambda} E = -\frac{h c}{\lambda^2} \Leftrightarrow
+  \symup{\Delta} E = -\frac{h c}{\lambda^2} \symup{\Delta} \lambda.
+  \label{A_eq:3}
+\end{equation}
+Dieser Ausdruck ist nun Abhängig von der konstanten unverschobenen Wellenlänge
+$\lambda$ und linear in der Wellenlängenverschiebung $\symup{\Delta} \lambda$. Ein Gleichsetzen der
+Ausdrücke \eqref{A_eq:2} und \eqref{A_eq:3} ist daher erlaubt und liefert:
+\begin{equation}
+  \abs{\symup{\Delta}(m \cdot g)} = \frac{h c}{\lambda^2 \mu_B B} \symup{\Delta} \lambda.
+  \label{A_eq:3}
+\end{equation}
+
+\section{Auswertung der roten Linie}
+\begin{figure}[h!]
+  \centering
+  \subcaptionbox{$I=\SI{0}{\ampere}$.}[0.32\textwidth]{
+  \centering
+  \includegraphics[width=0.32\textwidth]{Bilder/R00A.jpg}
+  }
+  \subcaptionbox{$\sigma$-Licht bei $I=\SI{10}{\ampere}$.}[0.32\textwidth]{
+  \centering
+  \includegraphics[width=0.32\textwidth]{Bilder/R010A.jpg}
+  }
+  \subcaptionbox{$\pi$-Licht bei $I=\SI{10}{\ampere}$.}[0.32\textwidth]{
+  \centering
+  \includegraphics[width=0.32\textwidth]{Bilder/R90l10A.jpg}
+  }
+  \caption{Aufspaltung der roten Spektrallinie.}
+  \label{A_Abb:2}
+\end{figure}
+Die Aufgenommenen Bilder sind in Abbildung \ref{A_Abb:2} zu finden. Erwartet wurde
+eine Aufspaltung ein zwei $\sigma$- und eine $\pi$-Linie, wobei letztere von der
+Position mit der nicht-aufgespaltenen Spektralinie übereinstimmen muss. Diese
+Aufspaltung wird wie erwartet beobachtet. Die Abstände zwischen den Linien wurden
+mit einem Bildbearbeitungsprogram (Gimp) am PC in pixeln gemessen und sind, zusammen mit
+den Wellenlängenänderungen
+\begin{equation}
+  \delta \lambda = \frac{1}{2} \frac{\symup{\Delta} s}{\delta s} \symup \symup{\Delta} \lambda_D
+\end{equation}
+in Tabelle \ref{A_Tab:1} zu finden. Der Wert $\symup \symup{\Delta} \lambda_D$
+beträgt dabei nach \eqref{eqn:12} für die roten Spektralline ($\lambda = \SI{644}{\nano\metre}$) \SI{48.91}{\pico\metre}.
+\begin{table}[h!]
+  \centering
+  \caption{Aus den Grafiken gewonnene Werte für die rote Spektrallinie.}
+  \begin{tabular}{c c c}
+    \toprule
+    $\symup{\Delta}s$ / \si{\px} & $\delta s$ / \si{\px}  & $\delta \lambda$ / \si{\pico\metre} \\
+    \midrule
+    456 & 196 & 10.51 \\
+    344 & 172 & 12.23 \\
+    288 & 148 & 12.57 \\
+    256 & 124 & 11.85 \\
+    244 & 108 & 10.82 \\
+    212 & 100 & 11.54 \\
+    200 & 100 & 12.23 \\
+    180 & 92 & 12.50 \\
+    170 & 84 & 12.08 \\
+    152 & 76 & 12.23 \\
+    \bottomrule
+  \end{tabular}
+  \label{A_Tab:1}
+\end{table}
+Im Mittel erhält man eine Wellenlängenabweichung $\delta \lambda$ von \SI{11.85(22)}{\pico\metre}.
+Zusammen mit einer Wellenlänge $\lambda = \SI{644}{\nano\metre}$ und einer nach \eqref{A_eq:1}
+aus der Feldstromstärke $I = \SI{10}{\ampere}$ bestimmten Magnetfeldstärke $B = \SI{0.6(4)}{\tesla}$
+ergibt sich ein Wert von:
+\begin{equation*}
+  \abs{\symup{\Delta}(m \cdot g)} = \num{1.01(6)}.
+\end{equation*}
+Da bei $\pi$-Licht keine Aufspaltung beobachtet wird, wird der Wert hier zu $0$ angenommen.
+
+\section{Auswertung der blauen Linie}
+\begin{figure}[h!]
+  \centering
+  \subcaptionbox{$I=\SI{0}{\ampere}$.}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Bilder/B00A.jpg}
+  }
+  \subcaptionbox{$\sigma$-Licht bei $I=\SI{5.5}{\ampere}$.}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Bilder/B055A.jpg}
+  }\\
+  \subcaptionbox{$I=\SI{0}{\ampere}$.}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Bilder/Bneu00A.jpg}
+  }
+  \subcaptionbox{$\pi$-Licht bei $I=\SI{14}{\ampere}$.}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Bilder/Bneu90r14A.jpg}
+  }
+  \caption{Aufspaltung der blauen Spektrallinie.}
+  \label{A_Abb:3}
+\end{figure}
+Die Aufgenommenen Bilder sind in Abbildung \ref{A_Abb:3} zu finden. Erwartet wurde
+eine Aufspaltung in zwei mal zwei $\sigma$- und zwei $\pi$-Linien, wobei die ersteren aufgrund des
+geringen Abstandes als zwei Linien erscheinen. Diese
+Aufspaltung wird wie erwartet beobachtet. Wieder wurden die Abstände in Gimp gemessen
+und finden sich zusammen mit den Wellenlängenänderungen
+in Tabelle \ref{A_Tab:2}. Der Wert $\symup \symup{\Delta} \lambda_D$
+beträgt dabei nach \eqref{eqn:12} für die blaue Spektralline ($\lambda = \SI{480}{\nano\metre}$)
+\SI{26.95}{\pico\metre}.
+\begin{table}[h!]
+  \centering
+  \caption{Aus den Grafiken gewonnene Werte für die blaue Spektrallinie.}
+  \begin{tabular}{S S S | S S S}
+    \toprule
+    \multicolumn {3}{c}{$\sigma$-Aufspaltung} & \multicolumn {3}{c}{$\pi$-Aufspaltung}\\
+    $\symup{\Delta}s$ / \si{\px} & $\delta s$ / \si{\px}  & $\delta \lambda$ / \si{\pico\metre} &
+    $\symup{\Delta}s$ / \si{\px} & $\delta s$ / \si{\px}  & $\delta \lambda$ / \si{\pico\metre} \\
+    \midrule
+    328 & 156 & 6.41 & 180 & 72 & 5.39 \\
+    272 & 148 & 7.33 & 181 & 68 & 5.06 \\
+    228 & 120 & 7.09 & 180 & 74 & 5.54 \\
+    200 & 100 & 6.74 & 175 & 72 & 5.54 \\
+    188 & 85 & 6.09  & 175 & 69 & 5.31 \\
+    180 & 88 & 6.59  & 170 & 67 & 5.31 \\
+    160 & 68 & 5.73  & 168 & 60 & 4.81 \\
+    156 & 65 & 5.61  & 160 & 61 & 5.14 \\
+    144 & 56 & 5.24  & 155 & 56 & 4.87 \\
+    128 & 43 & 4.53  & 155 & 60 & 5.22 \\
+    125 & 52 & 5.61  & 148 & 56 & 5.10 \\
+    112 & 44 & 5.29  & 150 & 52 & 4.67 \\
+     & &             & 151 & 48 & 4.28 \\
+     & &             & 147 & 50 & 4.58 \\
+     & &             & 144 & 48 & 4.49 \\
+     & &             & 128 & 40 & 4.21 \\
+    \bottomrule
+  \end{tabular}
+  \label{A_Tab:2}
+\end{table}
+Im Mittel erhält man eine Wellenlängenabweichung
+\begin{align*}
+\begin{split}
+  \delta \lambda_\sigma &= \SI{6.02(24)}{\pico\metre}\\
+  \delta \lambda_\pi &= \SI{4.97(11)}{\pico\metre}.
+\end{split}
+\end{align*}
+Bei einer Feldstromstärke $I_\sigma = \SI{5.5}{\ampere}$ ($B = \SI{0.333(16)}{\tesla}$)
+bzw. $I_\pi = \SI{14}{\ampere}$ ($B = \SI{0.82(7)}{\tesla}$) ergibt sich ein Wert von:
+\begin{align*}
+\begin{split}
+  \abs{\symup{\Delta}(m \cdot g)}_\sigma &= \num{1.68(10)} \\
+  \abs{\symup{\Delta}(m \cdot g)}_\pi &= \num{0.56(5)}.
+\end{split}
+\end{align*}
+
+\section{Diskusion}
+\begin{table}[h!]
+  \centering
+  \caption{Theorie- und aus der Messung berechnete Werte für die beobachteten Aufspaltungen.}
+  \begin{tabular}{c c c}
+    \toprule
+    Aufspaltung & Theorie & Messung \\
+    \midrule
+    $\sigma$-Rot & 1 & \num{1.01(6)} \\
+    $\pi$-Rot & 0 & 0 \\
+    $\sigma$-Blau & \num{1.5} & \num{1.68(10)} \\
+    $\pi$-Blau & \num{0.5} & \num{0.56(5)} \\
+    \bottomrule
+  \end{tabular}
+  \label{D_Tab:1}
+\end{table}
+Ein Vergleich zwischen Theorie- und Messwerten findet sich in Tabelle \ref{D_Tab:1}.
+Die Theoriewerte sind dabei aus \eqref{A_eq:2} gewonnen.
+Für die rote Spektrallinie befinden sich die Theoriewerte im Bereich der Messungenauigkeit.
+Für die blaue Spektrallinie ist dies nicht der Fall, die Theoriewerte befinden sich jedoch
+in beiden Fällen in einem $2\sigma$-Intervall um den Messwert.\\
+Als eindeutige, systematische
+Fehlerquelle ist hier die Art der Bestimmung der Messwerte zu nennen. Diese wurden
+durch das manuelle setzen von Markern in einem Bildbearbeitungsprogramm gewonnen.
+Da die Linien nicht perfekt schaft abgebildet werden könnne, bieten sich hier
+viele Möglichkeiten für Abweichungen. Diese Fehlerquelle ließe sich minimieren, indem die
+Messwerte automatisch aus den Bildern errechnet werden. Hierzu bietet sich ein
+Auslesen des Grauwertes des Bildes in Abhängigkeit von der Position auf der x-Achse
+an. Als weitere systematische Fehlerquelle muss die Magnetfeldeichung in Betracht gezogen
+werden. Durch die Eichung an sich wird ein Ablesefehler durch die Hall-Sonde minimiert,
+die gewonnenen Wertepaare weisen jedoch für sich große Fehler auf. Insbesondere muss
+das Amperemeter zur Messung der Feldstromstärke bestenfalls als grob bezeichnet werden.
+Ein digitales Messgerät würde dabei bessere Ergebnisse liefern. Messungen mit einer
+Hall-Sonde bergen immer ein hohes Fehlerpotential, da nur die Magnetfeldkomponente senkrecht
+auf die Sonde vermessen wird. Die Sonde kann daher nicht immer perfekt im Magnetfeld
+ausgerichtet werden.\\
+Zusammenfassend sind die Ergebnisse jedoch als außerordentlich gut zu bewerten. Insbesondere
+durch das hohe Auflösungsvermögen der $\textsc{Lummer-Gehrke}$-Platte von \num{209128.6} für die rote
+und \num{285458.1} für die blaue Linie können gute Ergebnisse gewonnen werden. Generell
+entsprechen die Ergebnisse den Erwartungen und konnten den $\textsc{Zeeman}$-Effekt
+gut nachvollziehbar machen.
 
 
 \newpage

@@ -78,3 +78,8 @@ mg_Rot = mg(lam_Rot_mean, B(I_Rot_0), 644*10**(-9))
 mg_blau_0 = mg(lam_Blau0_mean, B(I_Blau_0), 480*10**(-9))
 mg_blau_90 = mg(lam_Blau90_mean, B(I_Blau_90), 480*10**(-9))
 print(mg_Rot, mg_blau_0, mg_blau_90)
+print(B(I_Rot_0), B(I_Blau_0), B(I_Blau_90))
+
+np.savetxt('TabelleRot.txt', np.column_stack([ds_Rot_0, dels_Rot_0, lam_Rot*10**12]), fmt="%.2f")
+np.savetxt('TabelleBlau0.txt', np.column_stack([ds_Blau_0, dels_Blau_0, lam_Blau0*10**12]), fmt="%.2f")
+np.savetxt('TabelleBlau90.txt', np.column_stack([ds_Blau_90, dels_Blau_90, lam_Blau90*10**12]), fmt="%.2f")

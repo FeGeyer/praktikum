@@ -169,6 +169,46 @@ sich über die spinabhängige Schrödingergleichung zeigen. Die Auspaltung wird
 vielfältiger, da $g$ nicht mehr für alle $J$ 1 ist, sondern von $L, S$ und $J$
 abhängt.
 
+\section{Durchführung}
+\subsection{Versuchsaufbau}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.38]{aufbau.png}
+  \caption{Der Versuchsaufbau im Schema.}
+  \label{fig:3}
+\end{figure}
+Der Aufbau des Versuchs ist in Abbildung \ref{fig:3} zu sehen. Das Licht stammt
+von einer Cd-Lampe, deren rote und blaue Linie aufgespalten werden. Dies wird realisiert,
+indem die Lampe in einen starken Elektromagnet gestellt wird. Dann wird transversal
+zum Magnetfeld durch Linsen, Spalte und ein Geradsichtprisma das Licht nach Wellenlängen
+aufgespalten. Nun kann durch eine Spalt und einen Polarisationsfilter die gewünschte
+Linie mit der gewünschten Polarisation ausgewählt und auf eine Lummer-Gehrke-Platte
+abgebildet werden. Das entstehende Interferenzmuster wird über eine Digitalkamera
+aufgenommen. Bei monochromatischem Licht erzeugt die Lummer-Gehrke-Platte Gangunterschiede
+von $\lambda$, also genau der eingestrahlten Wellenlänge. Durch Einschalten des Magnetfeldes
+tritt eine Verschiebung der Wellenlänge um $\delta \lambda$ auf, welche wiederum
+die interferierten Straheln um $\delta s$ verschiebt. Dabei ist allerdings zu beachten,
+dass das Dispersionsgebiet
+\begin{equation}
+    \symup \Delta \lambda_D = \frac{\lambda^2}{2\, d} \cdot \sqrt{\frac{1}{n^2 - 1}}
+    \label{eqn:11}
+\end{equation}
+nicht überschritten wird, da sonst eine Überlagerung der Wellenlängen auftreten
+(mit $d$ als Dicke der Platte und $n$ als Ordnung des Maximums). Für das
+Auflösungsvermögen $A$ der Lummer-Gehrke-Platte gilt
+\begin{equation}
+  A = \frac{L}{\lambda} (n^2 - 1)
+  \label{eqn:12}
+\end{equation}
+mit $L$ als Länge der Platte und $n$ als Brechungsindex.
+\subsection{Versuchsdurchführung}
+Zuerst wurde der Elektromagnet geeicht, indem das B-Feld über ein Gaussmeter
+in Abhängigkeit vom Feldstrom gemessen wird in einem Intervall von $0 \leq I \leq \SI{20}{\ampere}$.
+Dann wird der bereits beschriebene Aufbau so justiert, dass die gesuchten Wellenlängen
+($\lambda = \SI{480}{\nano\meter}$ und $\lambda = \SI{643.8}{\nano\meter}$)
+mit der durch den Polarisationsfilter eingestellten Polarisation auf die Lummer-Gehrke-Platte
+fallen. Dann werden mittels Digitalkamera Bilder von Interferenzbildern bei verschiedenen Polarisationen
+und Magnetfeldstärken aufgenommen, um daraus die Wellenlängenverschiebung zu bestimmen.
 
 \section{Auswertung}
 \subsection{Eichung des B-Feldes}

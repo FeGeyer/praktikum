@@ -1,12 +1,12 @@
 # Fdb version 3
-["biber build/dokument"] 1513079886 "build/dokument.bcf" "build/dokument.bbl" "build/dokument" 1513080006
-  "build/dokument.bcf" 1513080006 95947 4e6ff8c12b58500c7f356813ff7bacde ""
+["biber build/dokument"] 1513079886 "build/dokument.bcf" "build/dokument.bbl" "build/dokument" 1513092173
+  "build/dokument.bcf" 1513092170 95947 4e6ff8c12b58500c7f356813ff7bacde ""
   "lit.bib" 1513070885 183 9d65b96f41c154fed6228a92a862ce84 ""
   "programme.bib" 1513071033 1042 681836d224c758e678e4f1a862d141da ""
   (generated)
-  "build/dokument.blg"
   "build/dokument.bbl"
-["lualatex"] 1513080001 "dokument.tex" "build/dokument.pdf" "dokument" 1513080006
+  "build/dokument.blg"
+["lualatex"] 1513092166 "dokument.tex" "build/dokument.pdf" "dokument" 1513092173
   "/home/rune/.local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1480098698 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/home/rune/.local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1480098698 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/home/rune/.local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1480098698 928 2dc8d444221b7a635bb58038579b861a ""
@@ -198,12 +198,12 @@
   "/home/rune/.local/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc" 1497471021 135396 fcddc1d9a7540ff59b433cbf44872a51 ""
   "/home/rune/.local/texlive/2017/texmf-var/tex/generic/config/language.dat.lua" 1497467881 17237 c33f8824144a931453a322b6b235a94b ""
   "/home/rune/.local/texlive/2017/texmf-var/web2c/luatex/lualatex.fmt" 1508919740 1349036 94fff12ba56fcc5a3dadd7e0df441bc4 ""
-  "body.tex" 1513079999 1582 3740292ad3df18ea93a0bf43b1e8f170 ""
-  "build/dokument.aux" 1513080006 4991 6fa9e023e7ca7e566b3110092bddb924 ""
+  "body.tex" 1513084015 6440 c4bfe6269f5cb180a05ec1745d5d7b9d ""
+  "build/dokument.aux" 1513092170 6872 1a510c4d98f71c2192ec55f1fcc24d36 ""
   "build/dokument.bbl" 1513079887 6080 ee77797f18920aa5964d2ea8b7b6e45f "biber build/dokument"
-  "build/dokument.run.xml" 1513080006 2364 a3e2d4de06bebe74244749c4eb5df7fb ""
+  "build/dokument.run.xml" 1513092170 2364 a3e2d4de06bebe74244749c4eb5df7fb ""
   "dokument.tex" 1513070885 94 6e6fb0a531c79309d8805c3ceecfb67f ""
-  "header.tex" 1513079794 1668 e074d54fcc6ba88c14d62e0717e26533 ""
+  "header.tex" 1513092147 1680 789398386e14342d064bcf3e678cf1ee ""
   "logo.png" 1513070885 24879 c215c00377ae6221d818a295b56d63a7 ""
   (generated)
   "build/dokument.run.xml"

@@ -7,15 +7,16 @@ In der Festkörperphysik und Halbleitertechnik wichtige Informationen über die
 Bandstruktur von Halbleitern können durch Magneto-Optische Untersuchungen gewonnen
 werden. Insbesondere der $\textsc{Faraday}$-Effekt ist hierbei ein wichtiges
 Messwerkzeug. Mithilfe dieses Effekts können effektive Massen von Halbleiterelektronen
-bestimmt werden. Dies ist Ziel des Versuchs.
+bestimmt werden, was Ziel dieses Versuchs ist.
+
 \section{Theorie}
-\subsection{Effkive Masse}
+\subsection{Effekive Masse}
 Zur Beschreibung der Bandstruktur von Kristallen ist in es in vielen Fällen hinreichend,
 sich auf die untere Bandkante der Energiebänder zu beschränken (siehe Abbildung [\textbf{??}]).
-Der Verlauf der Energiebänder (entspricht der Elektronenenergie) wird durch eine Funktion
+Der Verlauf der Energiebänder (entspricht der Elektronenenergie) wird mit einer Funktion
 $\varepsilon(\vec{k})$ durch den Wellenzahlvektror $\vec{k}$ beschrieben. Diese, bei
 Betrachtung des Gesammtverlaufs des Energiebandes in den meisten Fällen äußerst
-komplizierte Funktion, kann in der Nähe der Bandkante nach den Komponenten von $\vec{k}$
+komplizierte Funktion kann in der Nähe der Bandkante nach den Komponenten von $\vec{k}$
 Taylorentwickelt werden. Sinniger Weise legt man die Bandkante dabei in den Nullpunkt
 des Koordinatensystems, sodass um Null entwickelt werden kann. Es folgt eine Taylorreihe:
 \begin{equation}
@@ -31,14 +32,15 @@ und ein Vergleich mit der Taylorreihe zeigt, dass die Größen:
 \begin{equation*}
   m_i^* \coloneq \hbar^2 \left\{ \left(\pdv[2]{\varepsilon}{k_i} \right)_{k=0} \right\}^{-1}
 \end{equation*}
-Massen beschreiben. Diese Größen werden Effektive Massen genannt und ermöglichen es,
+Massen beschreiben. Diese Größen werden effektive Massen genannt und ermöglichen es,
 dass Kristallelektronen als freie Elektronen betrachtet werden, wenn ihre Ruhemassen
-in der Schrödingergleichung mit eben diesen Effektiven Massen ersetzt werden. Das
+in der Schrödingergleichung mit eben diesen effektiven Massen ersetzt werden. Das
 Potential kann dann in guter Näherung vernachlässigt werden und für mäßige externe
 Felder gilt das 2. $\textsc{Newtonsche}$ Axiom.\\
 Für perfekte Kristallsymmetrien vereinfacht sich die Taylorentwicklung \eqref{T_eq:1}
 dergestalt, dass aus den offensichtlich elliptischen Energieflächen kugelsymmetrische
-werden. Für solche Flächen lässt sich der $\textsc{Faraday}$-Effekt beschreiben.
+werden (in diesem Fall gilt $k_x = k_y = k_z$).
+Für solche Flächen lässt sich der $\textsc{Faraday}$-Effekt beschreiben.
 
 \subsection{Zirkulare Doppelbrechung bei optisch aktiver Materie}
 Beim eintreten eines linear Polarisierten Lichtstrahls in ein optisch aktives Medium
@@ -54,18 +56,18 @@ gedreht (siehe Abbildung [\textbf{??}]). Der Rotationswinkel berechnet sich zu
           &=\frac{L\omega}{2}\left(\frac{1}{v_{\text{ph}_{\text{R}}}}-\frac{1}{v_{\text{ph}_{\text{L}}}}\right)\\
           &=\frac{L\omega}{2\text{c}}\left(n_{\text{R}}-n_{\text{L}}\right),
 \end{align*}
-wobei $v_{\text{ph}}=\frac{\omega}{k}$ die Phasengeschwindigkeit und $n=\frac{c}{v_{\text{ph}}}$
+wobei $v_{\text{ph}}=\omega k^{-1}$ die Phasengeschwindigkeit und $n=c v_{\text{ph}}^{-1}$
 der Brechungsindex für links- bzw. rechtspolarisiertes Licht in einem Kristall der
-Länge $L$ ist. Dieser, als
-Zirkulare Doppelbrechung bezeichnete Effekt geht auf im Kristallmedium induzierte
-Dipole (permantente können der Frquenz des einfallenden Lichts nicht folgen) zurück.
+Länge $L$ ist. Die Lichtfreuqenz der einlaufenden Welle ist durch $\omega$ gegeben.\\
+Dieser, als zirkulare Doppelbrechung bezeichnete, Effekt geht auf im Kristallmedium induzierte
+Dipole (permantente Dipole können der Frquenz des einfallenden Lichts nicht folgen) zurück.
 Die Polarisation $\vec{P} = \varepsilon_0 \chi \vec{E}$ des Kristalls
 steigt damit propotional zur dielektrischen Suszeptibilität
 $\chi$. Für isotrope Materialien handelt es sich hier um eine skalare Größe, in anisotropen
 Medien ist $\chi$ jedoch Richtungsabhängig und muss daher tensoriell definiert werden.
 In vielen Fällen handelt es sich hier um eine Diagonalmatrix, das Material ist dann
 nicht doppelbrechend (optisch inaktiv). Doppelbrechende Materialien weisen jedoch Nebenachseneinträge
-auf, die in einfachen Fällen eine Gestallt:
+auf, sodass $\chi$ in einfachen Fällen eine Gestallt:
 \begin{equation*}
     \underline{\underline{\chi}} =
     \begin{pmatrix}
@@ -96,14 +98,14 @@ und man erhält in guter Näherung:
 Hierbei wird durch $N$ die Anzahl der Elektronen pro Volumeneinheit, durch $B$
 die externe Magentfeldstärke, durch $\lambda$ die Wellenlänge des einfallenden
 Lichts und durch $\omega_0$ die meist im nahen infraroten liegende Resonanzfrequenz
-der zu erzwungenen Schwingungen fähigen gebundenen Elektronen. Weiter
-lässt sich im limes $\omega_0 \rightarrow 0$ für freie Elektronen ein Ausdruck
+der zu erzwungenen Schwingungen fähigen gebundenen Elektronen bezeichnet. Weiter
+lässt sich im Limes $\omega_0 \rightarrow 0$ (also für freie Elektronen) ein Ausdruck
 \begin{equation}
   \theta_{\text{frei}}(\lambda)=\frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
   \frac{\lambda^2}{m^2}\frac{N L B}{n}
   \label{T_eq:3}
 \end{equation}
-entwickeln. Dieser kann unter Verwendung der oben eingeführten Effektiven Masse
+entwickeln. Dieser kann unter Verwendung der oben eingeführten effektiven Masse
 auch für Kristallelektronen verwendet und zur Bestimmung ebendieser genutzt werden.
 \section{Durchführung}
 \subsection{Versuchsaufbau}

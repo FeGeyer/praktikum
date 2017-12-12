@@ -11,13 +11,100 @@ bestimmt werden. Dies ist Ziel des Versuchs.
 \section{Theorie}
 \subsection{Effkive Masse}
 Zur Beschreibung der Bandstruktur von Kristallen ist in es in vielen Fällen hinreichend,
-sich auf die untere Bandkante der Energiebänder zu beschränken (siehe Abbildung \ref{T_Abb:1}).
+sich auf die untere Bandkante der Energiebänder zu beschränken (siehe Abbildung [\textbf{??}]).
 Der Verlauf der Energiebänder (entspricht der Elektronenenergie) wird durch eine Funktion
-$\varepsilon(\vec{k})$ durch den Wellenzahlvektro $\vac{k}$ beschrieben. Diese, bei
+$\varepsilon(\vec{k})$ durch den Wellenzahlvektror $\vec{k}$ beschrieben. Diese, bei
 Betrachtung des Gesammtverlaufs des Energiebandes in den meisten Fällen äußerst
 komplizierte Funktion, kann in der Nähe der Bandkante nach den Komponenten von $\vec{k}$
-Taylorentwickelt werden. Sinniger Weise legt man die Bandkante dabei in den Nullpunkt,
-sodass um Null entwickelt werden kann.
+Taylorentwickelt werden. Sinniger Weise legt man die Bandkante dabei in den Nullpunkt
+des Koordinatensystems, sodass um Null entwickelt werden kann. Es folgt eine Taylorreihe:
+\begin{equation}
+  \varepsilon(\vec{k}) = \varepsilon(0) + \frac{1}{2} \sum_{i=1}^3 \left(
+  \pdv[2]{\varepsilon}{k_i} \right)_{k=0} k_i^2 + \mathcal{O}(k_i^3).
+  \label{T_eq:1}
+\end{equation}
+Weiterhin gilt die Beziehung
+\begin{equation*}
+  \varepsilon = \frac{\hbar^2 k^2}{2 m}
+\end{equation*}
+und ein Vergleich mit der Taylorreihe zeigt, dass die Größen:
+\begin{equation*}
+  m_i^* \coloneq \hbar^2 \left\{ \left(\pdv[2]{\varepsilon}{k_i} \right)_{k=0} \right\}^{-1}
+\end{equation*}
+Massen beschreiben. Diese Größen werden Effektive Massen genannt und ermöglichen es,
+dass Kristallelektronen als freie Elektronen betrachtet werden, wenn ihre Ruhemassen
+in der Schrödingergleichung mit eben diesen Effektiven Massen ersetzt werden. Das
+Potential kann dann in guter Näherung vernachlässigt werden und für mäßige externe
+Felder gilt das 2. $\textsc{Newtonsche}$ Axiom.\\
+Für perfekte Kristallsymmetrien vereinfacht sich die Taylorentwicklung \eqref{T_eq:1}
+dergestalt, dass aus den offensichtlich elliptischen Energieflächen kugelsymmetrische
+werden. Für solche Flächen lässt sich der $\textsc{Faraday}$-Effekt beschreiben.
+
+\subsection{Zirkulare Doppelbrechung bei optisch aktiver Materie}
+Beim eintreten eines linear Polarisierten Lichtstrahls in ein optisch aktives Medium
+wird die Polarisationsebene des Strahls gedreht. Dies lässt sich dadurch verstehen,
+dass eine linear polarisierte Welle zu gleichen Teilen aus einem rechtszirkular und
+einem linkszirkular zur Ausbreitungsrichtung (im folgenden $\vec{z}$) polarisierten
+Teil besteht. Die beiden Zirkularisationsrichtungen breiten sich nun mit unterschiedlichen
+Phasengeschwindigkeiten (bzw. Wellenzahlvektoren) aus und die linear polarisierte
+Welle die nach durchgang durch den Kristall wieder austritt ist um den Winkel $\theta$
+gedreht (siehe Abbildung [\textbf{??}]). Der Rotationswinkel berechnet sich zu
+\begin{align*}
+    \theta &=\frac{L}{2} \left(k_{\text{R}}-k_{\text{L}}\right)\\
+          &=\frac{L\omega}{2}\left(\frac{1}{v_{\text{ph}_{\text{R}}}}-\frac{1}{v_{\text{ph}_{\text{L}}}}\right)\\
+          &=\frac{L\omega}{2\text{c}}\left(n_{\text{R}}-n_{\text{L}}\right),
+\end{align*}
+wobei $v_{\text{ph}}=\frac{\omega}{k}$ die Phasengeschwindigkeit und $n=\frac{c}{v_{\text{ph}}}$
+der Brechungsindex für links- bzw. rechtspolarisiertes Licht in einem Kristall der
+Länge $L$ ist. Dieser, als
+Zirkulare Doppelbrechung bezeichnete Effekt geht auf im Kristallmedium induzierte
+Dipole (permantente können der Frquenz des einfallenden Lichts nicht folgen) zurück.
+Die Polarisation $\vec{P} = \varepsilon_0 \chi \vec{E}$ des Kristalls
+steigt damit propotional zur dielektrischen Suszeptibilität
+$\chi$. Für isotrope Materialien handelt es sich hier um eine skalare Größe, in anisotropen
+Medien ist $\chi$ jedoch Richtungsabhängig und muss daher tensoriell definiert werden.
+In vielen Fällen handelt es sich hier um eine Diagonalmatrix, das Material ist dann
+nicht doppelbrechend (optisch inaktiv). Doppelbrechende Materialien weisen jedoch Nebenachseneinträge
+auf, die in einfachen Fällen eine Gestallt:
+\begin{equation*}
+    \underline{\underline{\chi}} =
+    \begin{pmatrix}
+      \chi_{\text{xx}} & i\chi_{\text{xy}} & 0 \\
+      -i \chi_{\text{xy}}& \chi_{\text{xx}} & 0 \\
+      0& 0 & \chi_{\text{zz}}
+      \end{pmatrix}
+\end{equation*}
+annimmt. Für den Drehwinkel nach Durchgang folgt dabei nach Taylorentwicklung in
+erster Ordnung in guter Näherung:
+\begin{equation}
+  \theta = \frac{L \omega}{2 c n} \chi_{xy}.
+  \label{T_eq:2}
+\end{equation}
+
+\subsection{Zirkulare Doppelbrechung bei optisch inaktiver Materie}
+Als $\textsc{Faraday}$-Effekt wird nun das Auftreten des oben beschriebenen Effekts
+bei optisch inakiver Materie bezeichnet, wenn ein äußeres Magnetfeld angelegt wird.
+Aus der Bewegungsgleichung für ein gebundenes Elektron folgt bei Vernächlässigung
+von Dämpfungseffekten und Feldeinflüssen durch das Lichtfeld für hohe
+Lichtfrquenzen eine Verschiebungspolarisoation $\vec{P} = -N e_0 \vec{r}$.
+Es lässt sich nun das in \eqref{T_eq:2} benötigte Tensorelement $\chi_{xy}$ bestimmen
+und man erhält in guter Näherung:
+\begin{equation*}
+  \theta(\lambda)=\frac{2\pi^2 \text{e}_0^3 \text{c}}{\epsilon_0}\frac{1}{m^2
+  \lambda^2 \omega{_0}^4}\frac{N B L}{n}.
+\end{equation*}
+Hierbei wird durch $N$ die Anzahl der Elektronen pro Volumeneinheit, durch $B$
+die externe Magentfeldstärke, durch $\lambda$ die Wellenlänge des einfallenden
+Lichts und durch $\omega_0$ die meist im nahen infraroten liegende Resonanzfrequenz
+der zu erzwungenen Schwingungen fähigen gebundenen Elektronen. Weiter
+lässt sich im limes $\omega_0 \rightarrow 0$ für freie Elektronen ein Ausdruck
+\begin{equation}
+  \theta_{\text{frei}}(\lambda)=\frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
+  \frac{\lambda^2}{m^2}\frac{N L B}{n}
+  \label{T_eq:3}
+\end{equation}
+entwickeln. Dieser kann unter Verwendung der oben eingeführten Effektiven Masse
+auch für Kristallelektronen verwendet und zur Bestimmung ebendieser genutzt werden.
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 \subsection{Versuchsdurchführung}

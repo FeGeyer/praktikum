@@ -52,8 +52,8 @@ t2 = abs(t2)
 D1 = abs(ht/hd-t1/d1)
 D2 = abs(ht/hd-t2/d2)
 #Fit
-N1 = A*2.8*10**24 #weil umgerechnet auf Meter
-N2 = A*1.2*10**24
+N1 = A*2.8*10**16 #weil umgerechnet auf Meter
+N2 = A*1.2*10**16
 
 
 def fitf1(x,m,b):
@@ -83,8 +83,8 @@ plt.clf()
 # print(m2)
 # print('Hildegard1:', unp.sqrt(N1/(m1*10**12)))
 # print('Hildegard2:', unp.sqrt(C2/(m2*10**12)))
-print('Hildegard1/me:', unp.sqrt((N1/(m1)))/me)
-print('Hildegard2/me:', unp.sqrt((N2/(m2)))/me)
+print('Hildegard1/me:', unp.sqrt((N1/(m1*10**-12)))/me)
+print('Hildegard2/me:', unp.sqrt((N2/(m2*10**-12)))/me)
 m = np.array([unp.sqrt((N1/(m1*10**12)))/me, unp.sqrt((N2/(m2*10**12)))/me])
 print(m)
 print("Mittelwert: ", np.mean(m))

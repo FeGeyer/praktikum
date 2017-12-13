@@ -35,15 +35,17 @@ print("Hier a, b und c: ", a, b, c)
 
 # Tabelle
 np.savetxt('TexTabellen/BFeldtab.txt',np.column_stack([B, z, zrel]), delimiter=' & ',
-           newline= r'\\'+'\n', fmt='%.0f')
+           newline= r' \\'+'\n', fmt='%.0f')
 
 x = np.linspace(-30, 30, 1000)
+y = fitf(x, a, b, c)
+print("Maximum des B-Feldes: ", np.max(y))
 # plt.subplot(1, 2, 1)
 plt.figure(1)
 plt.plot(zrel, B, 'rx', label=r'$B(z)$')
 plt.plot(x, fitf(x, *params), 'b-', label='Parabel')
-plt.xlabel(r'$z \:/\: mm$')
-plt.ylabel(r'$B \:/\: T$')
+plt.xlabel(r'$z \:/\: \mathrm{mm}$')
+plt.ylabel(r'$B \:/\: \mathrm{T}$')
 plt.xlim(-20, 20)
 plt.ylim(0, B.max()+25)
 plt.grid()

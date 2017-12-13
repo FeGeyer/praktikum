@@ -177,11 +177,66 @@ im nahen Infrarot gemessen.\\
 Der Drehwinkel wird dabei bestimmt, indem die Polarisatorstellung und die Zeitkonstanten der
 Photowiderstände abwechselnd so eingestellt werden, dass am Differenzverstärker eine Spannung
 Null abfällt. Die Winkelstellung des Polarisators wird abgelesen und die Messung
-bei umgepolten Magnetfeld widerholt. Der Drehwinkel ergbiebt sich dann zu:
+bei umgepolten Magnetfeld widerholt. Der Drehwinkel ergibt sich dann zu:
 \begin{equation}
   \theta = \frac{1}{2} \left(\theta_1 - \theta_2 \right).
 \end{equation}
 \section{Auswertung}
+\subsection{Bestimmung der Kraftflussdichte}
+In Tabelle \ref{tab:1} sind die gemessenen Kraftflussdichten und der jeweilige
+Ort $z$ aufgetragen. $z_\symup{rel}$ ist der Ort relativ zum Ort der Probe,
+welcher in den Koordinatenursprung gelegt wurde.
+\begin{table}
+  \centering
+  \caption{Kraftflussdichte $B(z)$ in Abhängigkeit vom Ort $z$.}
+  \label{tab:1}
+  \begin{tabular}{c c c}
+    \toprule
+    $B(z)$ / \si{\milli\tesla} & $z$ / \si{\milli\meter} & $z_\symup{rel}$ / \si{\milli\meter} \\
+    \midrule
+    51 & 65 & -15\\
+    188 & 70 & -10\\
+    209 & 72 & -8\\
+    219 & 74 & -6\\
+    222 & 75 & -5\\
+    224 & 76 & -4\\
+    225 & 77 & -3\\
+    226 & 78 & -2\\
+    225 & 79 & -1\\
+    225 & 80 & 0\\
+    222 & 81 & 1\\
+    219 & 82 & 2\\
+    214 & 83 & 3\\
+    209 & 84 & 4\\
+    200 & 85 & 5\\
+    187 & 86 & 6\\
+    149 & 88 & 8\\
+    90 & 90 & 10\\
+    17 & 95 & 15\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Mit der Funktion
+\begin{equation}
+  f(x) = a \, x^2 + b \, x + c
+  \label{eqn:1}
+\end{equation}
+und $B(z)$ und $z_\symup{rel}$ wird eine Augleichsrechnung gemacht. Es ergibt sich
+\begin{align*}
+  a &= \num{-0.86(4)} \\
+  b &= \num{-2.5(4)} \\
+  c &= \num{229(4)} \\
+\end{align*}
+für die Parameter. Das Maximum dieser Parabel liegt bei $B_\symup{max} = \SI{231(4)}{\milli\tesla}$.
+Der Plot der Werte aus Tabelle \ref{tab:1} mit Ausgleichrechnung ist in
+Abbildung \ref{fig:1}.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{BFeld.pdf}
+  \caption{Fit der Werte aus Tabelle \ref{tab:1} mit Ausgleichrechnung.}
+  \label{fig:1}
+\end{figure}
+
 \subsection{Fehlerrechnung}
 \section{Diskusion}
 \newpage

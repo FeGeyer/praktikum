@@ -9,9 +9,6 @@ from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 18
 
-mhub = const.value('Bohr magneton')     # das gelibete Borhsche Magneton zeigt wie man Scipy Constants benutzt
-
-
 def mittel(x):  # the real mean()-ing of life
     return ufloat(np.mean(x), np.std(x, ddof=1)/np.sqrt(len(x)))
 
@@ -20,32 +17,35 @@ def relf(l, m):  # in Prozent
     return (np.absolute(l-m)/l)*100
 
 
-def fitf(x, a, b):
-    return a*x**2 + b
+def fitf(x, a, b, c):
+    return a*x**2 + b*x + c
 
 
-z, B = np.genfromtxt('BFeld.txt', unpack=True)
-# z = z-80    # Zentrum des Magfeldes
+z, zrel, B = np.genfromtxt('BFeld.txt', unpack=True)
 # z *= 10**-3
 # B *= 10**-3
 
 # Fit
-params, cov = curve_fit(fitf, z, B)
+params, cov = curve_fit(fitf, zrel, B)
 errors = np.sqrt(np.diag(cov))
 a = ufloat(params[0], errors[0])
 b = ufloat(params[1], errors[1])
-print("Hier a und b: ", a, b)
-# Tabelle
-# np.savetxt('BFeldtab.txt',np.column_stack([B,z]), delimiter=' & ',
-#            newline= r'\\'+'\n' )
+c = ufloat(params[2], errors[2])
+print("Hier a, b und c: ", a, b, c)
 
-x = np.linspace(60, 100, 1000)
+# Tabelle
+np.savetxt('TexTabellen/BFeldtab.txt',np.column_stack([B, z, zrel]), delimiter=' & ',
+           newline= r'\\'+'\n', fmt='%.0f')
+
+x = np.linspace(-30, 30, 1000)
 # plt.subplot(1, 2, 1)
 plt.figure(1)
-plt.plot(z, B, 'ro', label='Mag. Feldstärke')
+plt.plot(zrel, B, 'rx', label=r'$B(z)$')
 plt.plot(x, fitf(x, *params), 'b-', label='Parabel')
-plt.xlabel(r'$z \:/\: m$')
+plt.xlabel(r'$z \:/\: mm$')
 plt.ylabel(r'$B \:/\: T$')
+plt.xlim(-20, 20)
+plt.ylim(0, B.max()+25)
 plt.grid()
 plt.legend(loc='best')
 plt.tight_layout()

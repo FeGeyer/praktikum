@@ -328,7 +328,7 @@ durchgeführt, nach der Form
 \begin{equation*}
   g(x) = m \, x + b \, .
 \end{equation*}
-Es ergeben sich
+Diese ist in Abbildung \ref{fig:5} dargestellt. Es ergeben sich
 \begin{align}
   m_1 &= \SI{1.1(9)e2}{\per\cubic\meter} \label{eqn:2} \\
   b_1 &= \SI{1.2(4)e3}{\per\meter}
@@ -370,7 +370,7 @@ Als Mittelwert ergibt sich
   \label{eqn:6}
 \end{equation}
 
-\begin{figure}[p]
+\begin{figure}[h]
   \centering
   \subcaptionbox{Messwerte. \label{tab:5}}[0.35\textwidth]{
   \centering
@@ -389,7 +389,7 @@ Als Mittelwert ergibt sich
     \bottomrule
   \end{tabular}
   }
-  \subcaptionbox{Grafische Darstellung mit Regression. \label{fig:2}}[0.6\textwidth]{
+  \subcaptionbox{Grafische Darstellung mit Regression. \label{fig:5}}[0.6\textwidth]{
   \centering
   \includegraphics[width=0.6\textwidth]{Test.pdf}
   }
@@ -404,10 +404,52 @@ Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Num
 die zugehörigen Standartabweichungen durch die Funktion $\textsc{stats.sem}$ aus dem
 Paket $\textsc{scipy}$\footnote{Version: 1.0.0} berechnet. Fehlerfortpflanzung wird
 durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{Version: 3.0.1} automatisiert.
-\section{Diskusion}
+
+
+\section{Diskussion}
 \subsection{Zur Berechnung der Kraftflussdichte}
-
-
+Die Bestimmung der Kraftflussdichte hat alles in allem gesehen gut funktioniert.
+Es wird aus \ref{fig:2} ersichtlich, dass die Regression verhältnismäßig gut
+an die Werte angepasst ist. Zur Verbesserung der Bestimmung wäre die Aufnahme von
+zusätzlichen Messwerten nötig, vor allem auf den abfallenden Flanken.
+\subsection{Zur Bestimmung der Drehwinkel}
+Die Bestimmung der Drehwinkel ist eher schlecht verlaufen, wie aus \ref{fig:3}
+ersichtlich wird. Es ist kein linearer Verlauf zu erkennen. Genauer gesagt ist
+keine Korrelation zwischen den Messwerten zu erkennen, was vor allem durch das große
+Rauschen durch den sich erwärmenden und daraufhin im infraroten Bereich abstrahlenden
+Elektromagneten und die damit verbundene sehr unterschiedliche Minimumsbestimmung
+am Differentialverstärker. Der Selektivverstärker war in diesem Fall leider
+nicht sehr hilfreich, da auch im infraroten Bereich gemessen wurde und der Selektivverstärker
+Rauschen im Messbereich kaum unterdrückt. Außerdem wurd die Bestimmung des Minimums dadurch erschwert,
+dass für höhere Wellenlängen die Interferenzfilter nur noch sehr wenig Licht durchgelassen
+haben und damit ein zu kleines Signal an den Differenzverstärker gelangte.
+\subsection{zur Bestimmung der effektiven Masse}
+Auch die Bestimmung der effektiven Masse ist eher schlecht verlaufen. In Abbildung
+\ref{fig:5} ist ebenfalls nur mit viel gutem Willen ein linearer Verlauf zu erkennen,
+auch sind die Regressionen nicht ganz parallel. Die Gründe dafür liegen in der
+fehlerhaften Bestimmung der Drehwinkel, da diese in die Rechnung bzw. den Fit
+eingeflossen sind. Außerdem war die Regression an sich ebenfalls problematisch,
+da die Wellenlängen in \si{\micro\meter} in den Plot und die Regression eingeflossen sind,
+da bei einer Umrechnung in \si{\meter} die Python-Funktion $\textsc{curve-fit}$
+sonst keine Kovarianzen berechnet, da das Verhältnis der Größenordnungen zwischen
+x- und y-Werten zu groß ist. Deswegen mussten von Hand die Steigungen und die
+effektiven Massen umgerechnet werden, wobei ebenfalls ein Fehlerpotential besteht.
+Vor diesem Hintergrund ist die relative Abweichung von 97.6\% vom
+Literaturwert\footnote{aus \cite{lit}} $\frac{m_\symup{eff}}{\symup{m_e}} = 0.067$
+einfach einzusehen. Unser berechneter Wert liegt eine Größenordnung unter dem
+Literaturwert, was unter den Umständen verständlich ist. \\
+\\
+Zum Abschluss lässt sich sagen, dass bis auf die Bestimmung der Kraftflussdichte
+die bestimmten Werte stark von den Literaturwerten abweichen. Allerdings war
+der Aufbau nicht ganz optimal, vor allem die in der Anleitung erwähnte Wasserkühlung
+des Elektromagneten hätten das massive Rauschen verringern können. Außerdem ließe
+sich der Aufbau mit den Photowiderständen verbessern, sodass diese auch bei weniger Intensität
+trotzdem noch ein starkes Signal noch an den Differentialverstärker geben. Weiterhin
+waren die Interferenzfilter teilweise verschmutzt und ließen dadurch auch weniger
+Intensität passieren. Mit einer Optimierung des Aufbaus ließe sich die effektive
+Masse bzw. die Faraday-Rotation besser bestimmen. Allein für die Einführung des
+Faraday-Effekts und seiner Anwendungen in der heutigen Halbleiterindustrie
+war der Versuch sehr anschaulich und einfach durchzuführen.
 
 \newpage
 \nocite{*}

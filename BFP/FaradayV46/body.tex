@@ -180,16 +180,18 @@ Null abfällt. Die Winkelstellung des Polarisators wird abgelesen und die Messun
 bei umgepolten Magnetfeld widerholt. Der Drehwinkel ergibt sich dann zu:
 \begin{equation}
   \theta = \frac{1}{2} \left(\theta_1 - \theta_2 \right).
+  \label{runederaffe}
 \end{equation}
 \section{Auswertung}
 \subsection{Bestimmung der Kraftflussdichte}
 In Tabelle \ref{tab:1} sind die gemessenen Kraftflussdichten und der jeweilige
 Ort $z$ aufgetragen. $z_\symup{rel}$ ist der Ort relativ zum Ort der Probe,
-welcher in den Koordinatenursprung gelegt wurde.
-\begin{table}
+welcher in den Koordinatenursprung gelegt wurde. Außerdem befindet sich
+der Plot und die Regression in Abbildung \ref{fig:2}.
+\begin{figure}[p]
   \centering
-  \caption{Kraftflussdichte $B(z)$ in Abhängigkeit vom Ort $z$.}
-  \label{tab:1}
+  \subcaptionbox{Messwerte. \label{tab:1}}[0.4\textwidth]{
+  \centering
   \begin{tabular}{c c c}
     \toprule
     $B(z)$ / \si{\milli\tesla} & $z$ / \si{\milli\meter} & $z_\symup{rel}$ / \si{\milli\meter} \\
@@ -215,7 +217,16 @@ welcher in den Koordinatenursprung gelegt wurde.
     17 & 95 & 15\\
     \bottomrule
   \end{tabular}
-\end{table}
+  }
+  \subcaptionbox{Grafische Darstellung mit Regression. \label{fig:2}}[0.58\textwidth]{
+  \centering
+  \includegraphics[width=0.58\textwidth]{BFeld.pdf}
+  }
+  \caption{Kraftflussdichte $B(z)$ in Abhängigkeit vom Ort $z$.}
+  \label{fig:1}
+\end{figure}
+
+
 Mit der Funktion
 \begin{equation}
   f(x) = a \, x^2 + b \, x + c
@@ -228,17 +239,176 @@ und $B(z)$ und $z_\symup{rel}$ wird eine Augleichsrechnung gemacht. Es ergibt si
   c &= \num{229(4)} \\
 \end{align*}
 für die Parameter. Das Maximum dieser Parabel liegt bei $B_\symup{max} = \SI{231(4)}{\milli\tesla}$.
-Der Plot der Werte aus Tabelle \ref{tab:1} mit Ausgleichrechnung ist in
-Abbildung \ref{fig:1}.
+\subsection{Drehwinkel des hochreinen und des n-dotierten GaAs}
+Für alle gemessenen Winkel wird nach \eqref{runederaffe} der wahre Drehwinkel
+bestimmt. Jene Drehwinkel zusammen mit der jeweiligen Wellenlänge und dem
+längennormierten Winkel stehen in den Tabellen \ref{tab:2} bis \ref{tab:4}.
+Die Normierungen wurden mit den angegebenen Längen in den Tabellen durchgeführt.
+\begin{table}
+  \centering
+  \caption{Wellenlänge, Drehwinkel und längenormierter Drehwinkel für
+  hochreines GaAs mit $L$ = \SI{5.11e-3}{\meter}.}
+  \label{tab:2}
+  \begin{tabular}{c c c}
+    \toprule
+    $\lambda$ / \si{\micro\meter} & $\theta$ / \si{\degree} & $\theta_\symup{norm}$ /
+    \si{\degree\per\meter} \\
+    \midrule
+    1.29 & 5.28 & 1033.92 \\
+    1.06 & 10.96 & 2144.49 \\
+    1.45 & 7.98 & 1562.30 \\
+    2.16 & 2.96 & 578.93 \\
+    2.34 & 1.67 & 326.16 \\
+    2.51 & 6.42 & 1255.71 \\
+    2.65 & 2.61 & 510.44 \\
+    1.72 & 4.22 & 825.18 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Wellenlänge, Drehwinkel und längenormierter Drehwinkel für
+  das erste n-dotierte GaAs mit $N$ = \SI{1.2e18}{\per\cubic\centi\meter}
+  und $L$ = \SI{1.36e-3}{\meter}.}
+  \label{tab:3}
+  \begin{tabular}{c c c}
+    \toprule
+    $\lambda$ / \si{\micro\meter} & $\theta$ / \si{\degree} & $\theta_\symup{norm}$ /
+    \si{\degree\per\meter} \\
+    \midrule
+    1.29 & 3.72 & 2732.84 \\
+    1.06 & 5.24 & 3854.17 \\
+    1.45 & 3.27 & 2401.96 \\
+    2.16 & 2.62 & 1930.15 \\
+    2.34 & 4.03 & 2965.69 \\
+    2.51 & 3.69 & 2714.46 \\
+    2.65 & 3.75 & 2757.35 \\
+    1.72 & 3.18 & 2334.56 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+  \begin{table}
+    \centering
+    \caption{Wellenlänge, Drehwinkel und längenormierter Drehwinkel für
+    das zweite n-dotierte GaAs mit $N$ = \SI{2.8e18}{\per\cubic\centi\meter}
+    und $L$ = \SI{1.296e-3}{\meter}.}
+    \label{tab:4}
+    \begin{tabular}{c c c}
+      \toprule
+      $\lambda$ / \si{\micro\meter} & $\theta$ / \si{\degree} & $\theta_\symup{norm}$ /
+      \si{\degree\per\meter} \\
+      \midrule
+      1.29 & 4.24 & 3272.89 \\
+      1.06 & 5.52 & 4256.69 \\
+      1.45 & 3.78 & 2912.81 \\
+      2.16 & 6.38 & 4918.98 \\
+      2.34 & 6.31 & 4867.54 \\
+      2.51 & 3.25 & 2507.72 \\
+      2.65 & 3.91 & 3015.69 \\
+      1.72 & 3.82 & 2944.96 \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+\clearpage
+In Abbildung \ref{fig:3} sind sich die längennormierten Drehwinkel gegen das
+Quadrat der Wellenlängen aufgetragen.
 \begin{figure}
   \centering
-  \includegraphics[scale=0.5]{BFeld.pdf}
-  \caption{Fit der Werte aus Tabelle \ref{tab:1} mit Ausgleichrechnung.}
-  \label{fig:1}
+  \includegraphics[scale=0.5]{b.pdf}
+  \caption{Die längennormierten Winkel gegen $\lambda ^2$ aufgetragen.}
+  \label{fig:3}
+\end{figure}
+\subsection{Bestimmung der effektiven Masse}
+Zur Bestimmung der effektiven Masse werden die Differenzen zwischen den
+$\theta_\symup{norm}$ des hochreinen GaAs und der beiden n-dotierten GaAs
+gebildet.
+Diese befinden sich in Tabelle \ref{tab:5}. Außerdem wird eine lineare Ausgleichrechnung
+durchgeführt, nach der Form
+\begin{equation*}
+  g(x) = m \, x + b \, .
+\end{equation*}
+Es ergeben sich
+\begin{align}
+  m_1 &= \SI{1.1(9)e2}{\per\cubic\meter} \label{eqn:2} \\
+  b_1 &= \SI{1.2(4)e3}{\per\meter}
+\end{align}
+für die erste Regression und
+\begin{align}
+  m_2 &= \SI{1.6(22)e2}{\per\cubic\meter} \label{eqn:3} \\
+  b_2 &= \SI{1.9(1)e3}{\per\meter}
+\end{align}
+für die zweite Regression. Um nun die effektive Masse zu bestimmen, wird
+\eqref{T_eq:3} genutzt. Aufgrund der Regression gilt
+\begin{equation}
+  m_{1, 2} = \frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
+  \frac{1}{m^2}\frac{N B}{n} \, .
+  \label{eqn:4}
+\end{equation}
+Umgestellt ergibt sich aus \eqref{eqn:4}
+\begin{equation}
+  m = \sqrt{\frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
+  \frac{1}{m_{1, 2}}\frac{N B}{n}}
+  \label{eqn:5}
+\end{equation}
+für die effektive Masse. Für $N$ und $B$ werden die bereits erwähnten Größen
+eingesetzt und für den Brechungsindex der Wert $n =$ 3.3543\footnote{aus \cite{n}}
+für $\lambda =$ \SI{1771.14}{\nano\meter}, da der Mittelwert unserer Wellenlängen
+bei \SI{1897.5}{\nano\meter} liegt. Es ergeben sich
+\begin{align*}
+  m_\symup{eff, 1} &= \SI{1.9(7)e-33}{\kilo\gram} \\
+  m_\symup{eff, 2} &= \SI{1.1(7)e-33}{\kilo\gram}
+\end{align*}
+und
+\begin{align*}
+  \frac{m_\symup{eff, 1}}{\symup{m_e}} &= \num{0.0021(8)} \\
+  \frac{m_\symup{eff, 2}}{\symup{m_e}} &= \num{0.0012(8)} \, .
+\end{align*}
+Als Mittelwert ergibt sich
+\begin{equation}
+  \frac{m_\symup{eff}}{\symup{m_e}} = \num{0.0016(6)} \, .
+  \label{eqn:6}
+\end{equation}
+
+\begin{figure}[p]
+  \centering
+  \subcaptionbox{Messwerte. \label{tab:5}}[0.35\textwidth]{
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    $\theta_1$ & $\theta_2$ \\
+    \midrule
+    1698.92 & 2238.97 \\
+    1709.68 & 2112.20 \\
+    839.66 & 1350.51 \\
+    1351.22 & 4340.05 \\
+    2639.53 & 4541.38 \\
+    1458.75 & 1252.01 \\
+    2246.92 & 2505.25 \\
+    1509.38 & 2119.78 \\
+    \bottomrule
+  \end{tabular}
+  }
+  \subcaptionbox{Grafische Darstellung mit Regression. \label{fig:2}}[0.6\textwidth]{
+  \centering
+  \includegraphics[width=0.6\textwidth]{Test.pdf}
+  }
+  \caption{Der Drehwinkel der Leitungselektronen gegen die Wellenlänge
+  zum Quadrat aufgetragen.}
+  \label{fig:4}
 \end{figure}
 
 \subsection{Fehlerrechnung}
+Die Fehlerrechnung wird in $\textsc{Python}$\footnote{Version: 3.6.3} durchgeführt.
+Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$\footnote{Version: 3.6.3},
+die zugehörigen Standartabweichungen durch die Funktion $\textsc{stats.sem}$ aus dem
+Paket $\textsc{scipy}$\footnote{Version: 1.0.0} berechnet. Fehlerfortpflanzung wird
+durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{Version: 3.0.1} automatisiert.
 \section{Diskusion}
+\subsection{Zur Berechnung der Kraftflussdichte}
+
+
+
 \newpage
 \nocite{*}
 \printbibliography

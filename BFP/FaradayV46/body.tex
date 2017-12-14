@@ -56,14 +56,14 @@ Für solche Flächen lässt sich der $\textsc{Faraday}$-Effekt beschreiben.
   aktives Medium \cite{Anleitung}.}
   \label{T_Abb:2}
 \end{figure}
-Beim eintreten eines linear Polarisierten Lichtstrahls in ein optisch aktives Medium
+Beim Eintreten eines linear polarisierten Lichtstrahls in ein optisch aktives Medium
 wird die Polarisationsebene des Strahls gedreht. Dies lässt sich dadurch verstehen,
 dass eine linear polarisierte Welle zu gleichen Teilen aus einem rechtszirkular und
 einem linkszirkular zur Ausbreitungsrichtung (im folgenden $\vec{z}$) polarisierten
 Teil besteht. Die beiden Zirkularisationsrichtungen breiten sich nun mit unterschiedlichen
 Phasengeschwindigkeiten (bzw. Wellenzahlvektoren) aus und die linear polarisierte
-Welle die nach durchgang durch den Kristall wieder austritt ist um den Winkel $\theta$
-gedreht (siehe Abbildung [\textbf{??}]). Der Rotationswinkel berechnet sich zu
+Welle, die nach dem Durchgang durch den Kristall wieder austritt, ist um den Winkel $\theta$
+gedreht (siehe Abbildung \ref{T_Abb:2}). Der Rotationswinkel berechnet sich zu
 \begin{align*}
     \theta &=\frac{L}{2} \left(k_{\text{R}}-k_{\text{L}}\right)\\
           &=\frac{L\omega}{2}\left(\frac{1}{v_{\text{ph}_{\text{R}}}}-\frac{1}{v_{\text{ph}_{\text{L}}}}\right)\\
@@ -77,7 +77,7 @@ Dipole (permantente Dipole können der Frquenz des einfallenden Lichts nicht fol
 Die Polarisation $\vec{P} = \varepsilon_0 \chi \vec{E}$ des Kristalls
 steigt damit propotional zur dielektrischen Suszeptibilität
 $\chi$. Für isotrope Materialien handelt es sich hier um eine skalare Größe, in anisotropen
-Medien ist $\chi$ jedoch Richtungsabhängig und muss daher tensoriell definiert werden.
+Medien ist $\chi$ jedoch richtungsabhängig und muss daher tensoriell definiert werden.
 In vielen Fällen handelt es sich hier um eine Diagonalmatrix, das Material ist dann
 nicht doppelbrechend (optisch inaktiv). Doppelbrechende Materialien weisen jedoch Nebenachseneinträge
 auf, sodass $\chi$ in einfachen Fällen eine Gestallt:
@@ -130,7 +130,7 @@ auch für Kristallelektronen verwendet und zur Bestimmung ebendieser genutzt wer
   \label{D_Abb:1}
 \end{figure}
 Der Versuchsaufbau ist in Abbildung \ref{D_Abb:1} dargestellt. Das von einer Halogenlampe
-emittierte Infrarotlicht wird über eine Kondensorlinse fokosiert,
+emittierte Infrarotlicht wird über eine Kondensorlinse fokussiert,
 durch einen Interferenzfilter monochromatisiert und durch
 ein $\textsc{Glan-Thompson}$-Prisma (Polarisator) linear polarisiert. Die von diesem Licht durchleuchtete
 Probe befindet sich dabei in einem Elektromagneten. Der Elektromagnet wird durch ein
@@ -157,7 +157,7 @@ Nun wird in folgender Reihenfolge vorgegangen:
   Die relative Position zwischen den Photowiederständen und den vorgelagerten
   Sammellinsen wird so einjustiert, dass die einfallenden Strahlen gut auf
   die Photowiderstände abgebildet werden.
-  \item Jusatge von Selektivverstärker:\\
+  \item Justage von Selektivverstärker:\\
   Der Zerhacker wird eingeschaltet und die gewählte Frequenz am Selektivverstärker
   eingestellt. Der Differenzverstärker wird dafür durchgeschaltet. Das Ausgangssignal wird
   nun auf dem Oszilloskop beobachtet und  der Selektivverstärker zu eingeregelt,
@@ -171,7 +171,7 @@ Nun wird in folgender Reihenfolge vorgegangen:
   Polarisatorstellung und Zeitkonstante eines Photowiderstands geprüft,
   ob am Selektivverstärker ein Signal abfällt, dass, bis auf Störspannungen, null ist.
 \end{enumerate}
-Nach der Justage das maximale Magnetfeld in Strahlrichtung mit einer Hallsonde gemessen. Danach wird
+Nach der Justage wird das maximale Magnetfeld in Strahlrichtung mit einer Hallsonde gemessen. Danach wird
 der Drehwinkel an n-dotiertem und hochreinem Galliumarsenit für mehrere Wellenlängen
 im nahen Infrarot gemessen.\\
 Der Drehwinkel wird dabei bestimmt, indem die Polarisatorstellung und die Zeitkonstanten der
@@ -399,11 +399,11 @@ Als Mittelwert ergibt sich
 \end{figure}
 
 \subsection{Fehlerrechnung}
-Die Fehlerrechnung wird in $\textsc{Python}$\footnote{Version: 3.6.3} durchgeführt.
-Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$\footnote{Version: 3.6.3},
+Die Fehlerrechnung wird in $\textsc{Python}$\footnote{\cite{python}} durchgeführt.
+Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$\footnote{\cite{numpy}},
 die zugehörigen Standartabweichungen durch die Funktion $\textsc{stats.sem}$ aus dem
-Paket $\textsc{scipy}$\footnote{Version: 1.0.0} berechnet. Fehlerfortpflanzung wird
-durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{Version: 3.0.1} automatisiert.
+Paket $\textsc{scipy}$\footnote{\cite{scipy}} berechnet. Fehlerfortpflanzung wird
+durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{\cite{uncertainties}} automatisiert.
 
 
 \section{Diskussion}

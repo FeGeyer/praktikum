@@ -51,6 +51,12 @@ t2 = abs(t2)
 #Differenzzwischen der hochreinen und den zwei Proben
 D1 = abs(ht/hd-t1/d1)
 D2 = abs(ht/hd-t2/d2)
+D = D2[0:3]
+D = np.append(D, D2[5:])
+h = hl[0:3]
+h = np.append(h, hl[5:])
+# print(D2)
+# print(D)
 #Fit
 N1 = A*2.8*10**16 #weil umgerechnet auf Meter
 N2 = A*1.2*10**16
@@ -103,12 +109,15 @@ print('Hildegard2/me:', unp.sqrt((N2/(m2*10**12)))/me)
 m = np.array([unp.sqrt((N1/(m1*10**12)))/me, unp.sqrt((N2/(m2*10**12)))/me])
 print(m)
 print("Mittelwert: ", np.mean(m))
-# #Tabelle
-np.savetxt('TexTabellen/HGaAstab.txt',np.column_stack([hl,ht,(ht/hd)]),
+#Tabelle
+np.savetxt('TexTabellen/HGaAstab.txt',np.column_stack([hl, htb, hto, ht,(ht/hd)]),
            delimiter=' & ',newline= r' \\'+'\n', fmt='%.2f')
-np.savetxt('TexTabellen/1.nGaAstab.txt',np.column_stack([l1,t1,(t1/d1)]),
+
+np.savetxt('TexTabellen/1.nGaAstab.txt',np.column_stack([l1, tb1, to1, t1, (t1/d1)]),
            delimiter=' & ',newline= r' \\'+'\n', fmt='%.2f')
-np.savetxt('TexTabellen/2.nGaAstab.txt',np.column_stack([l2,t2,(t2/d2)]),
+
+np.savetxt('TexTabellen/2.nGaAstab.txt',np.column_stack([l2, tb2, to2, t2,( t2/d2)]),
            delimiter=' & ',newline= r' \\'+'\n', fmt='%.2f')
+
 np.savetxt('TexTabellen/Differenz2.txt',np.column_stack([D1, D2]),
            delimiter=' & ',newline= r' \\'+'\n', fmt='%.2f')

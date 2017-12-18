@@ -105,7 +105,7 @@ Lichtfrquenzen eine Verschiebungspolarisoation $\vec{P} = -N e_0 \vec{r}$.
 Es lässt sich nun das in \eqref{T_eq:2} benötigte Tensorelement $\chi_{xy}$ bestimmen
 und in guter Näherung folgt:
 \begin{equation*}
-  \theta(\lambda)=\frac{2\pi^2 \text{e}_0^3 \text{c}}{\epsilon_0}\frac{1}{m^*^2
+  \theta(\lambda)=\frac{2\pi^2 \text{e}_0^3 \text{c}}{\epsilon_0}\frac{1}{{m^*}^2
   \lambda^2 \omega{_0}^4}\frac{N B L}{n}.
 \end{equation*}
 Hierbei wird durch $N$ die Anzahl der Elektronen pro Volumeneinheit, durch $B$
@@ -115,7 +115,7 @@ der zu erzwungenen Schwingungen fähigen gebundenen Elektronen bezeichnet. Weite
 lässt sich im Limes $\omega_0 \rightarrow 0$ (also für freie Elektronen) ein Ausdruck
 \begin{equation}
   \theta_{\text{frei}}(\lambda)=\frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
-  \frac{\lambda^2}{m^*^2}\frac{N L B}{n}
+  \frac{\lambda^2}{{m^*}^2}\frac{N L B}{n}
   \label{T_eq:3}
 \end{equation}
 entwickeln. Dieser kann unter Verwendung der oben eingeführten effektiven Masse
@@ -345,12 +345,12 @@ für die zweite Regression. Um nun die effektive Masse zu bestimmen, wird
 \eqref{T_eq:3} genutzt. Aufgrund der Regression gilt
 \begin{equation}
   m_{1, 2} = \frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
-  \frac{1}{m^2}\frac{N B}{n} \, .
+  \frac{1}{{m^*}^2}\frac{N B}{n} \, .
   \label{eqn:4}
 \end{equation}
 Umgestellt ergibt sich aus \eqref{eqn:4}
 \begin{equation}
-  m = \sqrt{\frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
+  m^* = \sqrt{\frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
   \frac{1}{m_{1, 2}}\frac{N B}{n}}
   \label{eqn:5}
 \end{equation}
@@ -406,24 +406,38 @@ Die Fehlerrechnung wird in $\textsc{Python}$\footnote{\cite{python}} durchgefüh
 Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$\footnote{\cite{numpy}},
 die zugehörigen Standartabweichungen durch die Funktion $\textsc{stats.sem}$ aus dem
 Paket $\textsc{scipy}$\footnote{\cite{scipy}} berechnet. Fehlerfortpflanzung wird
-durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{\cite{uncertainties}} automatisiert.
-
+durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{\cite{uncertainties}} berechnet
+mit der Gaußschen Fehlerfortpflanzungsformel
+\begin{equation}
+    \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
+    x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
+    x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
+    \label{fehler}
+\end{equation}
+Fehlerbehaftete Größen sind das mittels Augleichsrechnung bestimmte Maximum der
+Kraftflussdichte, die Steigungen $m_1$ und $m_2$ der Differenzen der $\theta_\symup{norm}$
+und alles, was aus diesen
+Winkeln bestimmt wird. Damit ergibt sich \eqref{fehler} zu
+\begin{equation}
+    \symup \Delta m^*(B, m_{1, 2}) = \sqrt{\left(\frac{\symup dm^*}{\symup dB} \symup \Delta
+    B \right)^2 +    \left(\frac{\symup dm^*}{\symup dm_{1, 2}} \symup \Delta
+    m_{1, 2} \right)^2} \ .
+    \label{fehler2}
+\end{equation}
 
 \section{Diskussion}
 \subsection{Zur Berechnung der Kraftflussdichte}
-Die Bestimmung der Kraftflussdichte hat alles in allem gesehen gut funktioniert.
+Die Bestimmung der Kraftflussdichte hat insgesamt gut funktioniert.
 Es wird aus \ref{fig:2} ersichtlich, dass die Regression verhältnismäßig gut
-an die Werte angepasst ist. Zur Verbesserung der Bestimmung wäre die Aufnahme von
-zusätzlichen Messwerten nötig, vor allem auf den abfallenden Flanken.
+an die Werte angepasst ist. Das Maximum, um dessen Bestimmung es ging, ist gut
+approximiert worden.
 \subsection{Zur Bestimmung der Drehwinkel}
 Die Bestimmung der Drehwinkel ist eher schlecht verlaufen, wie aus \ref{fig:3}
 ersichtlich wird. Es ist kein linearer Verlauf zu erkennen. Genauer gesagt ist
 keine Korrelation zwischen den Messwerten zu erkennen, was vor allem durch das große
 Rauschen durch den sich erwärmenden und daraufhin im infraroten Bereich abstrahlenden
 Elektromagneten und die damit verbundene sehr unterschiedliche Minimumsbestimmung
-am Differentialverstärker. Der Selektivverstärker war in diesem Fall leider
-nicht sehr hilfreich, da auch im infraroten Bereich gemessen wurde und der Selektivverstärker
-Rauschen im Messbereich kaum unterdrückt. Außerdem wurd die Bestimmung des Minimums dadurch erschwert,
+am Differentialverstärker. Außerdem wurde die Bestimmung des Minimums dadurch erschwert,
 dass für höhere Wellenlängen die Interferenzfilter nur noch sehr wenig Licht durchgelassen
 haben und damit ein zu kleines Signal an den Differenzverstärker gelangte.
 \subsection{Zur Bestimmung der effektiven Masse}
@@ -431,23 +445,16 @@ Auch die Bestimmung der effektiven Masse ist eher schlecht verlaufen. In Abbildu
 \ref{fig:5} ist ebenfalls nur mit viel gutem Willen ein linearer Verlauf zu erkennen,
 auch sind die Regressionen nicht ganz parallel. Die Gründe dafür liegen in der
 fehlerhaften Bestimmung der Drehwinkel, da diese in die Rechnung bzw. den Fit
-eingeflossen sind. Außerdem war die Regression an sich ebenfalls problematisch,
-da die Wellenlängen in \si{\micro\meter} in den Plot und die Regression eingeflossen sind,
-da bei einer Umrechnung in \si{\meter} die Python-Funktion $\textsc{curve-fit}$
-sonst keine Kovarianzen berechnet, da das Verhältnis der Größenordnungen zwischen
-x- und y-Werten zu groß ist. Deswegen mussten von Hand die Steigungen und die
-effektiven Massen umgerechnet werden, wobei ebenfalls ein Fehlerpotential besteht.
-Vor diesem Hintergrund ist die relative Abweichung von 97.6\% vom
+eingeflossen sind. Vor diesem Hintergrund ist die relative Abweichung von 97.6\% vom
 Literaturwert\footnote{aus \cite{lit}} $\frac{m_\symup{eff}}{\symup{m_e}} = 0.067$
 einfach einzusehen. Unser berechneter Wert liegt eine Größenordnung unter dem
 Literaturwert, was unter den Umständen verständlich ist. \\
 \\
 Zum Abschluss lässt sich sagen, dass bis auf die Bestimmung der Kraftflussdichte
 die bestimmten Werte stark von den Literaturwerten abweichen. Allerdings war
-der Aufbau nicht ganz optimal, vor allem die in der Anleitung erwähnte Wasserkühlung
-des Elektromagneten hätten das massive Rauschen verringern können. Außerdem ließe
-sich der Aufbau mit den Photowiderständen verbessern, sodass diese auch bei weniger Intensität
-trotzdem noch ein starkes Signal noch an den Differentialverstärker geben. Weiterhin
+der Aufbau nicht ganz optimal, die Photowiderstände ließen sich verbessern,
+sodass diese auch bei weniger Intensität
+trotzdem noch ein starkes Signal an den Differentialverstärker geben. Weiterhin
 waren die Interferenzfilter teilweise verschmutzt und ließen dadurch auch weniger
 Intensität passieren. Mit einer Optimierung des Aufbaus ließe sich die effektive
 Masse bzw. die Faraday-Rotation besser bestimmen. Allein für die Einführung des

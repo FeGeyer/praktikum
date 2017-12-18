@@ -4,7 +4,7 @@
 \pagenumbering{arabic}
 \section{Zielsetzung}
 In der Festkörperphysik und Halbleitertechnik wichtige Informationen über die
-Bandstruktur von Halbleitern können durch Magneto-Optische Untersuchungen gewonnen
+Bandstruktur von Halbleitern können durch magneto-optische Untersuchungen gewonnen
 werden. Insbesondere der $\textsc{Faraday}$-Effekt ist hierbei ein wichtiges
 Messwerkzeug. Mithilfe dieses Effekts können effektive Massen von Halbleiterelektronen
 bestimmt werden, was Ziel dieses Versuchs ist.
@@ -20,10 +20,10 @@ bestimmt werden, was Ziel dieses Versuchs ist.
 Zur Beschreibung der Bandstruktur von Kristallen ist in es in vielen Fällen hinreichend,
 sich auf die untere Bandkante der Energiebänder zu beschränken (siehe Abbildung \ref{T_Abb:1}).
 Der Verlauf der Energiebänder (entspricht der Elektronenenergie) wird mit einer Funktion
-$\varepsilon(\vec{k})$ durch den Wellenzahlvektror $\vec{k}$ beschrieben. Diese, bei
+$\varepsilon(\vec{k})$ durch den Wellenzahlvektror $\vec{k}$ beschrieben. Diese bei
 Betrachtung des Gesammtverlaufs des Energiebandes in den meisten Fällen äußerst
 komplizierte Funktion kann in der Nähe der Bandkante nach den Komponenten von $\vec{k}$
-Taylorentwickelt werden. Sinniger Weise wird die Bandkante dabei in den Nullpunkt
+taylorentwickelt werden. Sinniger Weise wird die Bandkante dabei in den Nullpunkt
 des Koordinatensystems gelegt, sodass um Null entwickelt werden kann. Es folgt eine Taylorreihe:
 \begin{equation}
   \varepsilon(\vec{k}) = \varepsilon(0) + \frac{1}{2} \sum_{i=1}^3 \left(
@@ -41,7 +41,7 @@ und ein Vergleich mit der Taylorreihe zeigt, dass die Größen:
 Massen beschreiben. Diese Größen werden effektive Massen genannt und ermöglichen es,
 dass Kristallelektronen als freie Elektronen betrachtet werden, wenn ihre Ruhemassen
 in der Schrödingergleichung mit eben diesen effektiven Massen ersetzt werden. Das
-Potential kann dann in guter Näherung vernachlässigt werden und für mäßige externe
+Potential wird dann durch die effektive Masse berücksichtigt und für mäßige externe
 Felder gilt das 2. $\textsc{Newtonsche}$ Axiom.\\
 Für perfekte Kristallsymmetrien vereinfacht sich die Taylorentwicklung \eqref{T_eq:1}
 dergestalt, dass aus den offensichtlich elliptischen Energieflächen kugelsymmetrische
@@ -73,14 +73,14 @@ wobei $v_{\text{ph}}=\omega k^{-1}$ die Phasengeschwindigkeit und $n=c v_{\text{
 der Brechungsindex für links- bzw. rechtspolarisiertes Licht in einem Kristall der
 Länge $L$ ist. Die Lichtfreuqenz der einlaufenden Welle ist durch $\omega$ gegeben.\\
 Dieser, als zirkulare Doppelbrechung bezeichnete, Effekt geht auf im Kristallmedium induzierte
-Dipole (permantente Dipole können der Frquenz des einfallenden Lichts nicht folgen) zurück.
+Dipole (permantente Dipole können der Frequenz des einfallenden Lichts nicht folgen) zurück.
 Die Polarisation $\vec{P} = \varepsilon_0 \chi \vec{E}$ des Kristalls
 steigt damit propotional zur dielektrischen Suszeptibilität
 $\chi$. Für isotrope Materialien handelt es sich hier um eine skalare Größe, in anisotropen
 Medien ist $\chi$ jedoch richtungsabhängig und muss daher tensoriell definiert werden.
 In vielen Fällen handelt es sich hier um eine Diagonalmatrix, das Material ist dann
 nicht doppelbrechend (optisch inaktiv). Doppelbrechende Materialien weisen jedoch Nebenachseneinträge
-auf, sodass $\chi$ in einfachen Fällen eine Gestallt:
+auf, sodass $\chi$ in einfachen Fällen eine Gestalt:
 \begin{equation*}
     \underline{\underline{\chi}} =
     \begin{pmatrix}
@@ -105,7 +105,7 @@ Lichtfrquenzen eine Verschiebungspolarisoation $\vec{P} = -N e_0 \vec{r}$.
 Es lässt sich nun das in \eqref{T_eq:2} benötigte Tensorelement $\chi_{xy}$ bestimmen
 und in guter Näherung folgt:
 \begin{equation*}
-  \theta(\lambda)=\frac{2\pi^2 \text{e}_0^3 \text{c}}{\epsilon_0}\frac{1}{m^2
+  \theta(\lambda)=\frac{2\pi^2 \text{e}_0^3 \text{c}}{\epsilon_0}\frac{1}{m^*^2
   \lambda^2 \omega{_0}^4}\frac{N B L}{n}.
 \end{equation*}
 Hierbei wird durch $N$ die Anzahl der Elektronen pro Volumeneinheit, durch $B$
@@ -115,7 +115,7 @@ der zu erzwungenen Schwingungen fähigen gebundenen Elektronen bezeichnet. Weite
 lässt sich im Limes $\omega_0 \rightarrow 0$ (also für freie Elektronen) ein Ausdruck
 \begin{equation}
   \theta_{\text{frei}}(\lambda)=\frac{\text{e}_0^3}{8 \pi^2 \epsilon_0 \text{c}^3}
-  \frac{\lambda^2}{m^2}\frac{N L B}{n}
+  \frac{\lambda^2}{m^*^2}\frac{N L B}{n}
   \label{T_eq:3}
 \end{equation}
 entwickeln. Dieser kann unter Verwendung der oben eingeführten effektiven Masse
@@ -134,9 +134,7 @@ emittierte Infrarotlicht wird über eine Kondensorlinse fokussiert,
 durch einen Interferenzfilter monochromatisiert und durch
 ein $\textsc{Glan-Thompson}$-Prisma (Polarisator) linear polarisiert. Die von diesem Licht durchleuchtete
 Probe befindet sich dabei in einem Elektromagneten. Der Elektromagnet wird durch ein
-Konstantspannungsgerät mit Strom versorgt. Integriert ist ein Polwender, der ein
-gefahrloses Umpolen des Magnetfeldes ermöglicht, sodass die relative Magnetfeldänderung
-auf $2B$ maximiert werden kann. Nach Durchlauf durch den Magneten trifft der Lichtstrahl
+Konstantspannungsgerät mit Strom versorgt. Nach Durchlauf durch den Magneten trifft der Lichtstrahl
 auf ein weiteres $\textsc{Glan-Thompson}$-Prisma (Analysator), durch welches der Strahl aufgespalten wird.
 Beide Strahlen werden durch Sammellinsen auf Photowiderstände abgebildet. Damit an
 den Photowiderständen eine Wechselspannung abfällt, wird ein Lichtzerhacker in den Strahlgang
@@ -161,8 +159,7 @@ Nun wird in folgender Reihenfolge vorgegangen:
   Der Zerhacker wird eingeschaltet und die gewählte Frequenz am Selektivverstärker
   eingestellt. Der Differenzverstärker wird dafür durchgeschaltet. Das Ausgangssignal wird
   nun auf dem Oszilloskop beobachtet und  der Selektivverstärker zu eingeregelt,
-  dass das Signal maximal wird. Sollte der Rauschanteil nicht ausreichend stark
-  herausgefiltert werden, muss ein Lock-In-Verstärker eingeschleift werden.
+  dass das Signal maximal wird.
   \item Helligkeitsjustage:\\
   Position von Lichtquelle und Linse werden so gewählt, dass die Lichtintensität
   besser wird.
@@ -171,9 +168,6 @@ Nun wird in folgender Reihenfolge vorgegangen:
   Polarisatorstellung und Zeitkonstante eines Photowiderstands geprüft,
   ob am Selektivverstärker ein Signal abfällt, dass, bis auf Störspannungen, null ist.
 \end{enumerate}
-Nach der Justage wird das maximale Magnetfeld in Strahlrichtung mit einer Hallsonde gemessen. Danach wird
-der Drehwinkel an n-dotiertem und hochreinem Galliumarsenit für mehrere Wellenlängen
-im nahen Infrarot gemessen.\\
 Der Drehwinkel wird dabei bestimmt, indem die Polarisatorstellung und die Zeitkonstanten der
 Photowiderstände abwechselnd so eingestellt werden, dass am Differenzverstärker eine Spannung
 Null abfällt. Die Winkelstellung des Polarisators wird abgelesen und die Messung
@@ -182,6 +176,9 @@ bei umgepolten Magnetfeld widerholt. Der Drehwinkel ergibt sich dann zu:
   \theta = \frac{1}{2} \left(\theta_1 - \theta_2 \right).
   \label{runederaffe}
 \end{equation}
+Es wird der Drehwinkel an n-dotiertem und hochreinem Galliumarsenit für mehrere Wellenlängen
+im nahen Infrarot gemessen.\\
+Zuletzt wird das maximale Magnetfeld in Strahlrichtung mit einer Hallsonde gemessen.
 \section{Auswertung}
 \subsection{Bestimmung der Kraftflussdichte}
 In Tabelle \ref{tab:1} sind die gemessenen Kraftflussdichten und der jeweilige

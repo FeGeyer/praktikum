@@ -3,9 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
 from uncertainties import ufloat
-# from scipy.optimize import curve_fit
+from scipy.optimize import curve_fit
 from scipy.stats import stats
 import scipy.constants as const
+import scipy.integrate as integrate
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 18
 
@@ -34,18 +35,19 @@ T_z2 = T(R_z2)
 # Stromstärken umrechnen
 I *= 10**(-3)
 
-# Molwärmen ausrechnen, Molmasse wird von g/mol in kg/mol umgerechnent.
-M = ufloat(63.546, 0.003) * 10**(-3)
+# Molwärmen ausrechnen, Molmasse berechnen.
+u = const.value("atomic mass constant")
+M = ufloat(63.546, 0.003) * u * const.Avogadro
 m = 0.342
 
 
 # cp berechnen
-def cp(dT, U, I, dt):
+def cp(dT, U, I, M, dt, m):
     return (U * I * dt * M)/(dT * m)
 
 
 dT = T_p2 - T_p1
-cp = cp(dT, U, I, dt)
+cp = cp(dT, U, I, M, dt, m)
 
 
 # Mittelwert der Probentemperaturdifferenzen in Kelvin
@@ -97,4 +99,89 @@ kappa = 137.8 * 10**(9)
 V0 = 7.11 * 10 ** (-6)
 
 cv = cv(cp, alpha_T, kappa, V0, Tbar)
-print(cv)
+
+# Theta_D / T Werte für die c_V Werte bestimmen. Hierbei werden der für unsere
+# Daten relevante Bereich aus der Tabelle abgelesen und entsprechend gefittet.
+
+# Es sollen nur Werte bis 170K betrachtet werden
+cv_bis_170 = cv[Tbar <= 170]
+Tbar_bis_170 = Tbar[Tbar <= 170]
+print(cv_bis_170)
+
+# Einlesen, Fitten, zur Überprüfung plotten
+theta_T_Tabelle, c_V_Tabelle = np.genfromtxt('debeye.txt', unpack=True)
+x2 = np.linspace(13, 20)
+
+debeye, cov2 = np.polyfit(c_V_Tabelle, theta_T_Tabelle, 2, cov=True, )
+errors2 = np.sqrt(np.diag(cov2))
+d_1 = ufloat(debeye[0], errors[0])
+d_2 = ufloat(debeye[1], errors[1])
+Fit2 = np.polyval(debeye, x2)
+
+plt.figure(2)
+plt.ylim(2.0, 3.9)
+plt.xlim(13, 20)
+plt.ylabel(r"$\theta_D / T$")
+plt.xlabel(r"$c_V$ / J$\,$Mol$^{-1}$K$^{-1}$")
+plt.plot(c_V_Tabelle, theta_T_Tabelle, 'rx', label="Messwerte")
+plt.plot(x2, Fit2, 'r--', label="Regression")
+plt.grid()
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("Debeye.pdf")
+plt.clf()
+
+# Fitfunktion auswerten
+theta_d_durch_T = np.polyval(debeye, cv_bis_170)
+theta_d = theta_d_durch_T * Tbar_bis_170
+
+# Mittelwerte von theta_D:
+
+# Zuerst: Good ol' arithmetisches Mittel
+theta_d_arith = np.mean(theta_d)
+print(theta_d_arith)
+
+# Nun: Ein Gewichteter Mittelwert. Allgemein: np.sum(w * x), wobei w das array
+# der Gewichte ist und x die eigentlichen werte sind. Die Summe der Gewichte
+# muss 1 sein. Jetzt muss man nur noch Gewichte finden. Hier werden nun Werte
+# weniger stark gewichtet, bei denen Zylinder und Probe stark unterschiedlich
+# temperiert waren.
+
+# Mittelwerte der Zylindertemperaturen:
+TZylbar = T_z1 + 0.5*(T_z2 - T_z1) + 273.15
+TZylbar_bis_170 = TZylbar[Tbar <= 170]
+
+rel = Tbar_bis_170 / TZylbar_bis_170
+
+# Durchloopen, um Fälle zu filtern, in denen Tbar/Tzylbar war zu finden und
+# umzudrehen
+for i in range(len(rel)):
+    if rel[i] > 1:
+        rel[i] -= 1
+        rel[i] = 1 - rel[i]
+
+# rel soll das Gewichtsarray werden. Also: Auf 1 normieren.
+rel = rel / np.sum(rel)
+
+# gewichteten Mittelwert ausrechnen:
+theta_d_gew = np.sum(rel*theta_d)
+print(theta_d_gew)
+
+# Jetzt Teil d: Zuerst brauchen wir N_L und V:
+N_L = m/M * const.Avogadro
+V = V0 * m/M
+v_long = 4700
+v_trans = 2260
+
+# Aus V L bestimmen
+L = V**(1/3)
+
+# In die Fomel einsetzten:
+w_D = ((18*np.pi**2*N_L) / (L**3*((1/v_long**3) + (2/v_trans**3))))**(1/3)
+
+print(w_D*10**(-12), "in THz")
+
+# Daraus theta_D
+theta_D_2 = const.hbar * w_D / const.k
+
+print(theta_D_2)

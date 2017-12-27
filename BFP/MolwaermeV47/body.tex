@@ -3,6 +3,76 @@
 \newpage
 \pagenumbering{arabic}
 \section{Theorie}
+Im folgenden werden das klassische, das einsteinsche und das Debye-Modell
+zur Erläuterung der Temperaturabhängigkeit von Molwärme kristalliner Festkörper
+eingeführt und diskutiert.
+\subsection{Die klassische Theorie}
+Klassisch gesehen verteilt sich die einem Frstkörper zugeführte Wärmeenergie gleichmäßig
+auf alle Freiheitsgrade der Atome. Dies nennt man das Äquipartitionstheorem. Es gilt
+\begin{equation*}
+  \left< E \right> = \frac{1}{2} \, \symup{k_B} \, T
+\end{equation*}
+für die mittlere Energie pro Freiheitsgrad mit $T$ als Temperatur und $\symup{k_B}$ als
+Boltzmannkonstante. Da diese Atome im Kristall an definierten Positionen im Gitter
+sitzen, können sie entlang dreier Raumrichtungen um ihre Gleichgewichtslage schwingen.
+Es folgt
+\begin{equation}
+  U = 3 \, N_L \, \symup{k_B} \, T = 3 \, R \, T
+  \label{klassisch}
+\end{equation}
+für die mittlere Energie pro Atom mit $N_L$ als Loschmidtsche Zahl und $R$ als
+allgemeine Gaskonstante. Die spezifische Molwärme bei konstantem Volumen ergibt
+sich aus \eqref{klassisch}
+\begin{equation}
+  C_V = \left(\frac{\partial U}{\partial T} \right)_V = 3R \, .
+  \label{eqn:1}
+\end{equation}
+Diese ist offensichtlich weder material- noch temperaturabhängig. Dies widerspricht
+experimentellen Erfahrungen. Allerdings lässt sich der Wert $3R$ asymptotisch für
+hohe Temperaturen erreichen.
+\subsection{Einstein-Modell}
+Die fehlende Material- und Temperaturabhängigkeit rührt daher, dass im klassischen
+Ansatz die Quantelung der Schwingungsenergie außer Acht gelassen wurde. Im Einstein-Modell
+schwingen alle Atome mit der Frequenz $\omega$ und können nur Schwingungsenergien
+aufnehmen, die
+\begin{equation}
+  E = n\, \hbar \, \omega \ \ \forall \, n \in \mathbb{N}_0
+  \label{eqn:2}
+\end{equation}
+erfüllen. Weiterhin gilt für die Wahrscheinlichkeit, mit der ein schwingendes Atom
+bei einer Temperatur $T$ im thermodynamischen Gleichgewicht steht und die Energie
+\eqref{eqn:2} besitzt, nach der Boltmann-Verteilung
+\begin{equation}
+  W(n) = \symup{exp}\left(- \frac{n \, \hbar \, \omega}{k_B \, T} \right) \, .
+\end{equation}
+Es gilt
+\begin{equation}
+  \left< U \right >_\symup{Einstein} = \frac{\sum_{n = 0}^\infty n \hbar \omega \,
+  \symup{exp}\left(- \frac{n \, \hbar \, \omega}{k_B \, T} \right)}
+  {\sum_{n = 0}^\infty \symup{exp}\left(- \frac{n \, \hbar \, \omega}{k_B \, T} \right)}
+\end{equation}
+und es folgt daraus
+\begin{equation}
+  \left< U \right >_\symup{Einstein} = \frac{\hbar \, \omega}
+  {\symup{exp}\left(\frac{\hbar \, \omega}{k_B \, T} \right) - 1} \, .
+  \label{eqn:3}
+\end{equation}
+Für die Molwärme ergibt sich aus \eqref{eqn:3}
+\begin{equation}
+  {C_V}_\symup{Einstein} = \symup{\frac{d}{dT}} 3 N_L \, \frac{\hbar \, \omega}
+  {\symup{exp}\left(\frac{\hbar \, \omega}{k_B \, T} \right) - 1} =
+  3R \, \frac{\hbar^2 \omega^2}{k^2 T^2} \frac{\symup{exp}\left(\hbar \omega / k_B T \right)}
+  {\left[\symup{exp}\left(\hbar \omega / k_B T \right) - 1 \right]^2}
+  \label{eqn:4}
+\end{equation}
+Für \eqref{eqn:4} gilt wie erwähnt im Grenzfall großer Temperaturen
+\begin{equation}
+  \lim\limits_{T \to \infty}{{C_V}_\symup{Einstein}} = 3R \, .
+\end{equation}
+Außerdem enthält \eqref{eqn:4} die erwartete Abnahme der Molwärme mit der Temperatur.
+Allerdings weicht vor allem der Verlauf im Bereich tiefer Temperatuen stark ab vom
+Verlauf der experimentellen Kurve.
+
 \section{Durchführung}
 \subsection{Versuchsaufbau}
 \subsection{Versuchsdurchführung}

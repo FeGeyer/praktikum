@@ -72,10 +72,85 @@ Für \eqref{eqn:4} gilt wie erwähnt im Grenzfall großer Temperaturen
 Außerdem enthält \eqref{eqn:4} die erwartete Abnahme der Molwärme mit der Temperatur.
 Allerdings weicht vor allem der Verlauf im Bereich tiefer Temperatuen stark ab vom
 Verlauf der experimentellen Kurve.
+\subsection{Debye-Modell}
+Diese Abweichung im Bereich tiefer Temperaturen lässt sich damit erklären,
+dass im Einsteinmodell von einer singulären Frequenz ausgegangen wird. Wenn man diese
+ersetzt durch die spektrale Verteilung der möglichen Eigenschwingungen aller Oszillatoren
+$Z(\omega)$ in einem Kristall, erhält man
+\begin{equation}
+  C_V = \frac{\symup d }{\symup d t} \int_0^{\omega_\symup{max}} Z(\omega) \,
+  \frac{\hbar \, \omega}{\symup{exp}(\hbar \,\omega / k \, T) - 1} \symup d \omega \, .
+\end{equation}
+$Z(\omega)$ ist dabei recht komplizierter Natur, vor allem für z.B. anisotropes
+Verhalten. Als Näherung wird angenommen, dass die Phasengeschwindigkeit unabhängig
+von Frequenz und Ausbreitungsrichtung ist. $Z(\omega)$ lässt sich dann durch
+einfaches Abzählen der Eigenschwingungen in einem Würfel mit Kantenlänge $L$ in
+einem Frequenzintervall von $\omega$ bis $\omega + \symup d \omega$
+bestimmen. Dies wird als Debye-Modell bezeichnet. Es folgt
+\begin{equation}
+  Z(\omega) \symup d \omega = \frac{L^3}{2\pi^2} \, \omega^2 \left(\frac{1}{{v_l}^3}
+  + \frac{2}{v_{tr}^3} \right) \symup d \omega
+  \label{eqn:5}
+\end{equation}
+mit $v_l$ und $v_{tr}$ als Phasengeschwindigkeit in longitudinaler bzw. transversaler
+Richtung. Außerdem besitzt ein endlicher Kristall nur endlich viele Eigenschwingungen.
+Deswegen gibt es eine Grenzfrequenz, die sogennante Debye-Frequenz, welche man aus
+\begin{equation}
+  \int_0^{\omega_D} Z(\omega) \symup d \omega = 3 N_L
+  \label{eqn:6}
+\end{equation}
+erhält mit $N_L$ als Anzahl der Atome. Es folgt
+\begin{equation*}
+  Z(\omega) \symup d \omega = \frac{9N_L}{{\omega_D}^3} \, \omega^2 \symup d \omega
+\end{equation*}
+und daraus
+\begin{equation}
+  {C_V}_\symup{Debye} = 9 R \, \left(\frac{T}{\theta_D}\right)^3 \int_0^{\theta_D / T}
+  \frac{x^4 \, \symup e^x}{(\symup e^x - 1)^2} \, \symup d x
+  \label{eqn:7}
+\end{equation}
+mit $\theta_D$ als Debye-Temperatur, welche materialabhängig ist. Aus \eqref{eqn:7}
+wird ersichtlich, dass für die Grenzfälle kleiner und großer Temperaturen
+\begin{align}
+  \lim \limits_{T \to \infty}{{C_V}_\symup{Debye}} &= 3R \\
+  \lim \limits_{T \to 0}{{C_V}_\symup{Debye}} &\propto T^3
+\end{align}
+gilt. Die $T^3$-Abhängigkeit beschreibt den Grenzfall kleiner Temperaturen besser
+als das Einstein-Modell, ist aber aufgrund der getroffenen Annahme immer noch eine
+Näherung. Auch die Leitungselektronen tragen zur Molwärme bei, allerdings ist ihr
+Beitrag erst bei tiefen Temperaturen relevant und proportional zu $T$.
 
 \section{Durchführung}
 \subsection{Versuchsaufbau}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{aufbau.png}
+  \caption{Der Versuchsaufbau im Schema.}
+  \label{fig:1}
+\end{figure}
+In Abbildung \ref{fig:1} ist die Messapparatur zu sehen. Sie besteht aus dem Rezipienten,
+in welchem sich die Probe und ein Kupferzylinder, welcher die Probe umgibt, befinden.
+An der Probe und am Zylinder sind Pt-100 Messwiderständen,
+deren Widerstand auf Temperaturänderungen reagiert, und Heizwicklungen angebracht.
+Außen befindet sich ein Dewargefäß,
+in welches der flüssige Stickstoff gefüllt wird, um die Probe und den Zylinder abzukühlen.
+Die Temperaturen errechnen sich aus
+\begin{equation}
+  T = 0.00134 R^2 + 2.296 R - 243.02 \, ,
+  \label{widerstand}
+\end{equation}
+wobei $R$ der Widerstand der Pt-100 Messwiderstände ist.
+
 \subsection{Versuchsdurchführung}
+Als erstes wird der Rezipient evakuiert und dann mit Helium gefüllt, um die Probe
+ohne gefrierendes Wasser kühlen zu können. Sodann wird flüssiger Stickstoff in das
+Dewargefäß gegeben. Sobald die Temperatur auf ca. \SI{80}{\kelvin} gesunken ist,
+wird der Rezipient erneut evakuiert und die Probe in \SI{7}{\celsius}-
+Schritten erwärmt. Dabei wird die benötigte Zeitdauer, die Temperaturveränderung
+von Zylinder und Probe und Heizspannung und -strom aufgenommen. Es wird versucht,
+den Zylinder un die Probe auf möglichst der gleichen Temperatur zu halten, damit
+keine Wärmestrahlung, Konvektion oder Wärmeleitung auftreten kann. Bei ca. \SI{300}{\kelvin}
+wird die Messung gestoppt.
 \section{Auswertung}
 \subsection{Fehlerrechnung}
 Die Fehlerrechnung wird in $\textsc{Python}$\footnote{Version: 3.6.3} durchgeführt.

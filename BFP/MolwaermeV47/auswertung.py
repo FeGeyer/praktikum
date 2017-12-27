@@ -153,12 +153,11 @@ TZylbar_bis_170 = TZylbar[Tbar <= 170]
 
 rel = Tbar_bis_170 / TZylbar_bis_170
 
-# Durchloopen, um Fälle zu filtern, in denen Tbar/Tzylbar war zu finden und
+# Durchloopen, um Fälle zu filtern, in denen Tbar > Tzylbar war zu finden und
 # umzudrehen
 for i in range(len(rel)):
     if rel[i] > 1:
-        rel[i] -= 1
-        rel[i] = 1 - rel[i]
+        rel[i] = TZylbar_bis_170[i] / Tbar_bis_170[i]
 
 # rel soll das Gewichtsarray werden. Also: Auf 1 normieren.
 rel = rel / np.sum(rel)

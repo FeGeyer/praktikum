@@ -95,7 +95,7 @@ plt.xlim(70-1, 300+1)
 plt.ylim(6.5, 17)
 plt.xlabel(r"$T / \mathrm{K}$")
 plt.ylabel(r"$\alpha / 10^{-6} \mathrm{grd}^{-1}$")
-plt.plot(T_Koeff, Koeff * 10**6, 'rx', label="Tabellierte Werte")
+plt.plot(T_Koeff, Koeff * 10**6, 'r^', label="Tabellierte Werte")
 plt.plot(x1, Fit * 10**6, 'r--', label="Regression")
 plt.grid()
 plt.legend(loc="best")
@@ -179,7 +179,7 @@ plt.ylim(2.0, 3.9)
 plt.xlim(13, 20)
 plt.ylabel(r"$\theta_D / T$")
 plt.xlabel(r"$c_V$ / J$\,$Mol$^{-1}\,$K$^{-1}$")
-plt.plot(c_V_Tabelle, theta_T_Tabelle, 'rx', label="Messwerte")
+plt.plot(c_V_Tabelle, theta_T_Tabelle, 'r^', label="Tabellierte Werte")
 plt.plot(x2, Fit2, 'r--', label="Regression")
 plt.grid()
 plt.legend(loc="best")
@@ -243,6 +243,9 @@ print(w_D*10**(-12), "in THz")
 theta_D_2 = const.hbar * w_D / const.k
 
 print(theta_D_2)
+
+print(N_L)
+print(L)
 
 rel = rel * summe
 

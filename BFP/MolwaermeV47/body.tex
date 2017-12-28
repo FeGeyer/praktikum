@@ -336,7 +336,7 @@ der $c_\symup{p}$- und $c_\symup{V}$-Werte findet sich in \ref{A_abb:2}.
 \subsection{Bestimmend der Debey-Temperatur}
 Zur Bestimmung der $\textsc{Debeye}$-Temperatur werden zuerst die der gegebenen Tabelle \cite[S. 5, Tabelle 1]{anleitung}
 entnommennen Werte für $\theta_D/T$ in dem auf die bis \SI{170}{\kelvin} passenden
-Bereich (\numrange[range-phrase = --]{13.305}{20.205}{\joule\per\mol\per\kelvin})mit einem Polynom
+Bereich (\numrange[range-phrase = --]{13.305}{20.205}) mit einem Polynom
 1. Ordnung gefittet. Es ergeben sich folgende Koeffizienten:
 \begin{align*}
   a_0 &= \SI{7.043}{\mol\kelvin\per\joule} \\
@@ -398,6 +398,24 @@ stark gewichtet sind. Die Gewichte wurden in der Summe auf \num{1} normiert.
     \bottomrule
   \end{tabular}
 \end{sidewaystable}
+
+\subsection{Bestimmen eines Referenzwertes für Debey-Frequenz und Temperatur}
+Nach [\textbf{??}] folgt mit
+\begin{align*}
+  N_L &= N_\symup{A} \frac{m}{M} = \num{3.24107e24} \\
+  L &= \sqrt[3]{V_0 \frac{m}{M}} = \SI{33.682}{\milli\metre} \\
+  v_{\symup{long}} &= \SI{4.7}{\kilo\metre\per\second}\\
+  v_{\symup{trans}} &= \SI{2.26}{\kilo\metre\per\second}
+\end{align*}
+für $\omega_D$ ein Wert von
+\begin{equation*}
+  \omega_D = \SI{43.5}{\tera\hertz}.
+\end{equation*}
+Weiter folgt:
+\begin{equation*}
+  \theta_D = \frac{\hbar\omega_D}{k} = \SI{332.36}{\kelvin}.
+\end{equation*}
+
 
 \section{Diskusion}
 \newpage

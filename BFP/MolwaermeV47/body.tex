@@ -7,7 +7,7 @@ Im folgenden werden das klassische, das einsteinsche und das Debye-Modell
 zur Erläuterung der Temperaturabhängigkeit von Molwärme kristalliner Festkörper
 eingeführt und diskutiert.
 \subsection{Die klassische Theorie}
-Klassisch gesehen verteilt sich die einem Frstkörper zugeführte Wärmeenergie gleichmäßig
+Klassisch gesehen verteilt sich die einem Festkörper zugeführte Wärmeenergie gleichmäßig
 auf alle Freiheitsgrade der Atome. Dies nennt man das Äquipartitionstheorem. Es gilt
 \begin{equation*}
   \left< E \right> = \frac{1}{2} \, \symup{k_B} \, T
@@ -78,8 +78,8 @@ dass im Einsteinmodell von einer singulären Frequenz ausgegangen wird. Wenn man
 ersetzt durch die spektrale Verteilung der möglichen Eigenschwingungen aller Oszillatoren
 $Z(\omega)$ in einem Kristall, erhält man
 \begin{equation}
-  C_V = \frac{\symup d }{\symup d t} \int_0^{\omega_\symup{max}} Z(\omega) \,
-  \frac{\hbar \, \omega}{\symup{exp}(\hbar \,\omega / k \, T) - 1} \symup d \omega \, .
+  C_V = \frac{\symup d }{\symup d T} \int_0^{\omega_\symup{max}} Z(\omega) \,
+  \frac{\hbar \, \omega}{\symup{exp}(\hbar \,\omega / k_B \, T) - 1} \, \symup d \omega \, .
 \end{equation}
 $Z(\omega)$ ist dabei recht komplizierter Natur, vor allem für z.B. anisotropes
 Verhalten. Als Näherung wird angenommen, dass die Phasengeschwindigkeit unabhängig
@@ -89,7 +89,7 @@ einem Frequenzintervall von $\omega$ bis $\omega + \symup d \omega$
 bestimmen. Dies wird als Debye-Modell bezeichnet. Es folgt
 \begin{equation}
   Z(\omega) \symup d \omega = \frac{L^3}{2\pi^2} \, \omega^2 \left(\frac{1}{{v_l}^3}
-  + \frac{2}{v_{tr}^3} \right) \symup d \omega
+  + \frac{2}{{v_{tr}}^3} \right) \symup d \omega
   \label{eqn:5}
 \end{equation}
 mit $v_l$ und $v_{tr}$ als Phasengeschwindigkeit in longitudinaler bzw. transversaler

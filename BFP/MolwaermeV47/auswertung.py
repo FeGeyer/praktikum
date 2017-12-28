@@ -38,6 +38,7 @@ I *= 10**(-3)
 # Molwärmen ausrechnen, Molmasse berechnen.
 u = const.value("atomic mass constant")
 M = ufloat(63.546, 0.003) * u * const.Avogadro
+print(M)
 m = 0.342
 
 
@@ -48,6 +49,21 @@ def cp(dT, U, I, M, dt, m):
 
 dT = T_p2 - T_p1
 cp = cp(dT, U, I, M, dt, m)
+
+np.savetxt('TexTabellen/cp.txt', np.column_stack([
+        unp.nominal_values(T_p1)+273.15,
+        unp.std_devs(T_p1),
+        unp.nominal_values(T_p2)+273.15,
+        unp.std_devs(T_p2),
+        unp.nominal_values(dT),
+        unp.std_devs(dT),
+        U,
+        I * 10**3,
+        unp.nominal_values(dt),
+        unp.std_devs(dt),
+        unp.nominal_values(cp),
+        unp.std_devs(cp)
+        ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')
 
 
 # Mittelwert der Probentemperaturdifferenzen in Kelvin
@@ -68,7 +84,6 @@ x_3 = ufloat(alpha_i[1], errors[1])
 x_2 = ufloat(alpha_i[2], errors[2])
 x_1 = ufloat(alpha_i[3], errors[3])
 x_0 = ufloat(alpha_i[4], errors[4])
-
 x1 = np.linspace(70-1, 300+1)
 Fit = np.polyval(alpha_i, x1)
 alpha_i = np.array([x_4, x_3, x_2, x_1, x_0])
@@ -80,7 +95,7 @@ plt.xlim(70-1, 300+1)
 plt.ylim(6.5, 17)
 plt.xlabel(r"$T / \mathrm{K}$")
 plt.ylabel(r"$\alpha / 10^{-6} \mathrm{grd}^{-1}$")
-plt.plot(T_Koeff, Koeff * 10**6, 'rx', label="Messwerte")
+plt.plot(T_Koeff, Koeff * 10**6, 'rx', label="Tabellierte Werte")
 plt.plot(x1, Fit * 10**6, 'r--', label="Regression")
 plt.grid()
 plt.legend(loc="best")
@@ -96,9 +111,35 @@ def cv(cp, alpha_T, kappa, V0, Tbar):
 
 alpha_T = np.polyval(alpha_i, Tbar)
 kappa = 137.8 * 10**(9)
-V0 = 7.11 * 10 ** (-6)
+V0 = 7.10 * 10 ** (-6)
 
 cv = cv(cp, alpha_T, kappa, V0, Tbar)
+
+plt.figure(2)
+plt.xlim(unp.nominal_values(Tbar).min()-2, unp.nominal_values(Tbar).max()+2)
+plt.ylim(unp.nominal_values(cv).min()-1, unp.nominal_values(cp).max()+1)
+plt.ylabel(r"$c$ / J$\,$Mol$^{-1}\,$K$^{-1}$")
+plt.xlabel(r"$T$ / K")
+
+# plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cp),
+#              xerr=unp.std_devs(Tbar),
+#              yerr=unp.std_devs(cv), fmt='b^', label=R"$c_\mathrm{p}$")
+plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cp), 'bv',
+         label=r"$c_\mathrm{p}$")
+# plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cp), 'b--', )
+
+# plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cv),
+#              xerr=unp.std_devs(Tbar),
+#              yerr=unp.std_devs(cv), fmt='ro', label=r"$c_\mathrm{V}$")
+plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cv), 'r^',
+         label=r"$c_\mathrm{V}$")
+# plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cv), 'r--', )
+
+plt.grid()
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("Kapaz.pdf")
+plt.clf()
 
 # Theta_D / T Werte für die c_V Werte bestimmen. Hierbei werden der für unsere
 # Daten relevante Bereich aus der Tabelle abgelesen und entsprechend gefittet.
@@ -118,11 +159,11 @@ d_1 = ufloat(debeye[0], errors[0])
 d_2 = ufloat(debeye[1], errors[1])
 Fit2 = np.polyval(debeye, x2)
 
-plt.figure(2)
+plt.figure(3)
 plt.ylim(2.0, 3.9)
 plt.xlim(13, 20)
 plt.ylabel(r"$\theta_D / T$")
-plt.xlabel(r"$c_V$ / J$\,$Mol$^{-1}$K$^{-1}$")
+plt.xlabel(r"$c_V$ / J$\,$Mol$^{-1}\,$K$^{-1}$")
 plt.plot(c_V_Tabelle, theta_T_Tabelle, 'rx', label="Messwerte")
 plt.plot(x2, Fit2, 'r--', label="Regression")
 plt.grid()

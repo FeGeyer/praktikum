@@ -153,11 +153,126 @@ keine Wärmestrahlung, Konvektion oder Wärmeleitung auftreten kann. Bei ca. \SI
 wird die Messung gestoppt.
 \section{Auswertung}
 \subsection{Fehlerrechnung}
-Die Fehlerrechnung wird in $\textsc{Python}$\footnote{Version: 3.6.3} durchgeführt.
-Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$\footnote{Version: 3.6.3},
-die zugehörigen Standartabweichungen durch die Funktion $\textsc{stats.sem}$ aus dem
-Paket $\textsc{scipy}$\footnote{Version: 1.0.0} berechnet. Fehlerfortpflanzung wird
-durch die Bibliothek $\textsc{uncertainties.unumpy}$\footnote{Version: 3.0.1} automatisiert.
+Für die Auswertung werden zwei Arten Punktschätzer genutzt. Es gibt:
+\begin{equation}
+  \overline{T}_\symup{arith.} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+  \label{arith}
+\end{equation}
+den arithmetischen Mittelwert, sowie:
+\begin{equation*}
+  \overline{T}_\symup{gew.} = \sum_{i=1}^{n} T_{i}  w_{i}
+\end{equation*}
+den mit den Gewichten $w_{i}$ gewichteten Mittelwert. Die Summe der Gewichte ist
+dabei auf $1$ normiert.
+In Fällen, in denen zwei fehlerbehaftete Größen in einer Gleichung zur Bestimmung
+einer anderen Größe Verwendung finden, berechnet sich der Gesamtfehler
+nach der Gaußschen Fehlerfortpflanzung zu:
+\begin{equation*}
+    \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
+    x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
+    x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
+\end{equation*}
+Für die Fehlerrechnung sowie den mathematischen Teil der Auswertung wird auf $\textsc{Python}$ \cite{python}
+zurückgegriffen:\\
+Arithmetische Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$ \cite{numpy}
+nach \eqref{arith},
+gewichtete Mittelwerte durch manuelles implementieren der jeweiligen Funktion berechnet.
+Fehlerfortpflanzung wird
+durch die Bibliothek $\textsc{uncertainties}$ \cite{uncertainties} automatisiert.
+Regressionen sowie deren Fehler wurden durch die $\textsc{Numpy}$ Funktion $\textsc{polyfit}$
+nach einer $\textsc{least-squares}$-Methode mit Polynomen der an den entsprechenden Stellen
+angegeben Ordnung durchgeführt. Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
+erstellt.\\
+\\
+Widerstände konnten laut Herstellerangaben mit einem relativen Fehler von \SI{0.2}{\percent}
+gemessen werden. Für Zeitmessungen wird ein Fehler von $\pm \SI{5}{\second}$ angenommen.
+
+\subsection{Molare Wärmekapazität bei konstantem Druck}
+Die molare Wärmekapazität bei konstantem Druck bei konstantem Druck berechnet sich
+über die Heizspannung $U$, die Heizstromstärke $I$, die Heizdauer $t_\symup{H}$,
+die in $t_\symup{H}$ erreichte Temperaturänderung $\symup{\Delta}T$ sowie über die
+Probenmasse $m = \SI{0.342}{\kilo\gram}$ und die Molmasse $M$ des Probenmatials
+(für Kupfer: $M = \SI{63.546(3)}{\gram\per\mol}$ \cite{MolKupfer}) nach
+\begin{equation}
+  c_\symup{p} = \frac{U I t_\symup{H}}{\symup{\Delta}T} \cdot \frac{M}{m}.
+  \label{A_eq:1}
+\end{equation}
+Die nach \eqref{A_eq:1} erhaltenen Werte sind mit den entsprechenden Messwerten
+in Tabelle \ref{A_tab:1} zu finden.
+
+\begin{table}[p]
+  \centering
+  \caption{Übersicht über die Messwerte sowie die daraus bestimmte Größe $c_\symup{p}$}
+  \label{A_tab:1}
+  \begin{tabular}{c c c c c c c c}
+    \toprule
+    $T_\symup{Probe, 1}$ / \si{\kelvin} & $T_\symup{Probe, 2}$ / \si{\kelvin} &
+    $\symup{\Delta}T$ / \si{\kelvin} & $U$ / \si{\volt} & $I$ / \si{\milli\ampere} &
+    $t_\symup{H}$ / \si{\second} & $c_\symup{p}$ / \si{\joule\per\mol\per\kelvin} \\
+    \midrule
+    79.64  $\pm$ 0.10 & 87.19  $\pm$ 0.12 & 7.54 $\pm$ 0.15 & 15.6 & 149.1 & 240 $\pm$ 5 & 13.75 $\pm$ 0.40 \\
+    87.19  $\pm$ 0.12 & 94.05  $\pm$ 0.13 & 6.86 $\pm$ 0.17 & 15.8 & 150.1 & 230 $\pm$ 5 & 14.77 $\pm$ 0.49 \\
+    94.28  $\pm$ 0.13 & 101.17 $\pm$ 0.14 & 6.88 $\pm$ 0.19 & 15.8 & 150.3 & 250 $\pm$ 5 & 16.03 $\pm$ 0.56 \\
+    101.17 $\pm$ 0.14 & 108.07 $\pm$ 0.16 & 6.91 $\pm$ 0.21 & 15.9 & 150.9 & 260 $\pm$ 5 & 16.78 $\pm$ 0.61 \\
+    108.07 $\pm$ 0.16 & 115.24 $\pm$ 0.17 & 7.17 $\pm$ 0.24 & 15.9 & 151.0 & 275 $\pm$ 5 & 17.12 $\pm$ 0.64 \\
+    115.24 $\pm$ 0.17 & 122.43 $\pm$ 0.19 & 7.19 $\pm$ 0.26 & 16.0 & 151.5 & 280 $\pm$ 5 & 17.54 $\pm$ 0.70 \\
+    122.67 $\pm$ 0.19 & 129.17 $\pm$ 0.20 & 6.49 $\pm$ 0.28 & 17.2 & 163.2 & 230 $\pm$ 5 & 18.47 $\pm$ 0.89 \\
+    129.17 $\pm$ 0.20 & 136.16 $\pm$ 0.22 & 7.00 $\pm$ 0.30 & 17.9 & 169.5 & 240 $\pm$ 5 & 19.34 $\pm$ 0.92 \\
+    136.16 $\pm$ 0.22 & 143.18 $\pm$ 0.23 & 7.02 $\pm$ 0.32 & 17.6 & 166.8 & 260 $\pm$ 5 & 20.20 $\pm$ 0.99 \\
+    143.18 $\pm$ 0.23 & 150.22 $\pm$ 0.25 & 7.04 $\pm$ 0.34 & 17.8 & 168.5 & 250 $\pm$ 5 & 19.78 $\pm$ 1.03 \\
+    150.22 $\pm$ 0.25 & 157.05 $\pm$ 0.26 & 6.82 $\pm$ 0.36 & 17.8 & 169.0 & 240 $\pm$ 5 & 19.67 $\pm$ 1.12 \\
+    157.29 $\pm$ 0.26 & 164.13 $\pm$ 0.28 & 6.84 $\pm$ 0.38 & 17.9 & 169.0 & 240 $\pm$ 5 & 19.72 $\pm$ 1.17 \\
+    164.13 $\pm$ 0.28 & 171.24 $\pm$ 0.29 & 7.11 $\pm$ 0.40 & 17.9 & 169.0 & 240 $\pm$ 5 & 18.98 $\pm$ 1.14 \\
+    171.49 $\pm$ 0.29 & 178.13 $\pm$ 0.31 & 6.64 $\pm$ 0.42 & 17.9 & 169.0 & 265 $\pm$ 5 & 22.43 $\pm$ 1.49 \\
+    178.13 $\pm$ 0.31 & 185.28 $\pm$ 0.32 & 7.15 $\pm$ 0.44 & 17.8 & 169.0 & 280 $\pm$ 5 & 21.88 $\pm$ 1.41 \\
+    185.28 $\pm$ 0.32 & 192.21 $\pm$ 0.34 & 6.93 $\pm$ 0.47 & 17.9 & 169.1 & 275 $\pm$ 5 & 22.33 $\pm$ 1.55 \\
+    192.21 $\pm$ 0.34 & 199.16 $\pm$ 0.35 & 6.95 $\pm$ 0.49 & 17.9 & 169.1 & 280 $\pm$ 5 & 22.66 $\pm$ 1.64 \\
+    199.16 $\pm$ 0.35 & 206.13 $\pm$ 0.37 & 6.97 $\pm$ 0.51 & 17.9 & 169.1 & 275 $\pm$ 5 & 22.19 $\pm$ 1.67 \\
+    206.13 $\pm$ 0.37 & 213.12 $\pm$ 0.38 & 6.99 $\pm$ 0.53 & 17.9 & 169.1 & 290 $\pm$ 5 & 23.33 $\pm$ 1.81 \\
+    213.12 $\pm$ 0.38 & 220.13 $\pm$ 0.40 & 7.01 $\pm$ 0.55 & 17.9 & 161.1 & 290 $\pm$ 5 & 22.16 $\pm$ 1.78 \\
+    220.13 $\pm$ 0.40 & 227.16 $\pm$ 0.41 & 7.03 $\pm$ 0.57 & 17.9 & 169.2 & 290 $\pm$ 5 & 23.20 $\pm$ 1.93 \\
+    227.16 $\pm$ 0.41 & 234.21 $\pm$ 0.43 & 7.05 $\pm$ 0.59 & 17.9 & 169.3 & 300 $\pm$ 5 & 23.95 $\pm$ 2.05 \\
+    234.21 $\pm$ 0.43 & 241.29 $\pm$ 0.44 & 7.07 $\pm$ 0.62 & 17.9 & 169.3 & 300 $\pm$ 5 & 23.88 $\pm$ 2.11 \\
+    241.29 $\pm$ 0.44 & 248.13 $\pm$ 0.46 & 6.84 $\pm$ 0.64 & 17.9 & 169.3 & 285 $\pm$ 5 & 23.45 $\pm$ 2.22 \\
+    248.13 $\pm$ 0.46 & 255.25 $\pm$ 0.47 & 7.12 $\pm$ 0.66 & 17.9 & 169.3 & 290 $\pm$ 5 & 22.95 $\pm$ 2.16 \\
+    255.25 $\pm$ 0.47 & 262.13 $\pm$ 0.49 & 6.88 $\pm$ 0.68 & 17.9 & 169.4 & 270 $\pm$ 5 & 22.10 $\pm$ 2.22 \\
+    262.13 $\pm$ 0.49 & 269.29 $\pm$ 0.50 & 7.16 $\pm$ 0.70 & 17.9 & 169.4 & 300 $\pm$ 5 & 23.62 $\pm$ 2.35 \\
+    269.29 $\pm$ 0.50 & 276.21 $\pm$ 0.52 & 6.92 $\pm$ 0.72 & 17.9 & 169.4 & 300 $\pm$ 5 & 24.42 $\pm$ 2.59 \\
+    276.21 $\pm$ 0.52 & 283.15 $\pm$ 0.53 & 6.94 $\pm$ 0.75 & 17.9 & 169.4 & 280 $\pm$ 5 & 22.73 $\pm$ 2.48 \\
+    283.15 $\pm$ 0.53 & 290.11 $\pm$ 0.55 & 6.96 $\pm$ 0.77 & 17.9 & 169.4 & 300 $\pm$ 5 & 24.28 $\pm$ 2.71 \\
+    290.11 $\pm$ 0.55 & 297.09 $\pm$ 0.57 & 6.98 $\pm$ 0.79 & 17.9 & 169.4 & 295 $\pm$ 5 & 23.81 $\pm$ 2.72 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Molare Wärmekapazität bei konstantem Volumen}
+Die molare Wärmekapazität bei konstantem Volumen $c_\symup{V}$ kann aus $c_\symup{p}$
+über die Korrekturformel
+\begin{equation}
+  c_\symup{V} = c_\symup{p} - 9 \alpha^2 \kappa V_0 T
+\end{equation}
+bestimmt werden. $\alpha$ bezeichnet dabei den temperaturabhängigen linearen
+Ausdehnungskoeffizienten, $\kappa$ das Kompressionsmodul (für Kupfer: $\kappa =
+\SI{137.8}{\giga\pascal}$ \cite{KupferKappa}), $V_0$ das Molvolumen
+(für Kupfer: $V_0 = \SI{7.10}{\centi\metre\cubed\per\mol}$ \cite{MolKupfer})
+und $T$ die Temperatur. Als Temperatur wird der Mittelwert zwischen Start- und
+Endpunkt jeder Messung genommen. Zur Bestimmung von $\alpha$ werden die gegebenen
+Werte eingelesen und mit einem Polynom 4. Grades gefittet. Es ergeben sich die
+folgenden Koeffizienten:
+\begin{align*}
+    a_4 &= \SI{-8.16(75)e-15}{\per\kelvin\tothe{5}}\\
+    a_3 &= \SI{7.39(55)e-12}{\per\kelvin\tothe{4}}\\
+    a_2 &= \SI{-2.53(14)e-09}{\per\kelvin\cubed}\\
+    a_1 &= \SI{4.07(16)e-07}{\per\kelvin\squared}\\
+    a_0 &= \SI{-1.13(6)e-05}{\per\kelvin}.
+\end{align*}
+Eine graphische Darstellung findet sich in Abbildung \ref{A_abb:1}.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{Koeff.pdf}
+  \caption{Fit des linearen Ausdehnungskoeffizienten.}
+  \label{A_abb:1}
+\end{figure}
 
 \section{Diskusion}
 \newpage

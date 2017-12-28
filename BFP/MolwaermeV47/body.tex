@@ -250,6 +250,7 @@ Die molare Wärmekapazität bei konstantem Volumen $c_\symup{V}$ kann aus $c_\sy
 über die Korrekturformel
 \begin{equation}
   c_\symup{V} = c_\symup{p} - 9 \alpha^2 \kappa V_0 T
+  \label{A_eq:2}
 \end{equation}
 bestimmt werden. $\alpha$ bezeichnet dabei den temperaturabhängigen linearen
 Ausdehnungskoeffizienten, $\kappa$ das Kompressionsmodul (für Kupfer: $\kappa =
@@ -257,7 +258,7 @@ Ausdehnungskoeffizienten, $\kappa$ das Kompressionsmodul (für Kupfer: $\kappa =
 (für Kupfer: $V_0 = \SI{7.10}{\centi\metre\cubed\per\mol}$ \cite{MolKupfer})
 und $T$ die Temperatur. Als Temperatur wird der Mittelwert zwischen Start- und
 Endpunkt jeder Messung genommen. Zur Bestimmung von $\alpha$ werden die gegebenen
-Werte eingelesen und mit einem Polynom 4. Grades gefittet. Es ergeben sich die
+Werte \cite[S. 5, Tabelle 2]{anleitung} eingelesen und mit einem Polynom 4. Grades gefittet. Es ergeben sich die
 folgenden Koeffizienten:
 \begin{align*}
     a_4 &= \SI{-8.16(75)e-15}{\per\kelvin\tothe{5}}\\
@@ -266,13 +267,137 @@ folgenden Koeffizienten:
     a_1 &= \SI{4.07(16)e-07}{\per\kelvin\squared}\\
     a_0 &= \SI{-1.13(6)e-05}{\per\kelvin}.
 \end{align*}
-Eine graphische Darstellung findet sich in Abbildung \ref{A_abb:1}.
-\begin{figure}
+Eine graphische Darstellung der Regression findet sich in Abbildung \ref{A_abb:1}. Die nach \eqref{A_eq:2}
+bestimmten $c_\symup{V}$-Werte sind in Tabelle \ref{A_tab:2} zu finden. Eine grafische Darstellung
+der $c_\symup{p}$- und $c_\symup{V}$-Werte findet sich in \ref{A_abb:2}.
+
+\begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.4]{Koeff.pdf}
-  \caption{Fit des linearen Ausdehnungskoeffizienten.}
-  \label{A_abb:1}
+  \subcaptionbox{Fit des linearen Ausdehnungskoeffizienten. \label{A_abb:1}}[0.48\textwidth]{
+  \centering
+  \includegraphics[width=0.48\textwidth]{Koeff.pdf}
+  }
+  \subcaptionbox{Verlauf der $c_\symup{p}$- und $c_\symup{V}$-Werte. \label{A_abb:2}}[0.48\textwidth]{
+  \centering
+  \includegraphics[width=0.48\textwidth]{Kapaz.pdf}
+  }
+  \label{A_Abb:3}
+  \caption{ }
 \end{figure}
+
+\begin{table}[p]
+  \centering
+  \caption{Übersicht über die für die Rechnung notwendigen Größen sowie die
+          daraus bestimmten Werte für $c_\symup{V}$. Werte bis \SI{170}{\kelvin}
+          sind durch eine Linie abgetrennt.}
+  \label{A_tab:2}
+  \begin{tabular}{c c c c}
+    \toprule
+    $\overline{T}$ / \si{\kelvin} & $\alpha_\symup{\overline{T}}$ /
+    \SI{e-6}{\per\kelvin} & $c_\symup{p}$ / \si{\joule\per\mol\per\kelvin}
+    & $c_\symup{V}$ / \si{\joule\per\mol\per\kelvin}\\
+    \midrule
+    83.41  $\pm$ 0.08 & 8.90  $\pm$ 1.82  & 13.75 $\pm$ 0.40 & 13.69 $\pm$ 0.40 \\
+    90.62  $\pm$ 0.09 & 9.71  $\pm$ 2.03  & 14.77 $\pm$ 0.49 & 14.70 $\pm$ 0.49 \\
+    97.73  $\pm$ 0.10 & 10.43 $\pm$ 2.25  & 16.03 $\pm$ 0.56 & 15.93 $\pm$ 0.56 \\
+    104.62 $\pm$ 0.11 & 11.03 $\pm$ 2.49  & 16.78 $\pm$ 0.61 & 16.67 $\pm$ 0.62 \\
+    111.66 $\pm$ 0.12 & 11.58 $\pm$ 2.75  & 17.12 $\pm$ 0.64 & 16.98 $\pm$ 0.65 \\
+    118.84 $\pm$ 0.13 & 12.07 $\pm$ 3.03  & 17.54 $\pm$ 0.70 & 17.38 $\pm$ 0.70 \\
+    125.92 $\pm$ 0.14 & 12.50 $\pm$ 3.34  & 18.47 $\pm$ 0.89 & 18.30 $\pm$ 0.89 \\
+    132.67 $\pm$ 0.15 & 12.86 $\pm$ 3.65  & 19.34 $\pm$ 0.92 & 19.14 $\pm$ 0.92 \\
+    139.67 $\pm$ 0.16 & 13.19 $\pm$ 3.99  & 20.20 $\pm$ 0.99 & 19.99 $\pm$ 1.00 \\
+    146.70 $\pm$ 0.17 & 13.48 $\pm$ 4.36  & 19.78 $\pm$ 1.03 & 19.55 $\pm$ 1.04 \\
+    153.64 $\pm$ 0.18 & 13.73 $\pm$ 4.76  & 19.67 $\pm$ 1.12 & 19.41 $\pm$ 1.13 \\
+    160.71 $\pm$ 0.19 & 13.97 $\pm$ 5.18  & 19.72 $\pm$ 1.17 & 19.44 $\pm$ 1.19 \\
+    167.69 $\pm$ 0.20 & 14.17 $\pm$ 5.63  & 18.98 $\pm$ 1.14 & 18.68 $\pm$ 1.17 \\
+    \midrule
+    174.81 $\pm$ 0.21 & 14.37 $\pm$ 6.12  & 22.43 $\pm$ 1.49 & 22.12 $\pm$ 1.52 \\
+    181.70 $\pm$ 0.22 & 14.54 $\pm$ 6.63  & 21.88 $\pm$ 1.41 & 21.54 $\pm$ 1.45 \\
+    188.74 $\pm$ 0.23 & 14.70 $\pm$ 7.18  & 22.33 $\pm$ 1.55 & 21.97 $\pm$ 1.59 \\
+    195.68 $\pm$ 0.24 & 14.86 $\pm$ 7.75  & 22.66 $\pm$ 1.64 & 22.28 $\pm$ 1.69 \\
+    202.64 $\pm$ 0.25 & 15.01 $\pm$ 8.36  & 22.19 $\pm$ 1.67 & 21.79 $\pm$ 1.73 \\
+    209.62 $\pm$ 0.26 & 15.15 $\pm$ 9.01  & 23.33 $\pm$ 1.81 & 22.91 $\pm$ 1.88 \\
+    216.62 $\pm$ 0.28 & 15.29 $\pm$ 9.70  & 22.16 $\pm$ 1.78 & 21.71 $\pm$ 1.87 \\
+    223.64 $\pm$ 0.29 & 15.43 $\pm$ 10.43 & 23.20 $\pm$ 1.93 & 22.74 $\pm$ 2.03 \\
+    230.69 $\pm$ 0.30 & 15.57 $\pm$ 11.20 & 23.95 $\pm$ 2.05 & 23.46 $\pm$ 2.17 \\
+    237.75 $\pm$ 0.31 & 15.70 $\pm$ 12.02 & 23.88 $\pm$ 2.11 & 23.36 $\pm$ 2.26 \\
+    244.71 $\pm$ 0.32 & 15.83 $\pm$ 12.87 & 23.45 $\pm$ 2.22 & 22.91 $\pm$ 2.39 \\
+    251.69 $\pm$ 0.33 & 15.96 $\pm$ 13.77 & 22.95 $\pm$ 2.16 & 22.38 $\pm$ 2.37 \\
+    258.69 $\pm$ 0.34 & 16.09 $\pm$ 14.72 & 22.10 $\pm$ 2.22 & 21.52 $\pm$ 2.47 \\
+    265.71 $\pm$ 0.35 & 16.20 $\pm$ 15.72 & 23.62 $\pm$ 2.35 & 23.00 $\pm$ 2.63 \\
+    272.75 $\pm$ 0.36 & 16.31 $\pm$ 16.77 & 24.42 $\pm$ 2.59 & 23.78 $\pm$ 2.90 \\
+    279.68 $\pm$ 0.37 & 16.41 $\pm$ 17.86 & 22.73 $\pm$ 2.48 & 22.06 $\pm$ 2.87 \\
+    286.63 $\pm$ 0.38 & 16.49 $\pm$ 19.01 & 24.28 $\pm$ 2.71 & 23.60 $\pm$ 3.14 \\
+    293.60 $\pm$ 0.39 & 16.55 $\pm$ 20.22 & 23.81 $\pm$ 2.72 & 23.10 $\pm$ 3.23 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Bestimmend der Debey-Temperatur}
+Zur Bestimmung der $\textsc{Debeye}$-Temperatur werden zuerst die der gegebenen Tabelle \cite[S. 5, Tabelle 1]{anleitung}
+entnommennen Werte für $\theta_D/T$ in dem auf die bis \SI{170}{\kelvin} passenden
+Bereich (\numrange[range-phrase = --]{13.305}{20.205}{\joule\per\mol\per\kelvin})mit einem Polynom
+1. Ordnung gefittet. Es ergeben sich folgende Koeffizienten:
+\begin{align*}
+  a_0 &= \SI{7.043}{\mol\kelvin\per\joule} \\
+  a_1 &= \SI{-0.244}{\mol\squared\kelvin\squared\per\joule\squared}
+\end{align*}
+Die Fehler treten dabei erst in der 13. Mantisse auf und werden daher hier nicht
+dargestellt, in den automatisierten Rechnungen aber weiterhin beachtet. Der Fit ist
+in Abbildung \ref{A_abb:4} dargestellt. Die Werte für $\theta_D/T$ werden nun durch
+Auswerten der Fit-Funktion an den entsprechenden $c_\symup{V}$-Werten bestimmt.
+Die so bestimmten $\theta_D/T$-Werte werden mit dem entsprechenden $\overline{T}$
+multipliziert, um die $\textsc{Debeye}$-Temperaturen $\theta_D$ zu bestimmen.
+Die resultierenden Werte sind in Tabelle \ref{A_tab:3} eingetragen.
+Mittelwertbildung wie eingangs beschrieben liefert folgende Werte:
+\begin{align*}
+  \theta_{D, arrith.} &= \SI{331(9)}{\kelvin} \\
+  \theta_{D, gew.} &= \SI{330(9)}{\kelvin}.
+\end{align*}
+Als Gewichte wurde dabei das Verhältnis zwischen Proben- und Zylindertemperatur
+so gewählt, dass Messwerte mit stark unterschiedlichen Temperataturen weniger
+stark gewichtet sind. Die Gewichte wurden in der Summe auf \num{1} normiert.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{Debeye.pdf}
+  \caption{Fit der Debeye-Funktion.}
+  \label{A_abb:4}
+\end{figure}
+
+\begin{sidewaystable}[p]
+  \centering
+  \caption{Übersicht über die für die Rechnung notwendigen Größen sowie die
+          daraus bestimmten Werte für $\theta_D$. Es sind weiterhin die für
+          die spätere Berechnung des gewichteten Mittelwertes notwendigen Werte
+          eingetragen.}
+  \label{A_tab:3}
+  \begin{tabular}{c c c c c c c}
+    \toprule
+    $\overline{T}$ / \si{\kelvin}
+    & $T_\symup{zyl., 1}$ / \si{\kelvin}
+    & $T_\symup{zyl., 2}$ / \si{\kelvin}
+    & $\overline{T}_\symup{zyl.}$ / \si{\kelvin}
+    & $\overline{T}/\overline{T}_\symup{zyl.}$
+    & $c_\symup{V}$ / \si{\joule\per\mol\per\kelvin}
+    & $\theta_D$ / \si{\kelvin}\\
+    \midrule
+    83.41  $\pm$ 0.08 & 80.82  $\pm$ 0.10 & 88.13  $\pm$ 0.12 & 84.48  $\pm$ 0.08 & 98.74  $\pm$ 0.13 & 13.69 $\pm$ 0.40 & 308.34 $\pm$ 8.20 \\
+    90.62  $\pm$ 0.09 & 88.13  $\pm$ 0.12 & 94.52  $\pm$ 0.13 & 91.33  $\pm$ 0.09 & 99.22  $\pm$ 0.13 & 14.70 $\pm$ 0.49 & 312.66 $\pm$ 10.98 \\
+    97.73  $\pm$ 0.10 & 94.76  $\pm$ 0.13 & 100.69 $\pm$ 0.14 & 97.72  $\pm$ 0.10 & 100.00 $\pm$ 0.14 & 15.93 $\pm$ 0.56 & 307.73 $\pm$ 13.32 \\
+    104.62 $\pm$ 0.11 & 100.93 $\pm$ 0.14 & 109.03 $\pm$ 0.16 & 104.98 $\pm$ 0.11 & 99.66  $\pm$ 0.14 & 16.67 $\pm$ 0.62 & 310.53 $\pm$ 15.77 \\
+    111.66 $\pm$ 0.12 & 109.50 $\pm$ 0.16 & 115.96 $\pm$ 0.18 & 112.73 $\pm$ 0.12 & 99.05  $\pm$ 0.15 & 16.98 $\pm$ 0.65 & 322.92 $\pm$ 17.65 \\
+    118.84 $\pm$ 0.13 & 115.96 $\pm$ 0.18 & 122.67 $\pm$ 0.19 & 119.32 $\pm$ 0.13 & 99.60  $\pm$ 0.15 & 17.38 $\pm$ 0.70 & 332.09 $\pm$ 20.47 \\
+    125.92 $\pm$ 0.14 & 123.39 $\pm$ 0.19 & 129.41 $\pm$ 0.20 & 126.40 $\pm$ 0.14 & 99.62  $\pm$ 0.16 & 18.30 $\pm$ 0.89 & 323.68 $\pm$ 27.42 \\
+    132.67 $\pm$ 0.15 & 129.89 $\pm$ 0.20 & 137.13 $\pm$ 0.22 & 133.51 $\pm$ 0.15 & 99.37  $\pm$ 0.16 & 19.14 $\pm$ 0.92 & 313.62 $\pm$ 29.91 \\
+    139.67 $\pm$ 0.16 & 137.61 $\pm$ 0.22 & 142.46 $\pm$ 0.23 & 140.03 $\pm$ 0.16 & 99.74  $\pm$ 0.16 & 19.99 $\pm$ 1.00 & 301.30 $\pm$ 34.27 \\
+    146.70 $\pm$ 0.17 & 142.94 $\pm$ 0.23 & 155.58 $\pm$ 0.26 & 149.26 $\pm$ 0.17 & 98.29  $\pm$ 0.16 & 19.55 $\pm$ 1.04 & 332.25 $\pm$ 37.41 \\
+    153.64 $\pm$ 0.18 & 155.58 $\pm$ 0.26 & 166.34 $\pm$ 0.28 & 160.96 $\pm$ 0.19 & 95.45  $\pm$ 0.16 & 19.41 $\pm$ 1.13 & 353.10 $\pm$ 42.43 \\
+    160.71 $\pm$ 0.19 & 166.58 $\pm$ 0.28 & 173.21 $\pm$ 0.30 & 169.89 $\pm$ 0.20 & 94.60  $\pm$ 0.16 & 19.44 $\pm$ 1.19 & 368.31 $\pm$ 46.76 \\
+    167.69 $\pm$ 0.20 & 173.45 $\pm$ 0.30 & 176.89 $\pm$ 0.30 & 175.17 $\pm$ 0.21 & 95.73  $\pm$ 0.16 & 18.68 $\pm$ 1.17 & 415.43 $\pm$ 47.88 \\
+    \bottomrule
+  \end{tabular}
+\end{sidewaystable}
 
 \section{Diskusion}
 \newpage

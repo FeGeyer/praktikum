@@ -115,6 +115,17 @@ V0 = 7.10 * 10 ** (-6)
 
 cv = cv(cp, alpha_T, kappa, V0, Tbar)
 
+np.savetxt('TexTabellen/cv.txt', np.column_stack([
+        unp.nominal_values(Tbar),
+        unp.std_devs(Tbar),
+        unp.nominal_values(alpha_T) * 10**(6),
+        unp.std_devs(alpha_T) * 10**(6),
+        unp.nominal_values(cp),
+        unp.std_devs(cp),
+        unp.nominal_values(cv),
+        unp.std_devs(cv)
+        ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')
+
 plt.figure(2)
 plt.xlim(unp.nominal_values(Tbar).min()-2, unp.nominal_values(Tbar).max()+2)
 plt.ylim(unp.nominal_values(cv).min()-1, unp.nominal_values(cp).max()+1)
@@ -153,11 +164,15 @@ print(cv_bis_170)
 theta_T_Tabelle, c_V_Tabelle = np.genfromtxt('debeye.txt', unpack=True)
 x2 = np.linspace(13, 20)
 
-debeye, cov2 = np.polyfit(c_V_Tabelle, theta_T_Tabelle, 2, cov=True, )
+debeye, cov2 = np.polyfit(c_V_Tabelle, theta_T_Tabelle, 1, cov=True, )
 errors2 = np.sqrt(np.diag(cov2))
 d_1 = ufloat(debeye[0], errors[0])
-d_2 = ufloat(debeye[1], errors[1])
+d_0 = ufloat(debeye[1], errors[1])
 Fit2 = np.polyval(debeye, x2)
+
+print(debeye)
+print(d_0)
+print(d_1)
 
 plt.figure(3)
 plt.ylim(2.0, 3.9)
@@ -190,6 +205,8 @@ print(theta_d_arith)
 
 # Mittelwerte der Zylindertemperaturen:
 TZylbar = T_z1 + 0.5*(T_z2 - T_z1) + 273.15
+T_z1_bis_170 = T_z1[Tbar <= 170] + 273.15
+T_z2_bis_170 = T_z2[Tbar <= 170] + 273.15
 TZylbar_bis_170 = TZylbar[Tbar <= 170]
 
 rel = Tbar_bis_170 / TZylbar_bis_170
@@ -201,6 +218,7 @@ for i in range(len(rel)):
         rel[i] = TZylbar_bis_170[i] / Tbar_bis_170[i]
 
 # rel soll das Gewichtsarray werden. Also: Auf 1 normieren.
+summe = np.sum(rel)
 rel = rel / np.sum(rel)
 
 # gewichteten Mittelwert ausrechnen:
@@ -225,3 +243,22 @@ print(w_D*10**(-12), "in THz")
 theta_D_2 = const.hbar * w_D / const.k
 
 print(theta_D_2)
+
+rel = rel * summe
+
+np.savetxt('TexTabellen/theta.txt', np.column_stack([
+        unp.nominal_values(Tbar_bis_170),
+        unp.std_devs(Tbar_bis_170),
+        unp.nominal_values(T_z1_bis_170),
+        unp.std_devs(T_z1_bis_170),
+        unp.nominal_values(T_z2_bis_170),
+        unp.std_devs(T_z2_bis_170),
+        unp.nominal_values(TZylbar_bis_170),
+        unp.std_devs(TZylbar_bis_170),
+        unp.nominal_values(rel) * 100,
+        unp.std_devs(rel) * 100,
+        unp.nominal_values(cv_bis_170),
+        unp.std_devs(cv_bis_170),
+        unp.nominal_values(theta_d),
+        unp.std_devs(theta_d)
+        ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')

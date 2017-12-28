@@ -99,7 +99,12 @@ Deswegen gibt es eine Grenzfrequenz, die sogennante Debye-Frequenz, welche man a
   \int_0^{\omega_D} Z(\omega) \symup d \omega = 3 N_L
   \label{eqn:6}
 \end{equation}
-erhält mit $N_L$ als Anzahl der Atome. Es folgt
+erhält mit $N_L$ als Anzahl der Atome. Aus
+\begin{equation}
+  \omega_D^3 = \frac{18 \pi² N_L}{L^3} \frac{1}{\frac{1}{{v_l}^3} + \frac{2}{{v_{tr}}^3}}
+  \label{fürrune<3}
+\end{equation}
+folgt
 \begin{equation*}
   Z(\omega) \symup d \omega = \frac{9N_L}{{\omega_D}^3} \, \omega^2 \symup d \omega
 \end{equation*}
@@ -400,7 +405,7 @@ stark gewichtet sind. Die Gewichte wurden in der Summe auf \num{1} normiert.
 \end{sidewaystable}
 
 \subsection{Bestimmen eines Referenzwertes für Debey-Frequenz und Temperatur}
-Nach [\textbf{??}] folgt mit
+Nach \eqref{fürrune<3} folgt mit
 \begin{align*}
   N_L &= N_\symup{A} \frac{m}{M} = \num{3.24107e24} \\
   L &= \sqrt[3]{V_0 \frac{m}{M}} = \SI{33.682}{\milli\metre} \\

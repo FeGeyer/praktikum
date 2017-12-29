@@ -126,12 +126,14 @@ np.savetxt('TexTabellen/cv.txt', np.column_stack([
         unp.std_devs(cv)
         ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')
 
+T_cv = np.linspace(unp.nominal_values(Tbar).min()-2,
+                   unp.nominal_values(Tbar).max()+2, 1000)
 plt.figure(2)
 plt.xlim(unp.nominal_values(Tbar).min()-2, unp.nominal_values(Tbar).max()+2)
 plt.ylim(unp.nominal_values(cv).min()-1, unp.nominal_values(cp).max()+1)
 plt.ylabel(r"$c$ / J$\,$Mol$^{-1}\,$K$^{-1}$")
 plt.xlabel(r"$T$ / K")
-
+plt.axhline(3 * const.R, label=r"$3R$")
 # plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cp),
 #              xerr=unp.std_devs(Tbar),
 #              yerr=unp.std_devs(cv), fmt='b^', label=R"$c_\mathrm{p}$")
@@ -151,6 +153,10 @@ plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig("Kapaz.pdf")
 plt.clf()
+
+
+
+
 
 # Theta_D / T Werte für die c_V Werte bestimmen. Hierbei werden der für unsere
 # Daten relevante Bereich aus der Tabelle abgelesen und entsprechend gefittet.

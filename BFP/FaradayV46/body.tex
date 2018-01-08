@@ -355,25 +355,67 @@ Umgestellt ergibt sich aus \eqref{eqn:4}
   \label{eqn:5}
 \end{equation}
 für die effektive Masse. Für $N$ und $B$ werden die bereits erwähnten Größen
-eingesetzt und für den Brechungsindex der Wert $n =$ 3.3543\footnote{aus \cite{n}}
-für $\lambda =$ \SI{1771.14}{\nano\meter}, da der Mittelwert unserer Wellenlängen
-bei \SI{1897.5}{\nano\meter} liegt. Es ergeben sich
+eingesetzt und für den Brechungsindex $n$ wurde ein Fit vollzogen. Zugrunde gelegt
+wurden die Werte aus \cite{n}. Als Funktion wurde
+\begin{equation*}
+  n(\lambda) = \frac{a}{\lambda^2} + \frac{b}{\lambda} + c
+\end{equation*}
+mit den Wellenlängen aus \ref{tab:2} gefittet.
+\begin{figure}
+  \centering
+  \subcaptionbox{Wellenlänge, gefitteter Brechungsindex und die daraus bestimmten
+  effektiven Massen. \label{tab:n}}[0.5\textwidth]{
+  \centering
+  \begin{tabular}{c c c c}
+    \toprule
+    $\lambda / \si{\micro\meter}$ & $n$ & $m_{eff, 1} / 10^{-33}\si{\kilo\gram}$
+    & $m_{eff, 2} / 10^{-33}\si{\kilo\gram}$ \\
+    \midrule
+    1.29 & 3.41 & 1.90 $\pm$ 0.74 & 1.05 $\pm$ 0.70 \\
+    1.06 & 3.48 & 1.88 $\pm$ 0.73 & 1.04 $\pm$ 0.69 \\
+    1.45 & 3.39 & 1.91 $\pm$ 0.74 & 1.05 $\pm$ 0.70 \\
+    2.16 & 3.34 & 1.92 $\pm$ 0.75 & 1.06 $\pm$ 0.71 \\
+    2.34 & 3.33 & 1.93 $\pm$ 0.75 & 1.06 $\pm$ 0.71 \\
+    2.51 & 3.33 & 1.93 $\pm$ 0.75 & 1.06 $\pm$ 0.71 \\
+    2.65 & 3.32 & 1.93 $\pm$ 0.75 & 1.06 $\pm$ 0.71 \\
+    1.72 & 3.36 & 1.92 $\pm$ 0.75 & 1.06 $\pm$ 0.70 \\
+    \bottomrule
+  \end{tabular}
+  }
+  \\
+  \subcaptionbox{Grafische Darstellung mit Regression. \label{fig:rn}}[0.6\textwidth]{
+  \centering
+  \includegraphics[width=0.6\textwidth]{dispersion.pdf}
+  }
+  \caption{Tabelle mit errechneten Werten und Regression für den Brechungsindex.}
+  \label{fig:n}
+\end{figure}
+Die Parameter lauten
+\begin{align*}
+  a &= \SI{0.315(15)}{\micro\meter\squared} \\
+  b &= \SI{-0.142(22)}{\micro\meter} \\
+  a &= \num{3.333(8)}
+\end{align*}
+Es ergeben sich die in Tabelle \ref{tab:n} dargestellten Werte mit der Regression
+in Abbildung \ref{fig:rn}.
+
+Als Mittelwerte der effektiven Massen ergeben sich
 \begin{align*}
   m_\symup{eff, 1} &= \SI{1.9(7)e-33}{\kilo\gram} \\
   m_\symup{eff, 2} &= \SI{1.1(7)e-33}{\kilo\gram}
 \end{align*}
-und
+bzw. als Vielfaches der Elektronenmasse
 \begin{align*}
   \frac{m_\symup{eff, 1}}{\symup{m_e}} &= \num{0.0021(8)} \\
   \frac{m_\symup{eff, 2}}{\symup{m_e}} &= \num{0.0012(8)} \, .
 \end{align*}
-Als Mittelwert ergibt sich
+Als Mittelwert aus beiden ergibt sich
 \begin{equation}
   \frac{m_\symup{eff}}{\symup{m_e}} = \num{0.0016(6)} \, .
   \label{eqn:6}
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \subcaptionbox{Messwerte. \label{tab:5}}[0.35\textwidth]{
   \centering
@@ -400,6 +442,7 @@ Als Mittelwert ergibt sich
   zum Quadrat aufgetragen.}
   \label{fig:4}
 \end{figure}
+\clearpage
 
 \subsection{Fehlerrechnung}
 Die Fehlerrechnung wird in $\textsc{Python}$\footnote{\cite{python}} durchgeführt.
@@ -447,7 +490,10 @@ auch sind die Regressionen nicht ganz parallel. Die Gründe dafür liegen in der
 fehlerhaften Bestimmung der Drehwinkel, da diese in die Rechnung bzw. den Fit
 eingeflossen sind. Vor diesem Hintergrund ist die relative Abweichung von 97.6\% vom
 Literaturwert\footnote{aus \cite{lit}} $\frac{m_\symup{eff}}{\symup{m_e}} = 0.067$
-einfach einzusehen. Unser berechneter Wert liegt eine Größenordnung unter dem
+einfach einzusehen. Weiterhin ist der Fit für den Brechungsindex ab \SI{2.1}{\micro\meter}
+von begrenzter Aussagekraft, da keine Literaturwerte zugrunde liegen. In Anbetracht
+des Kurvenverlaufs innerhalb der gegebenen Daten lässt sich die Fitfuntkion vertreten.
+Unser berechneter Wert liegt eine Größenordnung unter dem
 Literaturwert, was unter den Umständen verständlich ist. \\
 \\
 Zum Abschluss lässt sich sagen, dass bis auf die Bestimmung der Kraftflussdichte

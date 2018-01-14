@@ -1,0 +1,287 @@
+\maketitle
+\setcounter{page}{1}
+\newpage
+\pagenumbering{arabic}
+\section{Zielsetzung}
+  Ziel des Versuchs ist die Lebensdauerbestimmung kosmischer Myonen. Diese entstehen
+  in der Hochatmosphäre und erreichen aufgrund ihrer relativistischen Geschwindigkeit
+  den Erdboden, was einen Nachweis mit Szintillationsdetektoren möglich macht.
+\section{Theorie}
+  \subsection{Elementarteilchen}
+  Im Standartmodell werden zwei Arten Elementarteilchen unterschieden:
+  \begin{itemize}
+    \item Bosonen
+    \item Fermionen.
+  \end{itemize}
+  Wärend erstere als Austauschteilchen der fundamentalen Wechselwirkungen fungieren,
+  stellen letztere die kleinsten aktuell bekannten Bausteine der Materie da.
+  Fermionen werden dabei in Quarks und Leptonen unterteilt. Quarks bilden dabei die
+  fundamentalen Bausteine der Hadronen (z.B. Baryonen wie Protonen und Neutronen,
+  aber auch Mesonen). Sowohl Leptonen als auch Quarks sind in drei Generationen
+  zusammengefasst. Die Fermionengenerationen umfassen:
+  \begin{itemize}
+    \item[I] Elektron ($\symup{e}^-$) und Elektron-Neutrino ($\symup\nu_\symup{e}$)
+    \item[II] Myon ($\symup\mu^-$) und Myon-Neutrino ($\symup\nu_\symup\mu$)
+    \item[II] Tauon ($\symup\tau^-$) und Tauon-Neutrino ($\symup\nu_\symup\tau$).
+  \end{itemize}
+  Elektron, Myon und Tauon sind dabei 1-fach negativ geladen und Massebehaftet,
+  die entsprechenden Neutrinos sind ungeladen und haben eine im Standartmodell
+  verschwindende Masse.\\
+  All diesen Teilchen ist ein entsprechendes Antiteilchen zugeordnet. Für die geladenen
+  Teilchen wird dies mit einem hochgestellten $+$ anstelle des $-$ gekennzeichnet,
+  Antineutrinos erhalten eine überstreichung. Lediglich das Antiteilchen des Elektrons
+  ist als Positron benannt. Das Elektron ist das einzige stabile Lepton.
+  \subsection{Kosmische Myonen}
+  Myonen entstehen in vielfältigen Prozessen, beispielsweise beim Zerfall von geladenen
+  Pionen:
+  \begin{equation*}
+    \pi^+ \to \mu^+ + \nu_{\mu} \qquad \text{ und } \qquad \pi^- \to \mu^- + \bar{\nu}_{\mu} .
+  \end{equation*}
+  Pionen entstehen insbesondere in der Hochatmosphäre in sogenannten ausgedehnten
+  Luftshowern (EAS). Insbesondere hochrelativistische Protonen können als primäre
+  Partikel einen solchen EAS auslösen. Durch Wechselwirkungen mit Luftmolekülen
+  entstehen unteranderem Pionen, aus deren Zerfallsprodukten Myonen frei werden.
+  Diese Myonen tragen einen Teil der Energie des Primärteilchens und bewegen sich
+  aufgrund ihrer im Vergleich zum einfallenden Proton geringen Masse ebendfalls mit
+  annäherder Lichtgeschwindigkeit. Aufgrund der resultierenden Zeitdilatation
+  können sie trotz ihrer geringen Lebensdauer den Erdboden erreichen.
+  \subsection{Verhalten von Myonen in Szintillationsdetektoren}
+  Myonen können mit einem Szintillationsdetektor nachgewiesen werden. Bei ihrem Durchgang
+  durch den Szintillator deponieren sie einen Teil ihrer kinetischen Energie im Szintillatormaterial.
+  Dies äußert sich in Form von Anregungszuständen der Moleküle, bei deren Rückkehr in
+  den Grundzustand Photonen frei werden. Diese können durch Sekundärelektronenvervielfacher
+  (SEV) nachgewiesen werden.\\
+  Es sind nun drei Fälle zu unterscheiden:
+    \begin{enumerate}
+    \item Das Myon hat auf seinem Weg durch die Atmosphäre bereits viel Energie
+    verloren und zerfällt im Detektor:\\
+    In diesem Fall ist eine Lebensdauerbestimmung möglich. Beim Eintritt in den Detektor
+    wird nach dem oben geschilderten Prinzip ein detektierbares Signal erzeugt. Bei
+    seinem Weg durch den Detektor zerfällt das Myon in ein Elektron oder Positron\footnote{
+    Bei dem Angegeben Zerfallskanal handelt es sich lediglich um den mit Abstand häufigsten,
+    es existieren weitere.}:
+    \begin{align*}
+      \mu^+ &\to e^+ + \nu_{e} + \bar{\nu}_{\mu}\\
+      \mu^- &\to e^- + \bar{\nu}_{e} +  \nu_{\mu}.
+    \end{align*}
+    Das entstehende Elektron ist wiederum in der Lage das Szintillatormaterial anzuregen.
+    Durch die wiederum entstehenden Photononen wird ein zeites Signal detektierbar
+    und aus der Zeitdifferenz lässt sich die Lebensdauer berechnen.
+    \item Das Myon durchquert den Detektor ohne zu Zerfallen:\\
+    In diesem Fall wird lediglich das erste Signal detektiert, das zweite nicht.
+    Dies ist schaltungstechnisch zu berücksichtigen (siehe Kapitel \ref{sec:Aufbau}).
+    \item Einfang negativer Myonen durch Szintillatoratome:\\
+    Analog zum Elektroneneinfang können negative Myonen mit einer gewissen Wahrscheinlichkeit
+    unter Bildung eines myonischen Atoms eingefangen werden. Wie beim durchqueren
+    des Detektorn bleibt hier das zweite Signal aus.
+    \end{enumerate}
+  \subsection{Lebensdauer von Teilchen}
+  \label{sec:Lebensdauer}
+  Bei Teilchenzerfällen handelt es sich um statistische Prozesse.
+  Zuerst wird die Wahrscheinlichkeit $\symup{d}W$,
+  dass ein Zerfall im Zeitraum $\symup{d}t$ eintritt, betrachet.
+  Unter Annahme von Proportionalität zwischen $\symup{d}W$ und $\symup{d}t$ folgt der Zusammenhang
+  \begin{equation*}
+    \symup{d}W = \lambda\symup{d}t,
+  \end{equation*}
+  $\lambda$ stellt hier eine charakteristische Konstante dar. Die Zerfallswahrscheinlichkeit
+  ist offensichtlich unabhängig vom individual Alter eines Teilchens abhängt.
+  Die Zerfälle mehrerer Teilchen sollten statistisch unabhängig von einander sein.
+  Unter dieser Annahme folgt weiter:
+  \begin{equation*}
+    \symup{d}N = -N\symup{d}W = - \lambda N \symup{d}t  \; ,
+  \end{equation*}
+  dabei ist $\symup{d}N$ die Zahl der Teilchen, die im Zeitraum $\symup{d}t$ zerfallen sind, wenn
+  $N$ Teilchen beobachtet werden. Für große $N$ lässt sich durch integration das exponentielle
+  Zerfallsgesetz gewinnen:
+  \begin{equation*}
+    \frac{N(t)}{N_0} = \exp{(-\lambda t)}.
+  \end{equation*}
+  Dabei bezeichnet $\lambda$ hier die Teilchenspezifische Zerfallskonstante,
+  $t$ die Zeit und $N_0$ die zum Zeitpunkt $t=0$ vorhandenen Teilchen.
+  In einem Intervall $[t, \symup{d}t$ lässt sich daraus die Verteilungsfunktion
+  bestimmen, der die Lebensdauern der Teilchen folgen:
+  \begin{equation*}
+    \symup{d}N \left( t \right) = N_0 \cdot \lambda \cdot \symup{exp} \left( - \lambda t \right) \symup{d}t \; .
+  \end{equation*}
+  Bestimmen des ersten Momentes dieser Verteilung leifert den Erwartungswert für die Lebensdauer:
+  \begin{equation}
+    <t> = \tau = \frac{1}{\lambda}.
+    \label{eq:tau}
+  \end{equation}
+  \subsection{Statistische Probleme}
+  Wäre es möglich, beliebig viele Lebensdauern zu messen, würde die Verteilung
+  der Messwerte im Limes $N \to \infty$ gegen die im Kapitel $\ref{Labensdauer}$
+  bestimmte Verteilungsfunktion konvergieren. Experimentell ist jedoch immer nur
+  eine Stichprobe zugänglich. Hier kommen insbesondere Punktschätzer wie das
+  arithmetische Mittel infrage, um den Erwartungswert einer Stichprobe zu bestimmen.
+  Wäre es grundsätzlich möglich, jeden Messwert aufzunehmen,
+  würde das arithmetische Mittel auch gegen den Erwartungswert konvergieren.
+  Diese Bedingung ist hier jedoch nicht erfüllt, das Intervall der theoretisch
+  aufzunehmenden Messwerte wird durch den Versuchaufbau begrenzt. Es muss daher
+  auf nichtlineare Ausgleichsrechnung mittels der Methode der kleinsten Fehlerquadrate
+  zurückgegriffen werden. Eine gute Abschätzung für die Lebensdauer wird also durch
+  Regression durch die Messwerte mit der Verteilungsfunktion gewonnen.
+\section{Durchführung}
+  \subsection{Versuchsaufbau}
+  \label{sec:Aufbau}
+  \subsubsection{Grundlegende Messmethode:}
+  	Ein Blockschaltbild des Versuchsaufbaus ist in \ref{fig:aufbau} dargestellt.
+  	Der Szintillationsdetektor besteht dabei aus einem Edelstahlzylinder, an dessen
+  	Enden jeweils ein SEV optisch angekoppelt ist. Das Szintillatormedium ist organisch
+  	und im Edelstahltank in Toluol gelöst und die abgegebenen Lichtimpulse besitzen eine
+  	Abklingzeit im Bereich von \SI{10}{\nano\second}.\\
+  	Bestimmt werden soll nun die Zeit zwischen dem ersten (Eintritt in den
+  	Detektor) und dem zweiten (Zerfall im Detektor) Lichtimpuls. Dazu wird ein
+  	Zeit-Amplituden-Konverter (TAC) genutzt. Der TAC gibt einen Spannungsimpuls ab,
+  	dessen Höhe proportional zum zeitlichen Abstand der
+  	beiden Signale ist. Zum Bestimmen der Zeitabstände wird eine Stopp-Uhr genutzt.
+    Der erste Impuls startet ein Zählwerk, der zweite stoppt es.
+    Deram TAC entstehende Impuls wird anschließend in einem Vielkanalanalysator
+  	entsprechend seiner Höhe in einem Kanal einordnet und gespeichert.
+  	Die Daten werden über einen Rechner ausgelesen.
+  	\begin{figure}
+    	\centering
+    	\includegraphics[width=\textwidth]{Bilder/AufbauB.png}
+    	\caption{Blockschaltbild des Versuchsaufbaus \cite{anleitung}.}
+    	\label{fig:aufbau}
+  	\end{figure}
+  \subsubsection{Filtern von nicht-zerfallenden Myonen.}
+  Die oben beschriebene Messmethode ist nicht geeignet, um die in Kapitel \ref{Lebensdauer}
+  beschriebenen Fälle auszuschließen, in denen das Myon nicht Zerfällt, also nur
+  der Eintrittslichtimpuls im Szintillator entsteht. Diese Fälle werden nun
+  durch das schaltungstechnische Einbauen einer Suchzeit $T_s$ über eine monostabile
+  Kippstufe (auch Univibrator) gefiltert. Die monostabile Kippstufe wird dabei durch
+  den vom SEV über eine Koinzidenzschaltung (siehe Kapitel \ref{Rausch}) einlaufenden
+  Impuls nach einer Verzögerung angestoßen und in einen instabilen Zustand gehoben.
+  Dadurch wird das an den beiden Ausgängen des Univibrators anliegende Signal so
+  getauscht, dass ein H-Signal auf das 2. AND-Gatter und ein L-Signal auf das 1. AND-Gatter
+  geben wird. Nach Ablauf von $T_s$ werden die Signale wieder zurückgetauscht.
+  Das Signal der Koinzidenz wird ebenfalls an das 1. und 2. AND-Gatter gegeben.\\
+  Läuft nun der Einfallimpuls in die Schaltung, so liegen am 1. AND-Gatter zwei
+  H-Signale (die Verzögerung vor dem Univibrator sorgt dafür, dass die Ausgänge einige
+  \si{\nano\second} später umgetauscht werden). Das 1. AND-Gatter schaltet daher durch
+  und den TAC erreicht das Start-Signal. Die monostabile Kippstufe schaltet nun um
+  und am 2. AND-Gatter liegt ein H-Signal. Läuft in der Zeit $T_s$ nun das Zerfallssignal
+  ein, liegen am 2. AND-Gatter 2 H-Signale und das Stopp-Signal für den TAC wird gegeben.
+  Passiert dies nicht schaltet die Kippstufe wieder um und die Messung wird verworfen.\\
+  Die Suchzeit muss so gewählt werden, dass sie groß gegenüber der Lebensdauer, aber klein
+  gegenüber dem zeitlichen Abstand zwischen zwei einfallenden Myonen ist, damit das
+  Stopp-Signal nicht durch das zweite Myon gegeben wird. Dies ist letztlich jedoch nicht
+  auszuschließen und durch diese Schaltung auch nicht filterbar. Die Dauer zwischen
+  zwei Myonen ist jedoch statistisch Verteilt, wodurch alle Kanäle gleich stark von
+  solchen Fehlmessungen betroffen sind. Es ergibt sich eine kontuierliche Untergrundrate $U$,
+  die von den Messwerten jedes Kanals abgezogen werden muss.
+  \subsubsection{Rauschunterdrückung}
+  \label{Rausch}
+  Eine weitere Rauschquelle stellen spontane Elektronenemissionen der Photokathoden
+  der SEVs dar. Diese führen zu Spannungssignalen, obwohl kein Myon eingefallen ist.
+  Die entstehenden Signale sind jedoch meistens kleiner als die von Myonen verursachten.
+  Zur Unterdrückung dieser Signale werden zwei Methoden verwendet:
+  \begin{enumerate}
+    \item Diskriminatoren:\\
+    Beiden SEVs sind Diskriminatoren nachgeschaltet. Diese geben nur dann ein Signal
+    ab, wenn das einlaufende Signal eine gewisse Schwelle überschreitet. Diese muss
+    so gewählt werden, dass echte Signale möglichst nicht gefiltert werden.
+    \item Koinzidenzschaltung:\\
+    Weiterhin sind zwei SEVs eingebaut, deren Signale über eine Koinzidenzschaltung
+    abgeglichen werden. Nur wenn von beiden SEVs innerhalb einer Zeit $\symup\Delta t_K$
+    ein Signal an den Eingängen der Koinzidenz ankommt, wird ein Signal weitergegeben.
+    Da spontane Emissionen jeweils nur einen SEV betreffen und die Wahrscheinlichkeit,
+    dass es an beiden SEVs gleichzeitig zu spontaner Emission kommt relativ gering ist,
+    stellt dies eine gute Möglichkeit zur Signalfilterung dar. Die Zeit $\symup\Delta t_K$
+    ist jedoch so zu wählen, dass Sie sowohl den Lichtweg zwischen den beiden SEVs
+    (ca. \SI{4}{\nano\second} für den Fall, dass ein Signal unmittelbar an einem SEV
+    entsteht), als auch Unterschiede in den Kabellängen der beiden Leitungen der
+    SEVs zur Koinzidenz berücksichtigt. Letztere können durch eine Verzögerungsschaltung
+    aufeinander abgeglichen werden.
+  \end{enumerate}
+  Auch durch diese beiden Möglichkeiten ist eine totale Rauschunterdrückung nicht möglich.
+  \subsection{Versuchsdurchführung}
+  \label{sec:Durchführung}
+  \subsubsection{Aufbau und Justage des Versuchsaufbaus}
+  Die Schaltung wird schrittweise aufgebaut und unter Zuhilfenahme eines schnellen Oszillographen
+  überprüft und justiert. Es wird mit dem zur Rauschunterdrückung gedachten
+  Teil des Aufbaus begonnen:
+  \begin{enumerate}
+    \item Nach einschalten der Hochspannung sollen an den SEV Ausgängen Impulse
+    unterschiedlicher Höhe abfallen. Die ungefähre Länge wird gemessen.
+    \item Die Diskriminatoren werden so einjustiert, dass sie Impulse gleicher Länge und
+    Höhe liefert. In diesem Schritt muss ein \SI{50}{\ohm} Widerstand parallel zum
+    Oszillatoreingang geschaltet werden, da ansonsten Reflexionen durch Fehlanpassungen
+    auftreten. Auch hier wird die ungefähre Länge gemessen.
+    \item Über ein Zählwerk wird die Zahl der pro Zeitintervall einfallenden Myonen
+    gemessen. Die Diskriminatoren werden so eingeregelt, dass sie zwischen 20 und 40
+    Myonen pro Sekunde liegt. An beiden Diskriminatoren sollte in etwa die gleiche
+    Rate abfallen.
+    \item Es wird die Koinzidenzschaltung angeschlossen und der Ausgang auf ein
+    Zählwerk gelegt. Die Zählrate wird abhängig von der Verzögerung gemessen, am
+    entsprechenden Graphen sollte sich ein "Plateau" bilden. Bei der zum Maximum
+    korespondierenden Verzögerung wird die Messung durchgeführt, aus der Halbwertsbreite
+    der Kurve lässt sich später die Verzögerungszeit rekonstruieren.
+    \item Zuletzt wird die Zählrate vor und hinter der Koinzidenz verglichen. Sollte
+    diese annähernd gleich sein, muss die Diskriminatorschwelle gesenkt werden um die
+    Myonenrate zu erhöhen. Ansonsten ist die Koinzidenz wirkungslos.
+  \end{enumerate}
+  Zum weitern Aufbau wird der Teil vor der Koinzidenzschaltung abgeklemmt und ein
+  Doppelimpulsgenerator auf den an der Koinzidenz verbleibenden Eingang gelegt.
+  Die Dauer zwischen zwei von Doppelimpulsgenerator gegebenen Inpulsen ist einstellbar
+  und lässt sich gut zum Überprüfen der Schaltung nutzen.
+  \begin{enumerate}
+    \item Der Univibrator wird über die Verzögerungsleitung angeschlossen. An den
+    Ausgängen der Kippstufe kann nun die Suchzeit gemessen werden. Diese sollte den
+    Zeitmessbereich des TAC nur leicht überschreiten.
+    \item Die AND-Gatter werden entsprechend des Blockschaltplans eingebaut. Die von
+    den AND-Gattern auf die Eingänge des TAC gehenden Signale müssen den selben Abstand
+    haben, der zwischen den Impulsen am Doppelimpulsgenerator eingestllt ist.
+    \item Der TAC wird überprüft. Die Höhe der am Ausgang abfallenden Signale muss
+    dabei proportional zum eingestellten Impulsbastand sein.
+    \item Abschließend wird durch Variation der Impulsabstände überprüft, welcher Kanal
+    am Vielkanalanalysator welcher Messzeit entspricht.
+  \end{enumerate}
+  \subsubsection{Messung}
+  Die Messung wird begonnen, indem Zählwerk und Vielkanalanalysator gleichzeitig
+  gestartet werden. Die Messzeit beträgt liegt 20 und \SI{30}{\hour}.
+  Zum Beenden der Messung werden Zählwerk und Vielkanalanalysator gleichzeitig gestoppt.
+  Aufgezeichnet werden die Ergebnisse des Vielkanalanalysators, die Anazahl der detektierten
+  Myonen, die Anzahl der Fehlmessungen sowie der Messzeit.
+
+\section{Auswertung}
+
+\subsection{Fehlerrechnung}
+  Für die Auswertung werden zwei Arten Punktschätzer genutzt. Es gibt:
+  \begin{equation}
+    \overline{T}_\symup{arith.} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+    \label{arith}
+  \end{equation}
+  den arithmetischen Mittelwert, sowie:
+  \begin{equation*}
+    \overline{T}_\symup{gew.} = \sum_{i=1}^{n} T_{i}  w_{i}
+  \end{equation*}
+  den mit den Gewichten $w_{i}$ gewichteten Mittelwert. Die Summe der Gewichte ist
+  dabei auf $1$ normiert.
+  In Fällen, in denen zwei fehlerbehaftete Größen in einer Gleichung zur Bestimmung
+  einer anderen Größe Verwendung finden, berechnet sich der Gesamtfehler
+  nach der Gaußschen Fehlerfortpflanzung zu:
+  \begin{equation*}
+      \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
+      x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
+      x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
+    \end{equation*}
+    Für die Fehlerrechnung sowie den mathematischen Teil der Auswertung wird auf $\textsc{Python}$ \cite{python}
+    zurückgegriffen:\\
+    Arithmetische Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$ \cite{numpy}
+    nach \eqref{arith},
+    gewichtete Mittelwerte durch manuelles implementieren der jeweiligen Funktion berechnet.
+    Fehlerfortpflanzung wird
+    durch die Bibliothek $\textsc{uncertainties}$ \cite{uncertainties} automatisiert.
+    Regressionen sowie deren Fehler wurden durch die $\textsc{Numpy}$ Funktion $\textsc{polyfit}$
+    nach einer $\textsc{least-squares}$-Methode mit Polynomen der an den entsprechenden Stellen
+    angegeben Ordnung durchgeführt. Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
+    erstellt.
+
+\section{Diskusion}
+
+\newpage
+\nocite{*}
+\printbibliography

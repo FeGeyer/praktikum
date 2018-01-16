@@ -177,6 +177,14 @@ nach der Gaußschen Fehlerfortpflanzung zu:
     x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
     x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
 \end{equation*}
+Genauer bestimmen sich die Fehler der verwendeten Formeln zu:
+\begin{align*}
+  \sigma_T &= 0.00268 R \sigma_R + 2.296 \sigma_R\\
+	\sigma_E &= \sqrt{I^{2} U^{2} \sigma_{{\symup\Delta T}}^{2} + I^{2} {\symup\Delta T}^{2} \sigma_{U}^{2} + U^{2} {\symup\Delta T}^{2} \sigma_{I}^{2}}\\
+	\sigma_{C_p} &= \sqrt{\frac{E^{2} M^{2} \sigma_{{\symup\Delta T}}^{2}}{{\symup\Delta T}^{4} m^{2}} +\frac{M^{2} \sigma_{E}^{2}}{{\symup\Delta T}^{2} m^{2}}}\\
+	\sigma_{C_V} &= \sqrt{324 T^{2} V_{0}^{2} \alpha^{2} \kappa^{2} \sigma_{\alpha}^{2} + 81 V_{0}^{2} \alpha^{4} \kappa^{2} \sigma_{T}^{2} + \sigma_{C_{p}}^{2}}\\
+  \sigma_{\theta_D} &= \sigma_T\cdot \frac{\theta_D}{T}.
+\end{align*}
 Für die Fehlerrechnung sowie den mathematischen Teil der Auswertung wird auf $\textsc{Python}$ \cite{python}
 zurückgegriffen:\\
 Arithmetische Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$ \cite{numpy}

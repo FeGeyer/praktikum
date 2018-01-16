@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
+import sympy
 from uncertainties import ufloat
 from scipy.optimize import curve_fit
 from scipy.stats import stats
@@ -271,3 +272,39 @@ np.savetxt('TexTabellen/theta.txt', np.column_stack([
         unp.nominal_values(theta_d),
         unp.std_devs(theta_d)
         ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')
+
+
+# Fehlerformeln
+def error(f, err_vars=None):
+    from sympy import Symbol, latex
+    s = 0
+    latex_names = dict()
+
+    if err_vars == None:
+        err_vars = f.free_symbols
+
+    for v in err_vars:
+        err = Symbol('latex_std_' + v.name)
+        s += f.diff(v)**2 * err**2
+        latex_names[err] = '\\sigma_{' + latex(v) + '}'
+
+    return latex(sympy.sqrt(s), symbol_names=latex_names)
+# Wärmemenge
+U, I, t = sympy.var('U I \delta_t')
+E = U*I*t
+print(error(E))
+print()
+# CP
+M, m, E, dT = sympy.var(r'M, m, E, \delta_T')
+CP = M/m * E/dT
+print(error(CP))
+print()
+# CV
+CP, a, K, V, T = sympy.var(r'C_p, \alpha, \kappa, V_0, T')
+CV = CP - 9*a**2*K*V*T
+print(error(CV))
+print()
+# theta_D
+de, Td, Cvd, R = sympy.var(r'deb, T, C_V, R')
+thD = (de*Td**3*9*R/Cvd)**(1/3)
+print(error(thD))

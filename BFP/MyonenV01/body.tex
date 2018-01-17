@@ -280,6 +280,135 @@
     nach einer $\textsc{least-squares}$-Methode mit Polynomen der an den entsprechenden Stellen
     angegeben Ordnung durchgeführt. Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
     erstellt.
+\subsection{Bestimmung der Verzögerungszeit}
+Um die Verzögerungszeit $T_\symup{VZ}$ zu bestimmen, wurde an einer Delay-Line eine
+feste Verzögerung von \SI{20}{\nano\second} eingestellt und die Verzögerung der anderen
+Delay-Line von 0 bis \SI{34}{\nano\second} variiert und das jeweilige $N(t)$ bestimmt.
+In Tabelle \ref{sub:tab1} befinden sich die Messwerte und in Abbildung \ref{sub:fig1}
+die zugehörige grafische Darstellung. Die Fehler sind nach $\sqrt{N}$ gebildet worden,
+also dem Poisson-Fehler für Zählexperimente.
+\begin{figure}
+  \centering
+  \subcaptionbox{Verzögerung der zweiten Delay-Line und zugehörige Zählrate. \label{sub:tab1}}[0.3\textwidth]{
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    d$t$ / \si{\nano\second} & $N$ \si{\per10\second} \\
+    \midrule
+    -20 & 18 \\
+    -19 & 40 \\
+    -18 & 63 \\
+    -17 & 86 \\
+    -16 & 84 \\
+    -14 & 79 \\
+    -12 & 83 \\
+    -10 & 93 \\
+    -8 & 91 \\
+    -6 & 103 \\
+    -4 & 116 \\
+    -2 & 101 \\
+    0 & 97 \\
+    2 & 97 \\
+    4 & 99 \\
+    6 & 95 \\
+    7 & 77 \\
+    8 & 56 \\
+    9 & 55 \\
+    10 & 52 \\
+    12 & 5 \\
+    14 & 11 \\
+    \bottomrule
+  \end{tabular}
+  }
+  \subcaptionbox{Grafische Darstellung. Die Daten wurden um \SI{20}{\nano\second}
+  zentriert und um 130 erniedrigt, da die Flanken fehlten. \label{sub:fig1}}[0.6\textwidth]{
+  \centering
+  \includegraphics[width=0.6\textwidth]{Plateau.pdf}
+  }
+  \caption{Tabelle mit Messwerten und zugehörige grafische Darstellung.}
+  \label{fig:1}
+\end{figure}
+Aus der Grafik \ref{sub:fig1} wird ersichtlich, dass das Maximum bei \SI{16}{\nano\second}
+liegt, also insgesamt eine Verzögerung von \SI{4}{\nano\second} angelegt wurde.
+Außerdem ist in Abbildung \ref{sub:fig1} die Halbwertsbreite eingetragen. Diese ist
+gleichbedeutend mit der Auflösungszeit $ \symup{\Delta}t_K$ der Koinzidenzeinheit.
+Es folgt
+\begin{equation}
+  \symup{\Delta}t_K = \SI{29}{\nano\second} \, .
+\end{equation}
+
+\subsection{Kalibrierung der Kanäle}
+Um die Kanäle zu kalibrieren, wird ein Doppelimpuls mit verschieden langen Impulsbreiten
+durch den Messaufbau geschickt und vom Vielkanalanalysator verarbeitet. Aus eben jenen
+Impulsbreiten $t_\symup{kal}$ und der Auswertung des Vielkanalanalysators lässt sich bestimmen, welcher
+Kanal mit welcher Impulsbreite korrespondiert. Da sich diese proportional zueinander
+verhalten, wird eine lineare Regression mit den Messwerten in Tabelle \ref{sub:tab2}
+durchgeführt. Die lineare Regression
+\begin{equation*}
+  f(x) = mx + b
+\end{equation*}
+ist in Abbildung \ref{sub:fig2}.
+\begin{figure}
+  \centering
+  \subcaptionbox{Impulsbreite und korrespondierender Kanal. \label{sub:tab2}}[0.3\textwidth]{
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    $t_\symup{kal}$ / \si{\micro\second} & Kanal \\
+    \midrule
+    1 & 23 \\
+    2 & 45 \\
+    3 & 67 \\
+    4 & 90 \\
+    5 & 112 \\
+    6 & 134 \\
+    7 & 156 \\
+    8 & 178 \\
+    9 & 200 \\
+    \bottomrule
+  \end{tabular}
+  }
+  \subcaptionbox{Grafische Darstellung mit linearer Regression. \label{sub:fig2}}[0.6\textwidth]{
+  \centering
+  \includegraphics[width=0.6\textwidth]{kal.pdf}
+  }
+  \caption{Tabelle mit Messwerten und zugehörige grafische Darstellung.}
+  \label{fig:2}
+\end{figure}
+Sie
+liefert die Parameter
+\begin{align}
+  m &= \num{0.04515(8)} \\
+  b &= \SI{-0.041(10)}{\micro\second} \, .
+\end{align}
+Also lassen sich die zu den einzelnen Kanälen gehörenden Zeitdauern aus einer linearen
+Funktion mit den errechneten Parametern bestimmen.
+\subsection{Bestimmung des Untergrundes}
+Zunächst gilt es, eine Ausdruck für die Anzahl der Myonen zu gewinnen, die im Mittel
+den Tank durchqueren. Dieser ergibt sich aus der Anzahl
+der Startimpulse und der gesamten Messzeit zu
+\begin{equation}
+  \overline{N} = \frac{N_\symup{start}}{T_\symup{gesamt}} \, .
+\end{equation}
+Während der Suchzeit $T_S$ tun dies im Mittel $n = \overline{N} \cdot T_S$ Myonen.
+Die Wahrscheinlichkeit, dass dies genau $n$ Teilchen während der Suchzeit $T_S$ tun, ist
+poissonverteilt. Möchte man die Fehlmessungen $N_\symup{fehl}$ erhalten, so muss man genau die Fälle
+einbeziehen, in denen während der Suchzeit zwei Myonen direkt aufeinander gefolgt sind,
+also die Anzahl aller Startimpulse mit der zugehörigen Wahrscheinlichkeit, die man
+aus der Poissonverteilung erhält, multiplizieren.
+Mit $N_\symup{start} = \num{3.0619(17)e6}$, $T_S = \SI{20}{\micro\second}$ und $T_\symup{gesamt}
+= \SI{147182}{\second}$ folgt
+\begin{equation}
+  N_\symup{fehl} = \overline{N} \cdot T_S \cdot \symup e^{- \overline{N} \cdot T_S}
+  \cdot N_\symup{start} = \num{1273.4(15)} \, .
+\end{equation}
+Da diese Ereignisse statistisch unabhängig voneinander sind, lässt sich die Untergrundrate
+bestimmen aus
+\begin{equation}
+  U = \frac{N_\symup{fehl}}{\text{Anzahl Kanäle}} = \num{2.4871(28)} \, .
+\end{equation}
+mit 512 Kanälen.
+
 
 \section{Diskusion}
 

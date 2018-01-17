@@ -64,7 +64,8 @@ np.savetxt('TexTabellen/cp.txt', np.column_stack([
         unp.std_devs(dt),
         unp.nominal_values(cp),
         unp.std_devs(cp)
-        ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')
+        ]), delimiter=' & ', newline=r' \\'+'\n',
+        fmt='%.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.0f & %.0f & %.1f & %.1f')
 
 
 # Mittelwert der Probentemperaturdifferenzen in Kelvin
@@ -125,34 +126,60 @@ np.savetxt('TexTabellen/cv.txt', np.column_stack([
         unp.std_devs(cp),
         unp.nominal_values(cv),
         unp.std_devs(cv)
-        ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')
+        ]), delimiter=' & ', newline=r' \\'+'\n',
+        fmt='%.2f & %.2f & %.0f & %.0f & %.1f & %.1f & %.1f & %.1f')
 
 T_cv = np.linspace(unp.nominal_values(Tbar).min()-2,
                    unp.nominal_values(Tbar).max()+2, 1000)
 plt.figure(2)
 plt.xlim(unp.nominal_values(Tbar).min()-2, unp.nominal_values(Tbar).max()+2)
-plt.ylim(unp.nominal_values(cv).min()-1, unp.nominal_values(cp).max()+1)
+plt.ylim(unp.nominal_values(cv).min()-1, unp.nominal_values(cp).max()+3)
 plt.ylabel(r"$c$ / J$\,$Mol$^{-1}\,$K$^{-1}$")
 plt.xlabel(r"$T$ / K")
 plt.axhline(3 * const.R, label=r"$3R$")
 # plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cp),
 #              xerr=unp.std_devs(Tbar),
 #              yerr=unp.std_devs(cv), fmt='b^', label=R"$c_\mathrm{p}$")
-plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cp), 'bv',
-         label=r"$c_\mathrm{p}$")
+plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cp),
+             yerr=unp.std_devs(cp), fmt='rx', label=r"$c_\mathrm{p}$")
 # plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cp), 'b--', )
 
 # plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cv),
 #              xerr=unp.std_devs(Tbar),
 #              yerr=unp.std_devs(cv), fmt='ro', label=r"$c_\mathrm{V}$")
-plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cv), 'r^',
+plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cv), 'b^',
          label=r"$c_\mathrm{V}$")
+# plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cv), 'r--', )
+plt.grid()
+plt.legend(loc="best")
+plt.tight_layout()
+plt.savefig("P.pdf")
+plt.clf()
+
+plt.figure(6)
+plt.xlim(unp.nominal_values(Tbar).min()-2, unp.nominal_values(Tbar).max()+2)
+plt.ylim(unp.nominal_values(cv).min()-1, unp.nominal_values(cp).max()+3)
+plt.ylabel(r"$c$ / J$\,$Mol$^{-1}\,$K$^{-1}$")
+plt.xlabel(r"$T$ / K")
+plt.axhline(3 * const.R, label=r"$3R$")
+# plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cp),
+#              xerr=unp.std_devs(Tbar),
+#              yerr=unp.std_devs(cv), fmt='b^', label=R"$c_\mathrm{p}$")
+# plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cp), 'b--', )
+
+# plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cv),
+#              xerr=unp.std_devs(Tbar),
+#              yerr=unp.std_devs(cv), fmt='ro', label=r"$c_\mathrm{V}$")
+plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cp), 'b^',
+         label=r"$c_\mathrm{p}$")
+plt.errorbar(x=unp.nominal_values(Tbar), y=unp.nominal_values(cv),
+             yerr=unp.std_devs(cv), fmt='rx', label=r"$c_\mathrm{V}$")
 # plt.plot(unp.nominal_values(Tbar), unp.nominal_values(cv), 'r--', )
 
 plt.grid()
 plt.legend(loc="best")
 plt.tight_layout()
-plt.savefig("Kapaz.pdf")
+plt.savefig("V.pdf")
 plt.clf()
 
 
@@ -217,19 +244,21 @@ T_z2_bis_170 = T_z2[Tbar <= 170] + 273.15
 TZylbar_bis_170 = TZylbar[Tbar <= 170]
 
 rel = Tbar_bis_170 / TZylbar_bis_170
+abw = np.abs(Tbar_bis_170 - TZylbar_bis_170)
+print(Tbar_bis_170[1], TZylbar_bis_170[1])
 
 # Durchloopen, um Fälle zu filtern, in denen Tbar > Tzylbar war zu finden und
 # umzudrehen
-for i in range(len(rel)):
-    if rel[i] > 1:
-        rel[i] = TZylbar_bis_170[i] / Tbar_bis_170[i]
+# for i in range(len(rel)):
+#     if rel[i] > 1:
+#         rel[i] = TZylbar_bis_170[i] / Tbar_bis_170[i]
 
 # rel soll das Gewichtsarray werden. Also: Auf 1 normieren.
-summe = np.sum(rel)
-rel = rel / np.sum(rel)
+summe = np.sum(1/abw)
+abw = 1/(abw*summe)
 
 # gewichteten Mittelwert ausrechnen:
-theta_d_gew = np.sum(rel*theta_d)
+theta_d_gew = np.sum(abw*theta_d)
 print(theta_d_gew)
 
 # Jetzt Teil d: Zuerst brauchen wir N_L und V:
@@ -271,7 +300,8 @@ np.savetxt('TexTabellen/theta.txt', np.column_stack([
         unp.std_devs(cv_bis_170),
         unp.nominal_values(theta_d),
         unp.std_devs(theta_d)
-        ]), delimiter=' & ', newline=r' \\'+'\n', fmt='%.2f')
+        ]), delimiter=' & ', newline=r' \\'+'\n',
+        fmt='%.2f & %.2f & %.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.1f & %.0f & %.0f')
 
 
 # Fehlerformeln
@@ -292,19 +322,19 @@ def error(f, err_vars=None):
 # Wärmemenge
 U, I, t = sympy.var('U I \delta_t')
 E = U*I*t
-print(error(E))
+# print(error(E))
 print()
 # CP
 M, m, E, dT = sympy.var(r'M, m, E, \delta_T')
 CP = M/m * E/dT
-print(error(CP))
+# print(error(CP))
 print()
 # CV
 CP, a, K, V, T = sympy.var(r'C_p, \alpha, \kappa, V_0, T')
 CV = CP - 9*a**2*K*V*T
-print(error(CV))
+# print(error(CV))
 print()
 # theta_D
 de, Td, Cvd, R = sympy.var(r'deb, T, C_V, R')
 thD = (de*Td**3*9*R/Cvd)**(1/3)
-print(error(thD))
+# print(error(thD))

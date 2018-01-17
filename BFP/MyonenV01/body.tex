@@ -95,9 +95,10 @@
   dabei ist $\symup{d}N$ die Zahl der Teilchen, die im Zeitraum $\symup{d}t$ zerfallen sind, wenn
   $N$ Teilchen beobachtet werden. Für große $N$ lässt sich durch integration das exponentielle
   Zerfallsgesetz gewinnen:
-  \begin{equation*}
+  \begin{equation}
     \frac{N(t)}{N_0} = \exp{(-\lambda t)}.
-  \end{equation*}
+    \label{runeduhund}
+  \end{equation}
   Dabei bezeichnet $\lambda$ hier die teilchenspezifische Zerfallskonstante,
   $t$ die Zeit und $N_0$ die zum Zeitpunkt $t=0$ vorhandenen Teilchen.
   In einem Intervall $[t, \symup{d}t]$ lässt sich daraus die Verteilungsfunktion
@@ -338,6 +339,7 @@ Es folgt
 \end{equation}
 
 \subsection{Kalibrierung der Kanäle}
+\label{sec:kal}
 Um die Kanäle zu kalibrieren, wird ein Doppelimpuls mit verschieden langen Impulsbreiten
 durch den Messaufbau geschickt und vom Vielkanalanalysator verarbeitet. Aus eben jenen
 Impulsbreiten $t_\symup{kal}$ und der Auswertung des Vielkanalanalysators lässt sich bestimmen, welcher
@@ -408,9 +410,80 @@ bestimmen aus
   U = \frac{N_\symup{fehl}}{\text{Anzahl Kanäle}} = \num{2.4871(28)} \, .
 \end{equation}
 mit 512 Kanälen.
+\subsection{Bestimmung der Lebendsdauer}
+Um die Lebensdauer zu bestimmen, werden als erstes die benutzten Kanäle in Zeitdauern
+umgerechnet, mit der linearen Regression aus Kapitel \ref{sec:kal}. Die gemessenen
+Ereignisse werden dann in Abhängigkeit der bestimmten Zeitdauern
+durch eine Funktion der Gestalt
+\begin{equation}
+  f(t) = N_0 \cdot \symup e^{-\lambda \, t} + U_\symup{fit} \, ,
+  \label{fit}
+\end{equation}
+welche im Wesentlichen \ref{runeduhund} plus der Untergrundrate entspricht,
+gefittet. Dabei wurden insgesamt vier Werte aus der Regression rausgenommen,
+da diese keine Informationen (leere Kanäle) bzw. Fehlmessungen enthalten. Diese
+sind im Plot markiert.
+Die Messwerte und die Regression mit \eqref{fit} sind in
+Abbildung \ref{fig:3} zu sehen.
 
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{fit.pdf}
+  \caption{Fit mit einer Exponentialfunktion.}
+  \label{fig:3}
+\end{figure}
+Es ergebn sich für die Parameter
+\begin{align}
+  N_0 &= \num{243.5(15)} \ \text{pro Kanal} \\
+  \lambda &= \SI{0.465(4)}{\per\micro\second} \label{dauer} \\
+  U_\symup{fit} &= \num{2.23(27)} \ \text{pro Kanal} \label{Untergrund} \, .
+\end{align}
+Aus \eqref{eq:tau} ergibt sich für die Lebensdauer
+\begin{equation}
+  \tau = \SI{2.151(21)}{\micro\second} \, .
+\end{equation}
 
 \section{Diskusion}
+\begin{table}
+  \centering
+  \caption{Errechnete und gefittete Werte für die Lebensdauer und die Untergrundrate.}
+  \label{tab:dis}
+  \begin{tabular}{c c c}
+    \toprule
+     &Wert aus Fit & Wert aus Literatur / Berechnung \\
+    \midrule
+    $\tau$ & \SI{2.151(21)}{\micro\second} & \SI{2.197}{\micro\second} \\
+    $U$ & \num{2.23(27)} \ \text{pro Kanal} & \num{2.4871(28)} \ \text{pro Kanal} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Es wird ersichtlich, dass die Untergrundraten gut aufeinander passen. Die Abweichung
+beträgt \SI{10(11)}{\percent}. Die Abweichung könnte in der Statistik liegen, da
+fehlerbehaftete Größen in die Berechnung einfließen. Außerdem wird auch ein Mittelwert
+gebildet und in den Rechnungen verwendet, dies könnte zu einem systematischen Fehler
+führen. \\
+\\
+Noch besser passen die errechnete Lebensdauer und der Literaturwert\footnote{aus \cite{lebensdauer}} zueinander.
+Die relative Abweichung beträgt \SI{2.2(9)}{\percent}. Diese gute Übereinstimmung
+ließ schon Abbildung \ref{fit} vermuten, da der Fit mit der Exponential-Funktion
+gut mit den gemessen Werten übereinstimmt. Zu den nicht-betrachteten Werten lässt sich
+sagen, dass die ersten zwei Zeitdauern wohl zu klein waren, um erfasst zu werden.
+Die beiden viel zu hohen Werte sind vermutlich aus der Binaddition entstanden, da
+der Vielkanalanalysator auch oftmals Ereignisse auf mehrere direkt nebeneinander
+liegende Kanäle verteilt. Alles in allem ist wohl auch die hohe Anzahl an Ereignissen
+für gute statistische Werte und verhältnismäßig kleine Fehler verantwortlich. Mögliche
+Fehlerquellen sind die etwas ungenaue, weil von Hand eingestellte, Breite der
+Diskriminatoren und die Tatsache, dass mögliche Signale durch die Maßnahmen zur
+Rauschunterdrückung herausgefiltert wurden bzw. Fehlmessungen nicht herasgefiltert wurden.
+Außerdem ist die Bestimmung der Auflösungszeit $\symup \Delta t_K$
+eher schlecht gelaufen, da ohne die Verschiebung in y-Richtung die halbe Höhe des
+Plateaus nicht mehr durch Messwerte abgedeckt wäre. Der Wert \SI{29}{\nano\second}
+soll nach $\SI{4}{\nano\second} < \symup \Delta t_K$ eine obere Abschätzung bilden,
+diese könnte sicherlich noch verfeinert werden, damit die Rauschunterdrückung
+durch die Koinzidenzschaltung noch
+wirksamer die Rauschimpulse der Photokathoden und nicht die Lichtblitze der Myonen
+filtert.
+
 
 \newpage
 \nocite{*}

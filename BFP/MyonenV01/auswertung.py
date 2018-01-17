@@ -32,6 +32,7 @@ plt.errorbar(dt, N, yerr=np.sqrt(N), fmt='kx', label="Messwerte")
 plt.axhline(y=hoehe, xmin=0.15, xmax=0.75, label="Plateau")
 plt.axhline(y=hoehe/2, xmin=0.07, xmax=0.85, color="red",
             label="Halbwertsbreite")
+plt.ylim(0, 130)
 plt.grid()
 plt.legend(loc="best")
 plt.tight_layout()
@@ -79,6 +80,7 @@ print("-------------------")
 print(Startimpulse)
 print("Fehlmessungen: ", Nf)
 print("Untergrundrate: ", Nf_kanal)
+
 # Umrechnung Kanäle in Zeit
 kanaele = np.arange(0, 512, 1)
 zeiten1 = linear(kanaele, *params_kal)
@@ -89,6 +91,14 @@ zeiten = np.append(zeiten, zeiten1[15:])
 daten_ang = daten[3:6]
 daten_ang = np.append(daten_ang, daten[7:14])
 daten_ang = np.append(daten_ang, daten[15:])
+
+# Entfernte Daten und Zeiten
+zeiten_ent = zeiten1[:3]
+zeiten_ent = np.append(zeiten_ent, zeiten1[6])
+zeiten_ent = np.append(zeiten_ent, zeiten1[14])
+daten_ent = daten[:3]
+daten_ent = np.append(daten_ent, daten[6])
+daten_ent = np.append(daten_ent, daten[14])
 # Definition der exp-Funktion
 
 
@@ -103,15 +113,21 @@ l = ufloat(params_fit[1], errors_fit[1])
 U = ufloat(params_fit[2], errors_fit[2])
 
 print("-------------------")
+print("N_0: ", N_0)
 print("Lambda: ", l)
 print("Lebensdauer: ", 1/l)
 print("Untergrundrate: ", U)
-
+tau = 2.2
+ta_fit = 1/l
+print("Verhältnis: ", (1-ta_fit/tau)*100)
+print("Verhältnis Untergrund: ", (1-U/Nf_kanal)*100)
 
 plt.plot(zeiten, daten_ang, 'r.', label="Daten")
+plt.plot(zeiten_ent, daten_ent, 'gx', label="Nicht-betrachtete Daten")
 plt.plot(zeiten, e(zeiten, *params_fit), 'b--', label="Fit")
 plt.xlabel(r"$\tau \,  / \, \mathrm{\mu s}$")
 plt.ylabel(r"$N(t)$")
+plt.grid()
 plt.legend(loc="best")
 plt.tight_layout()
 plt.savefig('fit.pdf')
@@ -121,4 +137,6 @@ plt.clf()
 np.savetxt('Tabellen/tvz.txt', np.column_stack([dt, N]),
            delimiter=' & ', newline=r' \\'+'\n', fmt="%.0f")
 np.savetxt('Tabellen/kal.txt', np.column_stack([kal_t, kanal]),
+           delimiter=' & ', newline=r' \\'+'\n', fmt="%.0f")
+np.savetxt('Tabellen/fit.txt', np.column_stack([kanaele, zeiten1, daten]),
            delimiter=' & ', newline=r' \\'+'\n', fmt="%.0f")

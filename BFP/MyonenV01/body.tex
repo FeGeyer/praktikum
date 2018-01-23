@@ -31,7 +31,7 @@
   Teilchen wird dies mit einem hochgestellten $+$ anstelle des $-$ gekennzeichnet, die
   Antiteilchen sind 1-fach positiv geladen.
   Antineutrinos erhalten eine Überstreichung. Lediglich das Antiteilchen des Elektrons
-  ist als Positron benannt. Das Elektron ist das einzige stabile Lepton.
+  ist als Positron benannt. Das Elektron ist das einzige stabile geladene Lepton.
   \subsection{Kosmische Myonen}
   Myonen entstehen in vielfältigen Prozessen, beispielsweise beim Zerfall von geladenen
   Pionen:
@@ -39,7 +39,8 @@
     \pi^+ \to \mu^+ + \nu_{\mu} \qquad \text{ und } \qquad \pi^- \to \mu^- + \bar{\nu}_{\mu} .
   \end{equation*}
   Diese entstehen beispielsweise in der Hochatmosphäre in sogenannten ausgedehnten
-  Luftshowern (EAS). Insbesondere hochrelativistische Protonen können als primäre
+  Luftshowern (EAS). Insbesondere hochrelativistische Protonen aus extraterestrischen
+  Quellen (z.B. aus aktiven Galaxienkernen) können als primäre
   Partikel einen solchen EAS auslösen. Durch Wechselwirkungen mit Luftmolekülen
   entstehen unter anderem Pionen, aus deren Zerfallsprodukten Myonen frei werden.
   Diese Myonen tragen einen Teil der Energie des Primärteilchens und bewegen sich
@@ -51,7 +52,8 @@
   durch den Szintillator deponieren sie einen Teil ihrer kinetischen Energie im Szintillatormaterial.
   Dies äußert sich in Form von Anregungszuständen der Moleküle, bei deren Rückkehr in
   den Grundzustand Photonen frei werden. Diese können durch Sekundärelektronenvervielfacher
-  (SEV) nachgewiesen werden.\\
+  (SEV - aufgebaut aus einer Photokathode, Dynoden zur Sekundärelektronenproduktion sowie
+  einer Anode) nachgewiesen werden.\\
   Es sind nun drei Fälle zu unterscheiden:
     \begin{enumerate}
     \item Das Myon hat auf seinem Weg durch die Atmosphäre bereits viel Energie
@@ -65,7 +67,8 @@
       \mu^+ &\to e^+ + \nu_{e} + \bar{\nu}_{\mu}\\
       \mu^- &\to e^- + \bar{\nu}_{e} +  \nu_{\mu}.
     \end{align*}
-    Das entstehende Elektron (oder Positron) ist wiederum in der Lage das Szintillatormaterial anzuregen.
+    Das entstehende Elektron (oder Positron) ist wiederum  aufgrund seiner hohen Energie
+    in der Lage das Szintillatormaterial anzuregen.
     Durch die dabei entstehenden Photononen wird ein zweites Signal detektierbar
     und aus der Zeitdifferenz lässt sich die Lebensdauer berechnen.
     \item Das Myon durchquert den Detektor ohne zu Zerfallen:\\
@@ -73,7 +76,7 @@
     Dies ist schaltungstechnisch zu berücksichtigen (siehe Kapitel \ref{sec:Aufbau}).
     \item Einfang negativer Myonen durch Szintillatoratome:\\
     Analog zum Elektroneneinfang können negative Myonen mit einer gewissen Wahrscheinlichkeit
-    unter Bildung eines myonischen Atoms eingefangen werden. Wie beim durchqueren
+    unter Bildung eines myonischen Atoms eingefangen werden. Wie beim Durchqueren
     des Detektorn bleibt hier das zweite Signal aus.
     \end{enumerate}
   \subsection{Lebensdauer von Teilchen}
@@ -93,7 +96,7 @@
     \symup{d}N = -N\symup{d}W = - \lambda N \symup{d}t,
   \end{equation*}
   dabei ist $\symup{d}N$ die Zahl der Teilchen, die im Zeitraum $\symup{d}t$ zerfallen sind, wenn
-  $N$ Teilchen beobachtet werden. Für große $N$ lässt sich durch integration das exponentielle
+  $N$ Teilchen beobachtet werden. Für große $N$ lässt sich durch Integration das exponentielle
   Zerfallsgesetz gewinnen:
   \begin{equation}
     \frac{N(t)}{N_0} = \exp{(-\lambda t)}.
@@ -108,30 +111,32 @@
   \end{equation*}
   Bestimmen des ersten Momentes dieser Verteilung leifert den Erwartungswert für die Lebensdauer:
   \begin{equation}
-    <t> = \tau = \frac{1}{\lambda}.
+    <t> = \tau = \int_0^\infty \lambda t \exp{(-\lambda t)} \symup{d}t =
+    \left| \lambda \left( -\frac{t}{\lambda} - \frac{1}{\lambda^2 \right})\exp{(-\lambda t)}
+    \right|_0^\infty = \frac{1}{\lambda}.
     \label{eq:tau}
   \end{equation}
   \subsection{Statistische Probleme}
   Wäre es möglich, beliebig viele Lebensdauern zu messen, würde die Verteilung
-  der Messwerte im Limes $N \to \infty$ gegen die im Kapitel $\ref{sec:Labensdauer}$
-  bestimmte Verteilungsfunktion konvergieren. Experimentell ist jedoch immer nur
+  der Messwerte im Limes $N \to \infty$ gegen die im Kapitel $\ref{sec:Lebensdauer}$
+  bestimmte Verteilungsfunktion \eqref{runeduhund} konvergieren. Experimentell ist jedoch immer nur
   eine Stichprobe zugänglich. Hier kommen insbesondere Punktschätzer wie das
   arithmetische Mittel infrage, um den Erwartungswert einer Stichprobe zu bestimmen.
   Wäre es grundsätzlich möglich, jeden Messwert aufzunehmen,
   würde das arithmetische Mittel auch gegen den Erwartungswert konvergieren.
   Diese Bedingung ist hier jedoch nicht erfüllt, das Intervall der theoretisch
   aufzunehmenden Messwerte wird durch den Versuchaufbau begrenzt. Es muss daher
-  auf nichtlineare Ausgleichsrechnung mittels der Methode der kleinsten Fehlerquadrate
+  auf nichtlineare Ausgleichsrechnung, beispielsweise mittels der Methode der kleinsten Fehlerquadrate,
   zurückgegriffen werden. Eine gute Abschätzung für die Lebensdauer wird also durch
   Regression durch die Messwerte mit der Verteilungsfunktion gewonnen.
 \section{Durchführung}
   \subsection{Versuchsaufbau}
   \label{sec:Aufbau}
   \subsubsection{Grundlegende Messmethode:}
-  	Ein Blockschaltbild des Versuchsaufbaus ist in \ref{fig:aufbau} dargestellt.
-  	Der Szintillationsdetektor besteht dabei aus einem Edelstahlzylinder, an dessen
+  	Ein Blockschaltbild des Versuchsaufbaus ist in Abbildung \ref{fig:aufbau} dargestellt.
+  	Der Szintillatorbehälter besteht dabei aus einem Edelstahlzylinder, an dessen
   	Enden jeweils ein SEV optisch angekoppelt ist. Das Szintillatormedium ist organisch
-  	und im Edelstahltank in Toluol gelöst. Die im Szintillator abgegebenen Lichtimpulse besitzen eine
+  	und im Edelstahltank in Toluol gelöst. Die im Szintillator angeregten Elektronen besitzen eine
   	Abklingzeit im Bereich von \SI{10}{\nano\second}.\\
   	Bestimmt werden soll nun die Zeit zwischen dem ersten (Eintritt in den
   	Detektor) und dem zweiten Lichtimpuls (Zerfall im Detektor). Dazu wird ein
@@ -145,12 +150,12 @@
   	\begin{figure}[p]
     	\centering
     	\includegraphics[width=0.7\textwidth]{Bilder/AufbauB.png}
-    	\caption{Blockschaltbild des Versuchsaufbaus \cite{anleitung}.}
+    	\caption{Blockschaltbild des Versuchsaufbaus, verändert nach \cite{anleitung}.}
     	\label{fig:aufbau}
   	\end{figure}
   \subsubsection{Filtern von nicht-zerfallenden Myonen.}
   Die oben beschriebene Messmethode ist nicht geeignet, um die in Kapitel \ref{sec:Lebensdauer}
-  beschriebenen Fälle auszuschließen, in denen das Myon nicht Zerfällt, also nur
+  beschriebenen Fälle auszuschließen, in denen das Myon nicht zerfällt, also nur
   der Eintrittslichtimpuls im Szintillator entsteht. Diese Fälle werden nun
   durch das schaltungstechnische Einbauen einer Suchzeit $T_s$ über eine monostabile
   Kippstufe (auch Univibrator) gefiltert. Die monostabile Kippstufe wird dabei durch
@@ -167,16 +172,18 @@
   und am 2. AND-Gatter liegt ein H-Signal. Läuft in der Zeit $T_s$ nun das Zerfallssignal
   ein, liegen am 2. AND-Gatter 2 H-Signale und das Stopp-Signal für den TAC wird gegeben.
   Passiert dies nicht schaltet die Kippstufe wieder um und die Messung wird verworfen.\\
-  Die Suchzeit muss so gewählt werden, dass sie groß gegenüber der Lebensdauer, aber klein
-  gegenüber dem zeitlichen Abstand zwischen zwei einfallenden Myonen ist, damit das
+  Die Suchzeit muss so gewählt werden, dass sie groß gegenüber der Lebensdauer (Größenordnung
+  \si{\micro\seconds}), aber klein
+  gegenüber dem zeitlichen Abstand zwischen zwei einfallenden Myonen
+  (Größenordnung \si{\milli\seconds}) ist, damit das
   Stopp-Signal nicht durch ein zweites Myon gegeben wird. Dies ist letztlich jedoch nicht
   auszuschließen und durch diese Schaltung auch nicht filterbar. Die Dauer zwischen
-  zwei Myonen ist jedoch statistisch Verteilt, wodurch alle Kanäle gleich stark von
+  zwei Myonen ist jedoch statistisch verteilt, wodurch alle Kanäle gleich stark von
   solchen Fehlmessungen betroffen sind. Es ergibt sich eine kontuierliche Untergrundrate $U$,
-  die von den Messwerten jedes Kanals abgezogen werden muss.
+  die alle Kanäle gleichermaßen betrifft.
   \subsubsection{Rauschunterdrückung}
   \label{Rausch}
-  Eine weitere Rauschquelle stellen spontane Elektronenemissionen der Photokathoden
+  Eine weitere Rauschquelle stellen spontane, thermische Elektronenemissionen der Photokathoden
   der SEVs dar. Diese führen zu Spannungssignalen, obwohl kein Myon eingefallen ist.
   Die entstehenden Signale sind jedoch meistens kleiner als die von Myonen verursachten.
   Zur Unterdrückung dieser Signale werden zwei Methoden verwendet:
@@ -184,7 +191,9 @@
     \item Diskriminatoren:\\
     Beiden SEVs sind Diskriminatoren nachgeschaltet. Diese geben nur dann ein Signal
     ab, wenn das einlaufende Signal eine gewisse Schwelle überschreitet. Diese muss
-    so gewählt werden, dass echte Signale möglichst nicht gefiltert werden.
+    so gewählt werden, dass echte Signale möglichst nicht gefiltert werden. Die
+    Diskriminatoren leisten weiterhin eine Umwandlung der einfallenden Pulse
+    in eine H-Signal der NIM-Logik.
     \item Koinzidenzschaltung:\\
     Weiterhin sind gleich zwei SEVs verbaut, deren Signale über eine Koinzidenzschaltung
     abgeglichen werden. Nur wenn von beiden SEVs innerhalb einer Zeit $\symup\Delta t_K$
@@ -192,7 +201,7 @@
     Da spontane Emissionen jeweils nur einen SEV betreffen und die Wahrscheinlichkeit,
     dass es an beiden SEVs gleichzeitig zu spontaner Emission kommt relativ gering ist,
     stellt dies eine gute Möglichkeit zur Signalfilterung dar. Die Zeit $\symup\Delta t_K$
-    ist jedoch so zu wählen, dass Sie sowohl den Lichtweg zwischen den beiden SEVs
+    ist durch Variation der Diskriminatorlänge jedoch so zu wählen, dass Sie sowohl den Lichtweg zwischen den beiden SEVs
     (ca. \SI{4}{\nano\second} für den Fall, dass ein Signal unmittelbar an einem SEV
     entsteht), als auch Unterschiede in den Kabellängen der beiden Leitungen der
     SEVs zur Koinzidenz berücksichtigt. Letztere können durch eine Verzögerungsschaltung
@@ -202,16 +211,13 @@
   \subsection{Versuchsdurchführung}
   \label{sec:Durchführung}
   \subsubsection{Aufbau und Justage des Versuchsaufbaus}
-  Die Schaltung wird schrittweise aufgebaut und unter Zuhilfenahme eines schnellen Oszillographen
+  Die Schaltung wird schrittweise aufgebaut und unter Zuhilfenahme eines Oszillographen
   überprüft und justiert. Es wird mit dem zur Rauschunterdrückung gedachten
   Teil des Aufbaus begonnen:
   \begin{enumerate}
-    \item Nach einschalten der Hochspannung sollen an den SEV Ausgängen Impulse
-    unterschiedlicher Höhe abfallen. Die ungefähre Länge wird gemessen.
-    \item Die Diskriminatoren werden so einjustiert, dass sie Impulse gleicher Länge und
-    Höhe liefert. In diesem Schritt muss ein \SI{50}{\ohm} Widerstand parallel zum
-    Oszillatoreingang geschaltet werden, da ansonsten Reflexionen durch Fehlanpassungen
-    auftreten. Auch hier wird die ungefähre Länge gemessen.
+    \item Nach Einschalten der Hochspannung sollen an den SEV Ausgängen Impulse
+    unterschiedlicher Höhe abfallen.
+    \item Die Länge der Diskriminatorpulse wird gemessen.
     \item Über ein Zählwerk wird die Zahl der pro Zeitintervall einfallenden Myonen
     gemessen. Die Diskriminatoren werden so eingeregelt, dass sie zwischen 20 und 40
     Myonen pro Sekunde liegt. An beiden Diskriminatoren sollte in etwa die gleiche
@@ -404,6 +410,7 @@ Mit $N_\symup{start} = \num{3.0619(17)e6}$, $T_S = \SI{20}{\micro\second}$ und $
   N_\symup{fehl} = \overline{N} \cdot T_S \cdot \symup e^{- \overline{N} \cdot T_S}
   \cdot N_\symup{start} = \num{1273.4(15)} \, .
 \end{equation}
+Der Fehler von $N_\symup{start}$ bestimmt sich dabei ebenfalls als Poisson-Fehler.
 Da diese Ereignisse statistisch unabhängig voneinander sind, lässt sich die Untergrundrate
 bestimmen aus
 \begin{equation}

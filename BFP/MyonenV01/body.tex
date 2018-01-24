@@ -112,7 +112,7 @@
   Bestimmen des ersten Momentes dieser Verteilung leifert den Erwartungswert für die Lebensdauer:
   \begin{equation}
     <t> = \tau = \int_0^\infty \lambda t \exp{(-\lambda t)} \symup{d}t =
-    \left| \lambda \left( -\frac{t}{\lambda} - \frac{1}{\lambda^2 \right})\exp{(-\lambda t)}
+    \left| \lambda \left( -\frac{t}{\lambda} - \frac{1}{\lambda^2} \right)\exp{(-\lambda t)}
     \right|_0^\infty = \frac{1}{\lambda}.
     \label{eq:tau}
   \end{equation}
@@ -173,9 +173,9 @@
   ein, liegen am 2. AND-Gatter 2 H-Signale und das Stopp-Signal für den TAC wird gegeben.
   Passiert dies nicht schaltet die Kippstufe wieder um und die Messung wird verworfen.\\
   Die Suchzeit muss so gewählt werden, dass sie groß gegenüber der Lebensdauer (Größenordnung
-  \si{\micro\seconds}), aber klein
+  \si{\micro\second}), aber klein
   gegenüber dem zeitlichen Abstand zwischen zwei einfallenden Myonen
-  (Größenordnung \si{\milli\seconds}) ist, damit das
+  (Größenordnung \si{\milli\second}) ist, damit das
   Stopp-Signal nicht durch ein zweites Myon gegeben wird. Dies ist letztlich jedoch nicht
   auszuschließen und durch diese Schaltung auch nicht filterbar. Die Dauer zwischen
   zwei Myonen ist jedoch statistisch verteilt, wodurch alle Kanäle gleich stark von
@@ -257,25 +257,12 @@
 \section{Auswertung}
 
 \subsection{Fehlerrechnung}
-  Für die Auswertung werden zwei Arten Punktschätzer genutzt. Es gibt:
+  Für die Auswertung wird als Punktschätzer der arithmetischen Mittelwert
   \begin{equation}
     \overline{T}_\symup{arith.} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
     \label{arith}
   \end{equation}
-  den arithmetischen Mittelwert, sowie:
-  \begin{equation*}
-    \overline{T}_\symup{gew.} = \sum_{i=1}^{n} T_{i}  w_{i}
-  \end{equation*}
-  den mit den Gewichten $w_{i}$ gewichteten Mittelwert. Die Summe der Gewichte ist
-  dabei auf $1$ normiert.
-  In Fällen, in denen zwei fehlerbehaftete Größen in einer Gleichung zur Bestimmung
-  einer anderen Größe Verwendung finden, berechnet sich der Gesamtfehler
-  nach der Gaußschen Fehlerfortpflanzung zu:
-  \begin{equation*}
-      \symup \Delta f(x_1, x_2, ..., x_n) = \sqrt{\left(\frac{\symup df}{\symup dx_1} \symup \Delta
-      x_1 \right)^2 +    \left(\frac{\symup df}{\symup dx_2} \symup \Delta
-      x_2 \right)^2 + ... + \left(\frac{\symup df}{\symup dx_n} \symup \Delta x_n \right)^2} \ .
-    \end{equation*}
+  genutzt.
     Für die Fehlerrechnung sowie den mathematischen Teil der Auswertung wird auf $\textsc{Python}$ \cite{python}
     zurückgegriffen:\\
     Arithmetische Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$ \cite{numpy}
@@ -283,52 +270,52 @@
     gewichtete Mittelwerte durch manuelles implementieren der jeweiligen Funktion berechnet.
     Fehlerfortpflanzung wird
     durch die Bibliothek $\textsc{uncertainties}$ \cite{uncertainties} automatisiert.
-    Regressionen sowie deren Fehler wurden durch die $\textsc{Numpy}$ Funktion $\textsc{polyfit}$
-    nach einer $\textsc{least-squares}$-Methode mit Polynomen der an den entsprechenden Stellen
-    angegeben Ordnung durchgeführt. Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
+    Regressionen sowie deren Fehler wurden durch die $\textsc{Numpy}$ Funktion $\textsc{curve-fit}$
+    durchgeführt.
+    Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
     erstellt.
 \subsection{Bestimmung der Verzögerungszeit}
-Um die Verzögerungszeit $T_\symup{VZ}$ zu bestimmen, wurde an einer Delay-Line eine
+Um die Verzögerungszeit $T_\symup{VZ}$ zu bestimmen, wurde an einer Verzögerungsleitung eine
 feste Verzögerung von \SI{20}{\nano\second} eingestellt und die Verzögerung der anderen
-Delay-Line von 0 bis \SI{34}{\nano\second} variiert und das jeweilige $N(t)$ bestimmt.
-In Tabelle \ref{sub:tab1} befinden sich die Messwerte und in Abbildung \ref{sub:fig1}
+Verzögerungslinie von 0 bis \SI{34}{\nano\second} variiert und das jeweilige $N(t)$ bestimmt.
+In Abbildung \ref{fig:1} Tabelle \ref{sub:tab1} befinden sich die Messwerte und in Abbildung \ref{sub:fig1}
 die zugehörige grafische Darstellung. Die Fehler sind nach $\sqrt{N}$ gebildet worden,
 also dem Poisson-Fehler für Zählexperimente.
 \begin{figure}
   \centering
-  \subcaptionbox{Verzögerung der zweiten Delay-Line und zugehörige Zählrate. \label{sub:tab1}}[0.3\textwidth]{
+  \subcaptionbox{Verzögerung der zweiten Verzögerungslinie und zugehörige Zählrate. \label{sub:tab1}}[0.3\textwidth]{
   \centering
   \begin{tabular}{c c}
     \toprule
     d$t$ / \si{\nano\second} & $N$ \si{\per10\second} \\
     \midrule
-    -20 & 18 \\
-    -19 & 40 \\
-    -18 & 63 \\
-    -17 & 86 \\
-    -16 & 84 \\
-    -14 & 79 \\
-    -12 & 83 \\
-    -10 & 93 \\
-    -8 & 91 \\
-    -6 & 103 \\
-    -4 & 116 \\
-    -2 & 101 \\
-    0 & 97 \\
-    2 & 97 \\
-    4 & 99 \\
-    6 & 95 \\
-    7 & 77 \\
-    8 & 56 \\
-    9 & 55 \\
-    10 & 52 \\
-    12 & 5 \\
-    14 & 11 \\
+    -20 & 148 \\
+    -19 & 170 \\
+    -18 & 193 \\
+    -17 & 216 \\
+    -16 & 214 \\
+    -14 & 209 \\
+    -12 & 213 \\
+    -10 & 223 \\
+    -8 & 221 \\
+    -6 & 233 \\
+    -4 & 246 \\
+    -2 & 231 \\
+    0 & 227 \\
+    2 & 227 \\
+    4 & 229 \\
+    6 & 225 \\
+    7 & 207 \\
+    8 & 186 \\
+    9 & 185 \\
+    10 & 182 \\
+    12 & 135 \\
+    14 & 141 \\
     \bottomrule
   \end{tabular}
   }
   \subcaptionbox{Grafische Darstellung. Die Daten wurden um \SI{20}{\nano\second}
-  zentriert und um 130 erniedrigt, da die Flanken fehlten. \label{sub:fig1}}[0.6\textwidth]{
+  zentriert. \label{sub:fig1}}[0.6\textwidth]{
   \centering
   \includegraphics[width=0.6\textwidth]{Plateau.pdf}
   }
@@ -337,48 +324,62 @@ also dem Poisson-Fehler für Zählexperimente.
 \end{figure}
 Aus der Grafik \ref{sub:fig1} wird ersichtlich, dass das Maximum bei \SI{16}{\nano\second}
 liegt, also insgesamt eine Verzögerung von \SI{4}{\nano\second} angelegt wurde.
-Außerdem ist in Abbildung \ref{sub:fig1} die Halbwertsbreite eingetragen. Diese ist
+Außerdem ist in Abbildung \ref{sub:fig1} die Halbwertsbreite eingetragen.
+Diese ist
 gleichbedeutend mit der Auflösungszeit $ \symup{\Delta}t_K$ der Koinzidenzeinheit.
+Zu ihrer Bestimmung
+wurde das Plateau und die Flanken jeweils mit einer linearen Funktion gefittet. Die
+halbe Höhe des Plateus wird daraufhin mit den beiden Fits der Flanken geschnitten
+und der Abstand der x-Werte der Schnittpunkte bestimmt.
 Es folgt
 \begin{equation}
-  \symup{\Delta}t_K = \SI{29}{\nano\second} \, .
+  \symup{\Delta}t_K = |-22| + |16| = \SI{38}{\nano\second} \, .
 \end{equation}
+Die Breite der Diskriminatoren wurde zu \SI{50}{\nano\second} bestimmt. Hier zeigt
+sich eine Abweichung von 24\%.
 
 \subsection{Kalibrierung der Kanäle}
 \label{sec:kal}
-Um die Kanäle zu kalibrieren, wird ein Doppelimpuls mit verschieden langen Impulsbreiten
+Um die Kanäle zu kalibrieren, wird ein Doppelimpuls mit verschieden langen Impulsabständen
 durch den Messaufbau geschickt und vom Vielkanalanalysator verarbeitet. Aus eben jenen
-Impulsbreiten $t_\symup{kal}$ und der Auswertung des Vielkanalanalysators lässt sich bestimmen, welcher
-Kanal mit welcher Impulsbreite korrespondiert. Da sich diese proportional zueinander
+Impulsabständen $t_\symup{kal}$ und der Auswertung des Vielkanalanalysators lässt sich bestimmen, welcher
+Kanal mit welchem Impulsabstand korrespondiert. Da sich diese proportional zueinander
 verhalten, wird eine lineare Regression mit den Messwerten in Tabelle \ref{sub:tab2}
-durchgeführt. Die lineare Regression
+durchgeführt. Dabei wurden von den doppelt und dreifach gefüllten Kanälen der
+Kanal mit den meisten Ereignissen verwendet. Die Anzahl der Hits in den
+einzelnen Kanälen insgesamt ist ebenfalls in Abbildung \ref{fig:2} Tabelle
+\ref{sub:tab1} dargestellt. Aus einer Frequenz von \SI{1}{\kilo\hertz} und
+einer Messdauern von \SI{10}{\second} ergeben sich sich 10000 Ereignisse.
+Diese Anzahl findet sich in guter Näherung in der Tabelle wieder.
+Die lineare Regression
 \begin{equation*}
   f(x) = mx + b
 \end{equation*}
 ist in Abbildung \ref{sub:fig2}.
 \begin{figure}
   \centering
-  \subcaptionbox{Impulsbreite und korrespondierender Kanal. \label{sub:tab2}}[0.3\textwidth]{
+  \subcaptionbox{Impulsabstände, korrespondierender Kanal und
+  Anzahl der Ereignisse. \label{sub:tab2}}[0.4\textwidth]{
   \centering
-  \begin{tabular}{c c}
+  \begin{tabular}{c c c}
     \toprule
-    $t_\symup{kal}$ / \si{\micro\second} & Kanal \\
+    $t_\symup{kal}$ / \si{\micro\second} & Kanal & \# Ereignisse \\
     \midrule
-    1 & 23 \\
-    2 & 45 \\
-    3 & 67 \\
-    4 & 90 \\
-    5 & 112 \\
-    6 & 134 \\
-    7 & 156 \\
-    8 & 178 \\
-    9 & 200 \\
+    1 & 23 & 10192 \\
+    2 & 45 & 10016 \\
+    3 & 67 & 10438 \\
+    4 & 90 & 10338 \\
+    5 & 112 & 10274 \\
+    6 & 134 & 10232 \\
+    7 & 156 & 10384 \\
+    8 & 178 & 10422 \\
+    9 & 200 & 10304 \\
     \bottomrule
   \end{tabular}
   }
-  \subcaptionbox{Grafische Darstellung mit linearer Regression. \label{sub:fig2}}[0.6\textwidth]{
+  \subcaptionbox{Grafische Darstellung mit linearer Regression. \label{sub:fig2}}[0.59\textwidth]{
   \centering
-  \includegraphics[width=0.6\textwidth]{kal.pdf}
+  \includegraphics[width=0.59\textwidth]{kal.pdf}
   }
   \caption{Tabelle mit Messwerten und zugehörige grafische Darstellung.}
   \label{fig:2}
@@ -386,11 +387,12 @@ ist in Abbildung \ref{sub:fig2}.
 Sie
 liefert die Parameter
 \begin{align}
-  m &= \num{0.04515(8)} \\
-  b &= \SI{-0.041(10)}{\micro\second} \, .
+  m &= \num{0,04515(8)} \\
+  b &= \SI{-0,041(10)}{\micro\second} \, .
 \end{align}
 Also lassen sich die zu den einzelnen Kanälen gehörenden Zeitdauern aus einer linearen
-Funktion mit den errechneten Parametern bestimmen.
+Funktion mit den errechneten Parametern bestimmen. Dazu wurde angenommen, dass sich
+auch die Kanäle > 200 linear mit den errechneten Parametern verhalten.
 \subsection{Bestimmung des Untergrundes}
 Zunächst gilt es, eine Ausdruck für die Anzahl der Myonen zu gewinnen, die im Mittel
 den Tank durchqueren. Dieser ergibt sich aus der Anzahl
@@ -414,9 +416,9 @@ Der Fehler von $N_\symup{start}$ bestimmt sich dabei ebenfalls als Poisson-Fehle
 Da diese Ereignisse statistisch unabhängig voneinander sind, lässt sich die Untergrundrate
 bestimmen aus
 \begin{equation}
-  U = \frac{N_\symup{fehl}}{\text{Anzahl Kanäle}} = \num{2.4871(28)} \, .
+  U = \frac{N_\symup{fehl}}{\text{Anzahl Kanäle}} = \num{2.8298(32)} \, .
 \end{equation}
-mit 512 Kanälen.
+mit 450 Kanälen.
 \subsection{Bestimmung der Lebendsdauer}
 Um die Lebensdauer zu bestimmen, werden als erstes die benutzten Kanäle in Zeitdauern
 umgerechnet, mit der linearen Regression aus Kapitel \ref{sec:kal}. Die gemessenen
@@ -426,28 +428,32 @@ durch eine Funktion der Gestalt
   f(t) = N_0 \cdot \symup e^{-\lambda \, t} + U_\symup{fit} \, ,
   \label{fit}
 \end{equation}
-welche im Wesentlichen \ref{runeduhund} plus der Untergrundrate entspricht,
-gefittet. Dabei wurden insgesamt vier Werte aus der Regression rausgenommen,
-da diese keine Informationen (leere Kanäle) bzw. Fehlmessungen enthalten. Diese
-sind im Plot markiert.
+welche im Wesentlichen \eqref{runeduhund} plus der Untergrundrate entspricht,
+mit \textsc{curve-fit} gefittet. Dabei wurde $(N)^{-1/2}$ als Gewichtung
+genutzt, sodass die Werte mit viel Statistik (durch einen aussagekräftigeren, weil
+mit mehr Werten unterlegten Fehler) stärker gewichtet werden als Werte mit niedrigem
+$N(t)$. Es wurden insgesamt 62 Werte aus der Regression rausgenommen,
+da diese keine Informationen (leere Kanäle oder auußerhalb der Suchzeit) bzw. Fehlmessungen enthalten. Diese
+sind im Plot markiert oder weggelassen worden, wenns sie auußerhalb der Suchzeit liegen.
 Die Messwerte und die Regression mit \eqref{fit} sind in
 Abbildung \ref{fig:3} zu sehen.
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{fit.pdf}
-  \caption{Fit mit einer Exponentialfunktion.}
+  \caption{Fit mit einer Exponentialfunktion. Aus Gründe der Übersichtlichkeit
+  wurde auf Fehlerbalken verzichtet.}
   \label{fig:3}
 \end{figure}
 Es ergeben sich für die Parameter
 \begin{align}
-  N_0 &= \num{243.5(15)} \ \text{pro Kanal} \\
-  \lambda &= \SI{0.465(4)}{\per\micro\second} \label{dauer} \\
-  U_\symup{fit} &= \num{2.23(27)} \ \text{pro Kanal} \label{Untergrund} \, .
+  N_0 &= \num{242.5(16)} \ \text{pro Kanal} \\
+  \lambda &= \SI{0.451(8)}{\per\micro\second} \label{dauer} \\
+  U_\symup{fit} &= \num{1.8(13)} \ \text{pro Kanal} \label{Untergrund} \, .
 \end{align}
 Aus \eqref{eq:tau} ergibt sich für die Lebensdauer
 \begin{equation}
-  \tau = \SI{2.151(21)}{\micro\second} \, .
+  \tau = \SI{2.22(4)}{\micro\second} \, .
 \end{equation}
 
 \section{Diskusion}
@@ -459,38 +465,40 @@ Aus \eqref{eq:tau} ergibt sich für die Lebensdauer
     \toprule
      &Wert aus Fit & Wert aus Literatur / Berechnung \\
     \midrule
-    $\tau$ & \SI{2.151(21)}{\micro\second} & \SI{2.197}{\micro\second} \\
-    $U$ & \num{2.23(27)} \ \text{pro Kanal} & \num{2.4871(28)} \ \text{pro Kanal} \\
+    $\tau$ & \SI{2.22(4)}{\micro\second} & \SI{2.197}{\micro\second} \cite{lebensdauer} \\
+    $U$ & \num{1.8(13)} \ \text{pro Kanal} & \num{2.8298(32)} \ \text{pro Kanal} \\
     \bottomrule
   \end{tabular}
 \end{table}
-Es wird ersichtlich, dass die Untergrundraten gut aufeinander passen. Die Abweichung
-beträgt \SI{10(11)}{\percent}. Die Abweichung könnte in der Statistik liegen, da
-fehlerbehaftete Größen in die Berechnung einfließen. Außerdem wird auch ein Mittelwert
-gebildet und in den Rechnungen verwendet, dies könnte zu einem systematischen Fehler
-führen. \\
+Es wird ersichtlich, dass die Untergrundraten voneinander abweichen, aber der theoretisch
+bestimmte Wert liegt innerhalb der Messungenauigkeit, der Fehler liegt jedoch
+in der gleichen Größenordnung wie der Wert. Dies liegt an den
+statistischen Schwankungen bei den hohen Lebensdauern. \\
 \\
-Noch besser passen die errechnete Lebensdauer und der Literaturwert\footnote{aus \cite{lebensdauer}} zueinander.
-Die relative Abweichung beträgt \SI{2.2(9)}{\percent}. Diese gute Übereinstimmung
+Der Literaturwert für die Lebensdauer liegt ebenfalls in der Toleranz der
+errechneten Lebensdauer.
+Diese gute Übereinstimmung
 ließ schon Abbildung \ref{fit} vermuten, da der Fit mit der Exponential-Funktion
-gut mit den gemessen Werten übereinstimmt. Zu den nicht-betrachteten Werten lässt sich
+der Verteilung der gemessen Werten folgt. Zu den nicht-betrachteten Werten lässt sich
 sagen, dass die ersten zwei Zeitdauern wohl zu klein waren, um erfasst zu werden.
 Die beiden viel zu hohen Werte sind vermutlich aus der Binaddition entstanden, da
 der Vielkanalanalysator auch oftmals Ereignisse auf mehrere direkt nebeneinander
-liegende Kanäle verteilt. Alles in allem ist wohl auch die hohe Anzahl an Ereignissen
+liegende Kanäle verteilt. Dies ist auch schon in der Kalibrierung aufgetreten. Alles in allem ist wohl auch die hohe Anzahl an Ereignissen
 für gute statistische Werte und verhältnismäßig kleine Fehler verantwortlich. Mögliche
 Fehlerquellen sind die etwas ungenaue, weil von Hand eingestellte, Breite der
 Diskriminatoren und die Tatsache, dass mögliche Signale durch die Maßnahmen zur
 Rauschunterdrückung herausgefiltert wurden bzw. Fehlmessungen nicht herausgefiltert wurden.
-Außerdem ist die Bestimmung der Auflösungszeit $\symup \Delta t_K$
-eher schlecht gelaufen, da ohne die Verschiebung in y-Richtung die halbe Höhe des
-Plateaus nicht mehr durch Messwerte abgedeckt wäre. Der Wert \SI{29}{\nano\second}
-soll nach $\SI{4}{\nano\second} < \symup \Delta t_K$ eine obere Abschätzung bilden,
-diese könnte sicherlich noch verfeinert werden, damit die Rauschunterdrückung
-durch die Koinzidenzschaltung noch
-wirksamer die Rauschimpulse der Photokathoden und nicht die Lichtblitze der Myonen
-filtert.
-
+Eine Anpassung würde die Kurve in Abbildung \ref{fit} in y-Richtung verschieben.
+Außerdem weicht die Auflösungszeit $\symup \Delta t_K$
+stark ab von den erwarteten \SI{50}{\nano\second}. Dies lässt sich durch die fehlenden
+Messwerte auf den Flanken erklären, die für einen genaueren linearen Fit sorgen würden.
+Vor allem auf der rechten Seite entsprechen die Messwerte nur bedingt einem linearen
+Verlauf, eine genauere Messung mit mehr Messwerten würde hier weiterhelfen. \\
+\\
+Die Summe aller Ereignisse aus dem Vielkanalanalysator beträgt \num{1.25(18)e4} mit
+einem Poissonfehler, die
+am Zählwerk \num{13103}. Die Anzahl am Zählwerk liegt in der Fehlertoleranz der
+Summe aus dem Vielkanalanalysator.
 
 \newpage
 \nocite{*}

@@ -106,7 +106,7 @@ def e(x, N_0, l, U):
     return N_0*np.exp(-l*x) + U
 
 
-params_fit, cov_fit = curve_fit(e, zeiten, daten_ang)
+params_fit, cov_fit = curve_fit(e, zeiten, daten_ang, sigma=np.sqrt(daten_ang))
 errors_fit = np.sqrt(np.diag(cov_fit))
 N_0 = ufloat(params_fit[0], errors_fit[0])
 l = ufloat(params_fit[1], errors_fit[1])

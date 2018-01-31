@@ -37,16 +37,22 @@ print(n1)
 
 np.savetxt('TexTabellen/glas.txt', np.column_stack([
         theta * 180/np.pi,
+        R1,
         n1,
+        R2,
         n2,
+        R3,
         n3,
+        R4,
         n4,
+        R5,
         n5
         ]), delimiter=' & ', newline=r' \\'+'\n',
-        fmt='%.0f & %.2f & %.2f & %.2f & %.2f & %.2f')
+        fmt='%.0f & %.0f & %.2f & %.0f & %.2f & %.0f & %.2f & %.0f & %.2f & %.0f & %.2f')
 
 
 n_array = [n1_mean, n2_mean, n3_mean, n4_mean, n5_mean]
 n_best = np.mean(n_array)
 
+print(n_array)
 print(n_best)

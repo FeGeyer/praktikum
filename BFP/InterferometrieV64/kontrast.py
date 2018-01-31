@@ -25,7 +25,7 @@ c = ufloat(params[2], errors[2])
 d = ufloat(params[3], errors[3])
 
 
-x = np.linspace(-0.3, 3.5, 1000)
+x = np.linspace(-0.4, 3.5, 1000)
 
 theta = (np.pi/2 - c)/b
 
@@ -38,10 +38,21 @@ print(theta * 360 / (2 * np.pi))
 
 plt.plot(theta_P, Kontr, 'r+', label="Daten")
 plt.plot(x, Fitf(x, *params), 'b', label="Regression")
-plt.xlabel(r"$\theta_P \, / \, °$")
+plt.xlabel(r"$\theta_P \, / \, \mathrm{rad}$")
 plt.ylabel('K')
+plt.xticks([0, 0.5*np.pi, np.pi], ['0', r'$\frac{\pi}{2}$', r'$\pi$'])
+plt.xlim(-0.4, 3.5)
+plt.ylim(0, 1)
 # plt.xlim(0, 210)
 plt.tight_layout()
 plt.legend(loc="best")
 plt.savefig("Kontrast.pdf")
 plt.clf()
+
+np.savetxt('TexTabellen/kontrast.txt', np.column_stack([
+        theta_P * 180/np.pi,
+        U_max,
+        U_min,
+        Kontr,
+        ]), delimiter=' & ', newline=r' \\'+'\n',
+        fmt='%.0f & %.2f & %.2f & %.2f')

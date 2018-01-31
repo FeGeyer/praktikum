@@ -3,6 +3,7 @@ from uncertainties import ufloat
 from uncertainties import unumpy
 import uncertainties.unumpy as unp
 from scipy.stats import stats
+import math as math
 
 N = np.genfromtxt('luft.txt', unpack=True)
 
@@ -26,4 +27,4 @@ np.savetxt('TexTabellen/luft.txt', np.column_stack([
         unp.nominal_values(n_array),
         unp.std_devs(n_array),
         ]), delimiter=' & ', newline=r' \\'+'\n',
-        fmt='%.0f & %.0f & %.5f & %.5f')
+        fmt='%.0f & %.0f & %.7f & %.7f')

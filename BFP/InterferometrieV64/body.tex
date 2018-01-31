@@ -1,0 +1,35 @@
+\maketitle
+\setcounter{page}{1}
+\newpage
+\pagenumbering{arabic}
+\section{Zielsetzung}
+\section{Theorie}
+\section{Durchführung}
+  \subsection{Versuchsaufbau}
+  \subsection{Versuchsdurchführung}
+\section{Auswertung}
+
+\subsection{Fehlerrechnung}
+  Für die Auswertung wird als Punktschätzer der arithmetischen Mittelwert
+  \begin{equation}
+    \overline{T}_\symup{arith.} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+    \label{arith}
+  \end{equation}
+  genutzt.
+    Für die Fehlerrechnung sowie den mathematischen Teil der Auswertung wird auf $\textsc{Python}$ \cite{python}
+    zurückgegriffen:\\
+    Arithmetische Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$ \cite{numpy}
+    nach \eqref{arith},
+    gewichtete Mittelwerte durch manuelles implementieren der jeweiligen Funktion berechnet.
+    Fehlerfortpflanzung wird
+    durch die Bibliothek $\textsc{uncertainties}$ \cite{uncertainties} automatisiert.
+    Regressionen sowie deren Fehler wurden durch die $\textsc{Numpy}$ Funktion $\textsc{curve-fit}$
+    durchgeführt.
+    Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
+    erstellt.
+
+\section{Diskusion}
+
+\newpage
+\nocite{*}
+\printbibliography

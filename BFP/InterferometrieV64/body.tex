@@ -2,20 +2,94 @@
 \setcounter{page}{1}
 \newpage
 \pagenumbering{arabic}
-\section{Zielsetzung}
 \section{Theorie}
+\subsection{Sagnac-Interferometer}
+\label{sec:lol}
+In Abbildung \ref{fig:1} befindet sich der Aubau desn Sagnac-Interferometers.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{aufbau.png}
+  \caption{Schematischer Aufbau des Sagnac-Interferometers. \cite{anleitung}}
+  \label{fig:1}
+\end{figure}
+Zu sehen ist ein Helium-Neon-Laser, dessen Strahl über zwei Steuerspiegel in
+ein Rechteckt aus weiteren Spiegeln geleitet wird. Zwischen Steuerspiegeln und
+Rechteck befindet sich ein Polarizing Beam-Splitter-Cube (PBSC), welcher aus zwei
+rechtwinkligen Prismen, welche an der Hypotenuse zusammengeklebt sind. Dieser PBSC
+hat die Eigenschaft, ohne Intensitätsverlust einen unpolarisierten Strahl in
+zwei Strahlen mit 90° Winkelunterschied und zueinander senkrechter Polarisation
+aufzuspalten. Somit legen die zwei Strahlen in unterschiedlicher Richtung den gleichen Weg
+im Rechteck zurück, treffen sich am PBSC wieder und interferieren dort. Da sie aber
+wie bereits erwähnt zueinander senkrecht polarisiert linear sind, findet keine Interferenz
+statt. Indem nun aber einer der beiden Teilstrahlen, z.B. durch den Durchgang durch
+eine Gaszelle, variiert wird, kann auch konstruktive Interferenz stattfinden und
+mittels Abzählen der Interferenzmaxima beispielsweise der Brechungsindex des Gases
+bestimmt werden kann. Zur Auswertung der beiden Strahlen wird ein zweiter PBSC
+verwendet, um die Strahlen aufzuteilen und je nach Polarisation einzeln betrachten
+zu können. Die entstehenden Strahlen werden auf Photokathoden geleitet.
+
+\subsection{Kontrastbestimmung}
+Der Kontrast eines Interferometers ist definiert als
 \begin{equation}
-  M = \frac{T}{\lambda}\cdot\frac{n-1}{2n}\cdot\theta^2
+  K = \frac{I_\symup{max}-I_\symup{min}}{I_\symup{max}+I_\symup{min}} \in [0,\, 1],
+  \label{eqn:1}
+\end{equation}
+wobei $1$ der bestmögliche und $0$ der schlechtmöglichste Wert ist. Zur Bestimmung
+der funktionalen Abhängigkeit geht man von
+\begin{equation*}
+  I \propto <|E_1 \cos(\phi) \cos(\omega t)+ E_2 \sin(\phi) \cos(\omega t + \delta)|^2> \, ,
+\end{equation*}
+mit $\phi$ als Polarisationswinkel und $E_1$ und $E_2$ als Amplitude der Welle, aus.
+Mit
+\begin{align*}
+  < \cos^2(\omega t + \delta) > &= \frac{1}{2} \\
+  \delta_\symup{konstruktiv} &= 2\pi n , n \in \mathbb{N}_0 \\
+  \delta_\symup{desktruktiv} &= (2 n + 1)\pi, n \in \mathbb{N}
+\end{align*}
+folgt
+\begin{equation*}
+  I \propto I_\symup{Laser} [1 \pm 2\cos(\phi) \sin(\phi)]
+\end{equation*}
+mit $I_\symup{Laser} \propto (E_1 + E_2)^2$ als Ausgangsintensität des Lasers.
+Daraus ergibt sich mit \eqref{eqn:1} für den Kontrast
+\begin{equation}
+  K \propto |\sin(2\phi)| \, ,
+  \label{eqn:2}
+\end{equation}
+was die Grundlage für den Fit in der Auswertung ist.
+\subsection{Brechungsindex}
+Wie bereits erwähnt, lässt sich der Brechungsindex aus der Anzahl der Maxima bestimmen,
+die sich bei der Interferenz zweier Strahlen ergeben. Für Interferenz ist ein Phasenversatz
+$\delta$ zwischen zwei Strahlen notwendig. Somit ergibt sich allgemein für die Anzahl $M$ der Maxima
+\begin{equation*}
+  M = \frac{\delta}{2\pi} \, .
+\end{equation*}
+Für den Brechungsindex $n$ von Luft folgt nach
+\begin{equation*}
+  M = \frac{n - 1}{\lambda} L
+\end{equation*}
+mit $L$ als Länge der Gaszelle und $\lambda$ als Wellenlänge des Lasers
+\begin{equation}
+  n = \frac{M \lambda}{L + 1} \, .
+  \label{T_eq:2}
+\end{equation}
+Für die Bestimmung des Brechungsindex eines Festkörpers werden zwei Glasplättchen
+genutzt. Für die Anzahl Maxima in einer Glasplatte gilt allgemein
+\begin{equation}
+  M = \frac{T}{\lambda}\cdot\frac{n-1}{2n}\cdot\theta^2 \, .
   \label{T_eq:1}
 \end{equation}
 
-\begin{equation}
-  \frac{M \lambda}{L + 1}
-  \label{T_eq:2}
-\end{equation}
 \section{Durchführung}
   \subsection{Versuchsaufbau}
+  Das meiste des Aufbaus wurde bereits in Kapitel \ref{sec:lol} beschrieben,
+  es sei noch gesagt, dass zur Variation des Brechungsindex eine Gaszelle
+  oder wahlweise zwei Glasplättchen in den Strahlengang installiert wurden, um
+  für Interferenzeffekte zu sorgen. Außerdem bewegt sich der Laserstrahl vor dem Eintritt
+  in den PBSC durch eine Polarisationsfilter.
   \subsection{Versuchsdurchführung}
+  Als erstes wurden mittels Beam-Paddles die Spiegel im Rechteck so angepasst,
+  dass
 \section{Auswertung}
 
 \subsection{Fehlerrechnung und verwendete Programme}
@@ -43,12 +117,8 @@
 \subsection{Kontrastmessung}
 Zur Bestimmung des bestmöglichen Kontrastes werden an einer Photodiode abfallende
 Minimal- und Maximalspannung für verschiedene Polarisatorstellungen $\theta_\symup{P}$ gemessen.
-Der Kontrast bestimmt sich dann zu
-\begin{equation}
-  K = \frac{I_\symup{max}-I_\symup{min}}{I_\symup{max}+I_\symup{min}} \in [0,\, 1],
-\end{equation}
-wobei $1$ der bestmögliche und $0$ der schlechtmöglichste Wert ist. Die gemessenen
-Werte sowie die daraus bestimmten Kontrastwerte sind in Tabelle \ref{A_tab:1}
+Die gemessenen
+Werte sowie die daraus bestimmten Kontrastwerte nach \eqref{eqn:1} sind in Tabelle \ref{A_tab:1}
 festgehalten. Die $(\theta_\symup{P}, \; K)$ -Paare werden mit einer Funktion
 \begin{equation}
   K(\theta_\symup{P}) = \abs{ \alpha \sin{( \beta \theta_\symup{P}

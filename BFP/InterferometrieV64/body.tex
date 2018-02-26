@@ -31,7 +31,7 @@ zu können. Die entstehenden Strahlen werden auf Photokathoden geleitet.
 \subsection{Kontrastbestimmung}
 Der Kontrast eines Interferometers ist definiert als
 \begin{equation}
-  K = \frac{I_\symup{max}-I_\symup{min}}{I_\symup{max}+I_\symup{min}} \in [0,\, 1],
+  K = \frac{I_{\symup{max}}-I_{\symup{min}}}{I_{\symup{max}}+I_{\symup{min}}} \in [0,\, 1],
   \label{eqn:1}
 \end{equation}
 wobei $1$ der bestmögliche und $0$ der schlechtmöglichste Wert ist. Zur Bestimmung
@@ -43,14 +43,14 @@ mit $\phi$ als Polarisationswinkel und $E_1$ und $E_2$ als Amplitude der Welle, 
 Mit
 \begin{align*}
   < \cos^2(\omega t + \delta) > &= \frac{1}{2} \\
-  \delta_\symup{konstruktiv} &= 2\pi n , n \in \mathbb{N}_0 \\
-  \delta_\symup{desktruktiv} &= (2 n + 1)\pi, n \in \mathbb{N}
+  \delta_{\symup{konstruktiv}} &= 2\pi n , n \in \mathbb{N}_0 \\
+  \delta_{\symup{desktruktiv}} &= (2 n + 1)\pi, n \in \mathbb{N}
 \end{align*}
 folgt
 \begin{equation*}
-  I \propto I_\symup{Laser} [1 \pm 2\cos(\phi) \sin(\phi)]
+  I \propto I_{\symup{Laser}} [1 \pm 2\cos(\phi) \sin(\phi)]
 \end{equation*}
-mit $I_\symup{Laser} \propto (E_1 + E_2)^2$ als Ausgangsintensität des Lasers.
+mit $I_{\symup{Laser}} \propto (E_1 + E_2)^2$ als Ausgangsintensität des Lasers.
 Daraus ergibt sich mit \eqref{eqn:1} für den Kontrast
 \begin{equation}
   K \propto |\sin(2\phi)| \, ,
@@ -110,7 +110,7 @@ genutzt. Für die Anzahl Maxima in einer Glasplatte gilt allgemein
   $\textsc{Python}$ \cite{python} zurückgegriffen:\\
   Als Punktschätzer wird der arithmetischen Mittelwert
   \begin{equation}
-    \overline{T}_\symup{arith.} = \frac{1}{n} \sum_{i=1}^{n} T_{i},
+    \overline{T}_{\symup{arith.}} = \frac{1}{n} \sum_{i=1}^{n} T_{i},
   \end{equation}
   implementiert durch die Funktion $\textsc{mean}$ aus dem Paket
   $\textsc{Numpy}$ \cite{numpy}, verwendet.
@@ -129,12 +129,12 @@ genutzt. Für die Anzahl Maxima in einer Glasplatte gilt allgemein
 
 \subsection{Kontrastmessung}
 Zur Bestimmung des bestmöglichen Kontrastes werden an einer Photodiode abfallende
-Minimal- und Maximalspannung für verschiedene Polarisatorstellungen $\theta_\symup{P}$ gemessen.
+Minimal- und Maximalspannung für verschiedene Polarisatorstellungen $\theta_{\symup{P}}$ gemessen.
 Die gemessenen
 Werte sowie die daraus bestimmten Kontrastwerte nach \eqref{eqn:1} sind in Tabelle \ref{A_tab:1}
-festgehalten. Die $(\theta_\symup{P}, \; K)$ -Paare werden nach \eqref{eqn:2} mit einer Funktion
+festgehalten. Die $(\theta_{\symup{P}}, \; K)$ -Paare werden nach \eqref{eqn:2} mit einer Funktion
 \begin{equation}
-  K(\theta_\symup{P}) = \abs{ \alpha \sin{( \beta \theta_\symup{P}
+  K(\theta_{\symup{P}}) = \abs{ \alpha \sin{( \beta \theta_{\symup{P}}
   + \gamma)}} + \delta
   \label{A_eqn:1}
 \end{equation}
@@ -152,18 +152,18 @@ Der Fit ist in Abbildung \ref{A_abb:1} dargestellt. Um die Messung bei optimalem
 Kontrast durchzuführen, wird weiter das Maximum der Kontrastfunktion \eqref{A_eqn:1}
 gesucht. Die Funktion wird daher abgeleitet. Als notwendige Bedingung folgt:
 \begin{equation*}
-  \dv{K(\theta_\symup{P})}{\theta_\symup{P}}(\grande) = \alpha \beta \cos{
-  (\beta \theta_\symup{P} + \gamma)} \stackrel{!}{=} 0.
+  \dv{K(\theta_{\symup{P}})}{\theta_{\symup{P}}}(\grande) = \alpha \beta \cos{
+  (\beta \theta_{\symup{P}} + \gamma)} \stackrel{!}{=} 0.
 \end{equation*}
 Dies ist in der ersten Periode für $2$ Werte erfüllt, es wird sich jedoch auf den
 Punkt
 \begin{equation*}
-  \beta \theta_\symup{P, max} + \gamma = \frac{\pi}{2} \; \leftrightarrow \;
+  \beta \theta_{\symup{P, max}} + \gamma = \frac{\pi}{2} \; \leftrightarrow \;
   \theta = \frac{\frac{\pi}{2} - \gamma}{\beta}
 \end{equation*}
 beschränkt, woraus mit den Fitparametern \eqref{A_eqn:2} ein Wert
 \begin{equation*}
-  \theta_\symup{P, max} = \SI{47.3(9)}{\deg}
+  \theta_{\symup{P, max}} = \SI{47.3(9)}{\deg}
 \end{equation*}
 folgt. Die folgenden Messungen wurden bei dieser Polarisatorstellung durchgeführt.
 \begin{table}[h!]
@@ -172,8 +172,8 @@ folgt. Die folgenden Messungen wurden bei dieser Polarisatorstellung durchgefüh
   \label{A_tab:1}
   \begin{tabular}{c c c c}
     \toprule
-    $\theta_\symup{P}$ / \si{\deg} & $U_\symup{max}$ / \si{\volt} &
-    $U_\symup{min}$ / \si{\volt} & $K$\\
+    $\theta_{\symup{P}}$ / \si{\deg} & $U_{\symup{max}}$ / \si{\volt} &
+    $U_{\symup{min}}$ / \si{\volt} & $K$\\
     \midrule
     -15 & 4.44 & 1.53 & 0.49 \\
     0 & 3.92 & 3.22 & 0.10 \\
@@ -198,7 +198,7 @@ folgt. Die folgenden Messungen wurden bei dieser Polarisatorstellung durchgefüh
   \centering
   \includegraphics[width=0.7\textwidth]{Kontrast.pdf}
   \caption{Kontrast $K$ des Interferometers in Abhängigkeit von der Polarisatorstellung
-  $\theta_\symup{P}$ mit Regression.}
+  $\theta_{\symup{P}}$ mit Regression.}
   \label{A_abb:1}
 \end{figure}
 
@@ -226,7 +226,7 @@ aus den Messdaten erhaltenen Werte finden sich in Tabelle
 gemessen wurden. Es wurden 5 Messreihen aufgenommen. Mittelung über die Messwerte
 aller Messreihen liefert einen Wert von:
 \begin{equation*}
-  n_\symup{Glas} = \num{1.48(3)}.
+  n_{\symup{Glas}} = \num{1.48(3)}.
 \end{equation*}
 
 \begin{table}[h!]
@@ -260,7 +260,7 @@ zu Fehlzählungen kommt. Die Länge der Zelle beläuft sich auf $L = \SI{10}{\ce
 Wieder beträgt die Laserwellenlänge \SI{633}{\nano\metre}.\\
 Es ergibt sich also ein Wert von
 \begin{equation*}
-  n_\symup{Luft} = \num{1.000264(7)}.
+  n_{\symup{Luft}} = \num{1.000264(7)}.
 \end{equation*}
 
 \begin{table}[h!]
@@ -290,8 +290,8 @@ Es ergibt sich also ein Wert von
     \toprule
     & Messung & Literatur \\
     \midrule
-    $n_\symup{Glas}$ & \num{1.48(3)} & \num{1.5} \cite[S. 11-5]{anleitung}  \\
-    $n_\symup{Luft, \SI{633}{\nano\metre}}$ & \num{1.000264(13)} & \num{1.000277} \cite{Luft} \\
+    $n_{\symup{Glas}}$ & \num{1.48(3)} & \num{1.5} \cite[S. 11-5]{anleitung}  \\
+    $n_{\symup{Luft, \SI{633}{\nano\metre}}}$ & \num{1.000264(13)} & \num{1.000277} \cite{Luft} \\
     \bottomrule
   \end{tabular}
 \end{table}

@@ -81,7 +81,31 @@ mit $L$ als Länge der Gaszelle und $\lambda$ als Wellenlänge des Lasers
   \label{T_eq:2}
 \end{equation}
 Für die Bestimmung des Brechungsindex eines Festkörpers werden zwei Glasplättchen
-genutzt. Für die Anzahl Maxima in einer Glasplatte gilt allgemein
+genutzt. Für die Phasenänderung $\symup \Delta \phi$ gilt allgemein
+\begin{equation*}
+  \symup \Delta \phi = \frac{2 \pi}{\lambda} \cdot L
+\end{equation*}
+mit L als Distanz, die das Licht zurücklegt.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{glas.png}
+  \caption{Geometrie der Lichtbrechung an einer Glasplatte. \cite{anleitung}}
+  \label{fig:10}
+\end{figure}
+Mittels geometrischer Überlegungen aufgrund von Abbildung \ref{fig:10} lässt sich
+die Phasenverschiebung schreiben als
+\begin{equation*}
+  \phi(\theta) = \frac{2 \pi}{\lambda} \, T \left(\frac{n - \symup{cos}(\theta - \theta')}{\symup{cos}(\theta')}
+  - \frac{n-1}{1}\right) \, .
+\end{equation*}
+Unter Ausnutzung einer Relation von Snellius und einer Entwicklung in
+führender Ordnung von $\theta$ ergibt sich
+\begin{equation*}
+  \phi(\theta) = \frac{2 \pi}{\lambda} \, T \left(\frac{n - 1}{2n} \, \theta^2 + O(\theta^4) \right)
+\end{equation*}
+und aus $M = 2 (\symup \Delta \phi / 2\pi)$ ergibt sich für M ungefähr
+
 \begin{equation}
   M = \frac{T}{\lambda}\cdot\frac{n-1}{2n}\cdot\theta^2 \, .
   \label{T_eq:1}

@@ -2,6 +2,11 @@
 \setcounter{page}{1}
 \newpage
 \pagenumbering{arabic}
+\section{Zielsetzung}
+Ziel dieses Versuches ist es mithilfe des Sagnac-Interferometers den Brechungsindex
+von Luft und von Glas zu bestimmen. Dazu wird zuerst das Sagnac-Interferometer
+aufgebaut und justiert und dann die Brechungsindizes bestimmt.
+
 \section{Theorie}
 \subsection{Sagnac-Interferometer}
 \label{sec:lol}
@@ -15,18 +20,20 @@ In Abbildung \ref{fig:1} befindet sich der Aubau desn Sagnac-Interferometers.
 Zu sehen ist ein Helium-Neon-Laser, dessen Strahl über zwei Steuerspiegel in
 ein Rechteckt aus weiteren Spiegeln geleitet wird. Zwischen Steuerspiegeln und
 Rechteck befindet sich ein Polarizing Beam-Splitter-Cube (PBSC), welcher aus zwei
-rechtwinkligen Prismen, welche an der Hypotenuse zusammengeklebt sind. Dieser PBSC
+rechtwinkligen Prismen besteht, welche an der Hypotenuse zusammengeklebt sind. Dieser PBSC
 hat die Eigenschaft, ohne Intensitätsverlust einen unpolarisierten Strahl in
 zwei Strahlen mit 90° Winkelunterschied und zueinander senkrechter Polarisation
 aufzuspalten. Somit legen die zwei Strahlen in unterschiedlicher Richtung den gleichen Weg
-im Rechteck zurück, treffen sich am PBSC wieder und interferieren dort. Da sie aber
-wie bereits erwähnt zueinander senkrecht polarisiert linear sind, findet keine Interferenz
-statt. Indem nun aber einer der beiden Teilstrahlen, z.B. durch den Durchgang durch
-eine Gaszelle, variiert wird, kann auch konstruktive Interferenz stattfinden und
-mittels Abzählen der Interferenzmaxima beispielsweise der Brechungsindex des Gases
-bestimmt werden kann. Zur Auswertung der beiden Strahlen wird ein zweiter PBSC
+im Rechteck zurück, treffen sich am \mbox{PBSC} wieder und interferieren dort. Da sie aber
+keinen Gangunterschied aufweisen, treten keine Interferenzeffekte
+auf. Indem nun aber einer der beiden Teilstrahlen, z.B. durch den Durchgang durch
+eine Gaszelle, variiert wird, entsteht ein Gangunterschied und es kann konstruktive Interferenz stattfinden.
+Mittels Abzählen der Interferenzmaxima lässt sich beispielsweise der Brechungsindex des Gases
+bestimmen. Zur Auswertung der beiden Strahlen wird ein zweiter PBSC
 verwendet, um die Strahlen aufzuteilen und je nach Polarisation einzeln betrachten
-zu können. Die entstehenden Strahlen werden auf Photokathoden geleitet.
+zu können. Dafür wird ausgenutzt, dass ein PBSC einen einfallenden Strahl in zwei
+rechtwinklige und senkrecht zueinander polarisierte Teilstrahlen aufspaltet.
+Die entstehenden Strahlen werden auf Photodioden geleitet.
 
 \subsection{Kontrastbestimmung}
 Der Kontrast eines Interferometers ist definiert als
@@ -39,7 +46,7 @@ der funktionalen Abhängigkeit geht man von
 \begin{equation*}
   I \propto <|E_1 \cos(\phi) \cos(\omega t)+ E_2 \sin(\phi) \cos(\omega t + \delta)|^2> \, ,
 \end{equation*}
-mit $\phi$ als Polarisationswinkel und $E_1$ und $E_2$ als Amplitude der Welle, aus.
+mit $\phi$ als Polarisationswinkel und $E_1$ und $E_2$ als Amplituden der Wellen, aus.
 Mit
 \begin{align*}
   < \cos^2(\omega t + \delta) > &= \frac{1}{2} \\
@@ -86,7 +93,7 @@ genutzt. Für die Anzahl Maxima in einer Glasplatte gilt allgemein
   es sei noch gesagt, dass zur Variation des Brechungsindex eine Gaszelle
   oder wahlweise zwei Glasplättchen in den Strahlengang installiert wurden, um
   für Interferenzeffekte zu sorgen. Außerdem bewegt sich der Laserstrahl vor dem Eintritt
-  in den PBSC durch eine Polarisationsfilter. Weiterhin gibt es neben dem Oszilloskop
+  in den PBSC durch einen Polarisationsfilter. Weiterhin gibt es neben dem Oszilloskop
   noch eine digitale Zählvorrichtung, die im wesentlichen aus einem Tiefpass und einem
   Differenzverstärker besteht.
   \subsection{Versuchsdurchführung}

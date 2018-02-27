@@ -6,7 +6,7 @@ D_theta, R1, R2, R3, R4, R5 = np.genfromtxt('glas.txt', unpack=True)
 
 T = 1 * 10**-3
 lam = 633 * 10**(-9)
-theta_0 = 138 * np.pi / 180
+theta_0 = 10 * np.pi / 180
 theta = D_theta * (np.pi)/180
 
 

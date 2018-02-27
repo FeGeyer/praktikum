@@ -115,17 +115,17 @@ genutzt. Für die Anzahl Maxima in einer Glasplatte gilt allgemein
 \subsection{Fehlerrechnung und verwendete Programme}
   Für die Fehlerrechnung sowie den mathematischen Teil der Auswertung wird auf
   $\textsc{Python}$ \cite{python} zurückgegriffen:\\
-  Als Punktschätzer wird der arithmetischen Mittelwert
+  Als Punktschätzer wird der arithmetische Mittelwert
   \begin{equation}
     \overline{T}_{\symup{arith.}} = \frac{1}{n} \sum_{i=1}^{n} T_{i},
   \end{equation}
   implementiert durch die Funktion $\textsc{mean}$ aus dem Paket
-  $\textsc{Numpy}$ \cite{numpy}, verwendet.
+  $\textsc{Numpy}$ \cite{numpy} verwendet.
   Es gibt weiter
   \begin{equation}
     \sigma_{\overline{T}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(\overline{T}-T_i)^2}
   \end{equation}
-  den Fehler des Mittelwertes, dieser wird durch die
+  den Fehler des Mittelwertes an, dieser wird durch die
   $\textsc{scipy.stats}$ \cite{scipy} Funktion $\textsc{sem}$ berechnet.\\
   Fehlerfortpflanzung wird
   durch die Bibliothek $\textsc{uncertainties}$ \cite{uncertainties} automatisiert.
@@ -150,8 +150,8 @@ gefittet. Es ergeben sich die Parameter:
 \begin{split}
   \alpha &= \num{0.89(4)}\\
   \beta &= \num{2.008(14)}\\
-  \gamma &= \SI{-0.09(3)}{\deg} \\
-  \delta &= \num{0.031(27)}
+  \gamma &= \SI{-0.09(3)}{\degree} \\
+  \delta &= \num{0.03(3)}
 \end{split}
 \label{A_eqn:2}
 \end{align}
@@ -166,11 +166,11 @@ Dies ist in der ersten Periode für $2$ Werte erfüllt, es wird sich jedoch auf 
 Punkt
 \begin{equation*}
   \beta \theta_{\symup{P, max}} + \gamma = \frac{\pi}{2} \; \leftrightarrow \;
-  \theta = \frac{\frac{\pi}{2} - \gamma}{\beta}
+  \theta_{\symup{P, max}} = \frac{\frac{\pi}{2} - \gamma}{\beta}
 \end{equation*}
 beschränkt, woraus mit den Fitparametern \eqref{A_eqn:2} ein Wert
 \begin{equation*}
-  \theta_{\symup{P, max}} = \SI{47.3(9)}{\deg}
+  \theta_{\symup{P, max}} = \SI{47.3(9)}{\degree}
 \end{equation*}
 folgt. Die folgenden Messungen wurden bei dieser Polarisatorstellung durchgeführt.
 \begin{table}[h!]
@@ -179,7 +179,7 @@ folgt. Die folgenden Messungen wurden bei dieser Polarisatorstellung durchgefüh
   \label{A_tab:1}
   \begin{tabular}{c c c c}
     \toprule
-    $\theta_{\symup{P}}$ / \si{\deg} & $U_{\symup{max}}$ / \si{\volt} &
+    $\theta_{\symup{P}}$ / \si{\degree} & $U_{\symup{max}}$ / \si{\volt} &
     $U_{\symup{min}}$ / \si{\volt} & $K$\\
     \midrule
     -15 & 4.44 & 1.53 & 0.49 \\
@@ -212,9 +212,9 @@ folgt. Die folgenden Messungen wurden bei dieser Polarisatorstellung durchgefüh
 \subsection{Brechungsindex von Glas}
 Um einen brauchbaren Zusammenhang zur Bestimmung des Brechungsindex der Glasplättchen
 zu erhalten, sind einige Vorüberlegungen notwendig. Die Glasplättchen sind in einem
-relativen Winkel $\Theta = 2 \theta_0 = 2 \cdot \SI{10}{\deg}$ zueinander
-angeordnet. \eqref{T_eq:1} muss daher um
-den Winkel $\pm \theta_0$ Taylorentwickelt werden. Terme ab $\theta^2$
+relativen Winkel $\Theta = 2 \theta_0 = 2 \cdot \SI{10}{\degree}$ zueinander
+angeordnet. Gleichung \eqref{T_eq:1} muss daher um
+den Winkel $\pm \theta_0$ taylorentwickelt werden. Terme ab $\theta^2$
 werden dabei vernachlässigt. Es ergibt sich:
 \begin{gather*}
   \mathcal{T}_{(1)}M(\theta,\theta_0) = \frac{T}{\lambda}\cdot\frac{n-1}{2n}(\theta_0^2 + 2\theta_0(\theta-\theta_0)),\\
@@ -229,7 +229,7 @@ die Differenz der beiden Entwicklungen gebildet werden. Umgestellt nach $n$ folg
 Die mit \eqref{A_eqn:3} und einer Plättchendicke von $T=\SI{1}{\milli\metre}$
 sowie einer Laserwellenlänge von \SI{633}{\nano\metre}
 aus den Messdaten erhaltenen Werte finden sich in Tabelle
-\ref{A_tab:2}, wobei $\theta_0 = \SI{138}{\deg}$ gilt und immer in \SI{2}{\deg} -Schritten
+\ref{A_tab:2}, wobei $\theta_0 = \SI{10}{\degree}$ gilt und immer in \SI{2}{\degree} -Schritten
 gemessen wurden. Es wurden 5 Messreihen aufgenommen. Mittelung über die Messwerte
 aller Messreihen liefert einen Wert von:
 \begin{equation*}
@@ -243,7 +243,7 @@ aller Messreihen liefert einen Wert von:
   \label{A_tab:2}
   \begin{tabular}{c c || c c | c c | c c | c c | c c }
     \toprule
-    & $\theta$ / \si{\deg} & $M_1$ & $n_1$ & $M_2$ & $n_2$
+    & $\theta$ / \si{\degree} & $M_1$ & $n_1$ & $M_2$ & $n_2$
     & $M_3$ & $n_3$ & $M_4$ & $n_4$ & $M_5$ & $n_5$ \\
     \midrule
     & 2 & 5 & 1.35 & 7 & 1.57 & 7 & 1.57 & 6 & 1.45 & 7 & 1.57 \\
@@ -311,8 +311,8 @@ Glasarten bei einer Wellenlänge von \SI{633}{\nano\metre} im Bereich der Messun
 (beispielsweise $n=\num{1.52}$ ($\num{1.4}\sigma$) für Kalk-Natron-Glas / Normalglas \cite{KNG} oder
 $n=\num{1.46}$ für Quarzglas \cite{QG})\\
 Bei der Messung des Brechnungsindex von Luft konnte das Fehlerintervall nur getroffen
-werden, da die Interfernzstreifenzählung nicht als Fehlerfrei angesehen werden konnte
-und ein pauschaler Fehler von $\pm \, 2$ angeommen wurde.
+werden, da die Interfernzstreifenzählung nicht als fehlerfrei angesehen werden konnte
+und ein pauschaler Fehler von $\pm \, 2$ angenommen wurde.
 Bei Wiederbefüllen der Gaszelle stieg wärend
 den letzten ca. \SI{100}{\milli\bar} vor Umgebungsdruck die Füllrate der Zelle rasant an.
 Es konnte jedoch beobachet werden, dass die dadurch entstehenden Interfernzstreifen

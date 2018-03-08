@@ -47,19 +47,19 @@ bei einer Temperatur $T$ im thermodynamischen Gleichgewicht steht und die Energi
 \end{equation}
 Es gilt
 \begin{equation}
-  \left< U \right >_\symup{Einstein} = \frac{\sum_{n = 0}^\infty n \hbar \omega \,
+  \left< U \right >_{\symup{Einstein}} = \frac{\sum_{n = 0}^\infty n \hbar \omega \,
   \symup{exp}\left(- \frac{n \, \hbar \, \omega}{k_B \, T} \right)}
   {\sum_{n = 0}^\infty \symup{exp}\left(- \frac{n \, \hbar \, \omega}{k_B \, T} \right)}
 \end{equation}
 und es folgt daraus
 \begin{equation}
-  \left< U \right >_\symup{Einstein} = \frac{\hbar \, \omega}
+  \left< U \right >_{\symup{Einstein}} = \frac{\hbar \, \omega}
   {\symup{exp}\left(\frac{\hbar \, \omega}{k_B \, T} \right) - 1} \, .
   \label{eqn:3}
 \end{equation}
 Für die Molwärme ergibt sich aus \eqref{eqn:3}
 \begin{equation}
-  {C_V}_\symup{Einstein} = \symup{\frac{d}{dT}} 3 N_L \, \frac{\hbar \, \omega}
+  {C_V}_{\symup{Einstein}} = \symup{\frac{d}{dT}} 3 N_L \, \frac{\hbar \, \omega}
   {\symup{exp}\left(\frac{\hbar \, \omega}{k_B \, T} \right) - 1} =
   3R \, \frac{\hbar^2 \omega^2}{k^2 T^2} \frac{\symup{exp}\left(\hbar \omega / k_B T \right)}
   {\left[\symup{exp}\left(\hbar \omega / k_B T \right) - 1 \right]^2}
@@ -67,7 +67,7 @@ Für die Molwärme ergibt sich aus \eqref{eqn:3}
 \end{equation}
 Für \eqref{eqn:4} gilt wie erwähnt im Grenzfall großer Temperaturen
 \begin{equation}
-  \lim\limits_{T \to \infty}{{C_V}_\symup{Einstein}} = 3R \, .
+  \lim\limits_{T \to \infty}{{C_V}_{\symup{Einstein}}} = 3R \, .
 \end{equation}
 Außerdem enthält \eqref{eqn:4} die erwartete Abnahme der Molwärme mit der Temperatur.
 Allerdings weicht vor allem der Verlauf im Bereich tiefer Temperatuen stark ab vom
@@ -78,7 +78,7 @@ dass im Einsteinmodell von einer singulären Frequenz ausgegangen wird. Wenn man
 ersetzt durch die spektrale Verteilung der möglichen Eigenschwingungen aller Oszillatoren
 $Z(\omega)$ in einem Kristall, erhält man
 \begin{equation}
-  C_V = \frac{\symup d }{\symup d T} \int_0^{\omega_\symup{max}} Z(\omega) \,
+  C_V = \frac{\symup d }{\symup d T} \int_0^{\omega_{\symup{max}}} Z(\omega) \,
   \frac{\hbar \, \omega}{\symup{exp}(\hbar \,\omega / k_B \, T) - 1} \, \symup d \omega \, .
 \end{equation}
 $Z(\omega)$ ist dabei recht komplizierter Natur, vor allem für z.B. anisotropes
@@ -110,15 +110,15 @@ folgt
 \end{equation*}
 und daraus
 \begin{equation}
-  {C_V}_\symup{Debye} = 9 R \, \left(\frac{T}{\theta_D}\right)^3 \int_0^{\theta_D / T}
+  {C_V}_{\symup{De}} = 9 R \, \left(\frac{T}{\theta_D}\right)^3 \int_0^{\theta_D / T}
   \frac{x^4 \, \symup e^x}{(\symup e^x - 1)^2} \, \symup d x
   \label{eqn:7}
 \end{equation}
 mit $\theta_D$ als Debye-Temperatur, welche materialabhängig ist. Aus \eqref{eqn:7}
 wird ersichtlich, dass für die Grenzfälle kleiner und großer Temperaturen
 \begin{align}
-  \lim \limits_{T \to \infty}{{C_V}_\symup{Debye}} &= 3R \\
-  \lim \limits_{T \to 0}{{C_V}_\symup{Debye}} &\propto T^3
+  \lim \limits_{T \to \infty}{{C_V}_{\symup{De}}} &= 3R \\
+  \lim \limits_{T \to 0}{{C_V}_{\symup{De}}} &\propto T^3
 \end{align}
 gilt. Die $T^3$-Abhängigkeit beschreibt den Grenzfall kleiner Temperaturen besser
 als das Einstein-Modell, ist aber aufgrund der getroffenen Annahme immer noch eine
@@ -164,12 +164,12 @@ wird die Messung gestoppt.
 \subsection{Fehlerrechnung}
 Für die Auswertung werden zwei Arten Punktschätzer genutzt. Es gibt:
 \begin{equation}
-  \overline{T}_\symup{arith.} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+  \overline{T}_{\symup{arith.}} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
   \label{arith}
 \end{equation}
 den arithmetischen Mittelwert, sowie:
 \begin{equation*}
-  \overline{T}_\symup{gew.} = \sum_{i=1}^{n} T_{i}  w_{i}
+  \overline{T}_{\symup{gew.}} = \sum_{i=1}^{n} T_{i}  w_{i}
 \end{equation*}
 den mit den Gewichten $w_{i}$ gewichteten Mittelwert. Die Summe der Gewichte ist
 dabei auf $1$ normiert.
@@ -200,22 +200,22 @@ Messfehler zu berücksichtigen.
 
 \subsection{Molare Wärmekapazität bei konstantem Druck}
 Die molare Wärmekapazität bei konstantem Druck bei konstantem Druck berechnet sich
-über die Heizspannung $U$, die Heizstromstärke $I$, die Heizdauer $t_\symup{H}$,
-die in $t_\symup{H}$ erreichte Temperaturänderung $\symup{\Delta}T$ (die Werte wurden
+über die Heizspannung $U$, die Heizstromstärke $I$, die Heizdauer $t_{\symup{H}}$,
+die in $t_{\symup{H}}$ erreichte Temperaturänderung $\symup{\Delta}T$ (die Werte wurden
 so angepasst, dass die Messintervalle nahtlos ineinander übergehen) sowie über die
 Probenmasse $m = \SI{0.342}{\kilo\gram}$ und die Molmasse $M$ des Probenmatials
 (für Kupfer: $M = \SI{63.546(3)}{\gram\per\mol}$ \cite{MolKupfer}) nach
 \begin{equation}
-  c_\symup{p} = \frac{E}{\symup{\Delta}T} = \frac{U I t_\symup{H}}{\symup{\Delta}T} \cdot \frac{M}{m}.
+  c_{\symup{p}} = \frac{E}{\symup{\Delta}T} = \frac{U I t_{\symup{H}}}{\symup{\Delta}T} \cdot \frac{M}{m}.
   \label{A_eq:1}
 \end{equation}
 mit einem Fehler
 \begin{equation}
   \sigma_{C_p} =
   \sqrt{
-  \frac{C^2 M^2 \sigma_{t_\symup{H}}^2}{\symup{\Delta}T^2} +
+  \frac{C^2 M^2 \sigma_{t_{\symup{H}}}^2}{\symup{\Delta}T^2} +
   \frac{C^2 M^2 \sigma_{\symup{T}}^2}{\symup{\Delta}T^4} +
-  \frac{C^2 t_\symup{H}^2\sigma_{M}^2}{T^2}
+  \frac{C^2 t_{\symup{H}}^2\sigma_{M}^2}{T^2}
   },
 \end{equation}
 wobei $C = U I / m$ gilt.
@@ -224,13 +224,13 @@ in Tabelle \ref{A_tab:1} zu finden.
 
 \begin{table}[p]
   \centering
-  \caption{Übersicht über die Messwerte sowie die daraus bestimmte Größe $c_\symup{p}$}
+  \caption{Übersicht über die Messwerte sowie die daraus bestimmte Größe $c_{\symup{p}}$}
   \label{A_tab:1}
   \begin{tabular}{c c c c c c c c}
     \toprule
-    $T_\symup{Probe, 1}$ / \si{\kelvin} & $T_\symup{Probe, 2}$ / \si{\kelvin} &
+    $T_{\symup{Probe, 1}}$ / \si{\kelvin} & $T_{\symup{Probe, 2}}$ / \si{\kelvin} &
     $\symup{\Delta}T$ / \si{\kelvin} & $U$ / \si{\volt} & $I$ / \si{\milli\ampere} &
-    $t_\symup{H}$ / \si{\second} & $c_\symup{p}$ / \si{\joule\per\mol\per\kelvin} \\
+    $t_{\symup{H}}$ / \si{\second} & $c_{\symup{p}}$ / \si{\joule\per\mol\per\kelvin} \\
     \midrule
     79.6  $\pm$ 0.1 & 87.2  $\pm$ 0.1 & 7.5 $\pm$ 0.2 & 15.6 & 149.1 & 240 $\pm$ 5 & 13.7 $\pm$ 0.4 \\
     87.2  $\pm$ 0.1 & 94.0  $\pm$ 0.1 & 6.9 $\pm$ 0.2 & 15.8 & 150.1 & 230 $\pm$ 5 & 14.8 $\pm$ 0.5 \\
@@ -268,10 +268,10 @@ in Tabelle \ref{A_tab:1} zu finden.
 \end{table}
 
 \subsection{Molare Wärmekapazität bei konstantem Volumen}
-Die molare Wärmekapazität bei konstantem Volumen $c_\symup{V}$ kann aus $c_\symup{p}$
+Die molare Wärmekapazität bei konstantem Volumen $c_{\symup{V}}$ kann aus $c_{\symup{p}}$
 über die Korrekturformel
 \begin{equation}
-  c_\symup{V} = c_\symup{p} - 9 \alpha^2 \kappa V_0 T
+  c_{\symup{V}} = c_{\symup{p}} - 9 \alpha^2 \kappa V_0 T
   \label{A_eq:2}
 \end{equation}
 mit Fehler
@@ -295,8 +295,8 @@ folgenden Koeffizienten:
     a_0 &= \SI{-1.13(6)e-05}{\per\kelvin}.
 \end{align*}
 Eine graphische Darstellung der Regression findet sich in Abbildung \ref{A_abb:1}. Die nach \eqref{A_eq:2}
-bestimmten $c_\symup{V}$-Werte sind in Tabelle \ref{A_tab:2} zu finden. Eine grafische Darstellung
-der $c_\symup{p}$- und $c_\symup{V}$-Werte findet sich in \ref{A_abb:2}.
+bestimmten $c_{\symup{V}}$-Werte sind in Tabelle \ref{A_tab:2} zu finden. Eine grafische Darstellung
+der $c_{\symup{p}}$- und $c_{\symup{V}}$-Werte findet sich in \ref{A_abb:2}.
 
 \begin{figure}[h!]
   \centering
@@ -308,30 +308,30 @@ der $c_\symup{p}$- und $c_\symup{V}$-Werte findet sich in \ref{A_abb:2}.
 
 \begin{figure}[h!]
   \centering
-  \subcaptionbox{Verlauf der $c_\symup{p}$-Werte. \label{A_abb:2}}[0.6\textwidth]{
+  \subcaptionbox{Verlauf der $c_{\symup{p}}$-Werte. \label{A_abb:2}}[0.6\textwidth]{
   \centering
   \includegraphics[width=0.6\textwidth]{P.pdf}
   }\\
-  \subcaptionbox{Verlauf der $c_\symup{V}$-Werte. \label{A_abb:2}}[0.6\textwidth]{
+  \subcaptionbox{Verlauf der $c_{\symup{V}}$-Werte. \label{A_abb:2}}[0.6\textwidth]{
   \centering
   \includegraphics[width=0.6\textwidth]{V.pdf}
   }\\
   \label{A_Abb:3}
   \caption{Verlauf der Wärmekapazitäten mit jeweiligen Fehlern. Es ist der zum jeweiligen
-  Wert korrespondierende $c_\symup{V}$- oder $c_\symup{p}$ ohne Fehler mit angegeben.}
+  Wert korrespondierende $c_{\symup{V}}$- oder $c_{\symup{p}}$ ohne Fehler mit angegeben.}
 \end{figure}
 
 \begin{table}[p]
   \centering
   \caption{Übersicht über die für die Rechnung notwendigen Größen sowie die
-          daraus bestimmten Werte für $c_\symup{V}$. Werte bis \SI{170}{\kelvin}
+          daraus bestimmten Werte für $c_{\symup{V}}$. Werte bis \SI{170}{\kelvin}
           sind durch eine Linie abgetrennt.}
   \label{A_tab:2}
   \begin{tabular}{c c c c}
     \toprule
-    $\overline{T}$ / \si{\kelvin} & $\alpha_\symup{\overline{T}}$ /
-    \SI{e-6}{\per\kelvin} & $c_\symup{p}$ / \si{\joule\per\mol\per\kelvin}
-    & $c_\symup{V}$ / \si{\joule\per\mol\per\kelvin}\\
+    $\overline{T}$ / \si{\kelvin} & $\alpha_{\symup{\overline{T}}}$ /
+    \SI{e-6}{\per\kelvin} & $c_{\symup{p}}$ / \si{\joule\per\mol\per\kelvin}
+    & $c_{\symup{V}}$ / \si{\joule\per\mol\per\kelvin}\\
     \midrule
     83.41  $\pm$ 0.08 & 9  $\pm$ 2 & 13.7  $\pm$ 0.4 & 13.7 $\pm$ 0.4 \\
     90.62  $\pm$ 0.09 & 10 $\pm$ 2 & 14.8  $\pm$ 0.5 & 14.7 $\pm$ 0.5 \\
@@ -380,7 +380,7 @@ Bereich (\numrange[range-phrase = --]{13.305}{20.205}) mit einem Polynom
 Die Fehler treten dabei erst in der 13. Mantisse auf und werden daher hier nicht
 dargestellt und zu null angenommen. Der Fit ist
 in Abbildung \ref{A_abb:4} dargestellt. Die Werte für $\theta_D/T$ werden nun durch
-Auswerten der Fit-Funktion an den entsprechenden $c_\symup{V}$-Werten bestimmt.
+Auswerten der Fit-Funktion an den entsprechenden $c_{\symup{V}}$-Werten bestimmt.
 Die so bestimmten $\theta_D/T$-Werte werden mit dem entsprechenden $\overline{T}$
 multipliziert, um die $\textsc{Debye}$-Temperaturen $\theta_D$ zu bestimmen.
 Die resultierenden Werte sind in Tabelle \ref{A_tab:3} eingetragen,
@@ -417,10 +417,10 @@ Zylinder- und Probentemperatur, normiert auf 1, gewählt. Die Gewichte berechnen
   \begin{tabular}{c c c c c c c}
     \toprule
     $\overline{T}$ / \si{\kelvin}
-    & $T_\symup{zyl., 1}$ / \si{\kelvin}
-    & $T_\symup{zyl., 2}$ / \si{\kelvin}
-    & $\overline{T}_\symup{zyl.}$ / \si{\kelvin}
-    & $c_\symup{V}$ / \si{\joule\per\mol\per\kelvin}
+    & $T_{\symup{zyl., 1}}$ / \si{\kelvin}
+    & $T_{\symup{zyl., 2}}$ / \si{\kelvin}
+    & $\overline{T}_{\symup{zyl.}}$ / \si{\kelvin}
+    & $c_{\symup{V}}$ / \si{\joule\per\mol\per\kelvin}
     & $\theta_D$ / \si{\kelvin}\\
     \midrule
     83.41  $\pm$ 0.08 & 80.8  $\pm$ 0.1 & 88.1  $\pm$ 0.1 & 84.5  $\pm$ 0.1 & 13.7 $\pm$ 0.4 & 308 $\pm$ 8 \\
@@ -443,7 +443,7 @@ Zylinder- und Probentemperatur, normiert auf 1, gewählt. Die Gewichte berechnen
 \subsection{Bestimmen eines Referenzwertes für Debye-Frequenz und Temperatur}
 Nach \eqref{fürrune<3} folgt mit
 \begin{align*}
-  N_L &= N_\symup{A} \frac{m}{M} = \num{3.24107e24} \\
+  N_L &= N_{\symup{A}} \frac{m}{M} = \num{3.24107e24} \\
   L &= \sqrt[3]{V_0 \frac{m}{M}} = \SI{33.682}{\milli\metre} \\
   v_{\symup{long}} &= \SI{4.7}{\kilo\metre\per\second}\\
   v_{\symup{trans}} &= \SI{2.26}{\kilo\metre\per\second}
@@ -458,7 +458,7 @@ Weiter folgt:
 \end{equation*}
 
 \section{Diskusion}
-Bei Betrachtung der $c_\symup{p}$- und $c_\symup{V}$-Werte zeigt sich im weitesten
+Bei Betrachtung der $c_{\symup{p}}$- und $c_{\symup{V}}$-Werte zeigt sich im weitesten
 der zu erwartende Verlauf (siehe Grafik \ref{A_abb:2}). Insbesondere ist die
 asymptotische Annäherung an den Wert $3R$ zu erahnen. Lediglich das
 Tieftemperaturverhalten kann nicht abgebildet werden. Auch der Vergleich

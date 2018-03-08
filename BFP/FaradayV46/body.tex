@@ -182,7 +182,7 @@ Zuletzt wird das maximale Magnetfeld in Strahlrichtung mit einer Hallsonde gemes
 \section{Auswertung}
 \subsection{Bestimmung der Kraftflussdichte}
 In Tabelle \ref{tab:1} sind die gemessenen Kraftflussdichten und der jeweilige
-Ort $z$ aufgetragen. $z_\symup{rel}$ ist der Ort relativ zum Ort der Probe,
+Ort $z$ aufgetragen. $z_{\symup{rel}}$ ist der Ort relativ zum Ort der Probe,
 welcher in den Koordinatenursprung gelegt wurde. Außerdem befindet sich
 der Plot und die Regression in Abbildung \ref{fig:2}.
 \begin{figure}[p]
@@ -191,7 +191,7 @@ der Plot und die Regression in Abbildung \ref{fig:2}.
   \centering
   \begin{tabular}{c c c}
     \toprule
-    $B(z)$ / \si{\milli\tesla} & $z$ / \si{\milli\meter} & $z_\symup{rel}$ / \si{\milli\meter} \\
+    $B(z)$ / \si{\milli\tesla} & $z$ / \si{\milli\meter} & $z_{\symup{rel}}$ / \si{\milli\meter} \\
     \midrule
     51 & 65 & -15\\
     188 & 70 & -10\\
@@ -229,13 +229,13 @@ Mit der Funktion
   f(x) = a \, x^2 + b \, x + c
   \label{eqn:1}
 \end{equation}
-und $B(z)$ und $z_\symup{rel}$ wird eine Augleichsrechnung gemacht. Es ergibt sich
+und $B(z)$ und $z_{\symup{rel}}$ wird eine Augleichsrechnung gemacht. Es ergibt sich
 \begin{align*}
   a &= \SI{-0.86(4)}{\tesla\per\meter^2} \\
   b &= \SI[per-mode=reciprocal]{-2.5(4)}{\tesla\per\meter} \\
   c &= \SI{229(4)}{\tesla} \\
 \end{align*}
-für die Parameter. Das Maximum dieser Parabel liegt bei $B_\symup{max} = \SI{231(4)}{\milli\tesla}$.
+für die Parameter. Das Maximum dieser Parabel liegt bei $B_{\symup{max}} = \SI{231(4)}{\milli\tesla}$.
 \subsection{Drehwinkel des hochreinen und des n-dotierten GaAs}
 Für alle gemessenen Winkel wird nach \eqref{runederaffe} der Drehwinkel
 bestimmt. Jene Drehwinkel zusammen mit der jeweiligen Wellenlänge und dem
@@ -250,7 +250,7 @@ Die Normierungen wurden mit den angegebenen Längen in den Tabellen durchgeführ
   \begin{tabular}{c | c c | c c}
     \toprule
     $\lambda$ / \si{\micro\meter} & $\theta_1$ / \si{\degree} & $\theta_2$ / \si{\degree} &
-    $\theta$ / \si{\degree} & $\theta_\symup{norm}$ /
+    $\theta$ / \si{\degree} & $\theta_{\symup{norm}}$ /
     \si{\degree\per\meter} \\
     \midrule
     1.29 & 149.23 & 138.67 & 5.28 & 1033.92 \\
@@ -275,7 +275,7 @@ Die Normierungen wurden mit den angegebenen Längen in den Tabellen durchgeführ
   \begin{tabular}{c | c c | c c}
     \toprule
     $\lambda$ / \si{\micro\meter} & $\theta_1$ / \si{\degree} & $\theta_2$ / \si{\degree} &
-    $\theta$ / \si{\degree} & $\theta_\symup{norm}$ /
+    $\theta$ / \si{\degree} & $\theta_{\symup{norm}}$ /
     \si{\degree\per\meter} \\
     \midrule
     1.29 & 143.67 & 136.23 & 3.72 & 2732.84 \\
@@ -299,7 +299,7 @@ Die Normierungen wurden mit den angegebenen Längen in den Tabellen durchgeführ
     \begin{tabular}{c | c c | c c}
       \toprule
       $\lambda$ / \si{\micro\meter} & $\theta_1$ / \si{\degree} & $\theta_2$ / \si{\degree} &
-      $\theta$ / \si{\degree} & $\theta_\symup{norm}$ /
+      $\theta$ / \si{\degree} & $\theta_{\symup{norm}}$ /
       \si{\degree\per\meter} \\
       \midrule
       1.29 & 275.73 & 267.25 & 4.24 & 3272.89 \\
@@ -324,7 +324,7 @@ Quadrat der Wellenlängen aufgetragen.
 \end{figure}
 \subsection{Bestimmung der effektiven Masse}
 Zur Bestimmung der effektiven Masse werden die Differenzen zwischen den
-$\theta_\symup{norm}$ des hochreinen GaAs und der beiden n-dotierten GaAs
+$\theta_{\symup{norm}}$ des hochreinen GaAs und der beiden n-dotierten GaAs
 gebildet.
 Diese befinden sich in Tabelle \ref{tab:5}. Außerdem wird eine lineare Ausgleichrechnung
 durchgeführt, nach der Form
@@ -401,17 +401,17 @@ in Abbildung \ref{fig:rn}.
 
 Als Mittelwerte der effektiven Massen ergeben sich
 \begin{align*}
-  m_\symup{eff, 1} &= \SI{1.9(7)e-33}{\kilo\gram} \\
-  m_\symup{eff, 2} &= \SI{1.1(7)e-33}{\kilo\gram}
+  m_{\symup{eff, 1}} &= \SI{1.9(7)e-33}{\kilo\gram} \\
+  m_{\symup{eff, 2}} &= \SI{1.1(7)e-33}{\kilo\gram}
 \end{align*}
 bzw. als Vielfaches der Elektronenmasse
 \begin{align*}
-  \frac{m_\symup{eff, 1}}{\symup{m_e}} &= \num{0.0021(8)} \\
-  \frac{m_\symup{eff, 2}}{\symup{m_e}} &= \num{0.0012(8)} \, .
+  \frac{m_{\symup{eff, 1}}}{\symup{m_e}} &= \num{0.0021(8)} \\
+  \frac{m_{\symup{eff, 2}}}{\symup{m_e}} &= \num{0.0012(8)} \, .
 \end{align*}
 Als Mittelwert aus beiden ergibt sich
 \begin{equation}
-  \frac{m_\symup{eff}}{\symup{m_e}} = \num{0.0016(6)} \, .
+  \frac{m_{\symup{eff}}}{\symup{m_e}} = \num{0.0016(6)} \, .
   \label{eqn:6}
 \end{equation}
 
@@ -458,7 +458,7 @@ mit der Gaußschen Fehlerfortpflanzungsformel
     \label{fehler}
 \end{equation}
 Fehlerbehaftete Größen sind das mittels Augleichsrechnung bestimmte Maximum der
-Kraftflussdichte, die Steigungen $m_1$ und $m_2$ der Differenzen der $\theta_\symup{norm}$
+Kraftflussdichte, die Steigungen $m_1$ und $m_2$ der Differenzen der $\theta_{\symup{norm}}$
 und alles, was aus diesen
 Winkeln bestimmt wird. Damit ergibt sich \eqref{fehler} zu
 \begin{equation}
@@ -489,7 +489,7 @@ Auch die Bestimmung der effektiven Masse ist eher schlecht verlaufen. In Abbildu
 auch sind die Regressionen nicht ganz parallel. Die Gründe dafür liegen in der
 fehlerhaften Bestimmung der Drehwinkel, da diese in die Rechnung bzw. den Fit
 eingeflossen sind. Vor diesem Hintergrund ist die relative Abweichung von 97.6\% vom
-Literaturwert\footnote{aus \cite{lit}} $\frac{m_\symup{eff}}{\symup{m_e}} = 0.067$
+Literaturwert\footnote{aus \cite{lit}} $\frac{m_{\symup{eff}}}{\symup{m_e}} = 0.067$
 einfach einzusehen. Weiterhin ist der Fit für den Brechungsindex ab \SI{2.1}{\micro\meter}
 von begrenzter Aussagekraft, da keine Literaturwerte zugrunde liegen. In Anbetracht
 des Kurvenverlaufs innerhalb der gegebenen Daten lässt sich die Fitfuntkion vertreten.

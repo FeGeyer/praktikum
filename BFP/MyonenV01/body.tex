@@ -20,9 +20,9 @@
   aber auch Mesonen). Sowohl Leptonen als auch Quarks sind in drei Generationen
   zusammengefasst. Die Fermionengenerationen umfassen:
   \begin{itemize}
-    \item[I] Elektron ($\symup{e}^-$) und Elektron-Neutrino ($\symup\nu_\symup{e}$)
-    \item[II] Myon ($\symup\mu^-$) und Myon-Neutrino ($\symup\nu_\symup\mu$)
-    \item[III] Tauon ($\symup\tau^-$) und Tauon-Neutrino ($\symup\nu_\symup\tau$).
+    \item[I] Elektron ($\symup{e}^-$) und Elektron-Neutrino ($\symup\nu_{\symup{e}}$)
+    \item[II] Myon ($\symup\mu^-$) und Myon-Neutrino ($\symup\nu_{\symup\mu}$)
+    \item[III] Tauon ($\symup\tau^-$) und Tauon-Neutrino ($\symup\nu_{\symup\tau}$).
   \end{itemize}
   Elektron, Myon und Tauon sind dabei 1-fach negativ geladen und Massebehaftet,
   die entsprechenden Neutrinos sind ungeladen und haben eine im Standartmodell
@@ -259,7 +259,7 @@
 \subsection{Fehlerrechnung}
   Für die Auswertung wird als Punktschätzer der arithmetischen Mittelwert
   \begin{equation}
-    \overline{T}_\symup{arith.} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
+    \overline{T}_{\symup{arith.}} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
     \label{arith}
   \end{equation}
   genutzt.
@@ -275,7 +275,7 @@
     Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
     erstellt.
 \subsection{Bestimmung der Verzögerungszeit}
-Um die Verzögerungszeit $T_\symup{VZ}$ zu bestimmen, wurde an einer Verzögerungsleitung eine
+Um die Verzögerungszeit $T_{\symup{VZ}}$ zu bestimmen, wurde an einer Verzögerungsleitung eine
 feste Verzögerung von \SI{20}{\nano\second} eingestellt und die Verzögerung der anderen
 Verzögerungslinie von 0 bis \SI{34}{\nano\second} variiert und das jeweilige $N(t)$ bestimmt.
 In Abbildung \ref{fig:1} Tabelle \ref{sub:tab1} befinden sich die Messwerte und in Abbildung \ref{sub:fig1}
@@ -342,7 +342,7 @@ sich eine Abweichung von 24\%.
 \label{sec:kal}
 Um die Kanäle zu kalibrieren, wird ein Doppelimpuls mit verschieden langen Impulsabständen
 durch den Messaufbau geschickt und vom Vielkanalanalysator verarbeitet. Aus eben jenen
-Impulsabständen $t_\symup{kal}$ und der Auswertung des Vielkanalanalysators lässt sich bestimmen, welcher
+Impulsabständen $t_{\symup{kal}}$ und der Auswertung des Vielkanalanalysators lässt sich bestimmen, welcher
 Kanal mit welchem Impulsabstand korrespondiert. Da sich diese proportional zueinander
 verhalten, wird eine lineare Regression mit den Messwerten in Tabelle \ref{sub:tab2}
 durchgeführt. Dabei wurden von den doppelt und dreifach gefüllten Kanälen der
@@ -363,7 +363,7 @@ ist in Abbildung \ref{sub:fig2}.
   \centering
   \begin{tabular}{c c c}
     \toprule
-    $t_\symup{kal}$ / \si{\micro\second} & Kanal & \# Ereignisse \\
+    $t_{\symup{kal}}$ / \si{\micro\second} & Kanal & \# Ereignisse \\
     \midrule
     1 & 23 & 10192 \\
     2 & 45 & 10016 \\
@@ -398,25 +398,25 @@ Zunächst gilt es, eine Ausdruck für die Anzahl der Myonen zu gewinnen, die im 
 den Tank durchqueren. Dieser ergibt sich aus der Anzahl
 der Startimpulse und der gesamten Messzeit zu
 \begin{equation}
-  \overline{N} = \frac{N_\symup{start}}{T_\symup{gesamt}} \, .
+  \overline{N} = \frac{N_{\symup{start}}}{T_{\symup{gesamt}}} \, .
 \end{equation}
 Während der Suchzeit $T_S$ tun dies im Mittel $n = \overline{N} \cdot T_S$ Myonen.
 Die Wahrscheinlichkeit, dass dies genau $n$ Teilchen während der Suchzeit $T_S$ tun, ist
-poissonverteilt. Möchte man die Fehlmessungen $N_\symup{fehl}$ erhalten, so muss man genau die Fälle
+poissonverteilt. Möchte man die Fehlmessungen $N_{\symup{fehl}}$ erhalten, so muss man genau die Fälle
 einbeziehen, in denen während der Suchzeit zwei Myonen direkt aufeinander gefolgt sind,
 also die Anzahl aller Startimpulse mit der zugehörigen Wahrscheinlichkeit, die man
 aus der Poissonverteilung erhält, multiplizieren.
-Mit $N_\symup{start} = \num{3.0619(17)e6}$, $T_S = \SI{20}{\micro\second}$ und $T_\symup{gesamt}
+Mit $N_{\symup{start}} = \num{3.0619(17)e6}$, $T_S = \SI{20}{\micro\second}$ und $T_{\symup{gesamt}}
 = \SI{147182}{\second}$ folgt
 \begin{equation}
-  N_\symup{fehl} = \overline{N} \cdot T_S \cdot \symup e^{- \overline{N} \cdot T_S}
-  \cdot N_\symup{start} = \num{1273.4(15)} \, .
+  N_{\symup{fehl}} = \overline{N} \cdot T_S \cdot \symup e^{- \overline{N} \cdot T_S}
+  \cdot N_{\symup{start}} = \num{1273.4(15)} \, .
 \end{equation}
-Der Fehler von $N_\symup{start}$ bestimmt sich dabei ebenfalls als Poisson-Fehler.
+Der Fehler von $N_{\symup{start}}$ bestimmt sich dabei ebenfalls als Poisson-Fehler.
 Da diese Ereignisse statistisch unabhängig voneinander sind, lässt sich die Untergrundrate
 bestimmen aus
 \begin{equation}
-  U = \frac{N_\symup{fehl}}{\text{Anzahl Kanäle}} = \num{2.8298(32)} \, .
+  U = \frac{N_{\symup{fehl}}}{\text{Anzahl Kanäle}} = \num{2.8298(32)} \, .
 \end{equation}
 mit 450 Kanälen.
 \subsection{Bestimmung der Lebendsdauer}
@@ -425,7 +425,7 @@ umgerechnet, mit der linearen Regression aus Kapitel \ref{sec:kal}. Die gemessen
 Ereignisse werden dann in Abhängigkeit der bestimmten Zeitdauern
 durch eine Funktion der Gestalt
 \begin{equation}
-  f(t) = N_0 \cdot \symup e^{-\lambda \, t} + U_\symup{fit} \, ,
+  f(t) = N_0 \cdot \symup e^{-\lambda \, t} + U_{\symup{fit}} \, ,
   \label{fit}
 \end{equation}
 welche im Wesentlichen \eqref{runeduhund} plus der Untergrundrate entspricht,
@@ -449,7 +449,7 @@ Es ergeben sich für die Parameter
 \begin{align}
   N_0 &= \num{242.5(16)} \ \text{pro Kanal} \\
   \lambda &= \SI{0.451(8)}{\per\micro\second} \label{dauer} \\
-  U_\symup{fit} &= \num{1.8(13)} \ \text{pro Kanal} \label{Untergrund} \, .
+  U_{\symup{fit}} &= \num{1.8(13)} \ \text{pro Kanal} \label{Untergrund} \, .
 \end{align}
 Aus \eqref{eq:tau} ergibt sich für die Lebensdauer
 \begin{equation}

@@ -139,7 +139,7 @@ durchgeführt. Finden fehlerbehaftete Größen
 in Formeln Anwendung, wird der resultierende Fehler in \textsc{uncertainties} bestimmt.
 \subsection{Nullmessung}
 Es werden innerhalb von \SI{900}{\second} \num{164} Ausschläge am Geiger-Müller-Zählrohr
-gemessen. Dies entspricht einem Wert von $N_\symup{null} = \SI[per-mode=reciprocal]{0.18}{\per\second}$.
+gemessen. Dies entspricht einem Wert von $N_{\symup{null}} = \SI[per-mode=reciprocal]{0.18}{\per\second}$.
 Dieser Wert ist zwar gering, aber gerade bei längeren Messintervallen statistisch
 signifikant, sodass er von den Messwerten abgezogen werden muss.
 \subsection{Messung von Indium}
@@ -155,7 +155,7 @@ signifikant, sodass er von den Messwerten abgezogen werden muss.
       \centering
       \begin{tabular}{c c c}
         \toprule
-        $t$ / \si{\minute} & $N$ & $\sigma_\symup{N}$ \\
+        $t$ / \si{\minute} & $N$ & $\sigma_{\symup{N}}$ \\
         \midrule
         4 & 2540 & 50 \\
         8 & 2291 & 48 \\
@@ -178,7 +178,7 @@ signifikant, sodass er von den Messwerten abgezogen werden muss.
       \label{tab:1}
     \end{subtable}
     \caption{In Tabelle \subref{tab:1} sind die für das Isotop
-    $\ce{^{116}In}$ gemessenen Werte mit Fehler $\sigma_\symup{N} = \sqrt{N}$ eingetragen. Diese Werte sind
+    $\ce{^{116}In}$ gemessenen Werte mit Fehler $\sigma_{\symup{N}} = \sqrt{N}$ eingetragen. Diese Werte sind
     vom Nulleffekt bereinigt. In Grafik \subref{fig:5} findet sich die
     halblogarithmische Darstellung der vom Nulleffekt bereinigten Messwerte mit
     einer linearen Regression.}
@@ -186,7 +186,7 @@ signifikant, sodass er von den Messwerten abgezogen werden muss.
   Die Messwerte finden sich in Tabelle \ref{tab:1}. Die Werte verhalten sich nach \eqref{eqn:4}.
 Die Regression wird nach \eqref{eqn:7} ausgeführt. Mit \eqref{eqn:5} ergeben sich also folgende Konstanten:
   \begin{align*}
-    \mu_\symup{In} =& \, \SI[per-mode=reciprocal]{1.92(8)e-4}{\per\second} \\
+    \mu_{\symup{In}} =& \, \SI[per-mode=reciprocal]{1.92(8)e-4}{\per\second} \\
     N_{0\symup{, In}} =& \, \num[per-mode=reciprocal]{2.48(5)e3}\\
     T_{\symup{In}} =& \, \SI{60.2(25)}{\minute}.
   \end{align*}
@@ -196,9 +196,9 @@ Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildun
   \centering
   \begin{tabular}{c c c | c c c | c c c | c c c}
     \toprule
-    $t$ / \SI{8}{\second} & $N$ & $\sigma_\symup{N} $ & $t$ / \SI{8}{\second} &
-     $N$ & $\sigma_\symup{N} $ & $t$ / \SI{8}{\second} & $N$ & $\sigma_\symup{N} $
-     & $t$ / \SI{8}{\second} & $N$ & $\sigma_\symup{N} $\\
+    $t$ / \SI{8}{\second} & $N$ & $\sigma_{\symup{N}} $ & $t$ / \SI{8}{\second} &
+     $N$ & $\sigma_{\symup{N}} $ & $t$ / \SI{8}{\second} & $N$ & $\sigma_{\symup{N}} $
+     & $t$ / \SI{8}{\second} & $N$ & $\sigma_{\symup{N}} $\\
     \midrule
     8 & 145 & 12 & 112 & 23 & 5 & 216 & 8 & 3 & 320 & 9 & 3 \\
     16 & 119 & 11 & 120 & 20 & 4 & 224 & 5 & 2 & 328 & 9 & 3 \\
@@ -215,7 +215,7 @@ Die Messwerte mit Fehler sowie die berechnete Regression finden sich in Abbildun
     104 & 22 & 5 & 208 & 8 & 3 & 312 & 5 & 2 & 424 & 4 & 2 \\
     \bottomrule
   \end{tabular}
-  \caption{Messwerte der Messung an Silberisotopen mit Fehler $\sigma_\symup{N} = \sqrt{N}$.}
+  \caption{Messwerte der Messung an Silberisotopen mit Fehler $\sigma_{\symup{N}} = \sqrt{N}$.}
   \label{tab:2}
 \end{table}
 \begin{figure}
@@ -237,13 +237,13 @@ Ausgleichsrechnung durch die logarithmierten Messwerte der beiden relevanten Int
 Werte für $\mu$ und $N_0$. Aus $\mu$ kann aus \eqref{eqn:5} wieder die Halbwertszeit
 des Isotops bestimmt werden. Für $\ce{^{110}Ag}$ ergibt sich:
 \begin{align*}
-  \mu_\symup{Ag-110} =& \, \SI[per-mode=reciprocal]{0.026(2)}{\per\second} \\
+  \mu_{\symup{Ag-110}} =& \, \SI[per-mode=reciprocal]{0.026(2)}{\per\second} \\
   N_{0\symup{, Ag-110}} =& \, \num[per-mode=reciprocal]{171(13)} \\
   T_{\symup{Ag-110}} =& \, \SI{26.7(22)}{\second}
 \end{align*}
 und für $\ce{^{108}Ag}$
 \begin{align*}
-  \mu_\symup{Ag-108} =& \, \SI[per-mode=reciprocal]{0.005(1)}{\per\second} \\
+  \mu_{\symup{Ag-108}} =& \, \SI[per-mode=reciprocal]{0.005(1)}{\per\second} \\
   N_{0\symup{, Ag-108}} =& \, \num[per-mode=reciprocal]{25(7)}\\
   T_{\symup{Ag-108}} =& \, \SI{2.4(5)}{\minute}
 \end{align*}

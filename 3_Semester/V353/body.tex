@@ -41,7 +41,7 @@ dargestellt.
   Es wird angenomen, dass zum Zeitpunkt $t = 0$ die Ladung $Q$ auf dem Kondensator
   mit der Kapazität $C$ liegt. Damit folgt für die Spannung
   \begin{equation*}
-    U_\symup{C} = \frac{Q}{C} \, .
+    U_{\symup{C}} = \frac{Q}{C} \, .
   \end{equation*}
   Unter Zuhilfenahme des ohmschen Gesetztes und der Beziehung zwischen zeitlicher Änderung
   deR Ladung in Relation zum Strom ergibt sich eine Differentialgleichung nach Gestalt
@@ -91,7 +91,7 @@ wird, dann wird sich eine Phase $\phi$ zwischen Kondensator- und Generatorspannu
 bilden und die Amplitude $A$ der Kondensatorspannung wird sinken. Zur weiteren
 Untersuchung des Phänomens lässt sich mit dem Ansatz
 \begin{equation}
-    U_\symup{C}(t) = A(\omega) \, \symup{cos} \left[\omega t + \phi (\omega)  \right]
+    U_{\symup{C}}(t) = A(\omega) \, \symup{cos} \left[\omega t + \phi (\omega)  \right]
     \label{eqn:6}
 \end{equation}
 ein Ausdruck für die Frequenzanhängigkeit der Phase
@@ -114,7 +114,7 @@ Unter der Vorraussetzung, dass $\omega$ gegenüber $\frac{1}{RC}$ viel größer 
 kann ein RC-Glied auch die angelegte Spannung $U(t)$ integrieren. In diesem Fall
 gilt näherungsweise
 \begin{equation}
-    U_\symup{C} (t) = \frac{1}{RC} \int_0^t U(t') \symup d t' \, .
+    U_{\symup{C}} (t) = \frac{1}{RC} \int_0^t U(t') \symup d t' \, .
     \label{eqn:9}
 \end{equation}
 
@@ -143,7 +143,7 @@ jener Entladekurve abgelesen werden.
   \centering
   \includegraphics[scale=0.5]{zeitkonstante.png}
   \caption{Entladekurve des Kondensators, aus dem die Zeitkonstante $RC$ gewonnen wird.
-  In blau ist die Spannung $U_\symup{C}(t)$ und in gelb die Generatorspannung $U(t)$ aufgetragen.}
+  In blau ist die Spannung $U_{\symup{C}}(t)$ und in gelb die Generatorspannung $U(t)$ aufgetragen.}
   \label{fig:4}
 \end{figure}
 
@@ -170,7 +170,7 @@ und die Spannungenspaare am Oszilloskop als Bilder abgespeichert.
   \centering
   \begin{tabular}{c c}
     \toprule
-    $t_i$/\si{\milli\second} & $U_\symup{C}(t_i)$/\si{\volt} \\
+    $t_i$/\si{\milli\second} & $U_{\symup{C}}(t_i)$/\si{\volt} \\
     \midrule
     0 & 19.2 \\
     0.5 & 13.4 \\
@@ -191,9 +191,9 @@ und die Spannungenspaare am Oszilloskop als Bilder abgespeichert.
 Die gemessenen Werte sind mit Graph in Abbildung \ref{tab:1} dargestellt. Zur Bestimmung der Zeitkonstante wird
 eine lineare Ausgleichsrechnung durchgeführt. Aus \eqref{eqn:3} folgt mit $\tau = RC$:
 \begin{equation}
-  \ln({U_\symup{C}}) = \ln({U(0)}) - t \cdot \frac{1}{\tau}.
+  \ln({U_{\symup{C}}}) = \ln({U(0)}) - t \cdot \frac{1}{\tau}.
 \end{equation}
-Fitten der Wertepare $\{(\ln({U_\symup{C}(t_i)}), t_i)\}$ durch eine Funktion
+Fitten der Wertepare $\{(\ln({U_{\symup{C}}(t_i)}), t_i)\}$ durch eine Funktion
 \begin{equation}
   f(x) = m \cdot x + b
 \end{equation}
@@ -220,7 +220,7 @@ Diese Regression ist ebenfalls in Abbildung \ref{tab:1} dargestellt.
   \centering
   \begin{tabular}{c c}
     \toprule
-    $\nu$/\si{\hertz} & $U_\symup{C}$/\si{\volt}\\
+    $\nu$/\si{\hertz} & $U_{\symup{C}}$/\si{\volt}\\
     \midrule
     25 & 19.80 \\
     50 & 18.61 \\

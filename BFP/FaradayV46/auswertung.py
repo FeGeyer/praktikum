@@ -150,6 +150,25 @@ print('Mittelwert für m_eff2: ', np.mean(m_eff2))
 lol = np.array([m_eff1/me, m_eff2/me])
 print("Gesamtmittelwert: ", np.mean(lol))
 
+
+a = ufloat(1, 0.1)
+print(a)
+b = ufloat(2, 0.2)
+c = np.array([a, b])
+print(c)
+x = np.linspace(0, 2, 2)
+print(x)
+
+
+def lol(x, m, b):
+    return x*m + b
+
+
+params, cov = curve_fit(lol, x, ydata=[0, 2], sigma=[0.1, 0.2])
+errors = np.sqrt(np.diag(cov))
+print("Alles ausgeführt!")
+
+
 # Tabelle
 np.savetxt('TexTabellen/HGaAstab.txt',np.column_stack([hl, htb, hto, ht,(ht/hd)]),
            delimiter=' & ',newline= r' \\'+'\n', fmt='%.2f')

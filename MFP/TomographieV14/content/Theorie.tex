@@ -1,4 +1,71 @@
 \section{Theorie}
+Die Tomographie stellt eine Zusammenfassung verschiedener Methoden da, Querschnittbilder
+eines Objektes zu erstellen. Tomographietechniken sind dabei insbesondere in der
+Medizin von herausragender Bedeutung, werden aber auch in anderen Wissenschaften
+angewandt.
+\subsection{Grundlagen}
+Das hier durchgeführte Tomographieexperiment nutzt $\gamma$-Strahlung.
+Das zu untersuchende Objekt wird dabei $m$ Mal aus $m$ verschiedenen Richtungen mit
+$\gamma$-Strahlung bekannter Eingangsintensität $I_{0}$ bestrahlt und die auf der
+anderen Seite des Objektes austretende Intensität $N_{j}$ gemessen.
+Die $\gamma$-Strahlung jeder dieser $j$-ten Projektionen wird dabei bei seinem Durchgang
+durch das Objekt abgeschwächt.
+Nach Durchgang durch $n$ Materialien mit Absorbtionskoefizienten $\mu_{i}$ und
+im jeweils durchquerten Material zurückgelegten Wegstrecken $d_{i}$ ist eine
+gemessene Intensität
+\begin{equation}
+  N_{j} = I_{0} \symup{e}^{- \sum_{i} \mu_{i} d_{i}}
+\end{equation}
+zu erwarten.
+Lösen nach $\sum_{i} \mu_{i} d_{i}$ liefert mit
+\begin{equation}
+  \label{eq:1}
+  \sum_{i} \mu_{i} d_{i} = \ln{\left(\frac{I_{0}}{N_{j}}\right)} \coloneq I_{j}
+\end{equation}
+ein lineares Gleichungssystem der Dimension $n \times m$.
+Lösen des Systems liefert somit bei Kenntnis der Wegstrecken $d_{i}$ die $n$
+Absorbtionskoefizienten womit aus Vergleichstabellen die Materialen bestimmt
+werden können.
+
+\subsection{Bestimmen der Absorbtionskoefizienten}
+Aus \eqref{eq:1} kann eine Matrixform des Gleichungssystems erhalten werden, indem
+die Wegstrecken, die für jede Projektion im Objekt zurückgelegt wurden in einer
+Matrix $\mathbf{A}$ zusammengefasst werden.
+Diese liefert, multipliziert mit dem Vektor
+$\vec{\mu}$ der Absorbtionskoefizienten, den Vektor der Verhältnisse zwischen
+Eingangs- und Ausgangsintensitäten
+\begin{equation}
+  \vec{I} = \mathbf{A} \cdot \vec{\mu}.
+\end{equation}
+$\mathbf{A}$ ist nun i.A. nicht symmetrisch, das Gleichungssystem ist somit nicht
+eindeutig lösbar.
+Meist werden mehr Projektionen aufgenommen als Materialen vorhanden sind.
+Das Gleichungssystem ist also überbestimmt.
+Da das Experiment nicht ohne (statistische) Fehler durchgeführt werden kann,
+muss aus den fehlerbehafteten Messwerten ein optimaler Wert gewonnen werden, der
+den linearen Zusammenhang des Problems wiedergibt.
+Hierzu bietet sich die Methode der kleinsten Fehlerquadrate an.
+Der Vektor der optimalen Absorbtionskoefizienten ist dabei durch
+\begin{equation}
+  \hat{\vec{\mu}} = \left(\mathbf{A}^{T} \mathbf{A} \right)^{-1} \cdot \mathbf{A}^{T} \, \vec{I}
+\end{equation}
+gegeben, die Kovarianzmatrix der bestimmten Absorbtionskoefizienten folgt aus
+\begin{equation}
+  \label{eq:2}
+  \mathbf{V} \left[ \hat{\vec{\mu}} \right] = \left(\mathbf{A}^{T} \, \mathbf{W} \mathbf{A} \right)^{-1}.
+\end{equation}
+Die Matrix
+\begin{equation}
+  \mathbf{W} \eqcolon \mathbf{W} \left(\vec{I} \right) = \mathbf{V}\left[\hat{\vec{I}\:\!}\right]
+\end{equation}
+wird dabei als Gewichtsmatrix bezeichnet.
+Für den Fall gleicher Varianzen $\sigma_{j} = \sigma_{I}$ und verschwindender
+Kovarianzen vereinfacht sich \eqref{eq:2} zu
+\begin{equation}
+  \mathbf{V}\left[\hat{\vec{\mu}}\right] = \sigma_{I} \left(\mathbf{A}^{T} \mathbf{A} \right)^{-1}.
+\end{equation}
+
+
 \section{Durchführung}
 \subsection{Aufbau}
 \subsection{Versuchsdurchführung}

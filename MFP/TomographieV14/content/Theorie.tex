@@ -68,4 +68,59 @@ Kovarianzen vereinfacht sich \eqref{eq:2} zu
 
 \section{Durchführung}
 \subsection{Aufbau}
+\begin{figure}[h!]
+  \begin{minipage}{0.6\textwidth}
+    Der Aufbau (siehe Abbildung \ref{abb:1}) besteht aus einer $\gamma$-Quelle,
+    einer Blende, einer Halterung für das Messobjekt und einem NaI-Szintillationsdetektor.
+    Als Messobjekt dienen Würfel, die aus $3\times3\times3$ kleineren, aus einem Material
+    bestehenden, "Elementarwürfeln" der Kantenlänge \SI{1}{\centi\metre} bestehen.
+    Die Elementarwürfeln befinden sich in einem Aluminiumwürfel mit Wandstärke \SI{1}{\milli\metre}.
+    Die Halterung für die Würfel ist bezüglich der $z$-Achse rotierbar und lässt sich senkrecht
+    zur Strahlrichtung verschieben.
+    Als Quelle des $\gamma$-Strahls dient \ce{^{137}_{55}Cs}.
+    Die Blende stellt sicher, dass das Objekt von einem Strahl durchleuchtet wird.
+    Der Aufbau wird durch Bleiblöcke abgeschirmt und der NaJ-Detektor kann über ein
+    Computerprogramm gesteuert und ausgelesen werden.
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.35\textwidth}
+    \includegraphics[width=\textwidth]{content/pics/Aufbau.png}
+    \caption{Versuchsaufbau, \\aus \cite{anleitung}.}
+    \label{abb:1}
+  \end{minipage}
+\end{figure}
+
+
 \subsection{Versuchsdurchführung}
+Zu Beginn wird ohne Würfel $I_{0}$ bestimmt und das Spektrum der Quelle aufgenommen.
+Anschließend werden zwei Würfel bekannter und ein Würfel unbekannter Zusammensetzung
+vermessen.
+Dabei werden die in Abbildung \ref{abb:2} dargestellten Projektionen verwendet,
+sodass die Würfelgeometrie durch Matrix \eqref{eq:3} beschrieben wird.
+Es wird jeweils die mittlere der drei Schichten entlang der $z$-Achse der Würfel genutzt.
+
+\begin{figure}[h!]
+    \centering
+    \input{content/pics/wuerfel.tex}
+    \caption{Verwendete Projektionen.}
+    \label{abb:2}
+\end{figure}
+
+\begin{equation}
+  \label{eq:3}
+    \mathbf{A} =
+    \begin{pmatrix}
+      0 & \sqrt{2} & 0 & \sqrt{2} & 0 & 0 & 0 & 0 & 0\\
+      0 & 0 & \sqrt{2} & 0 & \sqrt{2} & 0 & \sqrt{2} & 0 & 0\\
+      0 & 0 & 0 & 0 & 0 & \sqrt{2} & 0 & \sqrt{2} & 0\\
+      1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\
+      0 & \sqrt{2} & 0 & 0 & 0 & \sqrt{2} & 0 & 0 & 0\\
+      \sqrt{2} & 0 & 0 & 0 & \sqrt{2} & 0 & 0 & 0 & \sqrt{2}\\
+      0 & 0 & 0 & \sqrt{2} & 0 & 0 & 0 & \sqrt{2} & 0\\
+      0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1\\
+      0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0\\
+      1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0
+    \end{pmatrix}
+ \end{equation}

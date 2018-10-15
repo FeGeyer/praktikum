@@ -158,10 +158,23 @@ mu_1_mit = unumpy.uarray(mu_1, err_mu_1)
 mu_2_mit = unumpy.uarray(mu_2, err_mu_2)
 mu_4_mit = unumpy.uarray(mu_4, err_mu_4)
 
+mu_1_mittel = np.mean(mu_1_mit)
+mu_2_mittel = np.mean(mu_2_mit)
+print("Würfel 1: ", mu_1_mittel)
+print("Würfel 2: ", mu_2_mittel)
+lol = np.linspace(1, 9, 9)
+print(lol)
 # Tabellen
-np.savetxt('Tabellen/absorp.txt',
-           np.column_stack([mu_1*10**3, err_mu_1*10**3, mu_2*10**3,
-                            err_mu_2*10**3, mu_4*10**3, err_mu_4*10**3]),
-           delimiter=' & ', newline=r' \\'+'\n', fmt="%.2f")
+np.savetxt('Tabellen/absorp_w1.txt',
+           np.column_stack([lol, mu_1*10**3, err_mu_1*10**3]),
+           delimiter=' \pm ', newline=r' \\'+'\n', fmt="%.2f")
+np.savetxt('Tabellen/absorp_w2.txt',
+           np.column_stack([lol, mu_2*10**3,
+                            err_mu_2*10**3]),
+           delimiter=' \pm ', newline=r' \\'+'\n', fmt="%.2f")
+
+np.savetxt('Tabellen/absorp_w4.txt',
+           np.column_stack([lol, mu_4*10**3, err_mu_4*10**3]),
+           delimiter=' \pm ', newline=r' \\'+'\n', fmt="%.2f")
 
 print('Alles ausgeführt!')

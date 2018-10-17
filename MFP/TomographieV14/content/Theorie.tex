@@ -10,7 +10,7 @@ $\gamma$-Strahlung bekannter Eingangsintensität $I_{0}$ bestrahlt und die auf d
 anderen Seite des Objektes austretende Intensität $N_{j}$ gemessen.
 Die $\gamma$-Strahlung jeder dieser $j$-ten Projektionen wird dabei bei seinem Durchgang
 durch das Objekt abgeschwächt.
-Nach Durchgang durch $n$ Materialien mit Absorbtionskoefizienten $\mu_{i}$ und
+Nach Durchgang durch $n$ Materialien mit Absorptionskoeffizienten $\mu_{i}$ und
 im jeweils durchquerten Material zurückgelegten Wegstrecken $d_{i}$ ist eine
 gemessene Intensität
 \begin{equation}
@@ -24,15 +24,15 @@ Lösen nach $\sum_{i} \mu_{i} d_{i}$ liefert mit
 \end{equation}
 ein lineares Gleichungssystem der Dimension $n \times m$.
 Lösen des Systems liefert somit bei Kenntnis der Wegstrecken $d_{i}$ die $n$
-Absorbtionskoefizienten womit aus Vergleichstabellen die Materialen bestimmt
+Absorptionskoeffizienten womit aus Vergleichstabellen die Materialen bestimmt
 werden können.
 
-\subsection{Bestimmen der Absorbtionskoefizienten}
+\subsection{Bestimmen der Absorptionskoeffizienten}
 Aus \eqref{eq:1} kann eine Matrixform des Gleichungssystems erhalten werden, indem
 die Wegstrecken, die für jede Projektion im Objekt zurückgelegt wurden in einer
 Matrix $\mathbf{A}$ zusammengefasst werden.
 Diese liefert, multipliziert mit dem Vektor
-$\vec{\mu}$ der Absorbtionskoefizienten, den Vektor der Verhältnisse zwischen
+$\vec{\mu}$ der Absorptionskoeffizienten, den Vektor der Verhältnisse zwischen
 Eingangs- und Ausgangsintensitäten
 \begin{equation}
   \vec{I} = \mathbf{A} \cdot \vec{\mu}.
@@ -45,11 +45,11 @@ Da das Experiment nicht ohne (statistische) Fehler durchgeführt werden kann,
 muss aus den fehlerbehafteten Messwerten ein optimaler Wert gewonnen werden, der
 den linearen Zusammenhang des Problems wiedergibt.
 Hierzu bietet sich die Methode der kleinsten Fehlerquadrate an.
-Der Vektor der optimalen Absorbtionskoefizienten ist dabei durch
+Der Vektor der optimalen Absorptionskoeffizienten ist dabei durch
 \begin{equation}
   \hat{\vec{\mu}} = \left(\mathbf{A}^{T} \mathbf{A} \right)^{-1} \cdot \mathbf{A}^{T} \, \vec{I}
 \end{equation}
-gegeben, die Kovarianzmatrix der bestimmten Absorbtionskoefizienten folgt aus
+gegeben, die Kovarianzmatrix der bestimmten Absorptionskoeffizienten folgt aus
 \begin{equation}
   \label{eq:2}
   \mathbf{V} \left[ \hat{\vec{\mu}} \right] = \left(\mathbf{A}^{T} \, \mathbf{W} \mathbf{A} \right)^{-1}.

@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from uncertainties import unumpy
+from uncertainties import ufloat
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 18
 
@@ -163,11 +164,70 @@ mu_2_mittel = np.mean(mu_2_mit)
 print("Würfel 1: ", mu_1_mittel)
 print("Würfel 2: ", mu_2_mittel)
 lol = np.linspace(1, 9, 9)
-print(lol)
+
+# Literaturwerte
+rho = np.array([2.699, 11.35, 7.874, 8.284, 1.405])
+sigma = np.array([7.466*10**(-2), 1.101*10**(-1), 7.346*10**(-2),
+                  7.514*10**(-2), 0.086])
+
+mu = rho * sigma
+print(mu)
+
+# Abweichungen
+# Für jeden Elementarwürfel und jedes Element die relative Abweichung bestimmen
+abweichungen = np.array([])
+for i in range(len(mu_4_mit)):
+    for j in range(len(mu)):
+        x = mu_4_mit[i] / mu[j]
+        if x > 1:
+            x = x-1
+            abweichungen = np.append(abweichungen, x)
+        else:
+            x = 1-x
+            abweichungen = np.append(abweichungen, x)
+
+# Nach Elementarwürfeln aufteilen und dabei das kleinste Element und dessen
+# Position übergeben
+abweichungen_1 = np.array([min(abweichungen[0:5])*100,
+                           np.argmin(abweichungen[0:5])])
+abweichungen_2 = np.array([min(abweichungen[5:10])*100,
+                           np.argmin(abweichungen[5:10])])
+abweichungen_3 = np.array([min(abweichungen[10:15])*100,
+                           np.argmin(abweichungen[10:15])])
+abweichungen_4 = np.array([min(abweichungen[15:20])*100,
+                           np.argmin(abweichungen[15:20])])
+abweichungen_5 = np.array([min(abweichungen[20:25])*100,
+                           np.argmin(abweichungen[20:25])])
+abweichungen_6 = np.array([min(abweichungen[25:30])*100,
+                           np.argmin(abweichungen[25:30])])
+abweichungen_7 = np.array([min(abweichungen[30:35])*100,
+                           np.argmin(abweichungen[30:35])])
+abweichungen_8 = np.array([min(abweichungen[35:40])*100,
+                           np.argmin(abweichungen[35:40])])
+abweichungen_9 = np.array([min(abweichungen[40:45])*100,
+                           np.argmin(abweichungen[40:45])])
+
+print("Abweichung erster Würfel: ", abweichungen_1)
+print("Abweichung zweiter Würfel: ", abweichungen_2)
+print("Abweichung dritter Würfel: ", abweichungen_3)
+print("Abweichung vierter Würfel: ", abweichungen_4)
+print("Abweichung fünfter Würfel: ", abweichungen_5)
+print("Abweichung sechster Würfel: ", abweichungen_6)
+print("Abweichung siebter Würfel: ", abweichungen_7)
+print("Abweichung achter Würfel: ", abweichungen_8)
+print("Abweichung neunter Würfel: ", abweichungen_9)
+
+# abweichungen_kleinste = np.array([abweichungen_1, abweichungen_2,
+#                                  abweichungen_3, abweichungen_4,
+#                                  abweichungen_5, abweichungen_6,
+#                                  abweichungen_7, abweichungen_8,
+#                                  abweichungen_9])
+
 # Tabellen
 np.savetxt('Tabellen/absorp_w1.txt',
            np.column_stack([lol, mu_1*10**3, err_mu_1*10**3]),
            delimiter=' \pm ', newline=r' \\'+'\n', fmt="%.2f")
+
 np.savetxt('Tabellen/absorp_w2.txt',
            np.column_stack([lol, mu_2*10**3,
                             err_mu_2*10**3]),
@@ -176,5 +236,9 @@ np.savetxt('Tabellen/absorp_w2.txt',
 np.savetxt('Tabellen/absorp_w4.txt',
            np.column_stack([lol, mu_4*10**3, err_mu_4*10**3]),
            delimiter=' \pm ', newline=r' \\'+'\n', fmt="%.2f")
+
+np.savetxt('Tabellen/mu.txt',
+           np.column_stack([sigma, rho, mu]),
+           delimiter=' & ', newline=r' \\'+'\n', fmt="%.3f")
 
 print('Alles ausgeführt!')

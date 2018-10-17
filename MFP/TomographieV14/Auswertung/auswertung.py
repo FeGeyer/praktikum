@@ -217,6 +217,7 @@ print("Abweichung siebter Würfel: ", abweichungen_7)
 print("Abweichung achter Würfel: ", abweichungen_8)
 print("Abweichung neunter Würfel: ", abweichungen_9)
 
+print((1 - 0.202/mu_2_mittel)*100)
 # abweichungen_kleinste = np.array([abweichungen_1, abweichungen_2,
 #                                  abweichungen_3, abweichungen_4,
 #                                  abweichungen_5, abweichungen_6,

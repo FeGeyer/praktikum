@@ -6,4 +6,4 @@
 *.bbl
 *.blg
 dokument.pdf
-Plots/*/*
+Plots/*/*.pdf

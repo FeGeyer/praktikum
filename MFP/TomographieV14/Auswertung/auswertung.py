@@ -105,6 +105,8 @@ def kleinsteQuadrate(y, W, A):
 # Nullrate
 I_0 = I_0_300/t_i_0
 err_I_0 = np.sqrt(I_0)/t_i_0
+print("Nullrate: ", I_0)
+print("Fehler auf der Nullrate: ", np.round(err_I_0, 3))
 
 # Würfel 1
 rate_1 = counts_1/t_100

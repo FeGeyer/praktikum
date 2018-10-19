@@ -7,3 +7,4 @@
 *.blg
 dokument.pdf
 Plots/
+build/

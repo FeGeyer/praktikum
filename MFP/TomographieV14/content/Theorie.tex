@@ -47,22 +47,28 @@ den linearen Zusammenhang des Problems wiedergibt.
 Hierzu bietet sich die Methode der kleinsten Fehlerquadrate an.
 Der Vektor der optimalen Absorptionskoeffizienten ist dabei durch
 \begin{equation}
-  \hat{\vec{\mu}} = \left(\mathbf{A}^{T} \mathbf{A} \right)^{-1} \cdot \mathbf{A}^{T} \, \vec{I}
+  \hat{\vec{\mu}} = \left(\textbf{A}^{\symup T} \, \textbf{W} \, \textbf{A} \right)^{-1} \cdot
+  \left(\textbf{A}^{\symup T} \, \textbf{W} \, \vec{I} \right) \, ,
+  \label{eqn:mu}
 \end{equation}
 gegeben, die Kovarianzmatrix der bestimmten Absorptionskoeffizienten folgt aus
 \begin{equation}
   \label{eq:2}
-  \mathbf{V} \left[ \hat{\vec{\mu}} \right] = \left(\mathbf{A}^{T} \, \mathbf{W} \mathbf{A} \right)^{-1}.
+  \mathbf{V} \left[ \hat{\vec{\mu}} \right] = \left(\mathbf{A}^{\symup T} \, \mathbf{W} \mathbf{A} \right)^{-1}.
 \end{equation}
 Die Matrix
 \begin{equation}
   \mathbf{W} \eqcolon \mathbf{W} \left(\vec{I} \right) = \mathbf{V}\left[\hat{\vec{I}\:\!}\right]
 \end{equation}
 wird dabei als Gewichtsmatrix bezeichnet.
-Für den Fall gleicher Varianzen $\sigma_{j} = \sigma_{I}$ und verschwindender
-Kovarianzen vereinfacht sich \eqref{eq:2} zu
+Für den Fall gleicher Varianzen $W_{jj} = \sigma_{j} = \sigma_{I}$ und verschwindender
+Kovarianzen $W_{ij} = W_{ji} = 0 \; \forall \; i \neq j$ vereinfachen sich \eqref{eqn:mu} und \eqref{eq:2} zu
 \begin{equation}
-  \mathbf{V}\left[\hat{\vec{\mu}}\right] = \sigma_{I} \left(\mathbf{A}^{T} \mathbf{A} \right)^{-1}.
+  \hat{\vec{\mu}} = \left(\mathbf{A}^{\symup T} \mathbf{A} \right)^{-1} \cdot \mathbf{A}^{\symup T} \, \vec{I}
+\end{equation}
+und
+\begin{equation}
+  \mathbf{V}\left[\hat{\vec{\mu}}\right] = \sigma_{I} \left(\mathbf{A}^{\symup T} \mathbf{A} \right)^{-1}.
 \end{equation}
 
 
@@ -79,7 +85,7 @@ Kovarianzen vereinfacht sich \eqref{eq:2} zu
     zur Strahlrichtung verschieben.
     Als Quelle des $\gamma$-Strahls dient \ce{^{137}_{55}Cs}.
     Die Blende stellt sicher, dass das Objekt von einem Strahl durchleuchtet wird.
-    Der Aufbau wird durch Bleiblöcke abgeschirmt und der NaJ-Detektor kann über ein
+    Der Aufbau wird durch Bleiblöcke abgeschirmt und der NaI-Detektor kann über ein
     Computerprogramm gesteuert und ausgelesen werden.
   \end{minipage}
   \hfill

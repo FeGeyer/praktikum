@@ -6,6 +6,7 @@ TeXOptions = -lualatex \
 				 -output-directory=build
 
 build/dokument.pdf: FORCE | build
+	python auswertung.py
 	latexmk $(TexOptions) dokument.tex
 
 light: dokument.tex

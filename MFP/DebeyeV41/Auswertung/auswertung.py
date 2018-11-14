@@ -40,10 +40,10 @@ def find_best_fit(evaluate_value, test_array, i):
     '''
 
     res = d[i] / np.abs(test_array - evaluate_value)
-    best_fit = test_array[d[i] / np.abs(test_array - evaluate_value) ==
-                          d[i] / np.abs(test_array - evaluate_value).min()]
-    best_res = res[d[i] / np.abs(test_array - evaluate_value) ==
-                   d[i] / np.abs(test_array - evaluate_value).min()]
+    best_fit = test_array[d[i] * np.abs(test_array - evaluate_value) ==
+                          d[i] * np.abs(test_array - evaluate_value).min()]
+    best_res = res[d[i] * np.abs(test_array - evaluate_value) ==
+                   d[i] * np.abs(test_array - evaluate_value).min()]
     return best_fit[0], best_res[0]
 
 
@@ -136,7 +136,7 @@ def find_lattice_constants(d, lattice, max_value):
     best_sem = res_sem[best_index]
 
     n_bestimmt = n_best_field[:, best_index]
-    a_bestimmt = d / n_best_field[:, best_index]
+    a_bestimmt = d * n_best_field[:, best_index]
 
     return n_bestimmt, a_bestimmt, best_sum, best_sem
 
@@ -200,23 +200,37 @@ if __name__ == '__main__':
     fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
 
     # Compute best_fit for a thrugh linear regression
-    params, cov = curve_fit(linear, bcc_a, np.cos(0.5 * PeakAngle * np.pi / 180)**2)
-    errors = np.sqrt(np.diag(cov))
-    m_bcc = ufloat(params[0], errors[0])
-    n_bcc = ufloat(params[1], errors[1])
+    bcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                180)**2, bcc_a)
+    bcc_errors = np.sqrt(np.diag(cov))
+    m_bcc = ufloat(bcc_params[0], bcc_errors[0])
+    n_bcc = ufloat(bcc_params[1], bcc_errors[1])
 
-    params, cov = curve_fit(linear, fcc_a, np.cos(0.5 * PeakAngle * np.pi / 180)**2)
-    errors = np.sqrt(np.diag(cov))
-    m_fcc = ufloat(params[0], errors[0])
-    n_fcc = ufloat(params[1], errors[1])
+    fcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                180)**2, fcc_a)
+    fcc_errors = np.sqrt(np.diag(cov))
+    m_fcc = ufloat(fcc_params[0], fcc_errors[0])
+    n_fcc = ufloat(fcc_params[1], fcc_errors[1])
+
+    print(m_bcc, n_bcc)
+    print(m_fcc, n_fcc)
+
+    x_range = np.linspace(0, 90, 1000)
+    x_range = np.cos(x_range * np.pi / 180)**2
 
     # Plot peaks
     plt.figure()
-    plt.plot(PeakAngle / 2, fcc_a, marker='x', color='blue', label='fcc', ls='')
-    plt.plot(PeakAngle / 2, bcc_a, marker='x', color='red', label='bcc', ls='')
-    plt.xlabel(r"$\phi / \mathrm{°}$")
-    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{m}$')
-    plt.xlim(0, 90)
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, bcc_a * 10**(12),
+             marker='x', color='red', ls='')
+    plt.plot(x_range, linear(x_range, *bcc_params) * 10**(12),
+             ls='-', color='red', label='Hypothese: bcc-Gitter')
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, fcc_a * 10**(12),
+             marker='x', color='blue', ls='')
+    plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
+             ls='-', color='blue', label='Hypothese: fcc-Gitter')
+    plt.xlabel(r"$\cos{(\phi)}^{2}$")
+    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
     plt.legend(loc="best")
+    plt.xlim(0, 1)
     plt.tight_layout
     plt.show()

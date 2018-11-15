@@ -8,3 +8,4 @@
 dokument.pdf
 Plots/
 build/
+__pycache__/

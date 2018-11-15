@@ -29,7 +29,7 @@
 %\usepackage{siunitx}
 \DeclareSIUnit\px{px}
 
-\usepackage[style=alphabetic]{biblatex}
+\usepackage[sorting=none]{biblatex}
 \addbibresource{content/lit.bib}
 \addbibresource{../header/programme.bib}
 
@@ -62,3 +62,11 @@ indention=1em]{caption}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning}
+
+\AtBeginDocument{%
+  \newcaptionname{ngerman}{\figureautorefname}{Abbildung}
+  \newcaptionname{ngerman}{\tableautorefname}{Tabelle}
+  \newcaptionname{ngerman}{\sectionautorefname}{Kapitel}
+  \newcaptionname{ngerman}{\subsectionautorefname}{Kapitel}
+  \newcaptionname{ngerman}{\chapterautorefname}{Kapitel}%
+}

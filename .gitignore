@@ -9,4 +9,4 @@ dokument.pdf
 Plots/
 build/
 __pycache__/
-MFP/DebyeV41/Auswertung/Grafiken/*.pdf
+MFP/**/Auswertung/**/*.pdf

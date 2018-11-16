@@ -1,16 +1,67 @@
 \section{Auswertung}
-\subsection{Fehlerrechnung}
-  Für die Auswertung wird als Punktschätzer der arithmetischen Mittelwert
-  \begin{equation}
-    \overline{T}_{\symup{arith.}} = \frac{1}{n} \sum_{i=1}^{n} T_{i}
-    \label{arith}
-  \end{equation}
-  genutzt.
-    Für die Fehlerrechnung sowie den mathematischen Teil der Auswertung wird auf $\textsc{Python}$ \cite{python}
-    zurückgegriffen:\\
-    Arithmetische Mittelwerte werden durch die Funktion $\textsc{mean}$ aus dem Paket $\textsc{Numpy}$ \cite{numpy}
-    nach \eqref{arith} berechnet.
-    Grafiken wurden mit $\textsc{matplotlib}$ \cite{matplotlib}
-    erstellt.
+\subsection{Vorgehen und genutzte Programme}
+Zur Automatisierung der Auswertung wird wie folgt vorgegangen:
+\begin{enumerate}
+  \item Die Filme werden auf einem Scanner digitalisiert.
+  Der Film der Salzprobe muss dabei während des scannens von oben beleuchtet werden,
+  da der Film durch die längere Messdauer und Streulicht sehr stark belichtet
+  wurde.
+  \item Die gescannten Bilder werden digital nachbearbeitet, sodass die
+  Beugungskreise besser hervortreten.
+  \item Zwischen den Stanzungen der Filme werden die Grauwerte in einem schmalen,
+  mittigen Streifen ausgelesen.
+  Dazu wird das Programm ImageJ\cite{Schneider2012} genutzt.
+  \item Die Grauwerte werden in einem Python\cite{python}-script
+  durch Pandas\cite{mckinney-proc-scipy-2010} eingelesen.
+  Der Grauwert wird invertiert und der Untergrund manuell auf ein
+  einheitliches Niveau zu heben.
+  \item Durch die Funktion \texttt{find\_peaks} der SciPy\cite{scipy}-Bibliothek
+  \texttt{signal} werden die Peaks und damit die Beugungskreise detektiert.
+  Die Abstände zum Mittelpunkt der Stanzung in Millimeter entsprechen dabei
+  dem Winkel in Grad.
+  \item Für jeden Peak werden durch die Bragggleichung Netzebenenabstände
+  berechnet. Durch Vergleich mit jedem möglichen Tupel von Millerindizes
+  (bis zu einem Wert $\text{max}(h, \, k, \, l) = 7$) wird der bestmögliche
+  Wert für die Gitterkonstante bestimmt, indem die Abweichungen der Gitterkonstanten
+  untereinander minimiert werden. Dies wird für ein fcc- und ein bcc-Gitter getan.
+  \item Durch die SciPy-optimize Funktion \texttt{curve\_fit} wird ein linearer
+  Fit durch die Gitterkonstanten beider Gittertypen gelegt und der optimale Wert
+  durch den y-Achsenabschnitt bestimmt.
+\end{enumerate}
+
+\subsection{Metallprobe}
+Der Ausschnitt zwischen den Stanzungen des Films ist in \autoref{Abb:Metall}
+zu sehen, die ausgelesenen Reflexe finden sich in \autoref{Tab:Metall}.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{content/pics/Metall_film.pdf}
+  \caption{Filmaufnahme der Metallprobe.}
+  \label{Abb:Metall}
+\end{figure}
+
+\begin{table}[p]
+  \centering
+  \caption{Übersicht über die für die Rechnung notwendigen Größen sowie die
+          daraus bestimmten Werte für $c_{\symup{V}}$. Werte bis \SI{170}{\kelvin}
+          sind durch eine Linie abgetrennt.}
+  \label{A_tab:2}
+  \begin{tabular}{c c c c}
+    \toprule
+    Winkel / ° & $(h, \, k, \, l)_{\text{bcc}}$ & $a_{\text{bcc}}$ / pm & $(h, \, k, \, l)_{\text{fcc}}$ & $a_{\text{fcc}}$\\
+    \midrule
+    \input{Auswertung/Grafiken/Metall_Tabelle.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Salzprobe}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{content/pics/Salz_film.pdf}
+  \caption{Filmaufnahme der Metallprobe.}
+  \label{Abb:Salz}
+\end{figure}
 
 \section{Diskusion}

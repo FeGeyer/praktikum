@@ -114,7 +114,6 @@ def find_lattice_constants(d, lattice, max_value):
 
     # seafty first, even if negative values should not happen
     # n_search_field = np.abs(n_search_field)
-    print(c_bcc)
 
     # initialize fields for best fits and residdums,
     # setting value of the initial
@@ -257,10 +256,27 @@ if __name__ == '__main__':
         # convert the angles to interplanar distance according to braggs law
         d = lam / (2 * np.sin(0.5 * PeakAngle * np.pi / 180))
 
-        print("bcc c=sqrt(h**2+k**2+l**2):")
+        print("bcc n=sqrt(h**2+k**2+l**2):")
         bcc_n, bcc_a, bcc_mean, bcc_sem = find_lattice_constants(d, 'bcc', 7)
-        print("fcc c=sqrt(h**2+k**2+l**2):")
+        print(bcc_n)
+        print("bcc a:")
+        print(bcc_a)
+        print("fcc n=sqrt(h**2+k**2+l**2):")
         fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
+        print(fcc_n)
+        print("fcc a:")
+        print(fcc_a)
+
+        np.savetxt("Auswertung/Grafiken/" + Probe.name +
+                   "_Tabelle.tex",
+                   np.column_stack([
+                                   PeakAngle,
+                                   bcc_n**2,
+                                   bcc_a * 10**(12),
+                                   fcc_n**2,
+                                   fcc_a * 10**(12),
+                                   ]), delimiter=' & ', newline=r' \\' + '\n',
+                   fmt='%.2f & %.0f & %.2f & %.0f & %.2f')
 
         # Compute best_fit for a thrugh linear regression
         bcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /

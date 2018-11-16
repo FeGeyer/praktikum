@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 '''
 Import millerindizes as miller from Auswertung/millerindizes.py with
 importlib.util. Important to note is, that in the third line of this piece of
-code the name of the module is definded for further use in the code. 
+code the name of the module is definded for further use in the code.
 '''
 import importlib.util
 spec = importlib.util.spec_from_file_location("millerindizes", "Auswertung/millerindizes.py")
@@ -17,6 +17,9 @@ import numpy as np
 import pandas as pd
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 18
+
+# Turn of pandas warnings... be carefull
+pd.options.mode.chained_assignment = None
 
 
 def linear(x, m, n):
@@ -151,6 +154,23 @@ def find_lattice_constants(d, lattice, max_value):
 
 
 if __name__ == '__main__':
+    # Print a welcome text.
+    print("Welcome pesant or creator, whatever holds true. If you are the "
+          "author of these script, you can scip this lines. "
+          "If not, you may find some muy bien importante informationes here: "
+          "First of all, you will need to produce GreyValue "
+          "Data for this script. "
+          "We recommend the use of fiji (ImageJ), where the "
+          "Analysis -> Plot Profile "
+          "function gives yuo a GreyValue Plot whose data can "
+          "be saved as .csv file. "
+          "The best results are produced, if the films "
+          "are scanned. It might be "
+          "necessary to leave the scanner open and expose the film to light "
+          "(e.g. like a flashlight). Second to that, you "
+          "will need to adjust some "
+          "lines in this script. They are marked with a blockcomment.")
+    print("------------------------------------------------------------------")
 
     '''
     main-routine of the analysis. In here, data is beeing read in, peaks are
@@ -160,88 +180,118 @@ if __name__ == '__main__':
     # Metall-Probe
     # Import GreyValue Data. Keys: Pixel, GreyValue
     Metall = pd.read_csv(filepath_or_buffer="Auswertung/Bilder/Metall.csv")
+    Salz = pd.read_csv(filepath_or_buffer="Auswertung/Bilder/Salz.csv")
 
-    # Convert from Pixel to centimetre, distance mesuered to be 16.5 cm
-    Metall.Distance = Metall.Pixel * (18 / (len(Metall.Pixel) + 6))
+    # Subtract underground
+    Salz.GreyValue = -Salz.GreyValue
     Metall.GreyValue = -Metall.GreyValue
 
+    '''
+    Attention:
+    In the following rows, it is indispensable to adjust the cut-of value
+    inside the boolean statement of the mask to your needs.
+    '''
+
+    Salz.GreyValue[Salz.GreyValue < -175] = -175
     Metall.GreyValue[Metall.GreyValue < -18] = -18
 
-    # Find peaks
-    MetallPeaks, _ = find_peaks(x=Metall.GreyValue, prominence=2.5)
-    GreyValuePeaks = Metall.GreyValue[MetallPeaks]
+    for idx, Probe in enumerate([Metall, Salz]):
 
-    # Get Distance from peaks
-    MetallPeaks = MetallPeaks * (18 / (len(Metall.Pixel) + 6))
+        '''
+        Attention:
+        In the following rows, the summands 6 (this happens twice!)
+        is used to correct for a black
+        marker, placed inside the center of the punchholes of the film to
+        simplify the selection of a alaysis-window in ImageJ .
+        Since they were colored black, the could not be taken in account
+        for the grayvalue messurement. To evoid an error through this, it
+        is corrected by adding the thereby lost 6 pixels in the conversion.
+        '''
+        # Convert from Pixel to centimetre, distance mesuered to be 18 cm
+        print("Just ignore this warning, it seems to be useless:")
+        Probe.Distance = Probe.Pixel * (18 / (len(Probe.Pixel) + 6))
+        print("--------------------------------------------------------------")
 
-    # Plot peaks
-    # plt.figure()
-    # plt.plot(Metall.Distance, Metall.GreyValue, ls='--', color='blue')
-    # plt.plot(MetallPeaks, GreyValuePeaks, color='black', ls='', marker='o')
-    # plt.xlabel(r"$r / \mathrm{cm}$")
-    # plt.ylabel('inverser Grauwert')
-    # plt.xlim(0, 18)
-    # plt.show()
+        # Find peaks
+        ProbePeaks, _ = find_peaks(x=Probe.GreyValue, prominence=2.5)
+        GreyValuePeaks = Probe.GreyValue[ProbePeaks]
 
-    # Distance is equal to 180° -> 1cm equals 10°
-    # Bragg: 2dsin(theta)=n*lambda
-    # lambda = 1.54093A
-    # Angles have to be reverted, cause they have to be mesured acording to
-    # the MP-vector
+        # Get Distance from peaks
+        ProbePeaks = ProbePeaks * (18 / (len(Probe.Pixel) + 6))
 
-    lam = 1.54093 * 10**(-10)
-    R = 57.3 * 10**(-3)
+        # Plot peaks
+        plt.figure()
+        plt.plot(Probe.Distance, Probe.GreyValue, ls='--', color='blue')
+        plt.plot(ProbePeaks, GreyValuePeaks, color='black',
+                 ls='', marker='o')
+        plt.xlabel(r"$r / \mathrm{cm}$")
+        plt.ylabel('inverser Grauwert')
+        plt.xlim(0, 18)
+        plt.show()
 
-    PeakAngle = MetallPeaks * 10
-    PeakAngle = np.abs(180 - PeakAngle)
-    PeakAngle = np.sort(PeakAngle)
+        # Distance is equal to 180° -> 1cm equals 10°
+        # Bragg: 2dsin(theta)=n*lambda
+        # lambda = 1.54093A
+        # Angles have to be reverted, cause they have to be mesured acording to
+        # the MP-vector
 
-    # The first two reflexes are due to the existence of two K-alpha lines,
-    # so correct for it
-    theta = (PeakAngle[0] - PeakAngle[1]) / 2
-    PeakAngle = np.insert(PeakAngle, 0, PeakAngle[0] - theta)
-    PeakAngle = np.delete(PeakAngle, [1, 2])
+        lam = 1.54093 * 10**(-10)
+        R = 57.3 * 10**(-3)
 
-    # convert the angles to interplanar distance according to braggs law
-    d = lam / (2 * np.sin(0.5 * PeakAngle * np.pi / 180))
+        PeakAngle = ProbePeaks * 10
+        '''
+        Attention:
+        We had to invert the film in the next rows.
+        Check if you need to do this.
+        '''
+        PeakAngle = np.abs(180 - PeakAngle)
+        PeakAngle = np.sort(PeakAngle)
 
-    bcc_n, bcc_a, bcc_mean, bcc_sem = find_lattice_constants(d, 'bcc', 7)
-    fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
+        # convert the angles to interplanar distance according to braggs law
+        d = lam / (2 * np.sin(0.5 * PeakAngle * np.pi / 180))
 
-    # Compute best_fit for a thrugh linear regression
-    bcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
-                                180)**2, bcc_a)
-    bcc_errors = np.sqrt(np.diag(cov))
-    m_bcc = ufloat(bcc_params[0], bcc_errors[0])
-    n_bcc = ufloat(bcc_params[1], bcc_errors[1])
+        print("bcc c=sqrt(h**2+k**2+l**2):")
+        bcc_n, bcc_a, bcc_mean, bcc_sem = find_lattice_constants(d, 'bcc', 7)
+        print("fcc c=sqrt(h**2+k**2+l**2):")
+        fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
 
-    fcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
-                                180)**2, fcc_a)
-    fcc_errors = np.sqrt(np.diag(cov))
-    m_fcc = ufloat(fcc_params[0], fcc_errors[0])
-    n_fcc = ufloat(fcc_params[1], fcc_errors[1])
+        # Compute best_fit for a thrugh linear regression
+        bcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                    180)**2, bcc_a)
+        bcc_errors = np.sqrt(np.diag(cov))
+        m_bcc = ufloat(bcc_params[0], bcc_errors[0])
+        n_bcc = ufloat(bcc_params[1], bcc_errors[1])
 
-    print(m_bcc, n_bcc)
-    print(m_fcc, n_fcc)
+        fcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                    180)**2, fcc_a)
+        fcc_errors = np.sqrt(np.diag(cov))
+        m_fcc = ufloat(fcc_params[0], fcc_errors[0])
+        n_fcc = ufloat(fcc_params[1], fcc_errors[1])
 
-    x_range = np.linspace(0, 90, 1000)
-    x_range = np.cos(x_range * np.pi / 180)**2
+        print("bcc best fit:")
+        print("m = ", m_bcc, ", n = ", n_bcc)
+        print("fcc best fit:")
+        print("m = ", m_fcc, ", n = ", n_fcc)
 
-    # Plot peaks
-    plt.figure()
-    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, bcc_a * 10**(12),
-             marker='x', color='red', ls='')
-    plt.plot(x_range, linear(x_range, *bcc_params) * 10**(12),
-             ls='-', color='red', label='Hypothese: bcc-Gitter')
-    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, fcc_a * 10**(12),
-             marker='x', color='blue', ls='')
-    plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
-             ls='-', color='blue', label='Hypothese: fcc-Gitter')
-    plt.xlabel(r"$\cos{(\phi)}^{2}$")
-    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
-    plt.legend(loc="best")
-    plt.xlim(0, 1)
-    plt.tight_layout
-    plt.show()
+        x_range = np.linspace(0, 90, 1000)
+        x_range = np.cos(x_range * np.pi / 180)**2
 
-print('Alles ausgeführt!')
+        # Plot peaks
+        plt.figure()
+        plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, bcc_a * 10**(12),
+                 marker='x', color='red', ls='')
+        plt.plot(x_range, linear(x_range, *bcc_params) * 10**(12),
+                 ls='-', color='red', label='Hypothese: bcc-Gitter')
+        plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, fcc_a * 10**(12),
+                 marker='x', color='blue', ls='')
+        plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
+                 ls='-', color='blue', label='Hypothese: fcc-Gitter')
+        plt.xlabel(r"$\cos{(\phi)}^{2}$")
+        plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+        plt.legend(loc="best")
+        plt.xlim(0, 1)
+        plt.tight_layout
+        plt.show()
+
+print("------------------------------------------------------------------")
+print('Thats all folks!')

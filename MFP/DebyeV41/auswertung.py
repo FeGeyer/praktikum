@@ -180,10 +180,12 @@ if __name__ == '__main__':
     # Metall-Probe
     # Import GreyValue Data. Keys: Pixel, GreyValue
     Metall = pd.read_csv(filepath_or_buffer="Auswertung/Bilder/Metall.csv")
-    Salz = pd.read_csv(filepath_or_buffer="Auswertung/Bilder/Salz.csv")
+    Metall.name = "Metall"
+    Salt = pd.read_csv(filepath_or_buffer="Auswertung/Bilder/Salz.csv")
+    Salt.name = "Salt"
 
     # Subtract underground
-    Salz.GreyValue = -Salz.GreyValue
+    Salt.GreyValue = -Salt.GreyValue
     Metall.GreyValue = -Metall.GreyValue
 
     '''
@@ -192,10 +194,10 @@ if __name__ == '__main__':
     inside the boolean statement of the mask to your needs.
     '''
 
-    Salz.GreyValue[Salz.GreyValue < -175] = -175
+    Salt.GreyValue[Salt.GreyValue < -175] = -175
     Metall.GreyValue[Metall.GreyValue < -18] = -18
 
-    for idx, Probe in enumerate([Metall, Salz]):
+    for idx, Probe in enumerate([Metall, Salt]):
 
         '''
         Attention:
@@ -212,6 +214,8 @@ if __name__ == '__main__':
         Probe.Distance = Probe.Pixel * (18 / (len(Probe.Pixel) + 6))
         print("--------------------------------------------------------------")
 
+        print(Probe.name, "probe")
+
         # Find peaks
         ProbePeaks, _ = find_peaks(x=Probe.GreyValue, prominence=2.5)
         GreyValuePeaks = Probe.GreyValue[ProbePeaks]
@@ -221,13 +225,16 @@ if __name__ == '__main__':
 
         # Plot peaks
         plt.figure()
-        plt.plot(Probe.Distance, Probe.GreyValue, ls='--', color='blue')
+        plt.plot(Probe.Distance, Probe.GreyValue, ls='--', color='blue',
+                 label="Grauwert")
         plt.plot(ProbePeaks, GreyValuePeaks, color='black',
-                 ls='', marker='o')
+                 ls='', marker='o', label="Erkannte Peaks")
         plt.xlabel(r"$r / \mathrm{cm}$")
         plt.ylabel('inverser Grauwert')
         plt.xlim(0, 18)
-        plt.show()
+        plt.legend(loc="best")
+        plt.tight_layout
+        plt.savefig("Auswertung/Grafiken/" + Probe.name + "_Peaks.pdf")
 
         # Distance is equal to 180° -> 1cm equals 10°
         # Bragg: 2dsin(theta)=n*lambda
@@ -291,7 +298,8 @@ if __name__ == '__main__':
         plt.legend(loc="best")
         plt.xlim(0, 1)
         plt.tight_layout
-        plt.show()
+        plt.savefig("Auswertung/Grafiken/" +
+                    Probe.name + "_Ausgleichsrechnung.pdf")
 
 print("------------------------------------------------------------------")
 print('Thats all folks!')

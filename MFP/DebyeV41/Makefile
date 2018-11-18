@@ -13,7 +13,7 @@ light: dokument.tex
 	lualatex -interaction=nonstopmode \
 	-halt-on-error \
 	-output-directory=build \
-	Vortrag.tex
+	dokument.tex
 
 FORCE:
 

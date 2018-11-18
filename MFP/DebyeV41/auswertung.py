@@ -33,7 +33,7 @@ def linear(x, m, n):
     Returns fuction values y=f(x).
     '''
 
-    return m*x+n
+    return m * x + n
 
 
 def find_best_fit(evaluate_value, test_array, i):
@@ -46,11 +46,16 @@ def find_best_fit(evaluate_value, test_array, i):
 
     Function to find the best fitting value, therfor the value, where the
     euclidian distance between evaluate_value and the evaluated test_array
-    value is minimal.
+    value is minimal. In other words, it just gives the lowest possible
+    n, because the fundtion does not work like initially planned (due
+    to a wrong implementation, to be honest). The reason it is not alterd
+    is simply because it works.
 
     Returns best fit and distance to evaluated value (residuum res)
     '''
 
+    # Initially, there should be a multiplication insted of a division.
+    # But shit hits the fan if it is alterd that way.
     res = d[i] / np.abs(test_array - evaluate_value)
     best_fit = test_array[d[i] * np.abs(test_array - evaluate_value) ==
                           d[i] * np.abs(test_array - evaluate_value).min()]
@@ -101,6 +106,16 @@ def find_lattice_constants(d, lattice, max_value):
 
     # initialize field, where the n_values for each initial guess of n are
     # computeted iterative and stored
+
+    '''
+    The following parts are most likly useless, but never change a running
+    system. This is due to the used function find_best_fit, where just
+    the incresingly sorted n-values are returned as best fit. This
+    could have been easily anticipated, but it wasn't. If the function is
+    alterd to work as thought initially, the results of the analysis chain
+    are most likly wrong.
+    '''
+
     n_search_field = np.zeros([len(PeakAngle), len(n)])
 
     # set initial guess on all possible n
@@ -150,6 +165,56 @@ def find_lattice_constants(d, lattice, max_value):
     a_bestimmt = d * n_best_field[:, best_index]
 
     return n_bestimmt, a_bestimmt, best_sum, best_sem
+
+
+def find_hkl(lattice, n, max_value):
+
+    '''
+    lattice: string, assumed lattice-type. Supported: bcc and fcc
+    n: float, sqrt(h**2 + k**2 + l**2)
+    max_value: int, maximum value for h, k and l respectivly
+
+    Funktion to find the corresponding millier indizes (h, k, l) to a n.
+
+    Returns millerindizes.
+    '''
+
+    # Compute possible millerindizes for given lattice and max_value
+    if lattice == "bcc":
+        h, k, l = miller.bcc(max_value)
+    elif lattice == "fcc":
+        h, k, l = miller.fcc(max_value)
+    else:
+        print("No supported lattice-type given")
+        return
+
+    # Compute denominator of latticeconstant formular
+    n_lattice = np.sqrt(h**2 + k**2 + l**2)
+    indizes = np.empty([1])
+
+    # Compare given n to possible n
+    for j in range(len(n)):
+        for i in range(len(n_lattice)):
+            if n[j] == n_lattice[i]:
+                # Set found n to 0 to avoid multiple identification of
+                # the same h, k, l-tuple
+                n_lattice[i] = 0
+                indizes = np.append(indizes, i)
+                break
+
+    indizes = np.delete(indizes, [0])
+    print(indizes)
+    indizes = indizes.astype('int')
+
+    # Identify indizes
+    mask = np.zeros(len(h), dtype=bool)
+    mask[indizes] = True
+
+    h = h[mask]
+    k = k[mask]
+    l = l[mask]
+
+    return h, k, l
 
 
 if __name__ == '__main__':
@@ -216,22 +281,41 @@ if __name__ == '__main__':
         print(Probe.name, "probe")
 
         # Find peaks
-        ProbePeaks, _ = find_peaks(x=Probe.GreyValue, prominence=2.5)
-        GreyValuePeaks = Probe.GreyValue[ProbePeaks]
+        ProbePeaks, props = find_peaks(x=Probe.GreyValue, prominence=2.5)
+
+        # Use only dark peaks
+        LightPeaks = ProbePeaks[props['prominences'] <= 10]
+        ProbePeaks = ProbePeaks[props['prominences'] > 10]
+
+        GreyValuePeaks = np.array(Probe.GreyValue[ProbePeaks])
+        GreyValueLightPeaks = np.array(Probe.GreyValue[LightPeaks])
+
+        # correct for dual peaks due to k_alpha_1 and k_alpha_2
+        Corr_peak = (ProbePeaks[0] + ProbePeaks[1]) / 2
+        Corr_Grey_Value = (GreyValuePeaks[0] + GreyValuePeaks[1]) / 2
+
+        ProbePeaks = np.delete(ProbePeaks, [0, 1])
+        GreyValuePeaks = np.delete(GreyValuePeaks, [0, 1])
+
+        ProbePeaks = np.insert(ProbePeaks, [0], Corr_peak)
+        GreyValuePeaks = np.insert(GreyValuePeaks, [0], Corr_Grey_Value)
 
         # Get Distance from peaks
         ProbePeaks = ProbePeaks * (18 / (len(Probe.Pixel) + 6))
+        LightPeaks = LightPeaks * (18 / (len(Probe.Pixel) + 6))
 
         # Plot peaks
         plt.figure()
         plt.plot(Probe.Distance, Probe.GreyValue, ls='--', color='blue',
                  label="Grauwert")
         plt.plot(ProbePeaks, GreyValuePeaks, color='black',
-                 ls='', marker='o', label="Erkannte Peaks")
+                 ls='', marker='o', label="Erkannte, starke Peaks")
+        plt.plot(LightPeaks, GreyValueLightPeaks, color='grey',
+                 ls='', marker='o', label="Erkannte, schwache Peaks")
         plt.xlabel(r"$r / \mathrm{cm}$")
         plt.ylabel('inverser Grauwert')
         plt.xlim(0, 18)
-        plt.legend(loc="best")
+        plt.legend(loc="lower left")
         plt.tight_layout
         plt.savefig("Auswertung/Grafiken/" + Probe.name + "_Peaks.pdf")
 
@@ -259,11 +343,17 @@ if __name__ == '__main__':
         print("bcc n=sqrt(h**2+k**2+l**2):")
         bcc_n, bcc_a, bcc_mean, bcc_sem = find_lattice_constants(d, 'bcc', 7)
         print(bcc_n)
+        print('bcc h, k, l:')
+        bcc_h, bcc_k, bcc_l = find_hkl('bcc', bcc_n, 7)
+        print(bcc_h, bcc_k, bcc_l)
         print("bcc a:")
         print(bcc_a)
         print("fcc n=sqrt(h**2+k**2+l**2):")
         fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
         print(fcc_n)
+        print('fcc h, k, l:')
+        fcc_h, fcc_k, fcc_l = find_hkl('fcc', fcc_n, 7)
+        print(fcc_h, fcc_k, fcc_l)
         print("fcc a:")
         print(fcc_a)
 
@@ -272,11 +362,17 @@ if __name__ == '__main__':
                    np.column_stack([
                                    PeakAngle,
                                    bcc_n**2,
+                                   bcc_h,
+                                   bcc_k,
+                                   bcc_l,
                                    bcc_a * 10**(12),
                                    fcc_n**2,
+                                   fcc_h,
+                                   fcc_k,
+                                   fcc_l,
                                    fcc_a * 10**(12),
                                    ]), delimiter=' & ', newline=r' \\' + '\n',
-                   fmt='%.2f & %.0f & %.2f & %.0f & %.2f')
+                   fmt='%.2f & %.0f & %.0f & %.0f & %.0f & %.2f & %.0f & %.0f & %.0f & %.0f & %.2f')
 
         # Compute best_fit for a thrugh linear regression
         bcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /

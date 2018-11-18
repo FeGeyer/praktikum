@@ -62,9 +62,12 @@ def bcc(max_value):
 	Returns arrays of ints with millerindizes for the bcc-lattice.
 	'''
 
+	# initialize arrays
 	h_bcc = np.empty([1])
 	k_bcc = np.empty([1])
 	l_bcc = np.empty([1])
+
+	# Compute all h, k, l, witch satisfy the primary criterion for bcc-lattice
 	for l in range(max_value):
 		for k in range(max_value):
 			for h in range(max_value):
@@ -72,10 +75,13 @@ def bcc(max_value):
 					h_bcc = np.append(h_bcc, h)
 					k_bcc = np.append(k_bcc, k)
 					l_bcc = np.append(l_bcc, l)
+
+	# delete first initialized value
 	h_bcc = np.delete(h_bcc, [0])
 	k_bcc = np.delete(k_bcc, [0])
 	l_bcc = np.delete(l_bcc, [0])
 
+	# sort
 	array = sort_rows(h_bcc, k_bcc, l_bcc)
 	h_bcc = array[:, 0]
 	k_bcc = array[:, 1]
@@ -89,6 +95,7 @@ def bcc(max_value):
 
 	combined_array = combined_array[combined_array[:, 3].argsort()]
 
+	# find permutations an delete them
 	indizes = find_permutations(combined_array[:, 0:3])
 
 	h_bcc = np.delete(combined_array[:, 0], indizes)
@@ -101,6 +108,7 @@ def bcc(max_value):
 	combined_array[:, 2] = l_bcc
 	combined_array[:, 3] = np.sqrt(h_bcc**2 + k_bcc**2 + l_bcc**2)
 
+	# sort
 	combined_array = combined_array[combined_array[:, 3].argsort()]
 
 	return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]
@@ -118,21 +126,27 @@ def fcc(max_value):
 	Returns arrays of ints with millerindizes for the fcc-lattice.
 	'''
 
+	# initialize arrays
 	h_fcc = np.empty([])
 	k_fcc = np.empty([])
 	l_fcc = np.empty([])
+
+	# Compute all h, k, l, witch satisfy the primary criterion for fcc-lattice
 	for l in range(max_value):
 		for k in range(max_value):
 			for h in range(max_value):
-				if (h % 2 + k % 2 + l % 2) == 0 or (h % 2 + k % 2 + l % 2) == 1:
+				if ((h % 2) + (k % 2) + (l % 2)) == 0 or ((h % 2) + (k % 2) + (l % 2)) == 3:
 					if (h + k + l) > 0:
 						h_fcc = np.append(h_fcc, h)
 						k_fcc = np.append(k_fcc, k)
 						l_fcc = np.append(l_fcc, l)
+
+	# delete first initialized value
 	h_fcc = np.delete(h_fcc, [0])
 	k_fcc = np.delete(k_fcc, [0])
 	l_fcc = np.delete(l_fcc, [0])
 
+	# sort
 	array = sort_rows(h_fcc, k_fcc, l_fcc)
 	h_fcc = array[:, 0]
 	k_fcc = array[:, 1]
@@ -146,6 +160,7 @@ def fcc(max_value):
 
 	combined_array = combined_array[combined_array[:, 3].argsort()]
 
+	# find permutations and delete
 	indizes = find_permutations(combined_array[:, 0:3])
 
 	h_fcc = np.delete(combined_array[:, 0], indizes)
@@ -158,6 +173,7 @@ def fcc(max_value):
 	combined_array[:, 2] = l_fcc
 	combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
 
+	# sort
 	combined_array = combined_array[combined_array[:, 3].argsort()]
 
 	return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]

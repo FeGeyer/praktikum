@@ -18,61 +18,194 @@ Zur Automatisierung der Auswertung wird wie folgt vorgegangen:
   \item Durch die Funktion \texttt{find\_peaks} der SciPy\cite{scipy}-Bibliothek
   \texttt{signal} werden die Peaks und damit die Beugungskreise detektiert.
   Die Abstände zum Mittelpunkt der Stanzung in Millimeter entsprechen dabei
-  dem Winkel in Grad.
+  dem Winkel $\phi$ in Grad.
+  \item Es werden helle und dunkle Peaks getrennt und die Analyse nur mit den dunklen
+  fortgesetzt.
+  Peaks, die durch eine K$_{\alpha_{1}}$- und eine K$_{\alpha_{2}}$-Linie
+  entstanden sind, aber zu einem Tupel Millerindizes gehören, werde gemittelt.
   \item Für jeden Peak werden durch die Bragggleichung Netzebenenabstände
-  berechnet. Durch Vergleich mit jedem möglichen Tupel von Millerindizes
-  (bis zu einem Wert $\text{max}(h, \, k, \, l) = 7$) wird der bestmögliche
-  Wert für die Gitterkonstante bestimmt, indem die Abweichungen der Gitterkonstanten
-  untereinander minimiert werden. Dies wird für ein fcc- und ein bcc-Gitter getan.
+  berechnet. Anschließend werden die möglichen Millerindizes für ein bcc\footnote{$h+k+l$ gerade}-
+  und ein fcc\footnote{$h, k, l$ Alle gerade oder ungerade}-Gitter
+  aufsteigend nach $n=\sqrt{h^{2}+k^{2}+l^{2}}$ sortiert zugeordnet.
   \item Durch die SciPy-optimize Funktion \texttt{curve\_fit} wird ein linearer
-  Fit durch die Gitterkonstanten beider Gittertypen gelegt und der optimale Wert
+  Fit durch die Gitterkonstanten beider Gittertypen in Abhängigkeit
+  des $\cos{(\phi)}^{2}$ gelegt und der optimale Wert für die Gitterkonstante
   durch den y-Achsenabschnitt bestimmt.
 \end{enumerate}
 
 \subsection{Metallprobe}
 Der Ausschnitt zwischen den Stanzungen des Films ist in \autoref{Abb:Metall}
-zu sehen, die ausgelesenen Reflexe finden sich in \autoref{Tab:Metall}.
+zu sehen, die ausgelesenen Reflexe mit den zugeordneten Millerindizes für die
+Hypothesen einer bcc- und einer fcc-Gitterstruktur finden sich mit den entsprechend
+berechneten Gitterkonstanten in \autoref{Tab:Metall}.
+Zusätzlich sind in \autoref{Abb:Metall_Peaks} die ausgelesenen Peaks eingezeichnet.
+Eine Ausgleichsrechnung mit einer linearen Funktion für beide Gittertypen ist in
+\autoref{Abb:Metall_a} gezeigt. Die bestimmte Steigung $m$ und der y-Achsenabschnitt $n$
+finden sich in Tabelle \autoref{Tab:Metall_Regression}.
+Es zeigt sich, dass die bcc-Hypothese stärke Schwankungen aufweist, was
+sich auf einen größeren Fehler in der Ausgleichsrechnung niederschlägt.
+Es liegt daher nahe, die bcc Hypothese als fehlerhaft anzusehen und ein fcc-Gitter
+mit Gitterkonstante $a=\SI{342(13)}{\pico\metre}$ anzunehmen.
+
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/pics/Metall_film.pdf}
-  \caption{Filmaufnahme der Metallprobe.}
+  \caption{Filmaufnahme der Metallprobe. Der Winkel \SI{0}{\degree} liegt in der
+  rechten, der Winkel \SI{180}{\degree} in der linken Stanzung}
   \label{Abb:Metall}
 \end{figure}
 
 \begin{table}[H]
   \centering
-  \caption{Beugungsreflexe an der Metallprobe und zugeordnete Millerindizes für bcc und fcc-Gitter.}
+  \caption{Beugungsreflexe an der Metallprobe und zugeordnete Millerindizes
+  und Gitterkonstanten für bcc und fcc-Gitter.}
   \label{Tab:Metall}
-  \begin{tabular}{c || c c | c c}
+  \begin{tabular}{c || c c c c c|c c c c c}
     \toprule
-    Winkel / ° & $(h, \, k, \, l)_{\text{bcc}}$ & $a_{\text{bcc}}$ / pm & $(h, \, k, \, l)_{\text{fcc}}$ & $a_{\text{fcc}}$\\
+    Winkel / ° &
+    $n_{\text{bcc}}^{2}$ &
+    $h_{\text{bcc}}$ &
+    $k_{\text{bcc}}$ &
+    $l_{\text{bcc}}$ &
+    $a_{\text{bcc}}$ / pm &
+    $n_{\text{fcc}}$ &
+    $h_{\text{fcc}}$ &
+    $k_{\text{fcc}}$ &
+    $l_{\text{fcc}}$ &
+    $a_{\text{fcc}}$ / pm\\
     \midrule
     \input{Auswertung/Grafiken/Metall_Tabelle.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+  \centering
+  \subcaptionbox{Zur Position in \autoref{Abb:Metall} korrespondierende
+  Peaks. \label{Abb:Metall_Peaks}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Metall_Peaks.pdf}
+  }
+  \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung. Die Position der Peaks wurde
+  dafür invertiert. \label{Abb:Metall_a}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Metall_Ausgleichsrechnung.pdf}
+  }\\
+  \label{Abb:Metall_Plots}
+  \caption{Grafiken für die Metallprobe.}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Parameter der Ausgleichsrechnung für die Metallprobe.}
+  \label{Tab:Metall_Regression}
+  \begin{tabular}{c | c c }
+    \toprule
+    Gittertyp &
+    $m$ / $\frac{\mathrm{pm}}{1}$ &
+    $n$ / pm \\
+    \midrule
+    bcc & \num{60(30)} & \num{300(17)} \\
+    fcc & \num{63(24)} & \num{342(13)} \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \subsection{Salzprobe}
+Der Ausschnitt zwischen den Stanzungen des Films ist in \autoref{Abb:Salz}
+zu sehen, die ausgelesenen Reflexe mit den zugeordneten Millerindizes für die
+Hypothesen einer bcc- und einer fcc-Gitterstruktur finden sich mit den entsprechend
+berechneten Gitterkonstanten in \autoref{Tab:Salz}.
+Zusätzlich sind in \autoref{Abb:Salz_Peaks} die ausgelesenen Peaks eingezeichnet.
+Aufgrund der starken Belichtung des Films und der zusätzlichen Verunreinigung durch Streulicht
+war es nicht möglich, helle und dunkle Reflexe zu trennen.
+Wider ist eine Ausgleichsrechnung mit einer linearen Funktion für beide Gittertypen in
+\autoref{Abb:Salz_a} gezeigt. Die bestimmte Steigung $m$ und der y-Achsenabschnitt $n$
+finden sich in Tabelle \autoref{Tab:Salz_Regression}.
+Es zeigt sich, dass die fcc-Hypothese weitaus stärke Schwankungen aufweist, was
+sich auf einen größeren Fehler in der Ausgleichsrechnung niederschlägt.
+Es liegt daher nahe, die fcc Hypothese als fehlerhaft anzusehen und ein bcc-Gitter
+mit Gitterkonstante $a=\SI{369(6)}{\pico\metre}$ anzunehmen.
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/pics/Salz_film.pdf}
-  \caption{Filmaufnahme der Metallprobe.}
+  \caption{Filmaufnahme der Salzprobe. Der Winkel \SI{0}{\degree} liegt in der
+  rechten, der Winkel \SI{180}{\degree} in der linken Stanzung. Es ist ein
+  deutlicher Verlauf von dunkel (links) nach hell (rechts) zu erkennen, der durch
+  einfallendes Streulicht verursacht wurde.}
   \label{Abb:Salz}
 \end{figure}
 
 \begin{table}[H]
   \centering
-  \caption{Beugungsreflexe and der Salzprobe und zugeordnete Millerindizes für bcc und fcc-Gitter.}
+  \caption{Beugungsreflexe an der Salzprobe und zugeordnete Millerindizes und Gitterkonstanten
+  für bcc und fcc-Gitter.}
   \label{Tab:Salz}
-  \begin{tabular}{c || c c | c c}
+  \begin{tabular}{c || c c c c c|c c c c c}
     \toprule
-    Winkel / ° & $(h, \, k, \, l)_{\text{bcc}}$ & $a_{\text{bcc}}$ / pm & $(h, \, k, \, l)_{\text{fcc}}$ & $a_{\text{fcc}}$\\
+    Winkel / ° &
+    $n_{\text{bcc}}^{2}$ &
+    $h_{\text{bcc}}$ &
+    $k_{\text{bcc}}$ &
+    $l_{\text{bcc}}$ &
+    $a_{\text{bcc}}$ / pm &
+    $n_{\text{fcc}}$ &
+    $h_{\text{fcc}}$ &
+    $k_{\text{fcc}}$ &
+    $l_{\text{fcc}}$ &
+    $a_{\text{fcc}}$ / pm\\
     \midrule
-    \input{Auswertung/Grafiken/Metall_Tabelle.tex}
+    \input{Auswertung/Grafiken/Salt_Tabelle.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+  \centering
+  \subcaptionbox{Zur Position in \autoref{Abb:Salz} korrespondierende
+  Peaks. \label{Abb:Salz_Peaks}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_Peaks.pdf}
+  }
+  \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung. ie Position der Peaks wurde
+  dafür invertiert. \label{Abb:Salz_a}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_Ausgleichsrechnung.pdf}
+  }\\
+  \label{Abb:Salz_Plots}
+  \caption{Grafiken für die Salzprobe.}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Parameter der Ausgleichsrechnung für die Salzprobe.}
+  \label{Tab:Salz_Regression}
+  \begin{tabular}{c | c c }
+    \toprule
+    Gittertyp &
+    $m$ / $\frac{\mathrm{pm}}{1}$ &
+    $n$ / pm \\
+    \midrule
+    bcc & \num{26(11)} & \num{370(6)} \\
+    fcc & \num{0(40)} & \num{437(18)} \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \section{Diskusion}
+Die Metallprobe zeigt gut auszuwertende Ergebnisse. Aufgrund der guten Abschirmung
+konnten schwache, helle Reflexe gut erkannt werden, die in der weiteren Auswertung
+nicht weiter berücksichtigt wurden. Mit einer Gitterkonstante von $\SI{342(13)}{\pico\metre}$
+bewegt sich das Analyseergebnis in einem für Metalle typischen Bereich.\\
+Im Gegensatz dazu liegt die bestimmte Gitterkonstante der salinen Probe mit
+$a=\SI{369(6)}{\pico\metre}$ bei einem für Salze ungewöhnlich niedrigen Wert.
+Zwar gibt es Salze mit einer solch niedrigen Gitterkonstante, es kann aber nicht
+ausgeschlossen werden, dass hier Fehlinterpretationen auftreten. Insbesondere
+die starke Kontamination durch Streulicht kann dazu führen, dass in Wahrheit schwache,
+helle Reflexe in der Analyse genutzt werden, die eigentlich ignoriert werden müssten.
+Dafür spricht, dass die in \autoref{Abb:Salz_a} bei hohen $\cos{(\phi)}^{2}$-Werten
+zu sehenden Ausreißer in den durch Streulicht stark verschmutzten Bereich des
+Films fallen. Um systematische Fehler auszuschließen wäre hier eine wiederholte
+Vermessung der Probe angebracht.

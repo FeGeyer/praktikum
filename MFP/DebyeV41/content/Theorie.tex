@@ -117,6 +117,90 @@ und für kubische Systeme mit $a = b = c$ wird \eqref{eqn:abstand} zu
 \pagebreak
 \subsection{Beugung von Röntgenstrahlen an Kristallen}
 
+Die Wechselwirkung der Röntgenstrahlung mit den
+Elektronen und Atomkernen des Kristalls findet als klassischer Streuprozess
+von elektronmagnetischen Wellen statt. Dadurch, dass die Atome in einem Kristall
+periodisch angeordnet sind, sind die gestreuten Wellen interferenzfähig und je nach
+Raumrichtung löschen sich diese aus oder verstärken sich. Damit kann eine Strukturbestimmung
+des Kristalls durchgeführt werden. \\
+Die Atomkerne und Elektronen, an denen gestreut wird, verhalten sich unter Einwirkung der
+Röntgenstrahlung als Hertzscher Dipol mit der emittierten Intensität
+\begin{equation}
+  I_e(r, \theta) = I_0 \left(\frac{\symup{\mu_0} \, q^2}{4 \, \pi \, m} \right)^2 \frac{1}{r^2}
+  \frac{1 + \cos^2(2\theta)}{2} \, .
+  \label{eqn:hertz}
+\end{equation}
+Dabei ist $I_0$ die ursprüngliche Intensität der Welle, $\symup{\mu_0}$ die magnetische
+Feldkonstante, $r$ der Abstand zwischen Aufpunkt und Teilchen und $2\theta$ der Winkel
+zwischen einfallendem und gestreutem Strahl. Aus \eqref{eqn:hertz} wird ersichtlich, dass
+die Masse der Atomkerne so groß ist, dass die Streuung vernachlässigt werden kann.
+Da die Elektronen im Kristall nicht isoliert, sondern in Hüllen um die Atomkerne anliegen
+und die Ausdehnung der Elektronenhüllen in der Größenordnung der Wellenlänge der
+verwendeten Röntgenstrahlung liegt, schwingen nicht alle getroffenen Elektronen
+in Phase. Das führt dazu, dass die vom Atom gestreute Intensität geringer ist
+als die Intensität, die gegeben wäre, falls die Ausdehnung der Elektronenhülle
+klein gegen die Wellenlänge der Röntgenstrahlung ist. In diesem Fall wird in \eqref{eqn:hertz}
+der quadrierte Bruch durch
+\begin{equation}
+    \left(\frac{\symup{\mu_0} (z \symup{e_0})^2}{4 \, \pi \, z \, \symup{m_e}} \right)^2 \, ,
+    \label{eqn:hertz-angepasst}
+\end{equation}
+mit $z$ als Ordnungszahl, $\symup{e_0}$ und $\symup{m_e}$ als Ladung bzw.
+Masse eines Elektrons. Damit wird eine wichtige Größe in der Festkörperpyhsik
+definiert, der Atomformfaktor
+\begin{equation}
+  f^2 = \frac{I_a}{I_e}
+  \label{eqn:atomformfaktor}
+\end{equation}
+mit $I_a$ als Atomstreuintensität und $I_e$ als Streuintensität eines Einzelelektrons.
+$f$ ist somit abhängig von der Ordnungszahl, der Wellenlänge der Röntgenstrahlung
+und der Streurichtung. Zur genaueren Berechnung von $f$ muss die Elektronendichteverteilung
+$\rho(\vec{r})$ benutzt werden, da punktförmige Elektronen eine zu grobe Näherung sind.
+Nach einem Integral über die Elektronenhülle und Symmetrieüberlegungen mit dem Wellenzahlvektor
+ergibt sich, dass $f$ für verschiedene Atome und Ionen meist als Funktion von $z$
+und $\sin(\theta)/\lambda$ angegeben wird. \\
+Um die Betrachtung der Streuung von Röntgenstrahlung an Elektronen weiter auf die Streuung
+an Kristallen anzupassen, muss auch die Streuung an der Elementarzelle eines Kristalls
+betrachtet werden. Auch in diesem Fall treten aufgrund der festen räumlichen Verteilung
+in einem Kristall Interferenzeffekte auf. Wenn der Phasenunterschied zwischen den
+gestreuten Wellen der verschiedenen Atomen in der Elementarzelle betrachtet und phasenrichtig
+summiert wird, ergibt sich
+\begin{equation}
+  S = \sum_j f_j \, \symup{e}^{-2 \pi \symup i \,(x_j \, \vec{a} + y_j \, \vec{b}
+  + z_j \, \vec{c})(\vec{k} - \vec{k}_0)} \, I_e
+  \label{eqn:strukturfaktor-allgemein}
+\end{equation}
+als Strukturamplitude der Elementarzelle mit $f_j$ als Atomfromfaktoren der
+einzelnen Atome, $\vec{r}_j = x_j \, \vec{a} + y_j \, \vec{b}
++ z_j \, \vec{c}$ als Ortsvektor der Atome in der Elementarzelle ausgedrückt durch
+die Basisvektoren der Elementarzelle ($|x_j|, |y_j|, |z_j| \leq 1$) und $\vec{k}$
+bzw. $\vec{k}_0$ als Wellenzahlvektoren der gestreuten bzw. der einfallenden Welle.
+Der Strukturfaktor $SS*$ gibt das Verhältnis zwischen der Intensität der Streuung an
+der Elementarzelle und der Streuung an einem einzelnen Elektron an. \eqref{eqn:strukturfaktor-allgemein}
+muss noch angepasst werden, da $\vec{k}$ bzw. $\vec{k}_0$ in einem Kristall nicht frei
+wählbar sind, wenn eine nicht verschwindene Intensität gestreut werden soll, da
+die Elementarzellen in einem festen Kristallgitter angeordnet sind. Die Auslöschung
+tritt aufgrund von Interferenzeffekten auf, da an mehreren tausend untereinander liegenden
+Netzebenen gestreut wird. Ein gestreuter Röntgenstrahl ist somit nur zu beobachten, falls
+die Braggsche Bedingung
+\begin{equation}
+  n \, \lambda = 2 \, d \, \sin(\theta)
+  \label{eqn:bragg}
+\end{equation}
+mit $n \in \mathbb{N}$ erfüllt ist. Sie folgt aus geometrischen Überlegungen
+und Additionstheoremen. \\
+Die Bragg Bedingung lässt sich auch durch reziproke Gittervektoren ausdrücken. Dabei
+sind reziproke Gittervektoren die \enquote{normalen} Gittervektoren im Impulsraum.
+Diese reziproken Gittervektoren lassen sich mit den Millerschen Indizes ebefalls
+einer Netzebene zuordnen und damit ergibt sich für die Strukturamplitude \eqref{eqn:strukturfaktor-allgemein}
+\begin{equation}
+  S(h, k, l) = \sum_j f_j \, \symup e^{-2\pi \symup i (x_j \, h + y_j \, k + z_j \, l)} \, .
+  \label{eqn:strukturfaktor-final}
+\end{equation}
+Mit \eqref{eqn:strukturfaktor-final} kann nun errechnet werden, für welche Elementarzellen
+an welchen Ebenen Röntgenreflexe auftreten oder nicht. Dies ist ein zentraler Bestandteil
+der Auswertung.
+
 \section{Durchführung}
 \subsection{Aufbau}
 \subsection{Versuchsdurchführung}

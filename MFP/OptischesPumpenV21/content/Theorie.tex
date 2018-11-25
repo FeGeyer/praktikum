@@ -100,7 +100,7 @@ Für stärkere Magnetfelder muss der Abstand zwischen den Zeeman-Niveaus \eqref{
 Terme höherer Ordnung ergänzt werden.
 Erst hier wird die Aufspaltung von $m_{\symup{F}}$ abhängig:
 \begin{equation}
-  U_{\symup{HF}} = g_{\symup{F}} \mu_{\symup{B}} B + (g_{\symup{F}} \mu_{\symup{B}} B)^{2} \frac{(1-2m_\symup{F})}{\symup{\Delta}E_{\symup{HF}}},
+  U_{\symup{HF}} = g_{\symup{F}} \mu_{\symup{B}} B + (g_{\symup{F}} \mu_{\symup{B}} B)^{2} \frac{1-2m_{\symup{F}}}{\symup{\Delta}E_{\symup{HF}}},
 \end{equation}
 wobei $\symup{\Delta}E_{\symup{HF}}$ den Absatnd zwischen dem zu $F$ und $F+1$ gehörigen
 Niveau der Hyperfeinstrukturaufspaltung bezeichnet.
@@ -176,7 +176,7 @@ und im Resonzfall gilt für Periodendauern zweier Isotope
 \end{equation}
 mit den gyromagnetischen Verhältnissen
 \begin{equation}
-  \gamma = g_{\symup_{F}}\frac{\mu_{\symup{B}}}{h}.
+  \gamma = g_{\symup{F}}\frac{\mu_{\symup{B}}}{h}.
 \end{equation}
 
 \subsubsection{Experimentelle Herausforderungen}
@@ -220,4 +220,30 @@ Bei den horizontalen Spulen handelt es sich um Horizontal- und Sweep-Spule.
 Beide Spulen sind zur Messung der Resonanzstelle gedacht und beide Magnetfelder überlagern
 sich.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{content/pics/Aufbau.png}
+  \caption{Verwendeter Versuchsaufbau \cite{anleitung}.}
+  \label{Dur:Abb1}
+\end{figure}
+
 \subsection{Versuchsdurchführung}
+Der Strahlengang wird durch schrittweises Einsetzen der optischen Elemente auf
+maximale Intensität einjustiert und abgedeckt.
+Es werden Sweep-Spulenfeld und Photostrom auf das Oszilloskop gegeben.
+Durch drehen in Nord-Süd-Richtung und Variation des Vertikalfeldes fird das Erdmagnetfeld
+kompensiert.
+Sodann wird das Resonzverhalten ausgemessen.
+Durch einen Sinusgenerator wird das RF-Feld dabei in \SI{1}{\kilo\hertz}-Schritten
+zwischen \SI{100}{\kilo\hertz} und \SI{1}{\mega\hertz} gesteigert.
+Bei Frequenzen über \SI{200}{\kilo\hertz} wird der Sweep-Bereich durch das horizontale
+Feld auf die Resonanzen verschoben, der Spulenstrom wird am Potentiometer abgelesen.
+Es treten Resonanzen für beide Isotope auf, das Oszilloskop wird im XY-Modus
+betrieben.
+In einem zweiten Schritt wird durch Anlegen einer zusätzlichen Rechteckspannung
+das Feld an- und ausgeschaltet.
+Die Frequenz wird dabei auf die erste Resonanzstelle eingestellt.
+Dabei wird der zeitliche Verlauf des Signals beobachtet, das Oszilloskop also
+im YT-Modus betrieben und die zusätzliche Modulation wird durch Mittelung
+auf dem Oszilloskop herausgerechnet.
+Dies wird für beide Flanken des Signals und beide Isotope getan.

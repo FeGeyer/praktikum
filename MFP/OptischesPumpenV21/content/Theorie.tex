@@ -1,0 +1,75 @@
+\section{Theorie}
+Im thermischen Gleichgewicht bei einer Temperatur $T$ gilt zwischen den Besetzungszahlen
+$N_{1}$ und $N_{2}$ zweier Energieniveaus $W_{1}$ und $W_{2}$ der äußeren Elektronenschalen
+die Boltzmann-Gleichung
+\begin{equation}
+  \frac{N_2}{N_1} = \frac{g_2}{g_1} \frac{\exp\left(- \frac{W_2}{kT}\right) }{\exp\left(- \frac{W_1}{kT}\right) }.
+  \label{Theo:eq1}
+\end{equation}
+Die statischen Gewichte $g_{1}$ und $g_{2}$ geben hierbei an, wie viele Zustände
+im zugehörigen Energieniveau möglich sind.
+Die Vergleichsrelation zwischen $N_{1}$ und $N_{2}$ ist im thermischen Ggw. derer zwischen
+$W_{1}$ und $W_{2}$ entgegengesetzt, aus $W_{1} < W_{2}$ folgt also $N_{1} > N_{2}$,
+dennoch könnnen hier Abweichungen auftreten.
+Dazu wird die Methode des optischen Pumpens genutzt.
+Hiermit lassen sich Änderungen am durch die Boltzmann Gleichung \eqref{Theo:eq1}
+vorgegebenen Verhältnis bis zur Inversion der Vergleichsrelation zwischen
+$N_{1}$ und $N_{2}$ hervorrufen.
+Die resultierende Verteilung ist nicht thermisch und ermöglicht das Induzieren von
+Strahlungsübergängen zwischen dem im obrigen Beispiel
+energetisch ungünstigeren, aber im Inversionsfall
+dennoch stärker besetztem, Zustand $W_{2}$ und dem energetisch günstigeren Zustand
+$W_{1}$, sodass ein Photon der Energie
+\begin{equation}
+  h\nu = W_{2} - W_{1}
+\end{equation}
+emittiert oder absorbiert wird.
+Eine Messung dieser Photonen ermöglicht nun Aussagen über die zugrundeliegenden
+Niveauunterschiede.
+Diese können beispielsweise durch Hyperfeinstruktur- oder Zeeman-Aufspaltung
+in einem Magnetfeld bedingt sein.
+Aufgrund des geringen Energieunterschiedes zwischen Energieniveaus in diesen Fällen
+liegt die Energie der emittierten Photonen weit unter der thermischen Energie $\propto kT$
+des Systems, sodass Messungen mit hoher Präzision möglich sind.
+
+\subsection{Der Zeeman-Effekt}
+Dem Zeeman-Effekt, benannt nach seinem Entdecker \textsc{Pieter Zeeman},
+liegt die Kopplung der Drehimpulse der Hüllenelektronen
+zugrunde.
+Zu Unterscheiden ist hier zwischen dem normalen und dem annormalen Zeeman-Effekt.
+Der normale Zeeman-Effekt tritt auf, wenn Atome mit abgeschlossenen Schalen untersucht
+werden.
+In diesem Fall kompensieren sich alle Drehimpulse.
+Im Allgemeinen ist dies natürlich nicht der Fall, sodass der annormale Zeeman-Effekt,
+der beispielsweise bei Wasserstoff und den Alkali-Metallen auftritt, betrachtet werden muss.
+Die Bahndrehimpulse $\vec{L}$ und Spins $\vec{S}$ der Elektronen koppeln dabei
+zu einem Gesamtdrehimpuls $\vec{J}$, der über das Bohrsche Magneton $\mu_{\symup{B}}$
+und den Lande-Faktor $g_{\symup{J}}$ durch
+\begin{equation}
+  \vec{\mu}_{\symup{J}} = - g_{\symup{J}} \mu_{\symup{B}} \vec{J} \quad ; \quad
+  |\vec{\mu}_{\symup{J}}| = - g_{\symup{J}} \mu_{\symup{B}} \sqrt{J(J+1)}
+  \label{Theo:eq2}
+\end{equation}
+mit einem magnetischen Moment verknüpft ist.
+Das magnetische Gesamtdrehimpulsmoment bestimmt sich dabei aus den analog nach \eqref{Theo:eq2}
+bestimmten magnetischen Momenten von Bahndrehimpuls und Spin durch
+\begin{equation}
+  \vec{\mu}_{\symup{J}} = \vec{\mu}_{\symup{L}} + \vec{\mu}_{\symup{S}}.
+\end{equation}
+Mit den Lande-Faktoren $g_{\symup{L}} = 1$ und $g_{\symup{S}} = \num{2.00232}$ und
+der Drehimpulsaddition folgt
+\begin{equation}
+  g_{\symup{J}} = \frac{3,0023J(J+1) + 1,0023(S(S+1) - L(L+1))}{2J(J+1)},
+\end{equation}
+sodass in einem Magnetfeld $B$ eine Niveauaufspaltung in $2J+1$ Niveaus der Energie
+\begin{equation}
+  U_{\symup{mag}} = m_{\symup{J}} g_{\symup{J}} \mu_{\symup{B}} B \quad \text{mit} \quad m_{\symup{J}} \in [-J,-J+1,...,J-1,J]
+\end{equation}
+beobachtet werden kann.
+Dies wird als Zeeman-Effekt bezeichnet.
+
+\subsection{Die Hyperfeinstrukturaufspaltung}
+
+\section{Durchführung}
+\subsection{Aufbau}
+\subsection{Versuchsdurchführung}

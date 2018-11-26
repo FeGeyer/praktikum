@@ -84,6 +84,10 @@ def find_lattice_constants(d, lattice, max_value):
         h, k, l = miller.bcc(max_value)
     elif lattice == "fcc":
         h, k, l = miller.fcc(max_value)
+    elif lattice == "CsCl":
+        h, k, l = miller.CsCl(max_value)
+    elif lattice == "Dia":
+        h, k, l = miller.Dia(max_value)
     else:
         print("No supported lattice-type given")
         return
@@ -184,6 +188,10 @@ def find_hkl(lattice, n, max_value):
         h, k, l = miller.bcc(max_value)
     elif lattice == "fcc":
         h, k, l = miller.fcc(max_value)
+    elif lattice == "CsCl":
+        h, k, l = miller.CsCl(max_value)
+    elif lattice == "Dia":
+        h, k, l = miller.Dia(max_value)
     else:
         print("No supported lattice-type given")
         return
@@ -261,7 +269,7 @@ if __name__ == '__main__':
     Salt.GreyValue[Salt.GreyValue < -175] = -175
     Metall.GreyValue[Metall.GreyValue < -18] = -18
 
-    for idx, Probe in enumerate([Metall, Salt]):
+    for idx, Probe in enumerate([Metall]):
 
         '''
         Attention:
@@ -285,7 +293,7 @@ if __name__ == '__main__':
 
         # Use only dark peaks
         LightPeaks = ProbePeaks[props['prominences'] <= 10]
-        ProbePeaks = ProbePeaks[props['prominences'] > 10]
+        # ProbePeaks = ProbePeaks[props['prominences'] > 10]
 
         GreyValuePeaks = np.array(Probe.GreyValue[ProbePeaks])
         GreyValueLightPeaks = np.array(Probe.GreyValue[LightPeaks])
@@ -309,9 +317,9 @@ if __name__ == '__main__':
         plt.plot(Probe.Distance, Probe.GreyValue, ls='--', color='blue',
                  label="Grauwert")
         plt.plot(ProbePeaks, GreyValuePeaks, color='black',
-                 ls='', marker='o', label="Erkannte, starke Peaks")
-        plt.plot(LightPeaks, GreyValueLightPeaks, color='grey',
-                 ls='', marker='o', label="Erkannte, schwache Peaks")
+                 ls='', marker='o', label="Erkannte Peaks")
+        # plt.plot(LightPeaks, GreyValueLightPeaks, color='grey',
+        #          ls='', marker='o', label="Erkannte, schwache Peaks")
         plt.xlabel(r"$r / \mathrm{cm}$")
         plt.ylabel('inverser Grauwert')
         plt.xlim(0, 18)
@@ -356,6 +364,50 @@ if __name__ == '__main__':
         print(fcc_h, fcc_k, fcc_l)
         print("fcc a:")
         print(fcc_a)
+        print("Dia n=sqrt(h**2+k**2+l**2):")
+        Dia_n, Dia_a, Dia_mean, Dia_sem = find_lattice_constants(d, 'Dia', 7)
+        print(Dia_n)
+        print('Dia h, k, l:')
+        Dia_h, Dia_k, Dia_l = find_hkl('Dia', Dia_n, 7)
+        print(Dia_h, Dia_k, Dia_l)
+        print("Dia a:")
+        print(Dia_a)
+
+        np.savetxt("Auswertung/Grafiken/" + Probe.name +
+                   "_bcc_Tabelle.tex",
+                   np.column_stack([
+                                   PeakAngle,
+                                   bcc_n**2,
+                                   bcc_h,
+                                   bcc_k,
+                                   bcc_l,
+                                   bcc_a * 10**(12),
+                                   ]), delimiter=' & ', newline=r' \\' + '\n',
+                   fmt='%.2f & %.0f & %.0f & %.0f & %.0f & %.2f')
+
+        np.savetxt("Auswertung/Grafiken/" + Probe.name +
+                   "_fcc_Tabelle.tex",
+                   np.column_stack([
+                                   PeakAngle,
+                                   fcc_n**2,
+                                   fcc_h,
+                                   fcc_k,
+                                   fcc_l,
+                                   fcc_a * 10**(12),
+                                   ]), delimiter=' & ', newline=r' \\' + '\n',
+                   fmt='%.2f & %.0f & %.0f & %.0f & %.0f & %.2f')
+
+        np.savetxt("Auswertung/Grafiken/" + Probe.name +
+                   "_Dia_Tabelle.tex",
+                   np.column_stack([
+                                   PeakAngle,
+                                   Dia_n**2,
+                                   Dia_h,
+                                   Dia_k,
+                                   Dia_l,
+                                   Dia_a * 10**(12),
+                                   ]), delimiter=' & ', newline=r' \\' + '\n',
+                   fmt='%.2f & %.0f & %.0f & %.0f & %.0f & %.2f')
 
         np.savetxt("Auswertung/Grafiken/" + Probe.name +
                    "_Tabelle.tex",
@@ -387,10 +439,18 @@ if __name__ == '__main__':
         m_fcc = ufloat(fcc_params[0], fcc_errors[0])
         n_fcc = ufloat(fcc_params[1], fcc_errors[1])
 
+        Dia_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                    180)**2, Dia_a)
+        Dia_errors = np.sqrt(np.diag(cov))
+        m_Dia = ufloat(Dia_params[0], Dia_errors[0])
+        n_Dia = ufloat(Dia_params[1], Dia_errors[1])
+
         print("bcc best fit:")
         print("m = ", m_bcc, ", n = ", n_bcc)
         print("fcc best fit:")
         print("m = ", m_fcc, ", n = ", n_fcc)
+        print("Dia best fit:")
+        print("m = ", m_Dia, ", n = ", n_Dia)
 
         x_range = np.linspace(0, 90, 1000)
         x_range = np.cos(x_range * np.pi / 180)**2
@@ -405,6 +465,10 @@ if __name__ == '__main__':
                  marker='x', color='blue', ls='')
         plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
                  ls='-', color='blue', label='Hypothese: fcc-Gitter')
+        # plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, Dia_a * 10**(12),
+        #          marker='x', color='green', ls='')
+        # plt.plot(x_range, linear(x_range, *Dia_params) * 10**(12),
+        #          ls='-', color='green', label='Hypothese: Dia-Gitter')
         plt.xlabel(r"$\cos{(\phi)}^{2}$")
         plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
         plt.legend(loc="best")
@@ -412,6 +476,158 @@ if __name__ == '__main__':
         plt.tight_layout
         plt.savefig("Auswertung/Grafiken/" +
                     Probe.name + "_Ausgleichsrechnung.pdf")
+
+for idx, Probe in enumerate([Salt]):
+
+    '''
+    Attention:
+    In the following rows, the summands 6 (this happens twice!)
+    is used to correct for a black
+    marker, placed inside the center of the punchholes of the film to
+    simplify the selection of a alaysis-window in ImageJ .
+    Since they were colored black, the could not be taken in account
+    for the grayvalue messurement. To evoid an error through this, it
+    is corrected by adding the thereby lost 6 pixels in the conversion.
+    '''
+    # Convert from Pixel to centimetre, distance mesuered to be 18 cm
+    print("Just ignore this warning, it seems to be useless:")
+    Probe.Distance = Probe.Pixel * (18 / (len(Probe.Pixel) + 6))
+    print("--------------------------------------------------------------")
+
+    print(Probe.name, "probe")
+
+    # Find peaks
+    ProbePeaks, props = find_peaks(x=Probe.GreyValue, prominence=2.5)
+
+    # Use only dark peaks
+    LightPeaks = ProbePeaks[props['prominences'] <= 10]
+    # ProbePeaks = ProbePeaks[props['prominences'] > 10]
+
+    GreyValuePeaks = np.array(Probe.GreyValue[ProbePeaks])
+    GreyValueLightPeaks = np.array(Probe.GreyValue[LightPeaks])
+
+    # correct for dual peaks due to k_alpha_1 and k_alpha_2
+    Corr_peak = (ProbePeaks[0] + ProbePeaks[1]) / 2
+    Corr_Grey_Value = (GreyValuePeaks[0] + GreyValuePeaks[1]) / 2
+
+    ProbePeaks = np.delete(ProbePeaks, [0, 1])
+    GreyValuePeaks = np.delete(GreyValuePeaks, [0, 1])
+
+    ProbePeaks = np.insert(ProbePeaks, [0], Corr_peak)
+    GreyValuePeaks = np.insert(GreyValuePeaks, [0], Corr_Grey_Value)
+
+    # Get Distance from peaks
+    ProbePeaks = ProbePeaks * (18 / (len(Probe.Pixel) + 6))
+    LightPeaks = LightPeaks * (18 / (len(Probe.Pixel) + 6))
+
+    # Plot peaks
+    plt.figure()
+    plt.plot(Probe.Distance, Probe.GreyValue, ls='--', color='blue',
+             label="Grauwert")
+    plt.plot(ProbePeaks, GreyValuePeaks, color='black',
+             ls='', marker='o', label="Erkannte Peaks")
+    # plt.plot(LightPeaks, GreyValueLightPeaks, color='grey',
+    #          ls='', marker='o', label="Erkannte, schwache Peaks")
+    plt.xlabel(r"$r / \mathrm{cm}$")
+    plt.ylabel('inverser Grauwert')
+    plt.xlim(0, 18)
+    plt.legend(loc="lower left")
+    plt.tight_layout
+    plt.savefig("Auswertung/Grafiken/" + Probe.name + "_Peaks.pdf")
+
+    # Distance is equal to 180° -> 1cm equals 10°
+    # Bragg: 2dsin(theta)=n*lambda
+    # lambda = 1.54093A
+    # Angles have to be reverted, cause they have to be mesured acording to
+    # the MP-vector
+
+    lam = 1.54093 * 10**(-10)
+    R = 57.3 * 10**(-3)
+
+    PeakAngle = ProbePeaks * 10
+    '''
+    Attention:
+    We had to invert the film in the next rows.
+    Check if you need to do this.
+    '''
+    PeakAngle = np.abs(180 - PeakAngle)
+    PeakAngle = np.sort(PeakAngle)
+
+    # convert the angles to interplanar distance according to braggs law
+    d = lam / (2 * np.sin(0.5 * PeakAngle * np.pi / 180))
+
+    print("fcc n=sqrt(h**2+k**2+l**2):")
+    fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
+    print(fcc_n)
+    print('fcc h, k, l:')
+    fcc_h, fcc_k, fcc_l = find_hkl('fcc', fcc_n, 7)
+    print(fcc_h, fcc_k, fcc_l)
+    print("fcc a:")
+    print(fcc_a)
+    print("CsCl n=sqrt(h**2+k**2+l**2):")
+    CsCl_n, CsCl_a, CsCl_mean, CsCl_sem = find_lattice_constants(d, 'CsCl', 7)
+    print(CsCl_n)
+    print('CsCl h, k, l:')
+    CsCl_h, CsCl_k, CsCl_l = find_hkl('CsCl', CsCl_n, 7)
+    print(CsCl_h, CsCl_k, CsCl_l)
+    print("CsCl a:")
+    print(CsCl_a)
+
+    np.savetxt("Auswertung/Grafiken/" + Probe.name +
+               "_Tabelle.tex",
+               np.column_stack([
+                               PeakAngle,
+                               fcc_n**2,
+                               fcc_h,
+                               fcc_k,
+                               fcc_l,
+                               fcc_a * 10**(12),
+                               CsCl_n**2,
+                               CsCl_h,
+                               CsCl_k,
+                               CsCl_l,
+                               CsCl_a * 10**(12),
+                               ]), delimiter=' & ', newline=r' \\' + '\n',
+               fmt='%.2f & %.0f & %.0f & %.0f & %.0f & %.2f & %.0f & %.0f & %.0f & %.0f & %.2f')
+
+    # Compute best_fit for a thrugh linear regression
+    fcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                180)**2, fcc_a)
+    fcc_errors = np.sqrt(np.diag(cov))
+    m_fcc = ufloat(fcc_params[0], fcc_errors[0])
+    n_fcc = ufloat(fcc_params[1], fcc_errors[1])
+
+    CsCl_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                180)**2, CsCl_a)
+    CsCl_errors = np.sqrt(np.diag(cov))
+    m_CsCl = ufloat(CsCl_params[0], CsCl_errors[0])
+    n_CsCl = ufloat(CsCl_params[1], CsCl_errors[1])
+
+    print("fcc best fit:")
+    print("m = ", m_fcc, ", n = ", n_fcc)
+    print("CsCl best fit:")
+    print("m = ", m_CsCl, ", n = ", n_CsCl)
+
+    x_range = np.linspace(0, 90, 1000)
+    x_range = np.cos(x_range * np.pi / 180)**2
+
+    # Plot peaks
+    plt.figure()
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, fcc_a * 10**(12),
+             marker='x', color='blue', ls='')
+    plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
+             ls='-', color='blue', label='Hypothese: ZnS/NaCl/F-Gitter')
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, CsCl_a * 10**(12),
+             marker='x', color='green', ls='')
+    plt.plot(x_range, linear(x_range, *CsCl_params) * 10**(12),
+             ls='-', color='green', label='Hypothese: CsCl-Gitter')
+    plt.xlabel(r"$\cos{(\phi)}^{2}$")
+    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+    plt.legend(loc="best")
+    plt.xlim(0, 1)
+    plt.tight_layout
+    plt.savefig("Auswertung/Grafiken/" +
+                Probe.name + "_Ausgleichsrechnung.pdf")
 
 print("------------------------------------------------------------------")
 print('Thats all folks!')

@@ -247,12 +247,12 @@ def Dia(max_value):
 
 
 # Diamant
-def CsCl(max_value):
+def All(max_value):
 
 	'''
 	max_value: Maximal value for h, k, l respectively.
 
-	Funktion compute possible CsCl millerindizes. Calls functions to sort out
+	Funktion compute possible millerindizes. Calls functions to sort out
 	permutations and doubles.
 
 	Returns arrays of ints with millerindizes for the Diamant-lattice.
@@ -308,3 +308,223 @@ def CsCl(max_value):
 	combined_array = combined_array[combined_array[:, 3].argsort()]
 
 	return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]
+
+
+def S(h, k, l, x, y, z):
+    return np.exp((-1) * np.pi * 1j * (h * x + k * y + l * z))
+
+
+def Sbar(h, k, l, x, y, z):
+    return np.exp((1) * np.pi * 1j * (h * x + k * y + l * z))
+
+
+def ZnS(max_value):
+    h, k, l = All(max_value)
+
+    x = np.array([0, 0.5, 0.5, 0  , 0.25, 0.75, 0.75, 0.25])
+    y = np.array([0, 0.5, 0  , 0.5, 0.25, 0.75, 0.25, 0.75])
+    z = np.array([0, 0  , 0.5, 0.5, 0.25, 0.25, 0.75, 0.75])
+
+    n = h**2 + k**2 + l**2
+    S2 = np.empty([1])
+
+    for i in range(len(h)):
+        S2 = np.append(S2, np.real(np.sum(S(h[i], k[i], l[i], x, y, z)) *
+             np.sum(Sbar(h[i], k[i], l[i], x, y, z))))
+    S2 = np.delete(S2, [0])
+
+    # write h, k, l in variables
+    h_fcc = h[S2 > 3]
+    k_fcc = k[S2 > 3]
+    l_fcc = l[S2 > 3]
+
+    # sort
+    array = sort_rows(h_fcc, k_fcc, l_fcc)
+    h_fcc = array[:, 0]
+    k_fcc = array[:, 1]
+    l_fcc = array[:, 2]
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    # find permutations and delete
+    indizes = find_permutations(combined_array[:, 0:3])
+
+    h_fcc = np.delete(combined_array[:, 0], indizes)
+    k_fcc = np.delete(combined_array[:, 1], indizes)
+    l_fcc = np.delete(combined_array[:, 2], indizes)
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    # sort
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]
+
+
+def NaCl(max_value):
+    h, k, l = All(max_value)
+
+    x = np.array([0, 0.5, 0.5, 0  , 0.5, 1  , 1   , 0.5])
+    y = np.array([0, 0.5, 0  , 0.5, 0.5, 1  , 0.25, 1  ])
+    z = np.array([0, 0  , 0.5, 0.5, 0.5, 0.5, 1   , 1  ])
+
+    n = h**2 + k**2 + l**2
+    S2 = np.empty([1])
+
+    for i in range(len(h)):
+        S2 = np.append(S2, np.real(np.sum(S(h[i], k[i], l[i], x, y, z)) *
+             np.sum(Sbar(h[i], k[i], l[i], x, y, z))))
+    S2 = np.delete(S2, [0])
+
+    # write h, k, l in variables
+    h_fcc = h[S2 > 3]
+    k_fcc = k[S2 > 3]
+    l_fcc = l[S2 > 3]
+
+    # sort
+    array = sort_rows(h_fcc, k_fcc, l_fcc)
+    h_fcc = array[:, 0]
+    k_fcc = array[:, 1]
+    l_fcc = array[:, 2]
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    # find permutations and delete
+    indizes = find_permutations(combined_array[:, 0:3])
+
+    h_fcc = np.delete(combined_array[:, 0], indizes)
+    k_fcc = np.delete(combined_array[:, 1], indizes)
+    l_fcc = np.delete(combined_array[:, 2], indizes)
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    # sort
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]
+
+
+def CsCl(max_value):
+    h, k, l = All(max_value)
+
+    x = np.array([0, 0.5])
+    y = np.array([0, 0.5])
+    z = np.array([0, 0.5])
+
+    n = h**2 + k**2 + l**2
+    S2 = np.empty([1])
+
+    for i in range(len(h)):
+        S2 = np.append(S2, np.real(np.sum(S(h[i], k[i], l[i], x, y, z)) *
+             np.sum(Sbar(h[i], k[i], l[i], x, y, z))))
+    S2 = np.delete(S2, [0])
+
+    # write h, k, l in variables
+    h_fcc = h[S2 > 3]
+    k_fcc = k[S2 > 3]
+    l_fcc = l[S2 > 3]
+
+    # sort
+    array = sort_rows(h_fcc, k_fcc, l_fcc)
+    h_fcc = array[:, 0]
+    k_fcc = array[:, 1]
+    l_fcc = array[:, 2]
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    # find permutations and delete
+    indizes = find_permutations(combined_array[:, 0:3])
+
+    h_fcc = np.delete(combined_array[:, 0], indizes)
+    k_fcc = np.delete(combined_array[:, 1], indizes)
+    l_fcc = np.delete(combined_array[:, 2], indizes)
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    # sort
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]
+
+
+def F(max_value):
+    h, k, l = All(max_value)
+
+    x = np.array([0, 0.5, 0.5, 0  , 0.25, 0.75, 0.75, 0.25, 0.75, 0.25, 0.25, 0.75])
+    y = np.array([0, 0.5, 0  , 0.5, 0.25, 0.75, 0.25, 0.75, 0.75, 0.25, 0.75, 0.25])
+    z = np.array([0, 0  , 0.5, 0.5, 0.25, 0.25, 0.75, 0.75, 0.75, 0.75, 0.25, 0.25])
+
+    n = h**2 + k**2 + l**2
+    S2 = np.empty([1])
+
+    for i in range(len(h)):
+        S2 = np.append(S2, np.real(np.sum(S(h[i], k[i], l[i], x, y, z)) *
+             np.sum(Sbar(h[i], k[i], l[i], x, y, z))))
+    S2 = np.delete(S2, [0])
+
+    # write h, k, l in variables
+    h_fcc = h[S2 > 3]
+    k_fcc = k[S2 > 3]
+    l_fcc = l[S2 > 3]
+
+    # sort
+    array = sort_rows(h_fcc, k_fcc, l_fcc)
+    h_fcc = array[:, 0]
+    k_fcc = array[:, 1]
+    l_fcc = array[:, 2]
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    # find permutations and delete
+    indizes = find_permutations(combined_array[:, 0:3])
+
+    h_fcc = np.delete(combined_array[:, 0], indizes)
+    k_fcc = np.delete(combined_array[:, 1], indizes)
+    l_fcc = np.delete(combined_array[:, 2], indizes)
+
+    combined_array = np.empty([len(h_fcc), 4])
+    combined_array[:, 0] = h_fcc
+    combined_array[:, 1] = k_fcc
+    combined_array[:, 2] = l_fcc
+    combined_array[:, 3] = np.sqrt(h_fcc**2 + k_fcc**2 + l_fcc**2)
+
+    # sort
+    combined_array = combined_array[combined_array[:, 3].argsort()]
+
+    return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]

@@ -84,10 +84,16 @@ def find_lattice_constants(d, lattice, max_value):
         h, k, l = miller.bcc(max_value)
     elif lattice == "fcc":
         h, k, l = miller.fcc(max_value)
-    elif lattice == "CsCl":
-        h, k, l = miller.CsCl(max_value)
     elif lattice == "Dia":
         h, k, l = miller.Dia(max_value)
+    elif lattice == "CsCl":
+        h, k, l = miller.CsCl(max_value)
+    elif lattice == "ZnS":
+        h, k, l = miller.ZnS(max_value)
+    elif lattice == "F":
+        h, k, l = miller.F(max_value)
+    elif lattice == "NaCl":
+        h, k, l = miller.NaCl(max_value)
     else:
         print("No supported lattice-type given")
         return
@@ -95,80 +101,87 @@ def find_lattice_constants(d, lattice, max_value):
     # Compute denominator of latticeconstant formular
     n = np.sqrt(h**2 + k**2 + l**2)
 
+    n = n[:len(d)]
+    h = h[:len(d)]
+    k = k[:len(d)]
+    l = l[:len(d)]
+
+    a = d * n
+
     # Combining Bragg and the interplanar distance
     # latticeconstant relation gives
     # sin(theta_2)/sin(theta_1) = n_1/n_2 = c with n = np.sqrt(h**2+k**2+l**2)
 
-    # initialize array for c
-    c_bcc = np.zeros([len(PeakAngle) - 1])
+    # # initialize array for c
+    # c_bcc = np.zeros([len(PeakAngle) - 1])
 
-    # compute c values
-    for angle_index in range(len(PeakAngle) - 1):
-        c_bcc[angle_index] = (np.sin(PeakAngle[angle_index + 1] * np.pi /
-                              180) / np.sin(PeakAngle[angle_index] * np.pi /
-                              180))
+    # # compute c values
+    # for angle_index in range(len(PeakAngle) - 1):
+    #     c_bcc[angle_index] = (np.sin(PeakAngle[angle_index + 1] * np.pi /
+    #                           180) / np.sin(PeakAngle[angle_index] * np.pi /
+    #                           180))
 
-    # initialize field, where the n_values for each initial guess of n are
-    # computeted iterative and stored
+    # # initialize field, where the n_values for each initial guess of n are
+    # # computeted iterative and stored
 
-    '''
-    The following parts are most likly useless, but never change a running
-    system. This is due to the used function find_best_fit, where just
-    the incresingly sorted n-values are returned as best fit. This
-    could have been easily anticipated, but it wasn't. If the function is
-    alterd to work as thought initially, the results of the analysis chain
-    are most likly wrong.
-    '''
+    # '''
+    # The following parts are most likly useless, but never change a running
+    # system. This is due to the used function find_best_fit, where just
+    # the incresingly sorted n-values are returned as best fit. This
+    # could have been easily anticipated, but it wasn't. If the function is
+    # alterd to work as thought initially, the results of the analysis chain
+    # are most likly wrong.
+    # '''
 
-    n_search_field = np.zeros([len(PeakAngle), len(n)])
+    # n_search_field = np.zeros([len(PeakAngle), len(n)])
 
-    # set initial guess on all possible n
-    n_search_field[0, :] = n
+    # # set initial guess on all possible n
+    # n_search_field[0, :] = n
 
-    # iterativly compute following n
-    for row in range(len(PeakAngle) - 1):
-        for column in range(len(n)):
-            n_search_field[row + 1, column] = (n_search_field[row, column] /
-                                               c_bcc[row])
+    # # iterativly compute following n
+    # for row in range(len(PeakAngle) - 1):
+    #     for column in range(len(n)):
+    #         n_search_field[row + 1, column] = (n_search_field[row, column] /
+    #                                            c_bcc[row])
 
-    # seafty first, even if negative values should not happen
-    # n_search_field = np.abs(n_search_field)
+    # # seafty first, even if negative values should not happen
+    # # n_search_field = np.abs(n_search_field)
 
-    # initialize fields for best fits and residdums,
-    # setting value of the initial
-    # guess according to the formally used values
-    n_best_field = np.zeros([len(PeakAngle), len(n)])
-    n_best_field[0, :] = n
-    n_res_field = np.zeros([len(PeakAngle), len(n)])
-    n_res_field[0, :] = 0
+    # # initialize fields for best fits and residdums,
+    # # setting value of the initial
+    # # guess according to the formally used values
+    # n_best_field = np.zeros([len(PeakAngle), len(n)])
+    # n_best_field[0, :] = n
+    # n_res_field = np.zeros([len(PeakAngle), len(n)])
+    # n_res_field[0, :] = 0
 
-    # compute best fits and risiduums, deltining formally used ns
-    for column in range(len(n)):
-        n_help = n
-        help_list = n_help.tolist()
-        index = help_list.index(n_best_field[0, column])
-        n_help = np.delete(n_help, [index])
-        for row in range(len(PeakAngle) - 1):
-            (n_best_field[row + 1, column],
-             n_res_field[row + 1, column]) = find_best_fit(n_search_field[
-                                                           row + 1, column],
-                                                           n_help,
-                                                           row + 1)
-            help_list = n_help.tolist()
-            index = help_list.index(n_best_field[row + 1, column])
-            n_help = np.delete(n_help, [index])
-    # compute mean of residuums per column and find minimal value
-    res_sum = np.mean(n_res_field, axis=0)
-    res_sem = sem(n_res_field, axis=0)
-    res_sum_list = res_sum.tolist()
-    best_index = res_sum_list.index(res_sum.min())
-    best_sum = res_sum[best_index]
-    best_sem = res_sem[best_index]
+    # # compute best fits and risiduums, deltining formally used ns
+    # for column in range(len(n)):
+    #     n_help = n
+    #     help_list = n_help.tolist()
+    #     index = help_list.index(n_best_field[0, column])
+    #     n_help = np.delete(n_help, [index])
+    #     for row in range(len(PeakAngle) - 1):
+    #         (n_best_field[row + 1, column],
+    #          n_res_field[row + 1, column]) = find_best_fit(n_search_field[
+    #                                                        row + 1, column],
+    #                                                        n_help,
+    #                                                        row + 1)
+    #         help_list = n_help.tolist()
+    #         index = help_list.index(n_best_field[row + 1, column])
+    #         n_help = np.delete(n_help, [index])
+    # # compute mean of residuums per column and find minimal value
+    # res_sum = np.mean(n_res_field, axis=0)
+    # res_sem = sem(n_res_field, axis=0)
+    # res_sum_list = res_sum.tolist()
+    # best_index = res_sum_list.index(res_sum.min())
+    # best_sum = res_sum[best_index]
+    # best_sem = res_sem[best_index]
 
-    n_bestimmt = n_best_field[:, best_index]
-    a_bestimmt = d * n_best_field[:, best_index]
+    # n_bestimmt = n_best_field[:, best_index]
+    # a_bestimmt = d * n_best_field[:, best_index]
 
-    return n_bestimmt, a_bestimmt, best_sum, best_sem
+    return n, a
 
 
 def find_hkl(lattice, n, max_value):
@@ -188,10 +201,16 @@ def find_hkl(lattice, n, max_value):
         h, k, l = miller.bcc(max_value)
     elif lattice == "fcc":
         h, k, l = miller.fcc(max_value)
-    elif lattice == "CsCl":
-        h, k, l = miller.CsCl(max_value)
     elif lattice == "Dia":
         h, k, l = miller.Dia(max_value)
+    elif lattice == "CsCl":
+        h, k, l = miller.CsCl(max_value)
+    elif lattice == "ZnS":
+        h, k, l = miller.ZnS(max_value)
+    elif lattice == "F":
+        h, k, l = miller.F(max_value)
+    elif lattice == "NaCl":
+        h, k, l = miller.NaCl(max_value)
     else:
         print("No supported lattice-type given")
         return
@@ -349,7 +368,7 @@ if __name__ == '__main__':
         d = lam / (2 * np.sin(0.5 * PeakAngle * np.pi / 180))
 
         print("bcc n=sqrt(h**2+k**2+l**2):")
-        bcc_n, bcc_a, bcc_mean, bcc_sem = find_lattice_constants(d, 'bcc', 7)
+        bcc_n, bcc_a = find_lattice_constants(d, 'bcc', 7)
         print(bcc_n)
         print('bcc h, k, l:')
         bcc_h, bcc_k, bcc_l = find_hkl('bcc', bcc_n, 7)
@@ -357,7 +376,7 @@ if __name__ == '__main__':
         print("bcc a:")
         print(bcc_a)
         print("fcc n=sqrt(h**2+k**2+l**2):")
-        fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
+        fcc_n, fcc_a = find_lattice_constants(d, 'fcc', 7)
         print(fcc_n)
         print('fcc h, k, l:')
         fcc_h, fcc_k, fcc_l = find_hkl('fcc', fcc_n, 7)
@@ -365,7 +384,7 @@ if __name__ == '__main__':
         print("fcc a:")
         print(fcc_a)
         print("Dia n=sqrt(h**2+k**2+l**2):")
-        Dia_n, Dia_a, Dia_mean, Dia_sem = find_lattice_constants(d, 'Dia', 7)
+        Dia_n, Dia_a = find_lattice_constants(d, 'Dia', 7)
         print(Dia_n)
         print('Dia h, k, l:')
         Dia_h, Dia_k, Dia_l = find_hkl('Dia', Dia_n, 7)
@@ -520,6 +539,9 @@ for idx, Probe in enumerate([Salt]):
     ProbePeaks = ProbePeaks * (18 / (len(Probe.Pixel) + 6))
     LightPeaks = LightPeaks * (18 / (len(Probe.Pixel) + 6))
 
+    # GreyValuePeaks = GreyValuePeaks[:11]
+    # ProbePeaks = ProbePeaks[:11]
+
     # Plot peaks
     plt.figure()
     plt.plot(Probe.Distance, Probe.GreyValue, ls='--', color='blue',
@@ -551,37 +573,55 @@ for idx, Probe in enumerate([Salt]):
     Check if you need to do this.
     '''
     PeakAngle = np.abs(180 - PeakAngle)
+    print(PeakAngle)
     PeakAngle = np.sort(PeakAngle)
+    print(PeakAngle)
 
     # convert the angles to interplanar distance according to braggs law
     d = lam / (2 * np.sin(0.5 * PeakAngle * np.pi / 180))
 
-    print("fcc n=sqrt(h**2+k**2+l**2):")
-    fcc_n, fcc_a, fcc_mean, fcc_sem = find_lattice_constants(d, 'fcc', 7)
-    print(fcc_n)
-    print('fcc h, k, l:')
-    fcc_h, fcc_k, fcc_l = find_hkl('fcc', fcc_n, 7)
-    print(fcc_h, fcc_k, fcc_l)
-    print("fcc a:")
-    print(fcc_a)
+    print("ZnS n=sqrt(h**2+k**2+l**2):")
+    ZnS_n, ZnS_a = find_lattice_constants(d, 'ZnS', 7)
+    print(ZnS_n)
+    print('ZnS h, k, l:')
+    ZnS_h, ZnS_k, ZnS_l = find_hkl('ZnS', ZnS_n, 7)
+    print(ZnS_h, ZnS_k, ZnS_l)
+    print("ZnS a:")
+    print(ZnS_a)
     print("CsCl n=sqrt(h**2+k**2+l**2):")
-    CsCl_n, CsCl_a, CsCl_mean, CsCl_sem = find_lattice_constants(d, 'CsCl', 7)
+    CsCl_n, CsCl_a = find_lattice_constants(d, 'CsCl', 7)
     print(CsCl_n)
     print('CsCl h, k, l:')
     CsCl_h, CsCl_k, CsCl_l = find_hkl('CsCl', CsCl_n, 7)
     print(CsCl_h, CsCl_k, CsCl_l)
     print("CsCl a:")
     print(CsCl_a)
+    print("NaCl n=sqrt(h**2+k**2+l**2):")
+    NaCl_n, NaCl_a = find_lattice_constants(d, 'NaCl', 7)
+    print(NaCl_n)
+    print('NaCl h, k, l:')
+    NaCl_h, NaCl_k, NaCl_l = find_hkl('NaCl', NaCl_n, 7)
+    print(NaCl_h, NaCl_k, NaCl_l)
+    print("NaCl a:")
+    print(NaCl_a)
+    print("F n=sqrt(h**2+k**2+l**2):")
+    F_n, F_a = find_lattice_constants(d, 'F', 7)
+    print(F_n)
+    print('F h, k, l:')
+    F_h, F_k, F_l = find_hkl('F', F_n, 7)
+    print(F_h, F_k, F_l)
+    print("F a:")
+    print(F_a)
 
     np.savetxt("Auswertung/Grafiken/" + Probe.name +
-               "_Tabelle.tex",
+               "_ZnS_CsCl_Tabelle.tex",
                np.column_stack([
                                PeakAngle,
-                               fcc_n**2,
-                               fcc_h,
-                               fcc_k,
-                               fcc_l,
-                               fcc_a * 10**(12),
+                               ZnS_n**2,
+                               ZnS_h,
+                               ZnS_k,
+                               ZnS_l,
+                               ZnS_a * 10**(12),
                                CsCl_n**2,
                                CsCl_h,
                                CsCl_k,
@@ -589,13 +629,29 @@ for idx, Probe in enumerate([Salt]):
                                CsCl_a * 10**(12),
                                ]), delimiter=' & ', newline=r' \\' + '\n',
                fmt='%.2f & %.0f & %.0f & %.0f & %.0f & %.2f & %.0f & %.0f & %.0f & %.0f & %.2f')
+    np.savetxt("Auswertung/Grafiken/" + Probe.name +
+               "_NaCl_F_Tabelle.tex",
+               np.column_stack([
+                               PeakAngle,
+                               NaCl_n**2,
+                               NaCl_h,
+                               NaCl_k,
+                               NaCl_l,
+                               NaCl_a * 10**(12),
+                               F_n**2,
+                               F_h,
+                               F_k,
+                               F_l,
+                               F_a * 10**(12),
+                               ]), delimiter=' & ', newline=r' \\' + '\n',
+               fmt='%.2f & %.0f & %.0f & %.0f & %.0f & %.2f & %.0f & %.0f & %.0f & %.0f & %.2f')
 
     # Compute best_fit for a thrugh linear regression
-    fcc_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
-                                180)**2, fcc_a)
-    fcc_errors = np.sqrt(np.diag(cov))
-    m_fcc = ufloat(fcc_params[0], fcc_errors[0])
-    n_fcc = ufloat(fcc_params[1], fcc_errors[1])
+    ZnS_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                180)**2, ZnS_a)
+    ZnS_errors = np.sqrt(np.diag(cov))
+    m_ZnS = ufloat(ZnS_params[0], ZnS_errors[0])
+    n_ZnS = ufloat(ZnS_params[1], ZnS_errors[1])
 
     CsCl_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
                                 180)**2, CsCl_a)
@@ -603,24 +659,100 @@ for idx, Probe in enumerate([Salt]):
     m_CsCl = ufloat(CsCl_params[0], CsCl_errors[0])
     n_CsCl = ufloat(CsCl_params[1], CsCl_errors[1])
 
-    print("fcc best fit:")
-    print("m = ", m_fcc, ", n = ", n_fcc)
+    NaCl_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                180)**2, NaCl_a)
+    NaCl_errors = np.sqrt(np.diag(cov))
+    m_NaCl = ufloat(NaCl_params[0], NaCl_errors[0])
+    n_NaCl = ufloat(NaCl_params[1], NaCl_errors[1])
+
+    F_params, cov = curve_fit(linear, np.cos(0.5 * PeakAngle * np.pi /
+                                180)**2, F_a)
+    F_errors = np.sqrt(np.diag(cov))
+    m_F = ufloat(F_params[0], F_errors[0])
+    n_F = ufloat(F_params[1], F_errors[1])
+
+    print("ZnS best fit:")
+    print("m = ", m_ZnS, ", n = ", n_ZnS)
     print("CsCl best fit:")
     print("m = ", m_CsCl, ", n = ", n_CsCl)
+    print("NaCl best fit:")
+    print("m = ", m_NaCl, ", n = ", n_NaCl)
+    print("F best fit:")
+    print("m = ", m_F, ", n = ", n_F)
 
     x_range = np.linspace(0, 90, 1000)
     x_range = np.cos(x_range * np.pi / 180)**2
 
     # Plot peaks
     plt.figure()
-    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, fcc_a * 10**(12),
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, ZnS_a * 10**(12),
              marker='x', color='blue', ls='')
-    plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
-             ls='-', color='blue', label='Hypothese: ZnS/NaCl/F-Gitter')
+    plt.plot(x_range, linear(x_range, *ZnS_params) * 10**(12),
+             ls='-', color='blue', label='Hypothese: ZnS-Gitter')
+    plt.xlabel(r"$\cos{(\phi)}^{2}$")
+    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+    plt.legend(loc="best")
+    plt.xlim(0, 1)
+    plt.tight_layout
+    plt.savefig("Auswertung/Grafiken/" +
+                Probe.name + "_ZnS_Ausgleichsrechnung.pdf")
+
+    plt.figure()
     plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, CsCl_a * 10**(12),
              marker='x', color='green', ls='')
     plt.plot(x_range, linear(x_range, *CsCl_params) * 10**(12),
              ls='-', color='green', label='Hypothese: CsCl-Gitter')
+    plt.xlabel(r"$\cos{(\phi)}^{2}$")
+    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+    plt.legend(loc="best")
+    plt.xlim(0, 1)
+    plt.tight_layout
+    plt.savefig("Auswertung/Grafiken/" +
+                Probe.name + "_CsCl_Ausgleichsrechnung.pdf")
+
+    plt.figure()
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, NaCl_a * 10**(12),
+             marker='x', color='orange', ls='')
+    plt.plot(x_range, linear(x_range, *NaCl_params) * 10**(12),
+             ls='-', color='orange', label='Hypothese: NaCl-Gitter')
+    plt.xlabel(r"$\cos{(\phi)}^{2}$")
+    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+    plt.legend(loc="best")
+    plt.xlim(0, 1)
+    plt.tight_layout
+    plt.savefig("Auswertung/Grafiken/" +
+                Probe.name + "_NaCl_Ausgleichsrechnung.pdf")
+
+    plt.figure()
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, F_a * 10**(12),
+             marker='x', color='black', ls='')
+    plt.plot(x_range, linear(x_range, *F_params) * 10**(12),
+             ls='-', color='black', label='Hypothese: F-Gitter')
+    plt.xlabel(r"$\cos{(\phi)}^{2}$")
+    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+    plt.legend(loc="best")
+    plt.xlim(0, 1)
+    plt.tight_layout
+    plt.savefig("Auswertung/Grafiken/" +
+                Probe.name + "_F_Ausgleichsrechnung.pdf")
+
+    plt.figure()
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, ZnS_a * 10**(12),
+             marker='x', color='blue', ls='')
+    plt.plot(x_range, linear(x_range, *ZnS_params) * 10**(12),
+             ls='-', color='blue', label='Hypothese: ZnS-Gitter')
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, CsCl_a * 10**(12),
+             marker='x', color='green', ls='')
+    plt.plot(x_range, linear(x_range, *CsCl_params) * 10**(12),
+             ls='-', color='green', label='Hypothese: CsCl-Gitter')
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, NaCl_a * 10**(12),
+             marker='x', color='orange', ls='')
+    plt.plot(x_range, linear(x_range, *NaCl_params) * 10**(12),
+             ls='-', color='orange', label='Hypothese: NaCl-Gitter')
+    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, F_a * 10**(12),
+             marker='x', color='black', ls='')
+    plt.plot(x_range, linear(x_range, *F_params) * 10**(12),
+             ls='-', color='black', label='Hypothese: F-Gitter')
     plt.xlabel(r"$\cos{(\phi)}^{2}$")
     plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
     plt.legend(loc="best")

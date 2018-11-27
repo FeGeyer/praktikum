@@ -26,8 +26,10 @@ Zur Automatisierung der Auswertung wird wie folgt vorgegangen:
   \item Für jeden Peak werden durch die Bragggleichung Netzebenenabstände
   berechnet. Anschließend werden die möglichen Millerindizes für ein bcc\footnote{$h+k+l$ gerade}-
   und ein fcc\footnote{$h, k, l$ alle gerade oder ungerade}-Gitter für einatomige
-  Basen oder ein zusammengesetztes fcc\footnote{wieder $h, k, l$ alle gerade oder
-  ungerade}-Gitter und eine Cäsiumchlorid-Strukur\footnote{Alle Reflexe erlaubt}
+  Basen oder ein zusammengesetztes fcc\footnote{der Strukturfaktor wird numerisch berechnet
+  und Indizes mit nicht verschwindender Streuamplitude ausgewählt}-Gitter oder eine Cäsiumchlorid-Struktur\footnote{
+  wider wird die Streuamplitude bestimmt
+  }
   für mehratomige Basen aufsteigend nach $n=\sqrt{h^{2}+k^{2}+l^{2}}$ sortiert zugeordnet.
   \item Durch die SciPy-optimize Funktion \texttt{curve\_fit} wird ein linearer
   Fit durch die Gitterkonstanten beider Gittertypen in Abhängigkeit
@@ -175,18 +177,17 @@ mit Gitterkonstante $a=\SI{410(2)}{\pico\metre}$ anzunehmen.
 \subsection{Salzprobe}
 Der Ausschnitt zwischen den Stanzungen des Films ist in \autoref{Abb:Salz}
 zu sehen, die ausgelesenen Reflexe mit den zugeordneten Millerindizes für die
-Hypothesen einer fcc-artigen- und einer Cäsiumchlorid (CsCl)-Gitterstruktur finden sich mit den entsprechend
-berechneten Gitterkonstanten in \autoref{Tab:Salz}.
+Hypothesen verschiedener kubischer Gitterstruktur finden sich mit den entsprechend
+berechneten Gitterkonstanten in \autoref{Tab:Salza} und \autoref{Tab:Salzb}.
 Zusätzlich sind in \autoref{Abb:Salz_Peaks} die ausgelesenen Peaks eingezeichnet.
 Aufgrund der starken Belichtung des Films und der zusätzlichen Verunreinigung durch Streulicht
 war es nicht möglich, helle und dunkle Reflexe zu trennen.
 Wider ist eine Ausgleichsrechnung mit einer linearen Funktion für beide Gittertypen in
-\autoref{Abb:Salz_a} gezeigt. Die bestimmte Steigung $m$ und der y-Achsenabschnitt $n$
+\autoref{Abb:Salz_a} gezeigt, die einzellnen Grafiken finden sich in \autoref{Abb:Salz_ZnS},
+\autoref{Abb:Salz_CsCl}, \autoref{Abb:Salz_F} und \autoref{Abb:Salz_NaCl}. Die bestimmte Steigung $m$ und der y-Achsenabschnitt $n$
 finden sich in Tabelle \autoref{Tab:Salz_Regression}.
-Es zeigt sich, dass die fcc-artige Hypothese weitaus stärke Schwankungen aufweist, was
-sich auf einen größeren Fehler in der Ausgleichsrechnung niederschlägt.
-Es liegt daher nahe, die fcc-artige Hypothese als fehlerhaft anzusehen und eine CsCl-Struktur
-mit Gitterkonstante $a=\SI{275(6)}{\pico\metre}$ anzunehmen.
+Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
+\SI{339(15)}{\pico\metre} den geringsten Fehler aufweist.
 
 \begin{figure}
   \centering
@@ -201,25 +202,47 @@ mit Gitterkonstante $a=\SI{275(6)}{\pico\metre}$ anzunehmen.
 \begin{table}[H]
   \centering
   \caption{Beugungsreflexe an der Salzprobe \enquote{Salz 1} und zugeordnete Millerindizes und Gitterkonstanten
-  für zusammengesetzten fcc-Gitter (Subskript fcc) und CsCl-Struktur. Als zusammengesetzte
-  fcc-Gitter kommen ZnS-, NaCl-, und Flourid-Strutur infrage. Als zusammengesetzte
-  fcc Strukturen erzeugen sie jedoch die selben Reflexe.}
-  \label{Tab:Salz}
+  für Zinkblende- und Cäsiumchlorid-Struktur}
+  \label{Tab:Salza}
   \begin{tabular}{c || c c c c c|c c c c c}
     \toprule
     Winkel / ° &
-    $n_{\text{fcc}}^{2}$ &
-    $h_{\text{fcc}}$ &
-    $k_{\text{fcc}}$ &
-    $l_{\text{fcc}}$ &
-    $a_{\text{fcc}}$ / pm &
+    $n_{\text{ZnS}}^{2}$ &
+    $h_{\text{ZnS}}$ &
+    $k_{\text{ZnS}}$ &
+    $l_{\text{ZnS}}$ &
+    $a_{\text{ZnS}}$ / pm &
     $n_{\text{CsCl}}^{2}$ &
     $h_{\text{CsCl}}$ &
     $k_{\text{CsCl}}$ &
     $l_{\text{CsCl}}$ &
     $a_{\text{CsCl}}$ / pm \\
     \midrule
-    \input{Auswertung/Grafiken/Salt_Tabelle.tex}
+    \input{Auswertung/Grafiken/Salt_ZnS_CsCl_Tabelle.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Beugungsreflexe an der Salzprobe \enquote{Salz 1} und zugeordnete Millerindizes und Gitterkonstanten
+  für NaCl- und Flourid-Struktur.}
+  \label{Tab:Salzb}
+  \begin{tabular}{c || c c c c c|c c c c c}
+    \toprule
+    Winkel / ° &
+    $n_{\text{NaCl}}^{2}$ &
+    $h_{\text{NaCl}}$ &
+    $k_{\text{NaCl}}$ &
+    $l_{\text{NaCl}}$ &
+    $a_{\text{NaCl}}$ / pm &
+    $n_{\text{F}}^{2}$ &
+    $h_{\text{F}}$ &
+    $k_{\text{F}}$ &
+    $l_{\text{F}}$ &
+    $a_{\text{F}}$ / pm \\
+    \midrule
+    \input{Auswertung/Grafiken/Salt_NaCl_F_Tabelle.tex}
     \bottomrule
   \end{tabular}
 \end{table}
@@ -232,12 +255,45 @@ mit Gitterkonstante $a=\SI{275(6)}{\pico\metre}$ anzunehmen.
   \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_Peaks.pdf}
   }
   \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung. Die Position der Peaks wurde
-  dafür invertiert. \label{Abb:Salz_a}}[0.45\textwidth]{
+  dafür invertiert, die einzellnen Hypothesen sind untenstehend in eigenen Grafiken zu finden.
+  \label{Abb:Salz_a}}[0.45\textwidth]{
   \centering
   \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_Ausgleichsrechnung.pdf}
   }\\
   \label{Abb:Salz_Plots}
   \caption{Grafiken für die Salzprobe \enquote{Salz 1}.}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung für die Zinkblende-Struktur.
+  \label{Abb:Salz_ZnS}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_ZnS_Ausgleichsrechnung.pdf}
+  }
+  \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung für die Cäsiumchlorid-Struktur.
+  \label{Abb:Salz_CsCl}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_CsCl_Ausgleichsrechnung.pdf}
+  }\\
+  \label{Abb:Salz_Plotsa}
+  \caption{Einzelgrafiken für die Salzprobe \enquote{Salz 1}.}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung für die NaCl-Struktur.
+  \label{Abb:Salz_NaCl}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_NaCl_Ausgleichsrechnung.pdf}
+  }
+  \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung für die Flourit-Struktur.
+  \label{Abb:Salz_F}}[0.45\textwidth]{
+  \centering
+  \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_F_Ausgleichsrechnung.pdf}
+  }\\
+  \label{Abb:Salz_Plotsn}
+  \caption{Einzelgrafiken für die Salzprobe \enquote{Salz 1}.}
 \end{figure}
 
 \begin{table}[H]
@@ -250,8 +306,10 @@ mit Gitterkonstante $a=\SI{275(6)}{\pico\metre}$ anzunehmen.
     $m$ / $\frac{\mathrm{pm}}{1}$ &
     $n$ / pm \\
     \midrule
-    fcc & \num{4(40)} & \num{437(18)} \\
-    CsCl & \num{0(10)} & \num{275(6)} \\
+    ZnS & \num{-4(6)} & \num{400(40)} \\
+    CsCl & \num{1.2(5)} & \num{480(28)} \\
+    NaCl & \num{-4(4)} & \num{376(17)} \\
+    F & \num{-5.0(27)} & \num{339(15)} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -266,14 +324,11 @@ Innerhalb der Fehlertoleranz des Messwertes liegt das in fcc-Struktur kristallis
 Silber mit einer Gitterkonstante von \SI{409}{\pico\metre}\cite{AM}. Die Zuordnung erscheint
 auch wegen der gräulich-silbrigen Erscheinung der Probe als sinnvoll.\\
 Im Gegensatz dazu liegt die bestimmte Gitterkonstante der salinen Probe mit
-$a=\SI{275(6)}{\pico\metre}$ bei einem für Salze viel zu niedrigen Wert.
-Problematisch ist hier
-die starke Kontamination durch Streulicht, die dazu führen kann, dass in schwache,
+$a=\SI{339(15)}{\pico\metre}$ bei einem für Salze in der Flourit-Struktur
+viel zu niedrigen Wert. Problematisch ist hier
+die starke Kontamination durch Streulicht, die dazu führen kann, dass schwache,
 helle Reflexe nicht mehr sichtbar sind, sodass es zu fehlerhaften Zuordnungen kommt.
-Zwar weist die fcc-artige Hypothese einen größeren Fehler auf, bewegt sich aber
-in einem für Salze typischen Bereich. Beispielsweise haben die in NaCl-Struktur
-kristallisierenden Verbindungen LiF (\SI{402}{\pico\metre}\cite{AM}) und
-MgO (\SI{421}{\pico\metre}\cite{AM}) eine zur fcc-Hypotese (\SI{437(18)}{\pico\metre}) passende
-Gitterkonstante und teilen das weißliche Aussehen der Probensubstanz.
+Dies trifft auf alle untersuchten Gittertypen zu, weshalb der Versuch einer
+Zuordnung unterbleiben muss.
 Für eine sichere Zuordnung ist der Versuch mit der salinen Probe zu wiederholen,
 wobei auf eine bessere Abschirmung von Streulicht zu achten ist.

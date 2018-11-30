@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import uncertainties.unumpy as unp
+import pandas as pd
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
 from scipy import constants
@@ -17,6 +19,9 @@ def hyperbel(x, a, b, c):
 
 def Bfeld(I, N, R):
     return constants.mu_0 * (8*I*N)/(np.sqrt(125)*R)
+
+def exponential(x, a, b, c):
+    return -a**(x*b) - c
 
 bohr = constants.value('Bohr magneton')
 # load data
@@ -65,24 +70,30 @@ bB2 = ufloat(paramsB2[1], errorsB2[1])
 g1 = constants.h/(mB1 * bohr)
 g2 = constants.h/(mB2 * bohr)
 
+print('Landesche gF')
 print("G1: ", g1)
 print("g2: ", g2)
 g = g1/g2
 print("Verhältnis 1/2: ", g)
+print('')
 
+print('---------------------------------------------------------------------')
+print('Horizintalkomponenten')
 print('Horizontalkomponente 1: ', bB1)
 print('Horizontalkomponente 2: ', bB2)
+print('')
 
 x = np.linspace(0, 10**6, 100000)
-plt.plot(RFfrequenz, B1, 'r.', label="Erstes Isotop")
-plt.plot(x, linear(x, *paramsB1), 'k--', label="Fit 1")
-plt.plot(RFfrequenz, B2, 'b.', label="Zweites Isotop")
-plt.plot(x, linear(x, *paramsB2), 'g--', label="Fit 2")
+plt.plot(RFfrequenz, B1, 'r.', markersize=10, fillstyle='none', label="Erstes Isotop")
+plt.plot(x, linear(x, *paramsB1), 'r-', label="Fit 1")
+plt.plot(RFfrequenz, B2, 'b.', markersize=10, fillstyle='none', label="Zweites Isotop")
+plt.plot(x, linear(x, *paramsB2), 'b-', label="Fit 2")
 plt.xlabel(r'RF-Frequenz / Hz')
 plt.ylabel(r'Horizontalkomponente von B / T')
 plt.tight_layout()
 plt.legend(loc='best')
 plt.savefig('Auswertung/Plots/Bfeld.pdf')
+plt.clf()
 
 
 amplitude, periode1, periode2 = np.genfromtxt('Auswertung/Daten/daten_periode.txt', unpack=True)
@@ -98,6 +109,8 @@ aPeriode1 = ufloat(paramsPeriode1[0], errorsPeriode1[0])
 bPeriode1 = ufloat(paramsPeriode1[1], errorsPeriode1[1])
 cPeriode1 = ufloat(paramsPeriode1[2], errorsPeriode1[2])
 
+print('--------------------------------------------------------------')
+print('Hyperbel b Parameter')
 print("b Parameter1: ", bPeriode1)
 
 # fit for second period
@@ -108,16 +121,67 @@ bPeriode2 = ufloat(paramsPeriode2[1], errorsPeriode2[1])
 cPeriode2 = ufloat(paramsPeriode2[2], errorsPeriode2[2])
 
 print('b Parameter2: ', bPeriode2)
-print("Verhältnis: ", bPeriode2/bPeriode1)
+print("Verhältnis 2/1: ", bPeriode2/bPeriode1)
+print('')
 
 # plot this nice plots
 x = np.linspace(1, 10.5, 10000)
-plt.plot(amplitude, periode1, 'b.', label="Periode 1")
-plt.plot(amplitude[1:], periode2[1:], 'r.', label="Periode 2")
-plt.plot(x, hyperbel(x, *paramsPeriode1), 'k--',label="Fit Periode 1")
-plt.plot(x, hyperbel(x, *paramsPeriode2), 'g--',label="Fit Periode 2")
+plt.plot(amplitude, periode1, 'b.', markersize=10, fillstyle='none', label="Periode 1")
+plt.plot(amplitude[1:], periode2[1:], 'r.', markersize=10, fillstyle='none', label="Periode 2")
+plt.plot(x, hyperbel(x, *paramsPeriode1), 'b-',label="Fit Periode 1")
+plt.plot(x, hyperbel(x, *paramsPeriode2), 'r-',label="Fit Periode 2")
 plt.xlabel('RF-Amplitude / V')
 plt.ylabel(r'Periodendauer/ ms')
 plt.tight_layout()
 plt.legend(loc='best')
 plt.savefig('Auswertung/Plots/Perioden.pdf')
+plt.clf()
+
+# calculate nuclear spin
+J = 0.5
+S = 0.5
+L = 0
+gJ = (3.0023 * (J**2 + J) + 1.0023 * ((S**2 + S)
+      - (L**2 + L))) / (2 * (J**2 + J))
+I1 = gJ / (4 * g1) - 1 + unp.sqrt((gJ / (4 * g1) - 1)**2
+                                  + 3 * gJ / (4 * g1) - 3 / 4)
+I2 = gJ / (4 * g2) - 1 + unp.sqrt((gJ / (4 * g2) - 1)**2
++ 3 * gJ / (4 * g2) - 3 / 4)
+
+print('--------------------------------------------------------------')
+print('Kernspins')
+print('Kernspin 1: ', I1)
+print('Kernspin 2:', I2)
+print('')
+
+# assessment quadratic zeeman
+U1 = g1*bohr*np.max(B1)+g1**2*bohr**2*np.max(B1)**2*(1-2*2)/(4.53e-24)
+U2 = g2*bohr*np.max(B2)+g2**2*bohr**2*np.max(B2)**2*(1-2*3)/(2.01e-24)
+
+print('------------------------------------------------------------')
+print('Quadratische Zeeman-Aufspaltung')
+print(U1/constants.e)
+print(U2/constants.e)
+
+# Exponential fit
+#exp1 = pd.DataFrame()
+#exp2 = pd.DataFrame()
+#exp1 = pd.read_csv('Auswertung/Daten/1.CSV')
+#exp2 = pd.read_csv('Auswertung/Daten/TEK0000.CSV')
+#
+#print(exp1)
+
+#x1, y1 = np.genfromtxt('Auswertung/Daten/1.txt', unpack=True)
+#x2, y2 = np.genfromtxt('Auswertung/Daten/2.txt', unpack=True)
+#x1 = x1[979:1582]
+#y1 = y1[979:1582]
+#
+#paramsExp1, covExp1 = curve_fit(exponential, x1, y1)
+#
+#x = np.linspace(-0.0002, 0.075, 10000)
+#plt.plot(x1, y1, label="Daten")
+#plt.plot(x, exponential(x, *paramsExp1), 'r--', label='Fit')
+#plt.legend(loc="best")
+##plt.xscale('log')
+##plt.plot(x2, y2)
+#plt.savefig('Auswertung/Plots/exp1.pdf')

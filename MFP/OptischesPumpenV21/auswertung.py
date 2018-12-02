@@ -113,6 +113,7 @@ cPeriode1 = ufloat(paramsPeriode1[2], errorsPeriode1[2])
 
 print('--------------------------------------------------------------')
 print('Hyperbel b Parameter')
+print('a und c 1: ', aPeriode1, cPeriode1)
 print("b Parameter1: ", bPeriode1)
 
 # fit for second period
@@ -122,7 +123,9 @@ aPeriode2 = ufloat(paramsPeriode2[0], errorsPeriode2[0])
 bPeriode2 = ufloat(paramsPeriode2[1], errorsPeriode2[1])
 cPeriode2 = ufloat(paramsPeriode2[2], errorsPeriode2[2])
 
+print('a und c 2: ', aPeriode2, cPeriode2)
 print('b Parameter2: ', bPeriode2)
+print("Verhältnis 1/2: ", bPeriode1/bPeriode2)
 print("Verhältnis 2/1: ", bPeriode2/bPeriode1)
 print('')
 
@@ -162,8 +165,10 @@ U2 = g2*bohr*np.max(B2)+g2**2*bohr**2*np.max(B2)**2*(1-2*3)/(2.01e-24)
 
 print('------------------------------------------------------------')
 print('Quadratische Zeeman-Aufspaltung')
-print(U1/constants.e)
-print(U2/constants.e)
+print('Maximales BFeld1: ', np.round(np.max(B1)*10**6, 2))
+print('Maximales BFeld2: ', np.round(np.max(B2)*10**6, 2))
+print('Quadratische Zeeman-Aufspaltung 1 in eV: ', U1/constants.e)
+print('Quadratische Zeeman-Aufspaltung 2 in eV: ', U2/constants.e)
 
 # Exponential fit
 #exp1 = pd.DataFrame()

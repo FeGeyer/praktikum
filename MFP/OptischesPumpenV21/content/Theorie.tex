@@ -60,6 +60,7 @@ Mit den Lande-Faktoren $g_{\symup{L}} = 1$ und $g_{\symup{S}} = \num{2.00232}$ u
 der Drehimpulsaddition folgt
 \begin{equation}
   g_{\symup{J}} = \frac{3,0023J(J+1) + 1,0023(S(S+1) - L(L+1))}{2J(J+1)},
+  \label{eqn:gJ}
 \end{equation}
 sodass in einem Magnetfeld $B$ eine Niveauaufspaltung in $2J+1$ Niveaus der Energie
 \begin{equation}
@@ -76,6 +77,7 @@ so koppelt dieser, ausreichend kleine äußere Magnetfelder vorrausgesetzt, mit 
 Gesamtdrehimpuls der Hüllenelektronen zum Gesamtdrehimpuls des Atoms
 \begin{equation}
   \vec{F} = \vec{J} + \vec{I}.
+  \label{eqn:F-Vektor}
 \end{equation}
 Auch hier ist wieder eine diskrete Anzahl an Werten für die Aufspaltung möglich.
 Die zugehörige Quantenzahl $F$ hat einen Wertevorrat von $I+J$ bis $|I-J|$ in ganzzahligen
@@ -95,12 +97,14 @@ ersetzt werden. Der zugehörige Lande-Faktor $g_{\symup{F}}$ berechnet sich nach
 eine ähnlichen Ansatz wie oben zu
 \begin{equation}
   g_{\symup{F}} = g_{\symup{J}} \frac{F(F+1) + J(J+1) - I(I+1)}{2F(F+1)}.
+  \label{eqn:gF}
 \end{equation}
 Für stärkere Magnetfelder muss der Abstand zwischen den Zeeman-Niveaus \eqref{Theo:eq4} um
 Terme höherer Ordnung ergänzt werden.
 Erst hier wird die Aufspaltung von $m_{\symup{F}}$ abhängig:
 \begin{equation}
-  U_{\symup{HF}} = g_{\symup{F}} \mu_{\symup{B}} B + (g_{\symup{F}} \mu_{\symup{B}} B)^{2} \frac{1-2m_{\symup{F}}}{\symup{\Delta}E_{\symup{HF}}},
+  U_{\symup{HF}} = g_{\symup{F}} \mu_{\symup{B}} B + (g_{\symup{F}} \mu_{\symup{B}} B)^{2} \frac{1-2m_{\symup{F}}}{\symup{\Delta}E_{\symup{HF}}} \, ,
+  \label{eqn:quadratischer-zeeman}
 \end{equation}
 wobei $\symup{\Delta}E_{\symup{HF}}$ den Absatnd zwischen dem zu $F$ und $F+1$ gehörigen
 Niveau der Hyperfeinstrukturaufspaltung bezeichnet.

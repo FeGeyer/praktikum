@@ -6,6 +6,7 @@ TeXOptions = -lualatex \
 				 -output-directory=build
 
 build/dokument.pdf: FORCE | build
+	mkdir -p Auswertung/Plots/
 	python 	auswertung.py
 	latexmk $(TexOptions) dokument.tex
 

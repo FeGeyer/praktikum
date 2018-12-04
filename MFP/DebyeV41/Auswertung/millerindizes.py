@@ -66,7 +66,7 @@ def bcc(max_value):
 	Returns arrays of ints with millerindizes for the bcc-lattice.
 	'''
 
-	# initialize arrays
+	# initialize arrays, cheap trick: use pre-deffined numpy-functions
 	h_bcc = np.empty([1])
 	k_bcc = np.empty([1])
 	l_bcc = np.empty([1])
@@ -248,16 +248,14 @@ def Dia(max_value):
 	return combined_array[:, 0], combined_array[:, 1], combined_array[:, 2]
 
 
-# Diamant
 def All(max_value):
-
 	'''
 	max_value: Maximal value for h, k, l respectively.
 
 	Funktion compute possible millerindizes. Calls functions to sort out
 	permutations and doubles.
 
-	Returns arrays of ints with millerindizes for the Diamant-lattice.
+	Returns arrays of all possible millerindizes.
 	'''
 
 	# initialize arrays
@@ -297,16 +295,42 @@ def All(max_value):
 
 
 def S(h, k, l, x, y, z):
+	'''
+	h, k, l: ints, Miller-Tupel, for witch S should be computed.
+	x, y, z,: Array of floats, Positions of atoms in unit-cell.
+
+	Function to compute summands of structure-factor.
+
+	Returns arrays of structure-factor summands.
+	'''
     return np.exp((-2) * np.pi * 1j * (h * x + k * y + l * z))
 
 
 def Sbar(h, k, l, x, y, z):
+	'''
+	h, k, l: ints, Miller-Tupel, for witch Sbar should be computed.
+	x, y, z,: Array of floats, Positions of atoms in unit-cell.
+
+	Function to compute summands of conjugated structure-factor.
+
+	Returns arrays of conjugated structure-factor summands.
+	'''
     return np.exp((2) * np.pi * 1j * (h * x + k * y + l * z))
 
 
 def ZnS(max_value):
+	'''
+	max_value: Maximal value for h, k, l respectively.
+
+	Function to compute possible millerindizes for ZnS-structure through
+	structure-factor and amplitude I propto |S|^2. Calls functions to sort out
+	permutations and doubles and compute structure-factor.
+
+	Returns arrays of all possible millerindizes.
+	'''
     h, k, l = All(max_value)
 
+	# Atom-Positions
     x = np.array([0, 0.5, 0.5, 0, 0.25, 0.75, 0.75, 0.25])
     y = np.array([0, 0.5, 0, 0.5, 0.25, 0.75, 0.25, 0.75])
     z = np.array([0, 0, 0.5, 0.5, 0.25, 0.25, 0.75, 0.75])
@@ -358,8 +382,18 @@ def ZnS(max_value):
 
 
 def NaCl(max_value):
+	'''
+	max_value: Maximal value for h, k, l respectively.
+
+	Function to compute possible millerindizes for NaCl-structure through
+	structure-factor and amplitude I propto |S|^2. Calls functions to sort out
+	permutations and doubles and compute structure-factor.
+
+	Returns arrays of all possible millerindizes.
+	'''
     h, k, l = All(max_value)
 
+	# Atom-Positions
     x = np.array([0, 0.5, 0.5, 0  , 0.5, 1  , 1   , 0.5])
     y = np.array([0, 0.5, 0  , 0.5, 0.5, 1  , 0.25, 1  ])
     z = np.array([0, 0  , 0.5, 0.5, 0.5, 0.5, 1   , 1  ])
@@ -411,8 +445,18 @@ def NaCl(max_value):
 
 
 def CsCl(max_value):
+	'''
+	max_value: Maximal value for h, k, l respectively.
+
+	Function to compute possible millerindizes for CsCl-structure through
+	structure-factor and amplitude I propto |S|^2. Calls functions to sort out
+	permutations and doubles and compute structure-factor.
+
+	Returns arrays of all possible millerindizes.
+	'''
     h, k, l = All(max_value)
 
+	# Atom-Positions
     x = np.array([0, 0.5])
     y = np.array([0, 0.5])
     z = np.array([0, 0.5])
@@ -464,8 +508,18 @@ def CsCl(max_value):
 
 
 def F(max_value):
+	'''
+	max_value: Maximal value for h, k, l respectively.
+
+	Function to compute possible millerindizes for F-structure through
+	structure-factor and amplitude I propto |S|^2. Calls functions to sort out
+	permutations and doubles and compute structure-factor.
+
+	Returns arrays of all possible millerindizes.
+	'''
     h, k, l = All(max_value)
 
+	# Atom-Positions
     x = np.array([0, 0.5, 0.5, 0  , 0.25, 0.75, 0.75, 0.25, 0.75, 0.25, 0.25, 0.75])
     y = np.array([0, 0.5, 0  , 0.5, 0.25, 0.75, 0.25, 0.75, 0.75, 0.25, 0.75, 0.25])
     z = np.array([0, 0  , 0.5, 0.5, 0.25, 0.25, 0.75, 0.75, 0.75, 0.75, 0.25, 0.25])

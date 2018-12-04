@@ -3,6 +3,8 @@ from scipy.signal import find_peaks
 from scipy.stats import sem
 from uncertainties import ufloat
 import matplotlib.pyplot as plt
+from matplotlib import pylab
+
 '''
 Import millerindizes as miller from Auswertung/millerindizes.py with
 importlib.util. Important to note is, that in the third line of this piece of
@@ -476,6 +478,31 @@ if __name__ == '__main__':
 
         # Plot peaks
         plt.figure()
+        plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, fcc_a * 10**(12),
+                 marker='x', color='blue', ls='')
+        plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
+                 ls='-', color='blue', label='Hypothese: ZnS-Gitter')
+        plt.xlabel(r"$\cos{(\phi)}^{2}$")
+        plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+        plt.legend(loc="best")
+        plt.xlim(0, 1)
+        plt.tight_layout
+        plt.savefig("Auswertung/Grafiken/" +
+                    Probe.name + "_fcc_Ausgleichsrechnung.pdf")
+
+        plt.figure()
+        plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, bcc_a * 10**(12),
+                 marker='x', color='green', ls='')
+        plt.plot(x_range, linear(x_range, *bcc_params) * 10**(12),
+                 ls='-', color='green', label='Hypothese: bcc-Gitter')
+        plt.xlabel(r"$\cos{(\phi)}^{2}$")
+        plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+        plt.legend(loc="best")
+        plt.xlim(0, 1)
+        plt.tight_layout
+        plt.savefig("Auswertung/Grafiken/" +
+                    Probe.name + "_bcc_Ausgleichsrechnung.pdf")
+        plt.figure()
         plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, bcc_a * 10**(12),
                  marker='x', color='red', ls='')
         plt.plot(x_range, linear(x_range, *bcc_params) * 10**(12),
@@ -736,30 +763,35 @@ for idx, Probe in enumerate([Salt]):
     plt.savefig("Auswertung/Grafiken/" +
                 Probe.name + "_F_Ausgleichsrechnung.pdf")
 
-    plt.figure()
-    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, ZnS_a * 10**(12),
-             marker='x', color='blue', ls='')
-    plt.plot(x_range, linear(x_range, *ZnS_params) * 10**(12),
-             ls='-', color='blue', label='Hypothese: ZnS-Gitter')
-    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, CsCl_a * 10**(12),
-             marker='x', color='green', ls='')
-    plt.plot(x_range, linear(x_range, *CsCl_params) * 10**(12),
-             ls='-', color='green', label='Hypothese: CsCl-Gitter')
-    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, NaCl_a * 10**(12),
-             marker='x', color='orange', ls='')
-    plt.plot(x_range, linear(x_range, *NaCl_params) * 10**(12),
-             ls='-', color='orange', label='Hypothese: NaCl-Gitter')
-    plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, F_a * 10**(12),
-             marker='x', color='black', ls='')
-    plt.plot(x_range, linear(x_range, *F_params) * 10**(12),
-             ls='-', color='black', label='Hypothese: F-Gitter')
-    plt.xlabel(r"$\cos{(\phi)}^{2}$")
-    plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
-    plt.legend(loc="best")
-    plt.xlim(0, 1)
+    fig = plt.figure()
+    ax = plt.subplot(111)
+    ax.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, ZnS_a * 10**(12),
+            marker='x', color='blue', ls='')
+    ax.plot(x_range, linear(x_range, *ZnS_params) * 10**(12),
+            ls='-', color='blue', label='Hypothese: ZnS-Gitter')
+    ax.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, CsCl_a * 10**(12),
+            marker='x', color='green', ls='')
+    ax.plot(x_range, linear(x_range, *CsCl_params) * 10**(12),
+            ls='-', color='green', label='Hypothese: CsCl-Gitter')
+    ax.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, NaCl_a * 10**(12),
+            marker='x', color='orange', ls='')
+    ax.plot(x_range, linear(x_range, *NaCl_params) * 10**(12),
+            ls='-', color='orange', label='Hypothese: NaCl-Gitter')
+    ax.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, F_a * 10**(12),
+            marker='x', color='black', ls='')
+    ax.plot(x_range, linear(x_range, *F_params) * 10**(12),
+            ls='-', color='black', label='Hypothese: F-Gitter')
+    ax.set_xlabel(r"$\cos{(\phi)}^{2}$")
+    ax.set_ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
+    art = []
+    lgd = pylab.legend(loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=2)
+    art.append(lgd)
+    ax.set_xlim(0, 1)
     plt.tight_layout
-    plt.savefig("Auswertung/Grafiken/" +
-                Probe.name + "_Ausgleichsrechnung.pdf")
+    pylab.savefig("Auswertung/Grafiken/" +
+                  Probe.name + "_Ausgleichsrechnung.pdf",
+                  additional_artists=art,
+                  bbox_inches="tight")
 
 print("------------------------------------------------------------------")
 print('Thats all folks!')

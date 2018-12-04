@@ -481,7 +481,7 @@ if __name__ == '__main__':
         plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, fcc_a * 10**(12),
                  marker='x', color='blue', ls='')
         plt.plot(x_range, linear(x_range, *fcc_params) * 10**(12),
-                 ls='-', color='blue', label='Hypothese: ZnS-Gitter')
+                 ls='-', color='blue', label='Hypothese: fcc-Gitter')
         plt.xlabel(r"$\cos{(\phi)}^{2}$")
         plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
         plt.legend(loc="best")
@@ -492,9 +492,9 @@ if __name__ == '__main__':
 
         plt.figure()
         plt.plot(np.cos(PeakAngle * 0.5 * np.pi / 180)**2, bcc_a * 10**(12),
-                 marker='x', color='green', ls='')
+                 marker='x', color='red', ls='')
         plt.plot(x_range, linear(x_range, *bcc_params) * 10**(12),
-                 ls='-', color='green', label='Hypothese: bcc-Gitter')
+                 ls='-', color='red', label='Hypothese: bcc-Gitter')
         plt.xlabel(r"$\cos{(\phi)}^{2}$")
         plt.ylabel(r'Berechnete Gitterkonstante$ / \mathrm{pm}$')
         plt.legend(loc="best")

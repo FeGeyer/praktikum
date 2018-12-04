@@ -26,9 +26,10 @@ Zur Automatisierung der Auswertung wird wie folgt vorgegangen:
   \item Für jeden Peak werden durch die Bragggleichung Netzebenenabstände
   berechnet. Anschließend werden die möglichen Millerindizes für ein bcc\footnote{$h+k+l$ gerade}-
   und ein fcc\footnote{$h, k, l$ alle gerade oder ungerade}-Gitter für einatomige
-  Basen oder ein zusammengesetztes fcc\footnote{der Strukturfaktor wird numerisch berechnet
-  und Indizes mit nicht verschwindender Streuamplitude ausgewählt}-Gitter oder eine Cäsiumchlorid-Struktur\footnote{
-  wider wird die Streuamplitude bestimmt
+  Basen oder ein zusammengesetztes fcc\footnote{Der Strukturfaktor wird numerisch berechnet
+  und Indizes mit nicht verschwindender Streuamplitude ausgewählt, wobei die Intensität $I \propto |S|^{2}$ größer
+  als $0.15$ sein soll, um kaum messbare, schwache Impulse auszuschließen.}-Gitter oder eine Cäsiumchlorid-Struktur\footnote{
+  Wieder wird die Streuamplitude bestimmt
   }
   für mehratomige Basen aufsteigend nach $n=\sqrt{h^{2}+k^{2}+l^{2}}$ sortiert zugeordnet.
   \item Durch die SciPy-optimize Funktion \texttt{curve\_fit} wird ein linearer
@@ -44,12 +45,14 @@ Hypothesen einer bcc-, einer fcc-Gitterstruktur finden sich mit den entsprechend
 berechneten Gitterkonstanten in \autoref{Tab:Metall}.
 Zusätzlich sind in \autoref{Abb:Metall_Peaks} die ausgelesenen Peaks eingezeichnet.
 Eine Ausgleichsrechnung mit einer linearen Funktion für beide Gittertypen ist in
-\autoref{Abb:Metall_a} gezeigt. Die bestimmte Steigung $m$ und der y-Achsenabschnitt $n$
+\autoref{Abb:Metall_a} gezeigt, die einzellnen Kurven finden sich in \autoref{Abb:Metall_bcc}
+und \autoref{Abb:Metall_fcc}.
+Die bestimmte Steigung $m$ und der y-Achsenabschnitt $n$
 finden sich in Tabelle \autoref{Tab:Metall_Regression}.
 Es zeigt sich, dass die bcc-Hypothese stärke Schwankungen aufweist, was
 sich auf einen größeren Fehler in der Ausgleichsrechnung niederschlägt.
 Es liegt daher nahe, die bcc Hypothese als fehlerhaft anzusehen und ein fcc-Gitter
-mit Gitterkonstante $a=\SI{410(2)}{\pico\metre}$ anzunehmen.
+mit Gitterkonstante $a=\SI{409.6(20)}{\pico\metre}$ anzunehmen.
 
 
 \begin{figure}
@@ -150,7 +153,7 @@ mit Gitterkonstante $a=\SI{410(2)}{\pico\metre}$ anzunehmen.
   }
   \subcaptionbox{Gitterkonstante mit Ausgleichsrechnung. Die Position der Peaks wurde
   dafür invertiert, die einzellnen Hypothesen sind untenstehend
-  in eigenen Grafiken (siehe \autoref{Abb:Metall_Plotsa}) zu finden. \label{Abb:Metall_a}}[0.45\textwidth]{
+  in eigenen Grafiken zu finden. \label{Abb:Metall_a}}[0.45\textwidth]{
   \centering
   \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Metall_Ausgleichsrechnung.pdf}
   }\\
@@ -170,7 +173,7 @@ mit Gitterkonstante $a=\SI{410(2)}{\pico\metre}$ anzunehmen.
   \centering
   \includegraphics[width=0.7\textwidth]{Auswertung/Grafiken/Metall_bcc_Ausgleichsrechnung.pdf}
   }\\
-  \label{Abb:Metall_Plotsa}
+  \label{Abb:Metall_Plots_a}
   \caption{Einzelgrafiken für die Metallprobe \enquote{Metall 3}.}
 \end{figure}
 
@@ -203,13 +206,13 @@ Wider ist eine Ausgleichsrechnung mit einer linearen Funktion für beide Gittert
 \autoref{Abb:Salz_a} gezeigt, die einzellnen Grafiken finden sich in \autoref{Abb:Salz_ZnS},
 \autoref{Abb:Salz_CsCl}, \autoref{Abb:Salz_F} und \autoref{Abb:Salz_NaCl}. Die bestimmte Steigung $m$ und der y-Achsenabschnitt $n$
 finden sich in Tabelle \autoref{Tab:Salz_Regression}.
-Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
-\SI{339(15)}{\pico\metre} den geringsten Fehler aufweist.
+Es zeigt sich, dass die Zinkblende-Typ Hypothese mit einer Gitterkonstante von
+\SI{552(4)}{\pico\metre} den geringsten Fehler aufweist.
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/pics/Salz_film.pdf}
-  \caption{Filmaufnahme der Salzprobe \enquote{Salz 1}. Der Winkel \SI{0}{\degree} liegt in der
+  \caption{Filmaufnahme der Salzprobe \enquote{Salz 2}. Der Winkel \SI{0}{\degree} liegt in der
   rechten, der Winkel \SI{180}{\degree} in der linken Stanzung. Es ist ein
   deutlicher Verlauf von dunkel (links) nach hell (rechts) zu erkennen, der durch
   einfallendes Streulicht verursacht wurde.}
@@ -218,7 +221,7 @@ Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
 
 \begin{table}[H]
   \centering
-  \caption{Beugungsreflexe an der Salzprobe \enquote{Salz 1} und zugeordnete Millerindizes und Gitterkonstanten
+  \caption{Beugungsreflexe an der Salzprobe \enquote{Salz 2} und zugeordnete Millerindizes und Gitterkonstanten
   für Zinkblende- und Cäsiumchlorid-Struktur}
   \label{Tab:Salza}
   \begin{tabular}{c || c c c c c|c c c c c}
@@ -242,7 +245,7 @@ Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
 
 \begin{table}[H]
   \centering
-  \caption{Beugungsreflexe an der Salzprobe \enquote{Salz 1} und zugeordnete Millerindizes und Gitterkonstanten
+  \caption{Beugungsreflexe an der Salzprobe \enquote{Salz 2} und zugeordnete Millerindizes und Gitterkonstanten
   für NaCl- und Flourid-Struktur.}
   \label{Tab:Salzb}
   \begin{tabular}{c || c c c c c|c c c c c}
@@ -278,7 +281,7 @@ Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
   \includegraphics[width=0.45\textwidth]{Auswertung/Grafiken/Salt_Ausgleichsrechnung.pdf}
   }\\
   \label{Abb:Salz_Plots}
-  \caption{Grafiken für die Salzprobe \enquote{Salz 1}.}
+  \caption{Grafiken für die Salzprobe \enquote{Salz 2}.}
 \end{figure}
 
 \begin{figure}[h!]
@@ -294,7 +297,7 @@ Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
   \includegraphics[width=0.7\textwidth]{Auswertung/Grafiken/Salt_CsCl_Ausgleichsrechnung.pdf}
   }\\
   \label{Abb:Salz_Plotsa}
-  \caption{Einzelgrafiken für die Salzprobe \enquote{Salz 1}.}
+  \caption{Einzelgrafiken für die Salzprobe \enquote{Salz 2}.}
 \end{figure}
 
 \begin{figure}[h!]
@@ -310,12 +313,12 @@ Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
   \includegraphics[width=0.7\textwidth]{Auswertung/Grafiken/Salt_F_Ausgleichsrechnung.pdf}
   }\\
   \label{Abb:Salz_Plotsn}
-  \caption{Einzelgrafiken für die Salzprobe \enquote{Salz 1}.}
+  \caption{Einzelgrafiken für die Salzprobe \enquote{Salz 2}.}
 \end{figure}
 
 \begin{table}[H]
   \centering
-  \caption{Parameter der Ausgleichsrechnung für die Salzprobe \enquote{Salz 1}.}
+  \caption{Parameter der Ausgleichsrechnung für die Salzprobe \enquote{Salz 2}.}
   \label{Tab:Salz_Regression}
   \begin{tabular}{c | c c }
     \toprule
@@ -334,18 +337,19 @@ Es zeigt sich, dass die Flourit-Typ Hypothese mit einer Gitterkonstante von
 \section{Diskussion}
 Die Metallprobe zeigt gut auszuwertende Ergebnisse. Aufgrund der guten Abschirmung
 und der geringeren Belichtungsdauer als bei der Salzprobe können alle Reflexe gut
-beobachtet werden. Mit einer Gitterkonstante von $\SI{410(2)}{\pico\metre}$
+beobachtet werden. Mit einer Gitterkonstante von \SI{409.6(20)}{\pico\metre}
 bewegt sich das Analyseergebnis in einem für Metalle typischen Bereich.
 Insbesondere der sehr geringe Fehler weißt auf eine genaue Bestimmung hin.
 Innerhalb der Fehlertoleranz des Messwertes liegt das in fcc-Struktur kristallisierende
 Silber mit einer Gitterkonstante von \SI{409}{\pico\metre}\cite{AM}. Die Zuordnung erscheint
 auch wegen der gräulich-silbrigen Erscheinung der Probe als sinnvoll.\\
-Im Gegensatz dazu liegt die bestimmte Gitterkonstante der salinen Probe mit
-$a=\SI{339(15)}{\pico\metre}$ bei einem für Salze in der Flourit-Struktur
-viel zu niedrigen Wert. Problematisch ist hier
-die starke Kontamination durch Streulicht, die dazu führen kann, dass schwache,
-helle Reflexe nicht mehr sichtbar sind, sodass es zu fehlerhaften Zuordnungen kommt.
-Dies trifft auf alle untersuchten Gittertypen zu, weshalb der Versuch einer
-Zuordnung unterbleiben muss.
-Für eine sichere Zuordnung ist der Versuch mit der salinen Probe zu wiederholen,
-wobei auf eine bessere Abschirmung von Streulicht zu achten ist.
+Auch die saline Probe liegt mit einer Gitterkonstante von \SI{552(4)}{\pico\metre}
+in einer passenden Größenordnung. Insbesondere der Namensgeber der ZnS-Struktur,
+das Znksulfid oder auch Zinkblende, liegt mit einer Gitterkonstante von
+\SI{541}{\pico\metre}\cite{AM} innerhalb einer $3\sigma$-Umgebung des bestimmten Wertes.
+Hierbei ist auch das Aussehen der Probe als weißes Pulver passend.
+Problematisch gestalltete sich bei der salinen Probe die starke Verunreinigung
+durch eingedrungenes Steulicht. Dadurch wird insbesondere die Erkennung schwacher
+Reflexe schwierig und die Gefahr, schwache Refelexe zu übersehen steigt.
+Für ein sichereres Ergebnis ist die Messung daher mit verbesserter Streulichtabschirmung
+zu wiederholen.

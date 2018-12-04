@@ -39,6 +39,7 @@ zu sehen.
 \end{table}
 
 \subsection{Berechnung der Landéschen \gF-Faktoren und der zugehörigen Kernspins}
+\label{sec:kernspins}
 Zur Berechnung der Landéschen \gF-Faktoren wird
 \begin{align*}
   \omega_0 &= \underbrace{g_{\symup F} \, \frac{\mu_{\symup B}}{\symup h}}_{\substack{m^{-1}}} \, B_0 \\
@@ -85,7 +86,7 @@ Es ergeben sich als \enquote{Tiefen} $T_{1, 2}$ der Peaks
 in Pixeln. Damit folgt, dass die Verteilung bei $\sim \SI{32}{\percent}$ ($\symup{^{87} Rb}$)
 und $\sim \SI{68}{\percent}$ ($\symup{^{85} Rb}$) liegt. In der Natur liegen die
 Isotope in dem Verhältnis $\sim \SI{72}{\percent}$ ($\symup{^{85} Rb}$) und
-$\sim \SI{28}{\percent}$ ($\symup{^{87} Rb}$) vor.
+$\sim \SI{28}{\percent}$ ($\symup{^{87} Rb}$) vor \cite{internetchemie}.
 
 \subsection{Abschätzung des quadratischen Zeeman-Effekts}
 Zur Abschätzung des quadratischen Zeeman-Effekts wird \eqref{eqn:quadratischer-zeeman}
@@ -151,4 +152,36 @@ Periodendauern zu sehen.
   \label{abb:ansteigende-flanken}
 \end{figure}
 
-\section{Diskusion}
+\section{Diskussion}
+Zur Messung des Erdmagnetfeldes lässt sich sagen, dass die gefitteten Werte
+um eine Größenordnung zu klein sind. An sich wird aus \autoref{abb:Bfelf} ersichtlich,
+dass der Fit gut funktioniert hat. Möglicherweise hat ein anderes, stärkeres Magnetfeld,
+z.B. vom Faraday-Versuch, einen Einfluss auf diese Messung gehabt.
+
+Dass der Fit gut funktioniert hat, zeigt sich auch an der Bestimmung der Landéschen
+\gF-Faktoren und den Kernspins, die aus der Steigung der Geraden aus
+\autoref{abb:Bfelf} berechnet werden. Der Vergleich mit den Literaturwerten
+zeigt, dass sich Diese in der Fehlertoleranz der errechneten Werte befinden.
+
+Das aus dem Amplitudenverhältnis berechnete Isotopenverhältnis weicht von dem Natur
+gegebenen Verhältnis ab. Der Anteil an $\symup{^{85} Rb}$ ist in der Natur um
+etwa vier Prozentpunkte höher, demenstprechend ist der Anteil an $\symup{^{87} Rb}$
+um etwa vier Prozentpunkte zu hoch.
+
+Die Abschätzung des quadratischen Zeemaneffektes bei den hier verwendeten Magnetfeldern
+hat Werte von ungefähr \SI{e-9}{\eV} ergeben. Dies war zu erwarten, da die in diesem
+Versuch verwendeten externen Magnetfelder nicht ausreichen, um die Spin-Bahn-Kopplung aufzubrechen.
+Deshalb liegen die Energien des Effekts in einem niedrigen Bereich.
+
+Zu den Periodendauern lässt sich sagen, dass die Messwerte gut zu dem Fit in \autoref{abb:perioden}
+passen. Allerdings passt der Quotient nicht zum theoretischen Wert von 1,5. Allerdings
+liegt der Kehrwert bei \num{1.60(29)}, enthält also in seiner Fehlertoleranz den
+theoretischen Wert. Aufgrund der guten Übereinstimmung mit den theoretischen Kernspins
+wurde die erste Resonanzstelle $\symup{^{87} Rb}$ und die zweite  $\symup{^{85} Rb}$
+zugeordnet. Der hier berechnete Wert spricht allerdings genau für den umgekehrten
+Fall. Die Messung der Periodendauern unterlag aber größeren Schwankungen als
+der Messung des gesamten Horizontalfeldes, deswegen wird die Zuordnung wie sie in
+\autoref{sec:kernspins} getroffen wurde, beibehalten. Durch eine wiederholte Messung
+der Periodendauern in möglicherweise kleineren Schrittweiten könnte der Hyperbel-Fit
+verbessert und somit das Verhältnis $b(\symup{^{87} Rb})/b(\symup{^{85} Rb})$ besser dem
+theoretischen Wert angepasst werden.

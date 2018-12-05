@@ -70,8 +70,8 @@ bB2 = ufloat(paramsB2[1], errorsB2[1])
 g1 = constants.h/(mB1 * bohr)
 g2 = constants.h/(mB2 * bohr)
 
-print('Landesche gF')
-print("G1: ", g1)
+print('Landésche gF')
+print("g1: ", g1)
 print("g2: ", g2)
 g = g1/g2
 print("Verhältnis 1/2: ", g)

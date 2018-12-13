@@ -29,8 +29,8 @@ a_cut = x[a >= 1][1]
 b = g1g2(x, r1_2, r2_2)
 b_cut = x[b >= 1][1]
 
-print(a_cut)
-print(b_cut)
+print('maximum lenght 1: ', a_cut)
+print('maximum lenght 2: ', b_cut)
 
 
 plt.plot(x, g1g2(x, r1_1, r2_1), 'r.', label=r"$r_1$ = 0,5 m, $r_2$ = 0,2 m")

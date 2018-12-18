@@ -6,6 +6,7 @@ from scipy.stats import sem
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
 from scipy import constants
+from scipy.signal import find_peaks
 
 # Use latex fonts and text
 plt.rc('text', usetex=True)
@@ -91,9 +92,11 @@ v_mean = np.sqrt(2 * k * T / M)
 delta = (c + v_mean) / (c - v_mean)
 
 # print frequency from 632.8nm wavelength and resulting doppler-effect
-print(f, np.abs(2 * (f - delta * f)))
+print("f_632,8 nm, delta_f_Doppler, lambda_mit_Doppler")
+print(f, np.abs(2 * (f - delta * f)), np.abs(c / (delta * f)) * 10**9)
 
 # print mean frequency between modes
+print("delta_nu1, delta_nu2, delta_nu3:")
 print(dnu1, dnu2, dnu3)
 
 print('----------------------------------------------------------------------')
@@ -179,4 +182,40 @@ plt.tight_layout()
 plt.savefig('Auswertung/Plots/Winkel.pdf')
 plt.clf()
 
+print('----------------------------------------------------------------------')
+g = 1 / 100
+IDunkel = 0.00518
+l = 136
+
+x, I = np.genfromtxt('Auswertung/daten_wl.txt', unpack=True)
+I = I - IDunkel
+
+Peaks, _ = find_peaks(x=I)
+Peak_Pos = x[Peaks]
+Peaks = I[Peaks]
+
+plt.figure(4)
+plt.plot(x, I, 'rx', label=r"Messwerte Beugungsbild")
+plt.plot(Peak_Pos, Peaks, 'bx', label='Maxima')
+# plt.plot(phi_space, Winkel_I(phi_space, *paramsWinkel), 'r-', label="Fit")
+plt.xlabel(r'Winkel / Grad')
+plt.ylabel(r'Intensitaet / $\mu$A')
+plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('Auswertung/Plots/Beugung.pdf')
+plt.clf()
+
+d1 = np.abs(Peak_Pos[1] - Peak_Pos[0])
+d2 = np.abs(Peak_Pos[1] - Peak_Pos[2])
+
+lam1 = g * np.sin(np.arctan(d1 / l)) * 10**6
+lam2 = g * np.sin(np.arctan(d2 / l)) * 10**6
+
+print("Wellenlänge links, Wellenlänge rechts")
+print(lam1, lam2)
+
+print('----------------------------------------------------------------------')
+
 print('Alles ausgeführt!')
+
+print('----------------------------------------------------------------------')

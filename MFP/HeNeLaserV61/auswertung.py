@@ -88,6 +88,8 @@ f = c / lam
 # v_mean from boltzman formular
 v_mean = np.sqrt(2 * k * T / M)
 
+print(v_mean)
+
 # delta factor from doppler-effect
 delta = (c + v_mean) / (c - v_mean)
 
@@ -112,6 +114,25 @@ def M01_Intensitaet(x, I0, sigma, x0):
 
 x00, _, M00 = np.genfromtxt('Auswertung/daten_M00.txt', unpack=True)
 x01, M01, _ = np.genfromtxt('Auswertung/daten_M01.txt', unpack=True)
+
+np.savetxt("Auswertung/Tabellen/M00_Tabelle.tex",
+           np.column_stack([
+                           x00[:30],
+                           M00[:30],
+                           x00[30:60],
+                           M00[30:60]
+                           ]), delimiter=' & ', newline=r' \\' + '\n',
+           fmt='%.1f & %.1f & %.1f & %.1f')
+
+np.savetxt("Auswertung/Tabellen/M01_Tabelle.tex",
+           np.column_stack([
+                           x01[:24],
+                           M01[:24],
+                           x01[24:],
+                           M01[24:]
+                           ]), delimiter=' & ', newline=r' \\' + '\n',
+           fmt='%.1f & %.1f & %.1f & %.1f')
+
 M01 = M01 - IDunkel
 M00 = M00 - IDunkel
 
@@ -157,20 +178,27 @@ print('----------------------------------------------------------------------')
 
 phi, I = np.genfromtxt('Auswertung/daten_pol.txt', unpack=True)
 
+np.savetxt("Auswertung/Tabellen/Winkel_Tabelle.tex",
+           np.column_stack([
+                           phi,
+                           I
+                           ]), delimiter=' & ', newline=r' \\' + '\n',
+           fmt='%.0f & %.2f')
 
-def Winkel_I(phi, A0, phi0, c):
-    return A0**2 * np.cos((phi + phi0) * (np.pi / 180))**2 + c
+
+def Winkel_I(phi, A0, phi0):
+    return A0 * np.cos((phi + phi0) * (np.pi / 180))**2
 
 paramsWinkel, covWinkel = curve_fit(Winkel_I, phi, I)
 errorsWinkel = np.sqrt(np.diag(covWinkel))
 A0_Winkel = ufloat(paramsWinkel[0], errorsWinkel[0])
 phi0_Winkel = ufloat(paramsWinkel[1], errorsWinkel[1])
-c_Winkel = ufloat(paramsWinkel[2], errorsWinkel[2])
+# c_Winkel = ufloat(paramsWinkel[2], errorsWinkel[2])
 
 phi_space = np.linspace(0, 360, 1000)
 
 print("A0, phi0, c")
-print(A0_Winkel, phi0_Winkel, c_Winkel)
+print(A0_Winkel, phi0_Winkel+360)
 
 plt.figure(3)
 plt.plot(phi, I, 'rx', label=r"Messwerte Polarisationsmessung")
@@ -188,11 +216,23 @@ IDunkel = 0.00518
 l = 136
 
 x, I = np.genfromtxt('Auswertung/daten_wl.txt', unpack=True)
+
+np.savetxt("Auswertung/Tabellen/WL_Tabelle.tex",
+           np.column_stack([
+                           x[:22],
+                           I[:22],
+                           x[22:],
+                           I[22:]
+                           ]), delimiter=' & ', newline=r' \\' + '\n',
+           fmt='%.1f & %.3f & %.1f & %.3f')
+
 I = I - IDunkel
 
 Peaks, _ = find_peaks(x=I)
 Peak_Pos = x[Peaks]
 Peaks = I[Peaks]
+
+print("Peakpositionen: ", Peak_Pos)
 
 plt.figure(4)
 plt.plot(x, I, 'rx', label=r"Messwerte Beugungsbild")
@@ -207,6 +247,10 @@ plt.clf()
 
 d1 = np.abs(Peak_Pos[1] - Peak_Pos[0])
 d2 = np.abs(Peak_Pos[1] - Peak_Pos[2])
+
+print("Abstände zum 0. Maximum: ", d1, "0", d2)
+
+print("Winkel: ", np.arctan(d1 / l), 0, np.arctan(d2 / l))
 
 lam1 = g * np.sin(np.arctan(d1 / l)) * 10**6
 lam2 = g * np.sin(np.arctan(d2 / l)) * 10**6

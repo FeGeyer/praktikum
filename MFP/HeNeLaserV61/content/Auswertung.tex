@@ -1,5 +1,5 @@
 \section{Auswertung}
-Alle im folgenden durchgeführten Ausgleichsrechnungen werden mit der Funktion
+Alle im folgenden durchgeführten Ausgleichsrechnungen werden mit der Funktion\\
 \texttt{curve\_fit} aus der Python\cite{python}-Bibliothek
 \texttt{scipy.optimize}\cite{scipy} ausgeführt.
 Fehlerrechnungen werden durch die Bibliothek \texttt{uncertainties}\cite{uncertainties} automatisiert,
@@ -18,11 +18,11 @@ Spiegelanordnungen:
 Theoretisch ergeben sich für $g_1 g_2$ mit $g_i = 1 - \frac{L}{r_i}$ die in
 \autoref{abb:Aus1} dargestellten Kurven.
 Für beide Spiegelkonfigurationen ist für eine Resonatorlänge von \SI{1400}{\milli\metre}
-die Stabilitätsbedingung \autoref{eqn:Stabilität} verletzt.
+die Stabilitätsbedingung \eqref{eqn:Stabilität} verletzt.
 Im Experiment zeigt sich ein Aussetzen der Lasingtätigkeit für eine Resonatorlänge von
 \begin{align*}
-  1: & \SI{1382}{\milli\metre}\\
-  2: & \SI{1387}{\milli\metre}.
+  1: &\; \SI{1382}{\milli\metre}\\
+  2: &\; \SI{1387}{\milli\metre}.
 \end{align*}
 
 \begin{figure}[h]
@@ -175,7 +175,8 @@ in einen Winkel und da es sich um Maxima erster Ordnung handelt über
   \lambda = d \sin{(\alpha)}
 \end{equation}
 in eine Wellenlänge umgerechnet.
-Im Mittel ergibt sich eine Wellenlänge von \SI{642.05(1827)}{\nm}.
+Im Mittel ergibt sich eine Wellenlänge von \\
+\SI{642.05(1827)}{\nm}.
 
 \begin{table}[h]
   \centering
@@ -248,5 +249,33 @@ und damit bei Vakuumlichtgeschwindigkeit $c$ eine Dopplerverschiebung von
   \end{tabular}
 \end{table}
 
-
 \section{Diskussion}
+\subsection{Überprüfung der Resonatorlänge}
+Für beide Konfigurationen konnte der theoretische Wert annähernd erreicht bleiben.
+Aufgrund der Empfindlichkeit des Versuchsaufbaus gegenüber kleinster Verrückungen
+senkrecht zur Bewegungsrichtung bei großen Resonatorlängen sollten diese
+Ergebnisse jedoch mit einem stabileren Aufbau erneut überprüft werden.
+Da die theoretischen Werte bei Durchführung des Versuchs bekannt waren und die
+Lasingtätigkeit des Lasers während der Verrückung aufgrund leichter Wackelbewegungen
+immer wieder aussetzt, verbleibt die Möglichkeit, dass ein Aussetzen des Lasens
+durch Wackeln fälschlicher Weise als Messwert gewertet wurde.
+Insbesondere die erste untersuchte Konfiguration berührt im optimalen Falle
+am untersuchten Punkt lediglich den $0$-Wert berührt und eventuelle Unterschreitungen
+von kleinen Justageabweichungen herrühren.
+
+\subsection{Vermessung der TEM Moden}
+Beide Kurven lassen sich mit kleinen Fehlern auf die Theoriekurve anpassen,
+sodass die Vermessung der Moden allgemein als erfolgreich angenommen werden kann.
+Lediglich die Vermessung der 01-Mode gestalltete sich dahingehend als schwierig,
+dass durch einen schiefen Draht, der als Modenblende genutzt wurde, eine Schiefstellung
+des aufgenommenen Bildes resultierte. Da diese durch die zur Aufnahme genutzten
+Photodiode nicht kompensiert werden konnte, konnten bei kleinen Werten auf der
+$x$-Achse keine brauchbaren Messdaten aufgenommen werden.
+Für eine statistisch besser unterlegte Ausgleichsrechnung ist die Messung mit
+einer besseren Modenblende zu wiederholen.
+
+\subsection{Untersuchung der Polarisation}
+
+\subsection{Wellenlängenbestimmung}
+
+\subsection{Vermessung der Longitudinalen Moden}

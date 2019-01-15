@@ -1,3 +1,85 @@
 \section{Auswertung}
+\subsection{Bestimmung der longitudinalen Relaxationszeit}
+Zur Bestimmung der longitudinalen Relaxationszeit wird \eqref{eqn:t1} genutzt.
+Die gemessenen Werte sind in \autoref{tab:t1} aufgetragen.
+Ein Fit der Form \eqref{eqn:t1} ergibt die Parameter
+\begin{align}
+  M_0 &= \SI{668(10)}{\mV} \label{eqn:M0_T1} \\
+  T_1 &= \SI{2.13(7)}{\s} \label{eqn:T1} \, .
+\end{align}
+
+\begin{table}
+  \centering
+  \caption{Messwerte zur Bestimmung von $T_1$}
+  \label{tab:t1}
+  \begin{tabular}{c c}
+    \toprule
+    $\tau$ / \si{\ms} & $M_z(t)$ / \si{\mV} \\
+    \midrule
+    5.0 & -667.5 \\
+    10.0 & -727.5 \\
+    25.0 & -690.0 \\
+    75.0 & -625.0 \\
+    100.0 & -590.0 \\
+    250.0 & -505.0 \\
+    500.0 & -355.0 \\
+    750.0 & -245.0 \\
+    1000.0 & -162.5 \\
+    1500.0 & 30.0 \\
+    2500.0 & 192.5 \\
+    7500.0 & 625.0 \\
+    8000.0 & 647.5 \\
+    9000.0 & 625.0 \\
+    9500.0 & 642.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Der Plot mit den Messwerten und dem Fit ist in \autoref{fig:T1} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.7]{Auswertung/Plots/T1.pdf}
+  \caption{Grafische Darstellung der Werte mit einem Fit der Form \eqref{eqn:t1}.
+  Dabei ist $M_0$ der aus dem Fit bestimmte Parameter.}
+  \label{fig:T1}
+\end{figure}
+
+\subsection{Bestimmung der transversalen Relaxationszeit}
+Im Laufe der Messung wurden Burstsequenzen nach der Carr-Purcell-Methode und nach
+der Meiboom-Gill-Methode aufgenommen. Die jeweiligen Sequenzen sind in \autoref{subfig:Carr-Purcell}
+und in \autoref{subfig:Meiboom-Gill} zu sehen.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.469\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Auswertung/Plots/CP.pdf}
+    \caption{Burstsequenz nach der Carr-Purcell-Methode.}
+    \label{subfig:Carr-Purcell}
+  \end{subfigure}
+  \qquad
+  \begin{subfigure}{0.469\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Auswertung/Plots/MG.pdf}
+    \caption{Burstsequenz nach der Meiboom-Gill-Methode.}
+    \label{subfig:Meiboom-Gill}
+  \end{subfigure}
+  \caption{Während der Versuchs aufgenommene Burstsequenzen.}
+  \label{fig:Burstsequenzen}
+\end{figure}
+
+Zur Bestimmung der transversalen Relaxationszeit wird die Meiboom-Gill-Methode
+verwendet. Dazu werden die Peaks aus \autoref{subfig:Meiboom-Gill} mit der
+Funktion $\textsc{find\_peaks}$ aus dem Paket $\textsc{scipy.signal}$ gefiltert
+und ein Fit nach \eqref{eqn:t2} durchgeführt. Der Plot dazu ist in \autoref{fig:T2}
+zu sehen.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.7]{Auswertung/Plots/Peaks.pdf}
+  \caption{Peaks aus \autoref{subfig:Meiboom-Gill}, gefittet mit einer Exponentialfunktion
+  nach \eqref{eqn:t2}.}
+  \label{fig:T2}
+\end{figure}
 
 \section{Diskussion}

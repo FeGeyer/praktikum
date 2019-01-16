@@ -7,6 +7,7 @@ TeXOptions = -lualatex \
 
 build/dokument.pdf: FORCE | build
 	mkdir -p Auswertung/Tabellen/
+	mkdir -p Auswertung/Plots/
 	python 	auswertung.py
 	latexmk $(TexOptions) dokument.tex
 

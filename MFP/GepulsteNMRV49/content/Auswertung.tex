@@ -39,15 +39,15 @@ Der Plot mit den Messwerten und dem Fit ist in \autoref{fig:T1} dargestellt.
 \begin{figure}
   \centering
   \includegraphics[scale=0.7]{Auswertung/Plots/T1.pdf}
-  \caption{Grafische Darstellung der Werte mit einem Fit der Form \eqref{eqn:t1}.
-  Dabei ist $M_0$ der aus dem Fit bestimmte Parameter.}
+  \caption{Grafische Darstellung der Werte mit einem Fit der Form
+  \eqref{eqn:t1}. Dabei ist $M_0$ der aus dem Fit bestimmte Parameter.}
   \label{fig:T1}
 \end{figure}
 
 \subsection{Bestimmung der transversalen Relaxationszeit}
-Im Laufe der Messung wurden Burstsequenzen nach der Carr-Purcell-Methode und nach
-der Meiboom-Gill-Methode aufgenommen. Die jeweiligen Sequenzen sind in \autoref{subfig:Carr-Purcell}
-und in \autoref{subfig:Meiboom-Gill} zu sehen.
+Im Laufe der Messung wurden Burstsequenzen nach der Carr-Purcell-Methode und
+nach der Meiboom-Gill-Methode aufgenommen. Die jeweiligen Sequenzen sind in
+\autoref{subfig:Carr-Purcell} und in \autoref{subfig:Meiboom-Gill} zu sehen.
 
 \begin{figure}
   \centering
@@ -71,15 +71,149 @@ und in \autoref{subfig:Meiboom-Gill} zu sehen.
 Zur Bestimmung der transversalen Relaxationszeit wird die Meiboom-Gill-Methode
 verwendet. Dazu werden die Peaks aus \autoref{subfig:Meiboom-Gill} mit der
 Funktion $\textsc{find\_peaks}$ aus dem Paket $\textsc{scipy.signal}$ gefiltert
-und ein Fit nach \eqref{eqn:t2} durchgeführt. Der Plot dazu ist in \autoref{fig:T2}
-zu sehen.
+und ein Fit nach \eqref{eqn:t2} durchgeführt. Der Plot dazu ist in
+\autoref{fig:T2} zu sehen. Die Parameter ergeben sich zu
+\begin{align}
+  M_0 &= \SI{590.3(21)}{\mV} \label{eqn:M0_T2} \\
+  T_2 &= \SI{1.600(10)}{\s} \label{eqn:T2}
+\end{align}
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.7]{Auswertung/Plots/Peaks.pdf}
-  \caption{Peaks aus \autoref{subfig:Meiboom-Gill}, gefittet mit einer Exponentialfunktion
-  nach \eqref{eqn:t2}.}
+  \caption{Peaks aus \autoref{subfig:Meiboom-Gill},
+  gefittet mit einer Exponentialfunktion nach \eqref{eqn:t2}.}
   \label{fig:T2}
 \end{figure}
+
+\clearpage
+\subsection{Bestimmung des Diffusionskoeffizienten}
+Um den Diffusionskoeffizienten zu bestimmen, muss der Feldgradient $G$ bekannt
+sein. Dieser errechnet sich aus
+\begin{equation}
+  G = \frac{4 \cdot 2,2}{d \, \gamma \, t_{1/2}}
+  \label{eqn:Feldgradient}
+\end{equation}
+mit $d = \SI{4.4}{\milli\meter}$, dem gyromagnetischen Faktor $\gamma =
+\SI{42.576}{\mega\hertz\per\tesla} $\cite{gyro} und der Halbwertszeit $t_{1/2}$.
+Während der Messung wurden für die verschiedenen Spin-Echos die x-Werte der
+halben Höhe der Peaks aufgenommen und sind in \autoref{tab:halbwertsbreite}
+dargestellt. Die Differenz der x-Werte ist die Halbwertsbreite, welche auch in
+\autoref{tab:halbwertsbreite} zu sehen ist.
+
+\begin{table}
+  \centering
+  \caption{x-Werte der halben Höhe der Peaks und die daraus errechnete
+  Halbwertsbreite $t_{1/2}$}
+  \label{tab:halbwertsbreite}
+  \begin{tabular}{c c c}
+    \toprule
+    $x_1$ / \si{\ms} & $x_2$ / \si{\ms} & $t_{1/2}$ / \si{\ms} \\
+    \midrule
+    10.058 & 9.966 & 0.092 \\
+    12.058 & 11.956 & 0.102 \\
+    14.054 & 13.966 & 0.088 \\
+    15.858 & 15.771 & 0.087 \\
+    18.054 & 17.965 & 0.089 \\
+    19.968 & 20.060 & 0.091 \\
+    21.979 & 22.057 & 0.078 \\
+    23.970 & 24.041 & 0.071 \\
+    25.980 & 26.051 & 0.071 \\
+    27.974 & 28.039 & 0.065 \\
+    29.987 & 30.046 & 0.059 \\
+    31.983 & 32.040 & 0.057 \\
+    33.986 & 34.040 & 0.054 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Um schließlich die Diffusionskonstante zu bestimmen, wird die Funktion
+\begin{equation}
+  \ln(M_y(t)) = \ln(M_0) - \frac{t}{T_2} - D \, \gamma^2 \, G^2 \, \frac{t^3}{12}
+  \label{eqn:Diffusionskonstante}
+\end{equation}
+gefittet an die Messwerte aus \autoref{tab:D} ($t = 2\tau$). Mit dem bekannten
+gyromagnetischen Faktor und dem errechneten Feldgradienten $G$ aus
+\eqref{eqn:Feldgradient} ergeben sich als Parameter des Fits
+\begin{align}
+  M_0 &= \SI{214(11)}{\mV} \label{eqn:M0_D} \\
+  D &= \SI{8.7(5)e-10}{\meter\squared\per\second} \, .
+\end{align}
+Die grafische Darstellung der Messwerte und des Fits befindet sich in
+\autoref{fig:D}.
+
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Verzögerungszeit und der Tiefe der Peaks bei maximalem
+  Feldgradienten}
+  \label{tab:D}
+  \begin{tabular}{c c}
+    \toprule
+    $\tau$ / \si{\ms} & $M_y(t)$ / \si{\mV} \\
+    \midrule
+    5.0 & -240.0 \\
+    6.0 & -220.0 \\
+    7.0 & -190.0 \\
+    8.0 & -175.0 \\
+    9.0 & -157.5 \\
+    10.0 & -140.0 \\
+    11.0 & -110.0 \\
+    12.0 & -100.0 \\
+    13.0 & -77.5 \\
+    14.0 & -65.0 \\
+    15.0 & -52.5 \\
+    16.0 & -45.0 \\
+    17.0 & -37.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.7]{Auswertung/Plots/Diffusion.pdf}
+  \caption{Grafische Darstellung der Messwerte und des Fits.}
+  \label{fig:D}
+\end{figure}
+
+Aus der Diffusionskonstante soll nach
+\begin{equation}
+  D = \frac{k_B \, T}{6 \, \pi \, r \, \eta}
+  \label{eqn:Molekülradius}
+\end{equation}
+der Molekülradius $r$ bestimmt werden. Dazu wird die Viskosität $\eta$ benötigt.
+Diese bestimmt sich nach
+\begin{equation}
+  \eta(T) = \rho \, \alpha \, (t - \delta) \, ,
+\end{equation}
+mit der Dichte $\rho$, einer Eichkonstante $\alpha =
+\SI{1.024e-9}{\meter\squared\per\second\second}$ und $\delta$ aus einem
+Zusammenhang mit der Zeit $t$, der in \autoref{tab:viskosität} aufgetragen ist.
+
+\begin{table}
+  \centering
+  \caption{Zusammenhang zwischen $\delta$ und $t$}
+  \label{tab:viskosität}
+  \begin{tabular}{c c}
+    \toprule
+    $t$ / \si{\s} & $\delta$ / \si{\s} \\
+    \midrule
+    350.0 & 3.4 \\
+    400.0 & 2.6 \\
+    450.0 & 2.1 \\
+    500.0 & 1.7 \\
+    600.0 & 1.2 \\
+    700.0 & 0.9 \\
+    800.0 & 0.7 \\
+    900.0 & 0.5 \\
+    1000.0 & 0.4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mit einer gemessenen Zeit von \SI{935.7}{\s} ergibt sich aus einem linearen Fit
+mit den letzten vier Werten aus \autoref{tab:viskosität} für $\delta =
+\SI{0.479}{\s}$. Damit ergibt sich eine Viskosität von
+\SI{9.577e-07}{\gram\per\meter} für $\rho = 1$.
 
 \section{Diskussion}

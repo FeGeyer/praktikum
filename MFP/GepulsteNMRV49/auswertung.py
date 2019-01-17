@@ -120,7 +120,8 @@ x_1 = x_1 * 10**(-3)    # Sekunden
 x_2 = x_2 * 10**(-3)    # Sekunden
 # Halbwertsbreite
 halbwertsbreite = np.mean(np.abs(x_1-x_2))
-print("Halbwertsbreite: ", halbwertsbreite, sem(np.abs(x_1-x_2)))
+print("Halbwertsbreite: ", round(halbwertsbreite*10**6, 2),
+      round(sem(np.abs(x_1-x_2))*10**6, 2))
 
 # Tabellen
 np.savetxt('Auswertung/Tabellen/t12.txt',
@@ -186,12 +187,19 @@ plt.plot(x, linear(x, *params_visko), 'b--')
 
 delta_1 = linear(delta_t, *params_visko)
 print("Delta: ", delta_1)
-eta = 997*1.024*10**(-9)*(delta_t - delta_1)
+eta = 998.2*1.024*10**(-9)*(delta_t - delta_1)
 print("Eta: ", eta)
 
 r = (constants.k * 293.15)/(6*np.pi*D*eta)
 print("---------------------------------------------------------------------")
 print("Molekülradius :", r)
+
+# -----------------------------------------------------------------------------
+# Theoretische Vergleichwerte
+
+print("Hexagonal :", 1-(28.89*10**(-27)/(4/3 * np.pi * 998.2 * 0.74))**(1/3)/r)
+print("Van-der-Waal: ",
+      1-(3*constants.k*647.05/(128*np.pi*22.04*10**6))**(1/3)/r)
 
 # meiboom_gill = pd.read_csv("Auswertung/Daten/pc_t2_csv.csv")
 #

@@ -1,5 +1,41 @@
 \section{Auswertung}
+\subsection{Eingestellte Werte}
+Für die folgenden Versuchsteile wurden die Shim-Parameter auf die in
+\autoref{tab:shim} dargestellten Werte eingestellt.
+
+\begin{table}
+  \centering
+  \caption{Verwendetet Werte für die Shim-Parameter}
+  \label{tab:shim}
+  \begin{tabular}{c c c c}
+    \toprule
+    x & y & z & $\symup{z^2}$ \\
+    \midrule
+    -1.67 & -5.6 & +3.37 & -2.15 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Für die Pulsparameter wurden die Werte in \autoref{tab:parameter-pulse}
+eingestellt.
+
+\begin{table}
+  \caption{Frequenz, Phase, Länge der beiden Pulse, Pulsabstand, Anzahl der zweiten
+  Pulse und Periodenlänge}
+  \label{tab:parameter-pulse}
+  \begin{tabular}{c c c c c c c}
+    \toprule
+    f / \si{\mega\hertz} & $\phi$ / \si{\deg} & A / \si{\micro\second} &
+    B / \si{\micro\second} & $\tau$ / \si{\s} & N & P / \si{\s} \\
+    \midrule
+    \num{21.71} & -107 & 4.8 & 9.6 & 0.0129 & 100 & 12 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Falls die Werte abweichen, wird das am Anfang des Unterkapitels erwähnt.
 \subsection{Bestimmung der longitudinalen Relaxationszeit}
+Diese Messung wird bei einer Periodenlänge von \SI{22}{\second} durchgeführt.
 Zur Bestimmung der longitudinalen Relaxationszeit wird \eqref{eqn:t1} genutzt.
 Die gemessenen Werte sind in \autoref{tab:t1} aufgetragen.
 Ein Fit der Form \eqref{eqn:t1} ergibt die Parameter
@@ -88,6 +124,7 @@ und ein Fit nach \eqref{eqn:t2} durchgeführt. Der Plot dazu ist in
 
 \clearpage
 \subsection{Bestimmung des Diffusionskoeffizienten}
+Zu Beginn dieses Versuchsteils wird z auf -10 und N auf 1 gesetzt.
 Um den Diffusionskoeffizienten zu bestimmen, muss der Feldgradient $G$ bekannt
 sein. Dieser errechnet sich aus
 \begin{equation}
@@ -99,7 +136,9 @@ mit $d = \SI{4.4}{\milli\meter}$, dem gyromagnetischen Faktor $\gamma =
 Während der Messung wurden für die verschiedenen Spin-Echos die x-Werte der
 halben Höhe der Peaks aufgenommen und sind in \autoref{tab:halbwertsbreite}
 dargestellt. Die Differenz der x-Werte ist die Halbwertsbreite, welche auch in
-\autoref{tab:halbwertsbreite} zu sehen ist.
+\autoref{tab:halbwertsbreite} zu sehen ist. Zur Berechnung wurde der Mittelwert
+der Differenzen gebildet, dieser ergibt sich zu
+$t_{1/2} = \SI{77.27(431)}{\micro\second}$.
 
 \begin{table}
   \centering
@@ -214,6 +253,60 @@ Zusammenhang mit der Zeit $t$, der in \autoref{tab:viskosität} aufgetragen ist.
 Mit einer gemessenen Zeit von \SI{935.7}{\s} ergibt sich aus einem linearen Fit
 mit den letzten vier Werten aus \autoref{tab:viskosität} für $\delta =
 \SI{0.479}{\s}$. Damit ergibt sich eine Viskosität von
-\SI{9.577e-07}{\gram\per\meter} für $\rho = 1$.
+\SI{0.000955942187783885}{\kilo\gram\per\meter\per\second} für
+$\rho = \SI{998.2}{\kilo\gram\per\cubic\meter}$ bei $T = \SI{293.15}{\K}$.
+Mit diesem Wert ergibt sich für den Molekülradius aus \eqref{eqn:Molekülradius}
+ein Wert von $r = \SI{2.58(14)e-10}{\meter}$.
+
+Um diesen Wert mit theoretischen Berechnungen zu vergleichen werden nach
+\begin{equation}
+  \rho \cdot 0.74 = \frac{m_{\symup{H_2O}}}{\frac{4}{3}\pi r^3}
+  \label{eqn:hexagonal}
+\end{equation}
+und
+\begin{equation}
+  r_{\symup{VdW}} = \left(\frac{3 k_B T_k}{128 \pi P_k} \right)^{\frac{1}{3}}
+  \label{eqn:kritisch}
+\end{equation}
+Werte für den Molekülradius berechnet. \eqref{eqn:hexagonal} stammt aus der
+Annahme, dass die Moleküle der Flüssigkeit eine hexagonal dichteste Kugelpackung
+einnehmen; \eqref{eqn:kritisch} stammt aus der Annahme, dass es sich um ein
+Van-der-Waals Gas am kritischen Punkt handelt. Es ergeben sich mit
+$m_{\symup{H_2O}} = \SI{28.89e-27}{\kg}$, $T_k = \SI{647.05}{\K}$ \cite{kritisch},
+$P_k = \SI{22.04e6}{\pascal}$ \cite{kritisch} und der bekannten Dichte:
+\begin{align}
+  r_{\symup{hcp}} &= \SI{2.1057e-10}{\m} \label{eqn:ergebnis_hexagonal} \\
+  r_{\symup{VdW}} &= \SI{1.4461e-10}{\m} \label{eqn:ergebnis_vdw}
+\end{align}
 
 \section{Diskussion}
+\subsection{Bestimmung der longitudinalen und transversalen Relaxationszeit}
+Zur Bestimmung der Relaxationszeiten lässt sich sagen, dass die Messung gut
+verlaufen ist. Es gilt nach \eqref{eqn:T1} und \eqref{eqn:T2} $T_1 > T_2$, was
+zu erwarten war. Außerdem legen die guten Übereinstimmungen der Fits aus
+\eqref{fig:T1} und \eqref{fig:T2} nahe, dass die Messung gut verlaufen ist.
+
+\subsection{Bestimmung des Diffusionskoeffizienten}
+Die Bestimmung des Diffusionskoeffizienten ist eher schlecht verlaufen. In
+\autoref{fig:D} wird ersichtlich, dass der Fit eher schlecht zu den gegebenen
+Daten passt. Das liegt höchstwahrscheinlich daran, dass das gewählte Intervall
+der Verzögerungszeiten zu klein ist. Aus Vergleichen mit den Messungen anderer
+Gruppen wird ersichtlich, dass diese kleinere minimale und größere maximale
+Werte aufgenommen haben. Zumindest an der oberen Grenze war dies in unserem Fall
+nicht unbedingt möglich, da sich die Peaks ab \SI{18}{\ms} nicht mehr vom
+Rauschen unterschieden haben. Hier wäre eine wiederholte Messung mit angepasster
+Justage und mehr aufgenommenen Messwerten eine Möglichkeit, um den Wert zu
+verbessern.
+
+\subsection{Bestimmung des Molekülradius}
+Die Bestimmung des Molekülradius aus der Diffusionskonstante ist gut verlaufen.
+Der Wert liegt von der Größenordnung her in einem Bereich, der allgemein als
+Radius für Atomkerne angesehen wird ($\sim \SI{e-10}{\m}$). Allerdings liegt
+keiner der beiden berechneten Theoriewerte im Fehlerintervall des Radius. Die
+Abweichungen betragen \SI{0.19(4)}{\percent} für \eqref{eqn:ergebnis_hexagonal}
+und \SI{0.441(30)}{\percent} für \eqref{eqn:ergebnis_vdw}. Dies liegt
+wahrscheinlich an der schon erwähnten eher schlecht verlaufenen Bestimmung des
+Diffusionskoeffizienten, der direkt in die Berechnung des Molekülradius
+einfließt. Außerdem ist die Bestimmung der Viskosität aus einer Messung mit
+einer Stoppuhr ein weiterer Unsicherheitsfaktor, der möglicherweise durch andere
+Methoden der Viskositätsbestimmung minimiert werden könnte.

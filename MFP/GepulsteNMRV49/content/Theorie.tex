@@ -2,7 +2,7 @@
 Bei der Kernspinresonanz handelt es sich um einen Effekt, der auftritt, da sich
 die magnetischen Momente der Probenatomkerne in einem äußeren Magnetfeld
 teilweise ausrichten.
-Die entstehende Magnetisierung wird bei Ausbleiben des äußeren Feldes
+Die entstehende Magnetisierung wird
 wieder gegen den Ausgangszustand streben und aus dem zeitlichen Verlauf der
 Magnetisierung können Rückschlüsse auf Vorgänge innerhalb der Probe
 und den Relaxationsvorgang an sich gezogen werden.
@@ -33,7 +33,7 @@ Gleichgewicht mit der Vakuumpermeabilität $\mu_{0}$ zu
 \end{equation}
 berechnen lässt.
 Die Größe $N$ bezeichnet hier die Anzahl der Momente pro Volumeneinheit und liegt
-typischerweise in der Größenordnung \SI{e28}{\per\m}.
+typischerweise in der Größenordnung \SI{e28}{\per\cubic\m}.
 
 \subsection{Larmor-Präzession}
 Die Gesamtmagnetisierung $\vec{M}$ der Probe entsteht durch das Zusammenspiel aller
@@ -57,7 +57,7 @@ für die Komponenten der Magnetisierung
 \end{equation}
 ergibt.
 Die Magnetisierung entlang der Feldrichtung ist trivialerweise konstant, sodass
-die Magnetisierung eine Präzessionsbewegung die $z$-Achse
+die Magnetisierung eine Präzessionsbewegung um die $z$-Achse
 ausführt.
 Diese Bewegung mit Frequenz
 \begin{equation}
@@ -85,7 +85,7 @@ Es existieren zwei Arten an Relaxationsvorgängen:
 				übergegangen ist.
 		\item \textbf{Spin-Spin-Relaxationszeit/transversal ($T_{2}$):} Relaxationszeit
 				unter anderem aufgrund der Spin Wechselwirkung von nächsten
-				Nachbarn, als auch Feldinhomogenitäten. Auch hier können Spin-Gitter-Prozesse
+				Nachbarn. Auch hier können Spin-Gitter-Prozesse
         auftreten. Abnahme der zum $B$-Feld senkrechten Komponente.
 \end{itemize}
 
@@ -98,14 +98,19 @@ Magnetfeldrichtung stehen, das Hochfrequenzfeld verhält sich daher wie
 \begin{equation}
   \vec{B}_{\text{HF}} = 2 \vec{B}_{1} \cos{(\omega t)}.
 \end{equation}
-Bei Übergang in ein mitbewegtes Koordinatensystem zeigt sich, dass die Magnetisierung
+Anschaulich lässt sich das Magnetfeld in zwei Komponenten zerlegen, die mit gleichen
+Frequenzen $\pm \omega$ gegengleich rotieren.
+Bei Übergang in ein rotiertes Koordinatensystem zeigt sich, dass die Magnetisierung
 durch die Präzession des Magnetisierungsvektors um das effektive Magnetfeld
 \begin{equation}
   \vec{B}_{\text{eff}} = \vec{B}_{0} + \vec{B}_{1} + \frac{\vec{\omega}}{\gamma}
 \end{equation}
 beschrieben wird.
 Im Fall, dass die Frequenz des HF-Feldes der Larmorfrequenz entspricht,
-Fallen $\vec{B}_{\text{eff}}$ und $\vec{B}_{1}$ genau aufeinander.
+Fallen $\vec{B}_{\text{eff}}$ und $\vec{B}_{1}$ genau aufeinander, in der anschaulichen
+Erklärung oben ist dann nur noch die $+\omega$-Komponente relevant (und dann
+aus Sicht des rotierenden Koordinatensystems stationär), die $-\omega$-Komponente
+kann vernachlässigt werden.
 Die Präzessionsbewegung findet also auf einem Kegel mit Öffnungswinkel \SI{90}{\degree} statt.
 Durch Steuerung der Einstrahlzeit der HF-Pulse kann $\vec{M}$ um einen beliebigen
 Winkel gedreht werden.
@@ -118,7 +123,8 @@ aus der $z$- in die $-z$-Richtung.
 
 \subsection{Einfluss der Diffusion auf das Relaxationsverhalten einer flüssigen Probe}
 Da das Verhalten der Probe nicht statisch ist, wird die Larmorfrequenz zeitabhängig.
-Durch zwangsweise vorkommende Inhomogenitäten des B-Feldes und Diffusion von Kernspins
+Durch zwangsweise vorkommende Inhomogenitäten des B-Feldes, die sich in einem Feldgradienten
+äußern, und Diffusion von Kernspins
 durch die Brownsche Molekularbewegung spüren einzelne Spins zeitabhängig ein
 sich veränderndes Magnetfeld.
 Dadurch resultiert, dass die Amplitude der Magnetisierung schneller abnimmt, als
@@ -178,9 +184,10 @@ vorherigen Justage.
 \subsection{Freier Induktionszerfall (FID)}
 Wird die Probe einem $\symup{\Delta} t_{90}$-Puls ausgesetzt, wird die Magnetisierung in
 die $xy$-Ebene gebracht und beginnt dort zu präzedieren.
-Mit der Zeit relaxiert die Magnetisierung wieder in die Gleichgewichtslage, da es
-zu Wechselwirkungen mit Nachbarn und Feldinhomogenitäten kommt und es kommt zu einer
-Dephasierung der Spins entlang der $z$-Achse.
+Mit der Zeit relaxiert die Magnetisierung wieder in die Gleichgewichtslage, da
+ein Feldgradient vorliegt und die Spins Diffusionsprozessen unterliegen und somit ein
+zeitlich nicht konstantes Magnetfeld spühren, kommt und es zu einer
+Dephasierung der Spins in der $xy$-Ebene.
 Für hinreichend homogene Felder kann die Relaxationszeit
 \begin{equation}
 		\frac{1}{T_2^*} = \frac{1}{T_2} + \frac{1}{T_{\Delta B}}
@@ -219,7 +226,7 @@ aufgenommen werden kann.
 Problematisch ist hierbei, dass die nicht vermeidbaren Justagefehler bei der Dauer
 der $\symup{\Delta} t_{180}$-Pulse dazu führen, dass die Magnetisierung mit steigender
 Zahl der Pulse immer weiter von der $xy$-Ebene abweichen.
-Dieses Problem bei der Carr-Purcell-Methode kann durch die Meibooms-Gill-Methode
+Dieses Problem bei der Carr-Purcell-Methode kann durch die Meiboom-Gill-Methode
 ausgeglichen werden.
 Durch eine spezielle Vorrichtung wird die Phase der $\symup{\Delta} t_{180}$-Pulse
 um \SI{90}{\degree} gegenüber dem $\symup{\Delta} t_{90}$-Puls gedreht.
@@ -255,7 +262,8 @@ Dazu wird die Zeit gemessen, in der die Flüssigkeit zwischen zwei Markierungen 
 Zur Justage wird eine Lösung von paramagnetischem Kupfersulfat in Wasser als
 Probe eingebracht.
 Es werden daraufhin die FID-Parameter Larmorfrequenz, Shim und Pulslänge auf
-maximale Amplitude und minimale Zerfallsdauer eingestellt.
+maximale Amplitude und maximale Zerfallsdauer eingestellt. Desweiteren werden
+Schwingungen der Magentesierung unterdrückt.
 Nach erfolgreicher Justage wird die Probe durch bidestiliertes Wasser ersetzt und
 die Parameter abschließend überprüft.
 
@@ -266,7 +274,7 @@ $\symup{\Delta} t_{90}$-Puls eingestellt.
 Über ein Oszilloskop können die Maxima des zweiten Impulses abgelesen werden.
 Es werden mehrere Messwerte für verschiedene Abstände $\tau$ aufgenommen.
 Danach werden $\symup{\Delta} t_{90}$- und $\symup{\Delta} t_{180}$-Puls getauscht,
-sodass die Impulsfolge für das Impuls-Echo-Verfahren eingestellt ist.
+sodass die Pulsfolge für das Spin-Echo-Verfahren eingestellt ist.
 Bei ausreichend hoher Periodendauer werden für je $100$ Wiederholungen des
 $\symup{\Delta} t_{180}$-Pulses die Signalverläufe für eine Messung
 mit und ohne Meiboom-Gill-Methode auf dem Oszilloskop ausgelesen.

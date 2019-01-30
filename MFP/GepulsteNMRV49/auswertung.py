@@ -35,6 +35,7 @@ plt.plot(tau_t1, peak_t1, 'b.', label="Daten")
 plt.plot(x, f_t1(x, *paramsT1), 'r-', label="Fit")
 plt.axhline(y=paramsT1[1], label=r"$M_0$")
 plt.axhline(y=-paramsT1[1])
+plt.xscale('log')
 plt.xlabel(r'$\tau$ / ms')
 plt.ylabel(r"$M(z)$ / mV")
 plt.legend(loc='best')
@@ -135,6 +136,7 @@ np.savetxt('Auswertung/Tabellen/D.txt',
 gyro = 42.576*10**6     # Hz pro Tesla
 d = 4.4*10**(-3)    # Probenduchmesser in meter
 G = 2.2*4/(d * gyro * halbwertsbreite)
+print("G: ", G)
 
 
 def f_d(x, M0, D):
@@ -196,8 +198,9 @@ print("Molekülradius :", r)
 
 # -----------------------------------------------------------------------------
 # Theoretische Vergleichwerte
-
-print("Hexagonal :", 1-(28.89*10**(-27)/(4/3 * np.pi * 998.2 * 0.74))**(1/3)/r)
+print("Hexagonaler Wert: ",
+      (28.89*10**(-27)*0.74/(4/3 * np.pi * 998.2))**(1/3))
+print("Hexagonal :", 1-(28.89*10**(-27)*0.74/(4/3 * np.pi * 998.2))**(1/3)/r)
 print("Van-der-Waal: ",
       1-(3*constants.k*647.05/(128*np.pi*22.04*10**6))**(1/3)/r)
 

@@ -133,32 +133,38 @@ np.savetxt('Auswertung/Tabellen/D.txt',
            delimiter=' & ', newline=r' \\'+'\n', fmt="%.1f")
 
 # Größen
-gyro = 42.576*10**6     # Hz pro Tesla
+gyro = 42.576*10**6*2*np.pi     # Hz pro Tesla
 d = 4.4*10**(-3)    # Probenduchmesser in meter
 G = 2.2*4/(d * gyro * halbwertsbreite)
 print("G: ", G)
 
 
-def f_d(x, M0, D):
-    return M0 * np.exp(-x/T2.n) * np.exp(-D*gyro**2*G**2*x**3/12)
+def f_d(x, M0, D, A):
+    return M0 * np.exp(-x/T2.n) * np.exp(-D*gyro**2*G**2*x**3/12) + A
 
 
 def log(x, M0, D):
     return np.log(M0) - x/T2.n - (D*gyro**2*G**2/12)*x**3
 
 
-params_d, cov_d = curve_fit(log, 2*tau_d, np.log(-peak_d),
-                            p0=[0.5, 1.6*10**(-9)])
+# params_d, cov_d = curve_fit(log, 2*tau_d, np.log(-peak_d),
+#                             p0=[0.5, 1.6*10**(-9)])
+params_d, cov_d = curve_fit(f_d, 2*tau_d, -peak_d,
+                            p0=[0.5, 1.6*10**(-9), 1])
 error_d = np.sqrt(np.diag(cov_d))
 M0_d = ufloat(params_d[0], error_d[0])
 D = ufloat(params_d[1], error_d[1])
+M_1 = ufloat(params_d[2], error_d[2])
 print("-------------------------------------------------------------------")
 print("M0 aus Viskosität: ", M0_d*10**(3))
 print("Diffusionskoeffizient: ", D)
+print("y-Achsenabschnitt: ", M_1)
 
-x = np.linspace(np.min(2*tau_d), np.max(2*tau_d), 1000)
-plt.plot(2*tau_d, np.log(-peak_d), 'r.', label="Daten")
-plt.plot(x, log(x, *params_d), 'b--', label="Fit")
+x = np.linspace(np.min(2*tau_d)-0.001, np.max(2*tau_d)+0.001, 1000)
+# plt.plot(2*tau_d, np.log(-peak_d), 'r.', label="Daten")
+# plt.plot(x, log(x, *params_d), 'b--', label="Fit")
+plt.plot(2*tau_d, -peak_d, 'r.', label="Daten")
+plt.plot(x, f_d(x, *params_d), 'b--', label="Fit")
 plt.xlabel(r"$2\tau$ / s")
 plt.ylabel(r"$\ln(M_y (t))$ / ln(V)")
 plt.legend(loc='best')
@@ -200,9 +206,12 @@ print("Molekülradius :", r)
 # Theoretische Vergleichwerte
 print("Hexagonaler Wert: ",
       (28.89*10**(-27)*0.74/(4/3 * np.pi * 998.2))**(1/3))
-print("Hexagonal :", 1-(28.89*10**(-27)*0.74/(4/3 * np.pi * 998.2))**(1/3)/r)
+print("Hexagonal :",
+      (1-r/(28.89*10**(-27)*0.74/(4/3 * np.pi * 998.2))**(1/3))*100)
+print("Van-der-Waal-Wert: ",
+      (3*constants.k*647.05/(128*np.pi*22.04*10**6))**(1/3))
 print("Van-der-Waal: ",
-      1-(3*constants.k*647.05/(128*np.pi*22.04*10**6))**(1/3)/r)
+      (1-r/(3*constants.k*647.05/(128*np.pi*22.04*10**6))**(1/3))*100)
 
 # meiboom_gill = pd.read_csv("Auswertung/Daten/pc_t2_csv.csv")
 #

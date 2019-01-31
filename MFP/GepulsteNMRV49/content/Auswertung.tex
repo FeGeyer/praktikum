@@ -85,6 +85,12 @@ Der Plot mit den Messwerten und dem Fit ist in \autoref{fig:T1} dargestellt.
 Im Laufe der Messung wurden Burstsequenzen nach der Carr-Purcell-Methode und
 nach der Meiboom-Gill-Methode aufgenommen. Die jeweiligen Sequenzen sind in
 \autoref{subfig:Carr-Purcell} und in \autoref{subfig:Meiboom-Gill} zu sehen.
+Bei der Carr-Purcell-Methode ist zu sehen, dass bei geradzahligen Vielfachen von
+$\tau$ die Spins wieder fokussiert sind und von beiden Seiten eine exponentiell
+abfallende Einhüllende gezeichnet werden kann. Allerdings wird zur Bestimmung
+der transversalen Relaxationszeit nicht diese Methode verwendet, da nicht angenommen,
+werden kann, dass die Zeitdauer des 180°-Pulses exakt eingestellt ist. Auf diese
+Weise würde $T_2$ konstant unterschätzt werden.
 
 \begin{figure}
   \centering
@@ -139,7 +145,8 @@ halben Höhe der Peaks aufgenommen und sind in \autoref{tab:halbwertsbreite}
 dargestellt. Die Differenz der x-Werte ist die Halbwertsbreite, welche auch in
 \autoref{tab:halbwertsbreite} zu sehen ist. Zur Berechnung wurde der Mittelwert
 der Differenzen gebildet, dieser ergibt sich zu
-$t_{1/2} = \SI{77.27(431)}{\micro\second}$.
+$t_{1/2} = \SI{77.27(431)}{\micro\second}$. Damit errechnet sich $G$ zu
+\SI{0.608}{\tesla\per\meter}.
 
 \begin{table}
   \centering
@@ -169,15 +176,17 @@ $t_{1/2} = \SI{77.27(431)}{\micro\second}$.
 
 Um schließlich die Diffusionskonstante zu bestimmen, wird die Funktion
 \begin{equation}
-  \ln(M_y(t)) = \ln(M_0) - \frac{t}{T_2} - D \, \gamma^2 \, G^2 \, \frac{t^3}{12}
+  M_y(t) = M_0 \, \exp(-t/T_2) \, \exp(-D \, \gamma^2 \, G^2 \, \frac{t^3}{12})
+  + M_1
   \label{eqn:Diffusionskonstante}
 \end{equation}
 gefittet an die Messwerte aus \autoref{tab:D} ($t = 2\tau$). Mit dem bekannten
 gyromagnetischen Faktor und dem errechneten Feldgradienten $G$ aus
 \eqref{eqn:Feldgradient} ergeben sich als Parameter des Fits
 \begin{align}
-  M_0 &= \SI{214(11)}{\mV} \label{eqn:M0_D} \\
-  D &= \SI{8.7(5)e-10}{\meter\squared\per\second} \, .
+  M_0 &= \SI{216(5)}{\mV} \label{eqn:M0_D} \\
+  D &= \SI{1.69(13)e-09}{\meter\squared\per\second} \label{eqn:diffusionskonstante} \\
+  M_1 &= \SI{0.036(5)}{\V} \, .
 \end{align}
 Die grafische Darstellung der Messwerte und des Fits befindet sich in
 \autoref{fig:D}.
@@ -254,14 +263,14 @@ Zusammenhang mit der Zeit $t$, der in \autoref{tab:viskosität} aufgetragen ist.
 Mit einer gemessenen Zeit von \SI{935.7}{\s} ergibt sich aus einem linearen Fit
 mit den letzten vier Werten aus \autoref{tab:viskosität} für $\delta =
 \SI{0.479}{\s}$. Damit ergibt sich eine Viskosität von
-\SI{0.000955942187783885}{\kilo\gram\per\meter\per\second} für
+\SI{0.00096}{\kilo\gram\per\meter\per\second} für
 $\rho = \SI{998.2}{\kilo\gram\per\cubic\meter}$ bei $T = \SI{293.15}{\K}$.
 Mit diesem Wert ergibt sich für den Molekülradius aus \eqref{eqn:Molekülradius}
-ein Wert von $r = \SI{2.58(14)e-10}{\meter}$.
+ein Wert von $r = \SI{1.33(10)e-10}{\meter}$.
 
 Um diesen Wert mit theoretischen Berechnungen zu vergleichen werden nach
 \begin{equation}
-  \rho \cdot 0.74 = \frac{m_{\symup{H_2O}}}{\frac{4}{3}\pi r^3}
+  \rho = \frac{m_{\symup{H_2O}}}{\frac{4}{3}\pi r^3} \cdot 0.74
   \label{eqn:hexagonal}
 \end{equation}
 und
@@ -276,7 +285,7 @@ Van-der-Waals Gas am kritischen Punkt handelt. Es ergeben sich mit
 $m_{\symup{H_2O}} = \SI{28.89e-27}{\kg}$, $T_k = \SI{647.05}{\K}$ \cite{kritisch},
 $P_k = \SI{22.04e6}{\pascal}$ \cite{kritisch} und der bekannten Dichte:
 \begin{align}
-  r_{\symup{hcp}} &= \SI{2.1057e-10}{\m} \label{eqn:ergebnis_hexagonal} \\
+  r_{\symup{hcp}} &= \SI{1.7228e-10}{\m} \label{eqn:ergebnis_hexagonal} \\
   r_{\symup{VdW}} &= \SI{1.4461e-10}{\m} \label{eqn:ergebnis_vdw}
 \end{align}
 
@@ -288,24 +297,29 @@ zu erwarten war. Außerdem legen die guten Übereinstimmungen der Fits aus
 \eqref{fig:T1} und \eqref{fig:T2} nahe, dass die Messung gut verlaufen ist.
 
 \subsection{Bestimmung des Diffusionskoeffizienten}
-Die Bestimmung des Diffusionskoeffizienten ist eher schlecht verlaufen. In
-\autoref{fig:D} wird ersichtlich, dass der Fit eher schlecht zu den gegebenen
-Daten passt. Das liegt höchstwahrscheinlich daran, dass das gewählte Intervall
-der Verzögerungszeiten zu klein ist. Aus Vergleichen mit den Messungen anderer
-Gruppen wird ersichtlich, dass diese kleinere minimale und größere maximale
-Werte aufgenommen haben. Zumindest an der oberen Grenze war dies in unserem Fall
-nicht unbedingt möglich, da sich die Peaks ab \SI{18}{\ms} nicht mehr vom
-Rauschen unterschieden haben. Hier wäre eine wiederholte Messung mit angepasster
-Justage und mehr aufgenommenen Messwerten eine Möglichkeit, um den Wert zu
-verbessern.
+Die Bestimmung des Diffusionskoeffizienten ist gut verlaufen. In \autoref{fig:D}
+wird ersichtlich, dass der Fit gut dem Verlauf der Daten folgt. Im Vergleich mit
+dem Literaturwert von \SI{2.023e-9}{\meter\squared\per\second} bei
+\SI{20}{\celsius} \cite{Diffusionskonstante} liegt der von uns bestimmte Wert
+darunter, sogar unter dem Wert für eine Temperatur von \SI{15}{\celsius}. Da die
+Temperatur im Verlaufe der Durchführung nicht bestimmt wurde, wurden
+\SI{20}{\celsius} für die Rechnungen angenommen. Damit ist die Temperatur eine
+Fehlerquelle, die bei einer erneuten Durchführung des Experimentes durch eine
+Messung bestimmt werden sollte, um unter anderem bessere Vergleiche mit
+Literaturwert zu gewährleisten. Außerdem wird aus Vergleichen mit den Messungen
+anderer Gruppen wird ersichtlich, dass diese kleinere minimale und größere
+maximale Werte aufgenommen haben. Zumindest an der oberen Grenze war dies in
+unserem Fall nicht unbedingt möglich, da sich die Peaks ab \SI{18}{\ms} nicht
+mehr vom Rauschen unterschieden haben. Hier wäre eine wiederholte Messung mit
+angepasster Justage und mehr aufgenommenen Messwerten eine Möglichkeit, um den
+Wert zu verbessern.
 
-\subsection{Bestimmung des Molekülradius}
-Die Bestimmung des Molekülradius aus der Diffusionskonstante ist gut verlaufen.
-Der Wert liegt von der Größenordnung her in einem Bereich, der allgemein als
-Radius für Atomkerne angesehen wird ($\sim \SI{e-10}{\m}$). Allerdings liegt
-keiner der beiden berechneten Theoriewerte im Fehlerintervall des Radius. Die
-Abweichungen betragen \SI{0.19(4)}{\percent} für \eqref{eqn:ergebnis_hexagonal}
-und \SI{0.441(30)}{\percent} für \eqref{eqn:ergebnis_vdw}. Dies liegt
-wahrscheinlich an der schon erwähnten eher schlecht verlaufenen Bestimmung des
-Diffusionskoeffizienten, der direkt in die Berechnung des Molekülradius
-einfließt.
+\subsection{Bestimmung des Molekülradius} Die Bestimmung des Molekülradius aus
+der Diffusionskonstante ist gut verlaufen. Der Wert liegt von der Größenordnung
+her in einem Bereich, der allgemein als Radius für Atomkerne angesehen wird
+($\sim \SI{e-10}{\m}$). Allerdings liegt keiner der beiden berechneten
+Theoriewerte im Fehlerintervall des Radius, im Falle von
+\eqref{eqn:ergebnis_vdw} ist die Abweichung allerdings nur klein. Sie beträgt
+\SI{8(7)}{\percent} für \eqref{eqn:ergebnis_vdw} und \SI{23(6)}{\percent} für
+\eqref{eqn:ergebnis_hexagonal}. Bei einem besseren Diffusionskoeffizienten
+würde sich auch der errechnete Molekülradius den Theoriewerten angleichen.
